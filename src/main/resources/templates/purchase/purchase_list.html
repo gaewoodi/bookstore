@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>주문목록</title>
+    <script src="/js/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/static/css/header.css">
-    <link rel="stylesheet" href="/static/css/purchase_list.css">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
+    <link rel="stylesheet" th:href="@{/css/purchase/purchase_list.css}">
+    <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
+    <link rel="stylesheet" href="/static/css/purchase/purchase_list.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
 </head>
 
 <body>
@@ -24,7 +28,7 @@
 
         <div class="main-container">
             <!--main-container basis 1 -->
-            <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"> </div>
+            <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
             
             <!--main-container basis 2 -->
             <div class="book-purchase-list">
@@ -34,13 +38,12 @@
                     <div class="purchase-container">
                         <div class="book-cointainer">
                             <div class="image-container">
-                                <img src="/static/images/backgang.jpg" alt="백광">
+                                <img src="/static/images/purchase/backgang.jpg" alt="백광">
                             </div>
                             <div class="book-data">
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>도서코드</td>
                                             <td>AL0000002747</td>
                                         </tr>
                                         <tr>
@@ -68,21 +71,128 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="button">
-                                <button class="refund-button">환불하기</button>
+                        </div>
+                    </div> 
+                    <div class="purchase-container">
+                        <div class="book-cointainer">
+                            <div class="image-container">
+                                <img src="/static/images/purchase/backgang.jpg" alt="백광">
+                            </div>
+                            <div class="book-data">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>AL0000002747</td>
+                                        </tr>
+                                        <tr>
+                                            <td>도서제목</td>
+                                            <td>백광</td>
+                                        </tr>
+                                        <tr>
+                                            <td>작가</td>
+                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                        </tr>
+                                        <tr>
+                                            <td>출판사</td>
+                                            <td>모모</td>
+                                        </tr>
+                                            <td>출판연도</td>
+                                            <td>2022</td>
+                                        <tr>
+                                            <td>분류</td>
+                                            <td>소설/시/희곡</td>
+                                        </tr>
+                                        <tr>
+                                            <td>가격</td>
+                                            <td>35,000원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-                       
-                           
-                        
+                    </div> 
+                    <div class="purchase-container">
+                        <div class="book-cointainer">
+                            <div class="image-container">
+                                <img src="/static/images/purchase/backgang.jpg" alt="백광">
+                            </div>
+                            <div class="book-data">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>AL0000002747</td>
+                                        </tr>
+                                        <tr>
+                                            <td>도서제목</td>
+                                            <td>백광</td>
+                                        </tr>
+                                        <tr>
+                                            <td>작가</td>
+                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                        </tr>
+                                        <tr>
+                                            <td>출판사</td>
+                                            <td>모모</td>
+                                        </tr>
+                                            <td>출판연도</td>
+                                            <td>2022</td>
+                                        <tr>
+                                            <td>분류</td>
+                                            <td>소설/시/희곡</td>
+                                        </tr>
+                                        <tr>
+                                            <td>가격</td>
+                                            <td>35,000원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="purchase-container">
+                        <div class="book-cointainer">
+                            <div class="image-container">
+                                <img src="/static/images/purchase/backgang.jpg" alt="백광">
+                            </div>
+                            <div class="book-data">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>AL0000002747</td>
+                                        </tr>
+                                        <tr>
+                                            <td>도서제목</td>
+                                            <td>백광</td>
+                                        </tr>
+                                        <tr>
+                                            <td>작가</td>
+                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                        </tr>
+                                        <tr>
+                                            <td>출판사</td>
+                                            <td>모모</td>
+                                        </tr>
+                                            <td>출판연도</td>
+                                            <td>2022</td>
+                                        <tr>
+                                            <td>분류</td>
+                                            <td>소설/시/희곡</td>
+                                        </tr>
+                                        <tr>
+                                            <td>가격</td>
+                                            <td>35,000원</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div> 
 
                 </div>  
             </div>
         </div>
     </div>
-    <script src="/static/js/side_menu.js"></script>
+    <script src="/js/side_menu.js"></script>
 </body>
 
 </html>

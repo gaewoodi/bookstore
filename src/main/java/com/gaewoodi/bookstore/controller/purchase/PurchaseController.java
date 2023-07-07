@@ -11,4 +11,10 @@ public class PurchaseController {
     public String getPurchaseList() {
         return "purchase/purchase_list";
     }
+
+    @GetMapping("/delete")
+    public String getPurchaseDelete() {
+        return "purchase/purchase_delete";
+    }
 }
+

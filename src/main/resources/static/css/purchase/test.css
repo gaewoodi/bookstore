@@ -1,18 +1,17 @@
+@charset 'utf-8';
+
 header {
     padding: 10px;
 
     background-color: #000;
 }
-.main-container {
-    background-color: tomato;
+
+table {
+    border-collapse: collapse;
+
+    border: 1px solid #000;
 }
 
-.main-container h1 {
-    background-color: blueviolet;
-}
-
-.login {
+table tr, table th, table td {
     border: 1px solid #000;
 
-    background-color: aqua;
-}

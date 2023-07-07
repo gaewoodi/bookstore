@@ -1,3 +1,4 @@
+@charset 'utf-8';
 /* .menu- {
     padding: 20px 10px;
 
@@ -10,9 +11,11 @@
 }
 
 .book-button, .mypage-button {
+    margin-bottom: 10px;
+
     background-color: transparent;
 
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -47,4 +50,10 @@
     padding-left: 5px;
 
     font-size: 16px;
+}
+
+hr {
+    margin-bottom: 10px;
+
+    border: 1px solid #dbdbdb;
 }
