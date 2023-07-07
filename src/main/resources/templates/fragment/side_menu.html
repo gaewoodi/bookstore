@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <ol th:fragment="sideMenu">
+        <ul>
+            <button class="book-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 도서</button>
+            <div class="mypage-menu" id="tab1">
+                <li class="sub-menu">
+                    <a href="">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <strong>
+                            <a href="/mypage/order">전체검색</a>
+                        </strong>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <strong>
+                            <a href="/mypage/order">베스트도서</a>
+                        </strong>
+                    </a>
+                </li>
+            </div>
+        </ul>
+
+        <ul>
+            <button class="mypage-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 마이페이지</button>
+            <div class="mypage-menu" id="tab2">
+                <li class="sub-menu">
+                    <a href="">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+                        <strong>
+                            <a href="/purchase/list">구매내역</a>
+                        </strong>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+                        <strong>
+                            <a href="/purchase/delete">구매취소</a>
+                        </strong>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </div>
+                        <strong>
+                            <a href="/purchase/shoppingbag">장바구니</a>
+                        </strong>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </ol>
+</body>
+</html>

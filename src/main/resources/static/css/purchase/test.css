@@ -1,0 +1,18 @@
+header {
+    padding: 10px;
+
+    background-color: #000;
+}
+.main-container {
+    background-color: tomato;
+}
+
+.main-container h1 {
+    background-color: blueviolet;
+}
+
+.login {
+    border: 1px solid #000;
+
+    background-color: aqua;
+}

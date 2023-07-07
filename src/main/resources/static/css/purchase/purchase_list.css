@@ -1,0 +1,92 @@
+.main-container {
+    display: flex;
+
+    background-color: #e0212119;
+}
+
+/* main-container basis 1 */
+.menu-container {
+    flex-basis: 15%;
+
+    margin: 10px;
+    padding: 10px;
+    height: calc(100vh - 80px);
+    width: 100%;
+
+    background-color: #fff;
+
+    border: 1px solid #f9f9f9;
+    border-style: solid;
+}
+
+/* main-container basis 2 */
+.book-purchase-list {
+    flex-basis: 85%;
+
+    margin: 10px;
+    padding: 10px;
+
+    background-color: #fff;
+}
+
+.book-purchase-list h1 { 
+    text-align: center;
+
+    color: #555;
+}
+
+.serve-container {
+    display: flex;
+    width: 100%;
+
+}
+
+.purchase-container {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 10px 30px;
+    padding: 40px 100px;    
+    height: 400px;
+
+    background-color: #fff;
+}
+
+.book-cointainer {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    background-color: #dbdbdb;
+}
+
+.image-container {
+    margin: 0 auto;
+
+    background-color: yellow;
+}
+
+.image-container img {
+    width: 200px;
+    height: 320px;
+}
+
+.book-data {
+    padding: 10px;
+    width: 700px;
+
+    border: 1px solid #ccc;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    line-height: 2;
+}
+
+
+.book-data table tr td {
+    border: 1px solid #ccc;
+}
+
+
