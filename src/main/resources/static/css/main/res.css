@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin : 0;
+    box-sizing: border-box;
+    }
+
+    main {
+        /* 메인위아래로 150씩 정렬 */
+        padding : 150px 0;
+    }
+
+    main:nth-child(odd) {
+        background-color: #f8f8f8;
+    }
+
+    section {
+        max-width: 1600px;
+        /* 중앙정렬 */
+        margin : 0 auto;
+    }
+
+    /* one */
+    .one {
+        /* 사진이랑 글이랑 나란하게 맞춰줌 */
+        display: flex;
+        /* 사진과 그림사이의 여백을 줌 */
+        justify-content: space-between;
+        /* 사진합계 사이즈가 브라우저보다 커지면 밑으로 내려주세요 */
+        flex-wrap: wrap;
+    }
+
+    .one article {
+        flex-basis: 48%;
+    }
+
+    .one h1 {
+        font-size : 35px;
+        margin-bottom : 15px;
+
+    }
+
+    .one p {
+        /* 문장 끝선에 맞게 배치 */
+        text-align: justify;
+        /* 줄간격 */
+        line-height:1.5;
+        /* p글자색상 */
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 30px;
+    }
+
+    .one img {
+        /* 가로크기 맞추기 */
+        width : 100%;
+        /* 세로크기맞추기 */
+        height: 100%;
+    }
+
+    /* two */
+    .two {
+        display: flex;
+        /* 사진합계 사이즈가 브라우저보다 커지면 밑으로 내려주세요 */
+        flex-wrap: wrap;
+        /* 사진공간사이의 여백  */
+        justify-content: space-between;
+    }
+
+    .title {
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .box {
+        /* 가로로 flex하는데 25하면 사이의 여백이 없으니까 24.75로 줌  */
+        flex-basis: 24.75%;
+    }
+
+    .box img {
+        /* 이미지 모두 100%안에 들어오게해라. */
+        width : 100%;
+        height: 100%;
+    }
+
+    footer {
+        max-width : 100%;
+        text-align:center;
+    }
+
+    /*반응형쿼리작업 */
+    @media screen and(max-width:1200px) {
+        main {
+        padding : 70px 0;
+        }
+
+        .one h1 {
+            text-align: center;
+        }
+
+        .one article {
+        flex-basis: 100%;
+        }
+
+        .one article .imgver {
+            padding-top : 20px;
+        }
+
+        .box {
+        flex-basis: 49.3%;
+        }
+    }
+
+    @media screen and(max-width:765px) {
+        main {
+        padding : 35px 0;
+        }
+
+        .one article .imgver {
+        padding-top : 20px;
+        }
+
+        .box {
+        flex-basis: 100%;
+        }
+
+        .one h1 {
+        font-size : 15px;
+        }
+    }

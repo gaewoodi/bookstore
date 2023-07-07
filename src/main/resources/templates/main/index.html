@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지금핫한 : 신작추천!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/main/style.css">
+    <link rel="stylesheet" href="/css/main/owl.carousel.css">
+    <link rel="stylesheet" href="/css/main/owl.theme.default.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main/js.js"></script>
+    <script src="/js/main/owl.carousel.js"></script>
+    <div class="wrap">
+        <header id = "header">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="#"><img src="/static/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                        <!-- <a href="index.html"><img src="images/logo/logo2.png" alt=""></a> -->
+                    </div>
+                </div>
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+                <div class="mypage">
+                    <div class="mypage-wrap">
+                        <ul>
+                            <li><a href="#">
+                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            </li>
+                            <li><a href="#">
+                                <i class="fa-solid fa-user"></i></a>
+                            </li>
+                            <li><a href="#">
+                                <i class="fa-solid fa-cart-shopping"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-menu">
+                                    <i class="fa-sharp fa-solid fa-bars"></i>
+                                </a>
+                                <div class="submenu">
+                                    <div class="submenu-wrap">
+                                        <div class="submenu1">
+                                            <ul> 
+                                                <h1>전체카테고리</h1>
+                                                <a href="#"><li>소설/시/희곡</li></a>
+                                                <a href="#"><li>에세이</li></a>
+                                                <a href="#"><li>인문/사회</li></a>
+                                                <a href="#"><li>정치/경제</li></a>
+                                                <a href="#"><li>자기계발</li></a>
+                                                <a href="#"><li>역사/문화</li></a>
+                                                <a href="#"><li>IT/과학</li></a>
+                                                <a href="#"><li>가정/생활</li></a>
+                                                <a href="#"><li>진로/교육</li></a>
+                                                <a href="#"><li>유아/어린이</li></a>
+                                                <a href="#"><li>기타</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    <div>
+                </div>
+        </header>
+        <section id ="category">
+            <div class="container">
+                <div class="menu">
+                    <div class="menu-wrap">
+                        <ul>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">웹툰</a></li>
+                            <li><a href="#">웹소설</a></li>
+                            <li><a href="#">책</a></li>
+                            <li><a href="#">바로가기</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="button-wrap">
+                        <ul>
+                            <li class="first"><a href="#">지금핫한</a></li>
+                            <li><a href="#">남성인기</a></li>
+                            <li><a href="#">실시간랭킹</a></li>
+                            <li><a href="#">완결추천</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">오늘신작</a></li>
+                            <li><a href="#">완전판</a></li>
+                            <li><a href="#">여성인기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main id ="main">
+            <div class="container">
+                <div class="main1">
+                    <div class="main1-wrap">
+                        <img src="images/book/갓오브블랙필드.jpg"">
+                        <h1><a href="#"><strong>갓오블</strong>컴백기념 3억 쏜다!</a></h1>
+                    </div>
+                </div> 
+                <div class="main2">
+                    <div class="main2-wrap">
+                        <div class="owl-carousel owl-theme">
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/book-main/원피스 고화질.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>2023 추천작 : 원피스</h1></a>
+                                    <a href="#"><p>난 해적왕이 될거야</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/book-main/마리끌레르.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>Marrie claire</h1></a>
+                                    <a href="#"><p>두번째 스물로 돌아온 배우 문가영</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/book-main/신과함께.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>신과함께 : 죄와벌 절찬재판매중 !</h1></a>
+                                    <a href="#"><p>지나간 일에 새로운 눈물을 낭비하지 말자</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/book-main/정여울의 심리테라피.png" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>열번째 : 정여울 신작</h1></a>
+                                    <a href="#"><p>나를 돌보지 않는 나에게</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/book-main/나미야잡화점의 기적.png" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>히가시노게이고</h1></a>
+                                    <a href="#"><p>당신에게도 나누고 싶은 고민이 있나요?</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main3">video</div>
+                <div class="main4">
+                    <div class="page1">밀리언페이지</div>
+                    <div class="page1">3시간마다 무료웹툰</div>
+                    <div class="page1">3시간마다 무료웹소설</div>
+                    <div class="page1">추천액션웹툰</div>
+                </div>
+                <div class="main5">광고</div> 
+            </div>
+        </main>
+        <footer id ="footer">
+            <div class="container">
+                <div class="info1">
+                    <div class="info1-wrap">
+                        <ul>
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div class="info2-wrap">
+                        <ul>
+                            <li>대표자 이진수, 김성수</li>
+                            <li>호스팅서비스사업자 (주)카카오엔터테인먼트</li>
+                            <li><a href="#">사업자정보확인</a></li>
+                        </ul>
+                        <ul>
+                            <li>사업자등록번호 220-88-02594</li>
+                            <li>통신판매업신고 2018-성남분당B-0004</li>
+                        </ul>
+                        <ul>
+                            <li>대표전화 051-222-0000</li>
+                            <li>이메일 koreait@koreait.co.kr</li>
+                            <li>부산광역시 부산진구 에이원프라자 1동 403호</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info3">
+                    <p>Korea it Academy &copy;</p>
+                </div>
+            </div>    
+        </footer>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                // 한바퀴돌고나서 계속 돌거냐
+                loop:true,
+                // 사진옆간격
+                margin:100,
+                //화살표. 내비게이션 없애고 싶으면 false라고 써야함.
+                nav:true,
+                //밑에 점나오게 하는 것. > 요즘이거 잘 안씀 
+                dots:false,
+                // 사이트 켜면 자동으로 돌아가게
+                autoplay : true,
+                // 돌아가는 시간
+                autoplayTimeout: 2000,
+                //마우스올리면 멈추게 
+                autoplayHoverPause : true,
+                // 가운데로 들어가게
+                center:true,
+                // 반응형
+                // animateOut :'fadeOut';
+                responsive:{
+                    0:{
+                    //밑에 점나오게 하는 것. > 요즘이거 잘 안씀 
+                        dots:true,
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1200:{
+                        dots:false,
+                        items:1
+                    }
+                }
+            })
+        });
+    </script>
+</body>
+</html>
