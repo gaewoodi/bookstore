@@ -7,15 +7,15 @@
   <title>어드민 메인 페이지</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="/admin/reset.css">
-  <link rel="stylesheet" href="/admin/sidebar.css">
-  <link rel="stylesheet" href="/admin/header.css">
-  <link rel="stylesheet" href="/admin/main.css">
-  <link rel="stylesheet" href="/admin/meida.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/admin/sidebar.css">
+  <link rel="stylesheet" href="/css/admin/header.css">
+  <link rel="stylesheet" href="/css/admin/main.css">
+  <link rel="stylesheet" href="/css/admin/meida.css">
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="/admin_chart_js/pay_chart.js"></script>
-  <script type="text/javascript" src="/admin_chart_js/daily_chart.js"></script>
+  <script type="text/javascript" src="/js/admin/admin_chart_js/pay_chart.js"></script>
+  <script type="text/javascript" src="/js/admin/admin_chart_js/daily_chart.js"></script>
 
   <style>
     body {
@@ -31,7 +31,7 @@
     <div class="sidebar">
       <ul class="logo">
         <li><a href="#">
-            <img src="/images/Gaewoodi.png" style="height: 60px; width: 120px;" alt="로고">
+            <img src="/images/logo.png" style="height: 60px; width: 120px;" alt="로고">
           </a>
         </li>
       </ul>
@@ -79,8 +79,7 @@
           </a>
         </li>
         <div class="myinfo">
-          <button type="button" >
-            <img src="#">
+            <i class="fa-solid fa-user" type="button" id="user-icon" ></i>
           </button>
         </div>
       </ul>
@@ -114,11 +113,11 @@
       this.classList.toggle('opened');
     });
 
-    function icon(){
-      if($('#t-incon').css('display')=='block'){
-        
-      }
-    }
+    $(sidebar-icon).click(function(){
+      $(".sidebar").toggle('slide',{
+        direction: 'left' 
+      }, 400)
+    });
   </script>
 </body>
 
