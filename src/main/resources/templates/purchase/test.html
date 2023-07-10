@@ -1,46 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/css/purchase/test.css">
-</head>
+<title>INIpay</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="inicis">
+<meta property="og:title" content="inicis">
+<meta property="og:url" content="">
+<meta property="og:description" content="inicis Mobile">
+<title>inicis</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="/static/external/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/static/external/js/ui.js"></script>
+	
+<script language="javascript"> 
+
+function on_pay() { // 함수 호출 > 서버 에러가 없을 시 이니시스 결제창 호출
+	
+	$.ajax({
+        url: "/purchase",
+        type: "post",
+        // work_no 
+        data:  {
+    		work_no : '${workData.work_no}', // 작업번호
+    		estimate_no : '${estimateData.estimate_no}', // 견적서 번호 
+    		total_pay_amount : '${estimateData.total_pay_amount }', // 결제할 금액 > 임의로 script 수정을 고려해 백엔드에서 데이터(금액, 고객정보 등등...) 검사 후 이니시스 결제창으로 전환 추천
+    		pay_type_str : $('#pay-type').val() // 결제 타입
+    	},
+        success: function(resultData) {
+        	console.log('resultData :: ',resultData)
+        	if(resultData.result_code == "200"){
+            	// 서버 에러가 없을 시 이니시스 페이지로 전환
+        		myform = document.mobileweb; 
+            	myform.action = "https://mobile.inicis.com/smart/payment/";
+            	myform.target = "_self";
+            	myform.submit(); 
+        	} else {
+        		alert('결제 에러')
+        		return
+        	}
+        	
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           alert('결제 에러')
+        }
+	});  
+	
+}  
+
+function comma(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+$(function () {
+	
+	console.log('개발환경 :: ',window.location.hostname)
+	
+	let p_mid;
+	// 개발 환경에 따라 t_mid(결제 키) 설정
+	if (window.location.hostname == 'localhost'){
+		p_mid = "INIpayTest"
+	} else {
+		//
+		p_mid = "real_inicis_key";
+
+	}
+	$('[name=P_MID]').val(p_mid);
+	
+	$('#pay-btn').val(comma(parseInt('${estimateData.total_pay_amount }')) +"원"+ " 결제하기");
+	
+    // 결제 완료 혹은 결제 중간 취소 시 이동페이지
+	let next_url = window.location.origin + '/inicis/complete' + '?work_no='+'${workData.work_no}' + '&estimate_no=' + '${estimateData.estimate_no}'
+	
+    let vbank_url = window.location.origin + '/inicis/vbank'
+	$('[name=P_NEXT_URL]').val(next_url)
+	$('[name=P_NOTI_URL]').val(vbank_url)
+	
+	$('[name=P_AMT]').val(comma(parseInt('${estimateData.total_pay_amount }')));
+})
+
+
+</script> 
+</head> 
+
 <body>
-    <header>헤더부분</header>
-    <div class="main-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>제목1</th>
-                    <th>제목2</th>
-                    <th>제목3</th>
-                    <th>제목4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>내용1</td>
-                    <td>내용2</td>
-                    <td>내용3</td>
-                    <td>내용4</td>
-                </tr>
-                <tr>
-                    <td>내용1</td>
-                    <td>내용2</td>
-                    <td>내용3</td>
-                    <td>내용4</td>
-                </tr>
-                <tr>
-                    <td>내용1</td>
-                    <td>내용2</td>
-                    <td>내용3</td>
-                    <td>내용4</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        
-    </div>
+<!-- 인코딩 euc-kr 필수 -->
+<form name="mobileweb" method="post" accept-charset="euc-kr"> 
+<!--*************************필수 세팅 부분************************************-->
+<!-- 리턴받는 가맹점 URL 세팅 -->
+<input type="hidden" name="P_NEXT_URL" value=""> 
+ 
+<!-- 지불수단 선택 (신용카드,계좌이체,가상계좌,휴대폰) -->
+<!-- <input type="text" name="P_INI_PAYMENT" value="CARD">  -->
+<!-- 복합/옵션 파라미터 -->
+<!-- <input type="hidden" name="P_RESERVED" value="twotrs_isp=Y&block_isp=Y&twotrs_isp_noti=N"> -->
+ <!-- 에스크로옵션 : useescrow=Y -->
+<!-- workerman_mid : MOIiworker  / test : INIpayTest -->
+<input type="hidden" name="P_MID" value=""> <!-- 에스크로테스트 : iniescrow0, 모바일빌링(정기과금)은 별도연동필요  -->
+<!-- 주문번호  unique -->
+<input type="hidden" name="P_OID" value="${workData.p_oid }">  
+<input type="hidden" name="P_GOODS" value="테스트상품"> 
+<input type="hidden" name="P_AMT" value=""> 
+<input type="hidden" name="P_UNAME" value="${workData.req_name }"> 
+
+<!--*************************선택 필수 세팅 부분************************************--> 
+
+<!-- 가상계좌 입금 노티 사용시 필수 -->
+<input type="hidden" name="P_NOTI_URL" value="">  
+
+<!-- 휴대폰결제 필수 [1:컨텐츠, 2:실물] -->
+<input type="hidden" name="P_HPP_METHOD" value="1">  
+<div id="wrap-content">
+	<label for="pay-type" id="type-label">결제타입</label>
+	<select name="P_INI_PAYMENT" id="pay-type">
+		<option value="CARD">카드</option>
+		<option value="BANK">실시간계좌이체</option>
+		<option value="VBANK">가상계좌</option>
+		<!-- <option value="MOBILE">휴대폰</option> -->
+	</select>
+	<input type="button" id="pay-btn" name="pay" value="" onclick="on_pay()" >
+</div>
+</form> 
 </body>
 </html>

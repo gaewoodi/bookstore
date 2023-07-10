@@ -2,11 +2,112 @@ package com.gaewoodi.bookstore.controller.purchase;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {
+
+    @GetMapping("")
+    public String getPurchase() {
+        return "purchase/purchase";
+    }
+
+
+//    @RequestMapping("/kakaopay")
+//    @ResponseBody
+//    public String getKakaopay() {
+//        try {
+//            URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setRequestMethod("POST");
+//            connection.setRequestProperty("Authorization", "KakaoAK 5c1eee7537b299534e582bd21b1e2bb8");
+//            connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+//            // 커넥션 input output 전해줄게 있는지 없는지
+//            connection.setDoOutput(true);
+//
+//            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/purchase&cancel_url=http://localhost:8888/purchase/list";
+//            OutputStream outputStream = connection.getOutputStream();
+//            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+//            dataOutputStream.writeBytes(payData);
+//            dataOutputStream.close();
+//
+//            int resultCode = connection.getResponseCode();
+//
+//            InputStream inputStream;
+//
+//            if(resultCode == 200) {
+//                inputStream = connection.getInputStream();
+//            }else {
+//                inputStream = connection.getErrorStream();
+//            }
+//
+//            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+//            // 형변환 해줌
+//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//
+//            return bufferedReader.readLine();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return "{\"result\":\"NO\"}";
+//    }
+
+    @PostMapping("/kakaopay")
+    @ResponseBody
+    public String getKakaopay() {
+        try {
+            URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "KakaoAK 5c1eee7537b299534e582bd21b1e2bb8");
+            connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+            // 커넥션 input output 전해줄게 있는지 없는지
+            connection.setDoOutput(true);
+
+            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/fail&cancel_url=http://localhost:8888/cancel";
+            OutputStream outputStream = connection.getOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+            dataOutputStream.writeBytes(payData);
+            dataOutputStream.close();
+
+            int resultCode = connection.getResponseCode();
+
+            InputStream inputStream;
+
+            if(resultCode == 200) {
+                inputStream = connection.getInputStream();
+            }else {
+                inputStream = connection.getErrorStream();
+            }
+
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            // 형변환 해줌
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            return bufferedReader.readLine();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "{\"result\":\"NO\"}";
+    }
+
+    @PostMapping("")
+    public String getinicis() {
+
+        return "";
+    }
+
     @GetMapping("/list")
     public String getPurchaseList() {
         return "purchase/purchase_list";
