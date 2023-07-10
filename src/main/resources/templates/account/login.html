@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+    <header>
+        헤더 부분 입니다.
+    </header>
+    <div class="wrap">
+        <div class="login-box">
+            <div class="welcom-box">
+                <h1>Welcome</h1>
+            </div>
+            <form method="post" id="login-form">
+                <div class="login">          
+                    <input type="text" name="frm" class="userid" onsubmit="return loginCheck()" placeholder="Email" /><br />
+                    <input type="password" class="password" "passwd" placeholder="Password" /><br />
+                </div>
+                <label class="remember-check">
+                    <input type="checkbox" id="remember-check" checked>로그인 상태 유지
+                </label>
+                <button class="btn">로그인</button> 
+                
+                <div class="tbody">
+                    <div class="tbody1">
+                        <p>
+                            <a href="#">회원가입</a>
+                        </p>
+                    </div> 
+                    <div class="tbody2">
+                        <ul>
+                            <li>
+                                <a href="#">계정찾기</a>
+                            </li>
+                            <li>
+                                <a href="#">비밀번호 찾기</a>
+                            </li>
+                        </ul>
+                        
+                    </div>               
+                </div> 
+            </form>
+
+        </div>
+        <div class="footer-wrap">
+            <div class="footer">
+                <div class="footer1">
+                    <ul>
+                        <li>
+                            <a href="#">이용약관</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보 처리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">운영정책</a>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                        </li>
+                        <li>
+                            <a href="#">공지사항</a>
+                        </li>
+                        <li>
+                            <a href="#">언어</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>        
+            <div class="footer2">
+                <p>
+                    Copyright © Kakao Corp. All rights reserved.
+                </p>
+            </div>                                    
+        </div>   
+    </div>   
+</body>
+</html>
