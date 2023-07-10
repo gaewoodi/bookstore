@@ -1,0 +1,50 @@
+@charset 'UTF-8';
+
+.sidebar {
+    background-color: hsl(314, 18%, 37%);
+    width: 180px;
+    height: 100vh;
+    position: fixed;
+    display: block;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0, auto;
+  }
+
+  .sidebar li {
+    padding: 10px;
+  }
+
+  .sidebar li a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .sidebar .logo {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+
+  .sidebar .dashboard {
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    list-style-type: none;
+  }
+
+  .sidebar .sub-link {
+    margin-left: 20px;
+    display: none;
+    max-height: 0;
+    overflow: auto;
+  }
+
+  .dashboard.opened .sub-link {
+    display: block;
+    max-height: 300px;
+  }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어드민 메인 페이지</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/admin/reset.css">
+  <link rel="stylesheet" href="/admin/sidebar.css">
+  <link rel="stylesheet" href="/admin/header.css">
+  <link rel="stylesheet" href="/admin/main.css">
+  <link rel="stylesheet" href="/admin/meida.css">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="/admin_chart_js/pay_chart.js"></script>
+  <script type="text/javascript" src="/admin_chart_js/daily_chart.js"></script>
+
+  <style>
+    body {
+      background-color: darkgray;
+      /* height: 3000px;    */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- sidebar 시작 -->
+    <div class="sidebar">
+      <ul class="logo">
+        <li><a href="#">
+            <img src="/images/Gaewoodi.png" style="height: 60px; width: 120px;" alt="로고">
+          </a>
+        </li>
+      </ul>
+
+      <li class="dashboard">
+        대시보드
+        <i class="fa-solid fa-angle-down" id=""></i>
+        <i class="fa-solid fa-angle-up" style="display: none;"></i>
+        <ul class="sub-link">
+          <li>
+            <a href="#">요약</a>
+          </li>
+          <li>
+            <a href="#">재고관리</a>
+          </li>
+          <li>
+            <a href="#">주문관리</a>
+          </li>
+          <li>
+            <a href="#">회원관리</a>
+          </li>
+          <li>
+            <a href="#">판매량</a>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <!-- sidebar 끝 -->
+
+    <header>
+      <div class="sidebar-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul class="header-links">
+        <li class="sub-link">
+          <a href="#">로그인 정보 : email@email.com(고정)</a>
+        </li>
+        <li class="sub-link">
+          <a href="#">남은 로그인 시간(링크아님)</a>
+        </li>
+        <li class="sub-link" id="t-text">
+          <a href="#">
+            <i class="fa-solid fa-shop" id="t-icon"></i>
+            상점 페이지
+          </a>
+        </li>
+        <div class="myinfo">
+          <button type="button" >
+            <img src="#">
+          </button>
+        </div>
+      </ul>
+    </header>
+
+    <main>
+      <div >
+        <h2 class="top-h2">요약</h2>
+        <p>판매량 접속량 차트, 최근 주문, 등급관련 차트?, 주문 상승 책,</p>
+        <div class="chart-wrap">
+          <div class="chart">
+            <div id="curve_pay_chart"></div>
+          </div>
+          <div class="chart">
+            <div id="curve_daily_chart"></div>
+          </div>
+        </div>
+        <div >
+          신규 도서
+        </div>
+      </div>
+    </main>
+
+
+  </div>
+
+  <script>
+    const dashboard = document.querySelector('.dashboard');
+
+    dashboard.addEventListener('click', function () {
+      this.classList.toggle('opened');
+    });
+
+    function icon(){
+      if($('#t-incon').css('display')=='block'){
+        
+      }
+    }
+  </script>
+</body>
+
+</html>
