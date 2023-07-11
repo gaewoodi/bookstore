@@ -17,10 +17,10 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/purchase.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
-    <link rel="stylesheet" href="/static/css/reset.css">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/purchase/purchase.css">
+    <link rel="stylesheet" href="/static/css/purchase/purchase.css"> -->
 </head>
 
 <body>
@@ -77,8 +77,8 @@
                                     </table>
                                 </div>
                                 <div class="button-container">
-                                    <img src="images/purchase/payment_icon_yellow_medium.png" alt="카카오페이지" id="purchasebutton">
-                                    <button onclick="iamport()">결제하기</button>
+                                    <img src="images/purchase/payment_icon_yellow_medium.png" alt="카카오페이지" id="kakaobutton">
+                                    <button id="purchasebutton">결제하기</button>
                                 </div>
                             </div>
                         </div> 
@@ -99,7 +99,7 @@
     </div>
     <script src="/js/side_menu.js"></script>
     <script src="/js/purchase/kakaoPay.js"></script>
-    <script src="/js/purchase/test.js"></script>
+    <script src="/js/purchase/import.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 $(function() {
-	$('#purchasebutton').click(function() {
+	$('#kakaobutton').click(function() {
 		$.ajax({
 			url: "/purchase/kakaopay",
 			type: "post",
@@ -14,3 +14,5 @@ $(function() {
 		});
 	});
 });
+
+
