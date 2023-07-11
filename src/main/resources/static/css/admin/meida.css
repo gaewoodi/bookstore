@@ -2,7 +2,6 @@
 
 @media (max-width: 1024px) {
     .sidebar {
-        transition: all 0.25s;
         display: none;
     }
 

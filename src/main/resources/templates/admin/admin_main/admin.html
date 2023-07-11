@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>어드민 메인 페이지</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/admin/sidebar.css">
@@ -26,44 +29,45 @@
 </head>
 
 <body>
-  <div class="container">
-    <!-- sidebar 시작 -->
-    <div class="sidebar">
-      <ul class="logo">
-        <li><a href="#">
-            <img src="/images/logo.png" style="height: 60px; width: 120px;" alt="로고">
-          </a>
+
+  <!-- sidebar 시작 -->
+  <div id="sidebar" class="sidebar">
+    <ul class="logo">
+      <li><a href="#">
+          <img src="/images/logo.png" style="height: 60px; width: 120px;" alt="로고">
+        </a>
+      </li>
+    </ul>
+
+    <li class="dashboard">
+      대시보드
+      <i class="fa-solid fa-angle-down" id=""></i>
+      <i class="fa-solid fa-angle-up" style="display: none;"></i>
+      <ul class="sub-link">
+        <li>
+          <a href="#">요약</a>
+        </li>
+        <li>
+          <a href="#">재고관리</a>
+        </li>
+        <li>
+          <a href="#">주문관리</a>
+        </li>
+        <li>
+          <a href="#">회원관리</a>
+        </li>
+        <li>
+          <a href="#">판매량</a>
         </li>
       </ul>
+    </li>
+  </div>
+  <!-- sidebar 끝 -->
 
-      <li class="dashboard">
-        대시보드
-        <i class="fa-solid fa-angle-down" id=""></i>
-        <i class="fa-solid fa-angle-up" style="display: none;"></i>
-        <ul class="sub-link">
-          <li>
-            <a href="#">요약</a>
-          </li>
-          <li>
-            <a href="#">재고관리</a>
-          </li>
-          <li>
-            <a href="#">주문관리</a>
-          </li>
-          <li>
-            <a href="#">회원관리</a>
-          </li>
-          <li>
-            <a href="#">판매량</a>
-          </li>
-        </ul>
-      </li>
-    </div>
-    <!-- sidebar 끝 -->
-
+  <div class="container">
     <header>
-      <div class="sidebar-icon">
-        <i class="fa-solid fa-bars"></i>
+      <div>
+        <i class="fa-solid fa-bars" style="cursor: pointer;" id="sidebar-icon"></i>
       </div>
       <ul class="header-links">
         <li class="sub-link">
@@ -79,14 +83,14 @@
           </a>
         </li>
         <div class="myinfo">
-            <i class="fa-solid fa-user" type="button" id="user-icon" ></i>
+          <i class="fa-solid fa-user" type="button" id="user-icon"></i>
           </button>
         </div>
       </ul>
     </header>
 
     <main>
-      <div >
+      <div>
         <h2 class="top-h2">요약</h2>
         <p>판매량 접속량 차트, 최근 주문, 등급관련 차트?, 주문 상승 책,</p>
         <div class="chart-wrap">
@@ -97,27 +101,43 @@
             <div id="curve_daily_chart"></div>
           </div>
         </div>
-        <div >
+        <div>
           신규 도서
         </div>
       </div>
     </main>
-
-
   </div>
 
   <script>
+    window.onload = () => {
+      ComponentEvent.getInstance().addClickEventSidebarButton();
+    }
     const dashboard = document.querySelector('.dashboard');
 
     dashboard.addEventListener('click', function () {
       this.classList.toggle('opened');
     });
 
-    $(sidebar-icon).click(function(){
-      $(".sidebar").toggle('slide',{
-        direction: 'left' 
-      }, 400)
-    });
+    class ComponentEvent {
+      static #instance = null;
+      static getInstance() {
+        if (this.#instance == null) {
+          this.#instance = new ComponentEvent();
+        }
+        return this.#instance;
+      }
+
+      addClickEventSidebarButton() {
+        const OnSidebar = document.querySelector("#sidebar-icon");
+
+        OnSidebar.onclick = () => {
+          const sidebar = document.getElementById("sidebar");
+          sidebar.style.display = (sidebar.style.display != 'none') ? "none" : "block";
+        }
+
+      }
+    }
+
   </script>
 </body>
 
