@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 .sidebar {
-    background-color: hsl(314, 18%, 37%);
+    background-color: blueviolet;
     width: 180px;
     height: 100vh;
     position: fixed;
@@ -20,7 +20,7 @@
 
   .sidebar li a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
   }
 
   .sidebar .logo {
@@ -44,7 +44,7 @@
     overflow: auto;
   }
 
-  .dashboard.opened .sub-link {
+  .dashboard.opened .sub-link, #dash-up{
     display: block;
     max-height: 300px;
   }

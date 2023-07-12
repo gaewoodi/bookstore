@@ -1,5 +1,6 @@
 @charset 'utf-8';
 
+
 @media (max-width: 1024px) {
     .sidebar {
         display: none;
@@ -9,11 +10,7 @@
         margin-left: 0;
     }
 
-    #t-text{
-        display: none;
-    }
-
-    main {
+    .main-right {
         margin-left: 0px;
 
     }
@@ -24,7 +21,7 @@
 
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .sidebar {
         display: none;
     }
@@ -37,4 +34,4 @@
     .chart-wrap {
         display: inline;
     }
-}
+} */

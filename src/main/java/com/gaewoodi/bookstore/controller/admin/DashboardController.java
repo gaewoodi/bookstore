@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
+
 public class DashboardController {
 
-    @GetMapping("/dashboard")
-    public String getAdmin(){
-        return "admin/admin_main/admin";
+    @GetMapping("/admin/dashboard")
+    public String urlAdmin(){
+        return "admin/dashboard";
     }
 
 }

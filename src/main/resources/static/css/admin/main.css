@@ -1,18 +1,17 @@
 @charset "UTF-8";
 
-main {
+.main-right {
     /* 크기별 반응 만들어야 함 */
-    background-color: blue;
+    background-color: aliceblue;
     padding-top: 1%;
     padding-left: 5px;
     height: 100vh;
     margin-left: 180px;
-
+    
 }
 
 .top-h2 {
     display: block;
-    background-color: aliceblue;
 }
 
 .chart-wrap {
@@ -25,6 +24,3 @@ main {
     padding: 1%;
 }
 
-#t-icon {
-    display: none;
-}
