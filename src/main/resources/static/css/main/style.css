@@ -38,6 +38,8 @@ input, textarea, select {
 
 
 
+
+
 /* 레이아웃 */
 .wrap {
     width : 100%;
@@ -80,8 +82,6 @@ input, textarea, select {
 .search-wrap {
     display: flex;
 }
-
-
 
 
 .search-wrap .search {
@@ -158,7 +158,7 @@ input, textarea, select {
     padding: 20px;
     background-color: rgb(239, 84, 77);
     box-shadow: 1px solid #444;
-    display: none;
+    display: block;
 }
 
 .submenu1 h1 {
@@ -173,6 +173,9 @@ input, textarea, select {
     border-left: 2px solid #fff;
     padding-left: 10px;
 }
+
+
+
 
 
 
@@ -311,6 +314,7 @@ input, textarea, select {
 
 .main2 {
     height: 10%;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .main2-img {
@@ -344,39 +348,352 @@ input, textarea, select {
 
 }
 
-.page1 {
-    height: 20%;
+
+.main4-wrap img {
+    width: 250px;
+    box-shadow: 0 0 5px 3px rgb(204, 204, 204);
+}
+
+.recommand1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recommand-gawoodi {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(239, 84, 77, 0.1);
+    padding: 20px;
+    border-radius : 20px;
+}
+
+.recommand1 .recommand-gawoodi1 {
+    display: flex;
+    width: 70%;
 
 }
 
-.page2 {
-    height: 20%;
-    background-color: #555;
+.recommand-subject h4{ 
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #000;
+    text-align: left;
+    margin-bottom: 15px;
 }
 
-.page3 {
-    height: 20%;
-    background-color: #444;
+.recommand-subject h4 strong {
+    color: rgb(239, 84, 77);
 }
 
-.page4 {
-    height: 20%;
-    background-color: #333;
+.recommand-subject img {
+    position: relative;
+    z-index: 1;
 }
 
-.main5 {
+.recommand-book p {
+    letter-spacing: -1px;
+    line-height: 20px;
+}
+
+
+
+/* 1 */
+
+.recommand-book1 {
+    width: 250px;
+    font-family: 'Nanum Gothic', sans-serif;
+    /* 위 오른쪽 아래 왼쪽 */
+    margin: 50px 0px 80px 20px;
+    border-left: 1px solid #000;
+    padding-left: 10px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+
+
+.recommand-book1 h2 {
+    line-height: 30px;
+    text-align: left;
+    color:#1640A2
+}
+
+
+.recommand-book1 p {
+    text-align: left;
+}
+
+
+
+.recommand-book2 {
+    width: 250px;
+    font-family: 'Nanum Gothic', sans-serif;
+    /* 위 오른쪽 아래 왼쪽 */
+    /* 세개일땐뭐지  위/왼쪽오른/아래*/
+    margin:  -10px 0.3px 20px;
+    border-right: 1px solid #000;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.recommand-book2 h2 {
+    line-height: 30px;
+    text-align: right;
+    color: rgb(239, 84, 77);
+}
+
+.recommand-book2 p {
+    text-align: right;
+}
+
+
+
+
+
+.trend {
+    width: 30%;
+    background-color: rgba(239, 84, 77, 0.3);
+    padding: 20px;
+    border-radius : 20px;
+}
+
+.trend .recommand-subject h4 {
+    text-align: center;
+}
+.trend .recommand-subject img {
+    width: 210px;
+    margin-left: 53px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px 3px rgb(255, 227, 227);
+}
+
+.recommand-text {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.recommand-text p {
+    margin-top:15px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+.recommand-text h4 {
+    margin-top: 10px;
+    font-size: 20px;
+    letter-spacing: -2px;
+}
+
+
+
+
+.recommand2 {
+    display: flex;
+    flex-basis: 30%;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.recommand2 h1 {
+    margin-bottom: 10px;
+    letter-spacing: -1.8px;
+    font-size: 25px;
+}
+
+.recommand2 h1 strong {
+    color: rgb(239, 84, 77);
+}
+
+.border {
+    width: 400px;
+    display: flex;
+    border: 0.8px solid #999;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+
+.border .r2-text {
+    margin-top: 70px;    
+    margin-left: 30px;
+}
+.border .r2-text h4{
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.border img {
+    width: 150px;
+}
+
+.border .r2-text a .p {
+    margin: 30px 0;
+}
+
+
+
+
+.choice {
+    width:32%;
+}
+
+
+
+
+
+
+
+
+.media {
+    width:32%;
+
+}
+
+.media-wrap .r2-text {
+    margin-top: 8px;
+}
+
+.media-wrap .r2-text a p {
+    font-size: 15px;
+}
+
+
+
+.thisbook {
+    width:32%;
+
+}
+
+.thisbook-wrap .r2-text  {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+.ad {
     height: 10%;
+    background-color:#58CFC7;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.ad-wrap {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+
+}
+
+.ad-text {
+    padding: 20px 100px;
+    margin: 0 auto;
+    border-right: 1px solid #fff;
+    
+}
+.ad-text:nth-child(2) {
+    border: none;
+}
+
+.ad-text a {
+    color: #fff;
+}
+
+.ad-text a:hover {
+    color: #fffb00;
+}
+
+.ad-text a p i {
+    color: #fffb00;
+}
+
+
+
+.main6 {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 10px;
+}
+
+.main6-h1 h1 {
+    text-align: center;
+    color : rgb(239, 84, 77);
+    padding-bottom: 25px;
+    border-bottom: 1px solid #999;
+    text-shadow: 0 0 5px 3px rgb(192, 192, 192);
+    letter-spacing:3px;
+}
+
+
+
+
+.main6-menu ul {
+    display: flex;
+    margin-top: 30px;
+    padding-left: 300px;
+}
+
+.main6-menu ul a {
+    margin-right: 60px;
+    justify-content: center;
+    font-weight: bolder;
+    
+}
+
+.main6-menu ul a:hover {
+    color: rgb(239, 84, 77);
+}
+
+.main6-list-wrap {
+    display: flex;
+    border-radius: 25px;
+    padding-top: 20px;
+}
+
+.main6-list {
+    width: 1200px;
+    margin: 0 auto;
+    flex-basis: 16.5%;
+    margin-top: 7px;
+    text-align: center;
 }
 
 
 
 
 
+.main6-list-subject img {
+    width: 150px;
+    height: 210px;
+    box-shadow: 0 0 5px 3px rgb(192, 192, 192);
+}
+.main6-list-subject img:hover {
+    transform: scale(1.03);
+    transition: 0.1s;
+}
 
 
+.main6-list-text h6 {
+    font-size: 14px;
+    margin-top: 15px;
+}
 
+.main6-list-text h6:hover {
+    color: #777;
+}
 
+.main6-list-text p {
+    letter-spacing: -0.5px;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0;
+}
 
+.main6-list-text p:hover {
+    color: #777;
+    
+}
 
 
 
