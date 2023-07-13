@@ -20,11 +20,11 @@ body{
     margin: 0 auto;
 }
 
-.member .field{
+.member .UserId{
     margin :5px 0; 
 }
 
-.member b{
+.member p{
     display: block; 
     margin-bottom: 5px;
 }
@@ -50,15 +50,15 @@ body{
     display: flex;
 }
 
-.field.tel-number div {
+.tel-number div {
     display: flex;
 }
 
-.field.tel-number div input:nth-child(1){
+.tel-number div input:nth-child(1){
     flex:2;
 }
 
-.field.tel-number div input:nth-child(2){
+.tel-number div input:nth-child(2){
     flex:1;
 }
 
