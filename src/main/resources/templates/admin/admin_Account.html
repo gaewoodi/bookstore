@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>관리자 회원관리 페이지</title>
+    <title>회원관리 페이지</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -18,48 +18,9 @@
     <link rel="stylesheet" href="/css/admin/main.css">
     <link rel="stylesheet" href="/css/admin/meida.css">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
     <style>
-        .main-right {
-        flex-basis: 88%;
-        padding:20px;
-        }
-        
-        table thead tr{
-            height: 45px;
-            color: rgb(23,23,23);
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        table thead tr th:nth-child(1){width: 7%;} /* 회원번호 넓이 */
-        table thead tr th:nth-child(2){width: 15%} /* 이미지 넓이 */
-        table thead tr th:nth-child(3){width: 10%;} /* 분류 넓이 */
-        /* table thead tr th:nth-child(4){width: 3%;} 아이디(이메일) 넓이 */
-        table thead tr th:nth-child(5){width: 10%;} /* 등급 넓이 */
-        table thead tr th:nth-child(6){width: 15%;} /* 생성날 넓이 */
-        table thead tr th:nth-child(7){width: 15%;} /* 비고 넓이 */
-
-        table tbody tr{
-            height: 40px;
-            text-align: center;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        table tbody tr td {
-            padding : 10px 0;
-        }
-
-        .btn{
-            color: #393732;
-            border: 0;
-            outline: 0;
-            cursor: pointer;
-            padding: 12px 8px;
-        }
-
-
     </style>
 </head>
 
@@ -73,7 +34,7 @@
             <div class="main-right">
                 <div class="main-emp">
                     <h2>::Account LIST</h2>
-                    <table>
+                    <table id="Account">
                         <thead>
                             <tr>
                                 <th>회원번호</th>
@@ -87,15 +48,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                               <td>번호</td> 
+                               <td>11111111</td> 
                                <td>이미지</td>
-                               <td>분류</td>
-                               <td>아이디</td>
-                               <td>등급</td>
-                               <td>생성날</td>
+                               <td>사원</td>
+                               <td>dydwk12304@naver.com</td>
+                               <td>platinum</td>
+                               <td>2023 07. 13. 23:12</td>
                                <td>
-                                <a href="#"><button class="btn clr1">상세보기</button></a>
-                                <a href="#"><button class="btn clr3">주문내역</button></a>
+                                <a href="#"><button class="btn-clr1">상세보기</button></a>
+                                <a href="#"><button class="btn-clr2">주문내역</button></a>
                             </td>
                             </tr>
                         </tbody>
@@ -104,6 +65,7 @@
             </div>
         </main>
     </div>
+    <script th:src="@{/js/admin/sidebar.js}"></script>
 </body>
 
 </html>

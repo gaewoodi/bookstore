@@ -1,15 +1,14 @@
 @charset "UTF-8";
 
 .main-right {
-    /* 크기별 반응 만들어야 함 */
     background-color: aliceblue;
     padding-top: 1%;
     padding-left: 5px;
     height: 100vh;
     margin-left: 180px;
-    
 }
 
+/* ------------------------------ 대시보드 css---------------------------------- */
 .top-h2 {
     display: block;
 }
@@ -24,3 +23,84 @@
     padding: 1%;
 }
 
+/* ------------------------------ 멤버관리 css---------------------------------- */
+
+#Account {
+    width: 100%;
+}
+
+#Account thead tr{
+    height: 45px;
+    color: rgb(23,23,23);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#Account thead tr th:nth-child(1){width: 7%;} /* 회원번호 넓이 */
+#Account thead tr th:nth-child(2){width: 25%} /* 이미지 넓이 */
+#Account thead tr th:nth-child(3){width: 10%;} /* 분류 넓이 */
+#Account thead tr th:nth-child(4){width: auto;} /*아이디(이메일) 넓이*/
+#Account thead tr th:nth-child(5){width: 10%;} /* 등급 넓이 */
+#Account thead tr th:nth-child(6){width: 15%;} /* 생성날 넓이 */
+#Account thead tr th:nth-child(7){width: 15%;} /* 비고 넓이 */
+
+#Account tbody tr{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#Account tbody tr td {
+    padding : 10px 0;
+}
+
+.btn-clr1 .btn-clr2{
+    color: #393732;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 12px 8px;
+}
+
+/* ------------------------------ 재고관리 css---------------------------------- */
+
+#inventory {
+    width: 100%;
+}
+
+#inventory thead tr th:nth-child(1){width: 10%;}  /* 상품번호 넓이 */
+#inventory thead tr th:nth-child(2){width: auto;} /* 상품명+이미지 넓이 */
+#inventory thead tr th:nth-child(3){width: 7%;} /* 창고재고 넓이 */
+#inventory thead tr th:nth-child(4){width: 7%;}  /* 주문대기 넓이*/
+#inventory thead tr th:nth-child(5){width: 10%;} /* 총 재고 넓이 */
+#inventory thead tr th:nth-child(6){width: 7%;} /* 재고수정 넓이 */
+#inventory thead tr th:nth-child(7){width: 7%;} /* 통보수량 넓이 */
+#inventory thead tr th:nth-child(8){width: 13%;} /* 판매상황 넓이 */
+#inventory thead tr th:nth-child(9){width: 7%;} /* 관리 넓이 */
+
+#inventory thead tr{
+    height: 45px;
+    color: rgb(23,23,23);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#inventory tbody tr{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#inventory tbody tr td {
+    padding : 10px 0;
+}
+.amount{
+    width: 97%;
+}
+
+.btnIV{
+    background-color: aliceblue;
+    color: #393732;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 12px 8px;
+}

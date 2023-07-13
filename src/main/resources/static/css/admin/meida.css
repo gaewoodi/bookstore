@@ -1,37 +1,6 @@
 @charset 'utf-8';
 
 
-@media (max-width: 1024px) {
-    .sidebar {
-        display: none;
-    }
+@media (max-width: 1024px) {}
 
-    header {
-        margin-left: 0;
-    }
-
-    .main-right {
-        margin-left: 0px;
-
-    }
-
-    .chart-wrap {
-        width: 100%;
-    }
-
-}
-
-/* @media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-
-    main {
-        margin: 0 auto;
-        flex-direction: column;
-    }
-
-    .chart-wrap {
-        display: inline;
-    }
-} */
+@media (max-width: 768px) {}
