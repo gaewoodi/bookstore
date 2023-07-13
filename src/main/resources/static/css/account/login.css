@@ -9,25 +9,22 @@ body {
     justify-content: space-between; */
 }
 
-.login-box {
-    width: 500px;
+.login-wrap {
+    width: 700px;
+    height: 700px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    /* box-shadow: 2px 2px 2px #c7c7c7; */
-    /* padding: 60px 40px; */
-    
+    transform: translate(-50%, -50%);    
+}
+
+.login-box {
+    margin-left: 60px  
 }
 
 .welcom-box {
-    margin-bottom: 50px;
-    margin-left: 50px;
-    /* padding-left: 140px; */
-        }
-
-.welcom-box h1 {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 #login-form {
@@ -71,7 +68,7 @@ button {
 .tbody {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .tbody2 ul{
@@ -82,25 +79,25 @@ button {
     margin-right: 15px;
 }
 
-.footer {
-    height: 100px;
-    text-align: center;
-    margin-left: 500px;   
+.footer1 {
+    margin-left: 100px;
 }
 
 .footer1 ul {
-    display: flex;
-    margin-top: 750px;
-    margin-left: 230px;
-    /* margin-bottom: 15px; */
+    display: flex;   
+    margin-top: 45px;
+    margin-bottom: 9px;    
+} 
+
+.footer1 ul li a {
+    margin-right: 10px;
 }
 
-.footer1 ul li {
-    margin-right: 20px;   
+.footer2 a {
+    margin-left: 200px;
+    font-size: 12px;
 }
 
-.footer1 p {
-    padding-right: 450px;
-    margin-top: 15px;
-    font-size: 13px;
-}
+
+
+

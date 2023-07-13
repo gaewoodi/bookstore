@@ -1,0 +1,103 @@
+@charset 'utf-8';
+
+body{
+    font-size:14px;
+    background-color: #fff;
+    line-height: 1.5em;
+    color : #000;
+}
+
+.member{
+    width: 400px;
+    margin: 0 auto; 
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.member .logo{
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.member .field{
+    margin :5px 0; 
+}
+
+.member b{
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.member input:not(input[type=radio]), .member select{
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.member input[type=button],
+.member input[type=submit]{
+    background-color: #f5f832;
+    color:#000;
+}
+
+.member input:focus, .member select:focus{
+    border: 1px solid #f5f832;
+}
+
+.field.birth div{ 
+    display: flex;
+}
+
+.field.tel-number div {
+    display: flex;
+}
+
+.field.tel-number div input:nth-child(1){
+    flex:2;
+}
+
+.field.tel-number div input:nth-child(2){
+    flex:1;
+}
+
+.placehold-text{
+    display: block;
+    position:relative;
+}
+
+.placehold-text:before{ 
+    content : 메일을 입력해 주세요;
+    position:absolute; 
+    right : 20px;
+    top:13px;
+    pointer-events: none; 
+}
+
+.member-footer {
+    width: 400px;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin : 0 auto;
+}
+
+.footer1 ul {
+    display: flex;
+    margin-left: 20px;
+} 
+
+.footer1 ul li {
+    margin-right: 12px;
+    margin-left: 5px;
+}
+
+.footer2 a {
+    margin-left: 90px;
+}
+
+
+
+
+
