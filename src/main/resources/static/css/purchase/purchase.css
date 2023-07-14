@@ -11,7 +11,6 @@
     width: 1400px;
 }
 
-
 /* main-container basis 1 */
 .menu-container {
     flex-basis: 15%;
@@ -32,14 +31,13 @@
     flex-basis: 85%;
 
     margin: 10px;
-    padding: 10px;
 }
 
 .book-purchase-list h1 { 
-    margin: 5px 0px;
-    padding-left: 10px;
+    padding: 5px 0px 5px 18px;
 
     color: #555;
+    font-size: 26px;
 }
 
 .third-container {
@@ -47,68 +45,77 @@
 }
 
 .purchase-container {
-    margin-top: 10px;
-    height: 300px;
-
-    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    
+    width: 100%;
+    height: calc(95vh - 80px);
 }
 
+/* purchase-container basis 1 */
 .book-cointainer {
+    display: flex;
+    flex-basis: 75%;
+}
+
+.image-input-container {
     display: flex;
     align-items: center;
 
-    margin-left: 10px;
-    width: 90%;
-    height: 100%;
+    height: 230px;
+
+    background-color: antiquewhite;
 }
 
 .image-container {
     margin-left: 10px;
-    height: 260px;
+    width: 190px;
+    height: 230px;
+
+    overflow: hidden;
 }
 
 .image-container img {
-    width: 200px;
-    height: 260px;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img:hover {
+    /* transform: rotate( 20deg ); */
+    transform: scale(0.8);
+    transition: 0.3s;
 }
 
 .book-data {
-    width: 700px;
-    height: 260px;
+    width: 400px;
+    height: 230px;
 
     font-size: 14px;
-
-    line-height: 2;
-
 }
 
 .book-data table {
     margin-left: 20px;
     width: 90%;
-
 }
 
 
 .book-data tbody td {
-    padding: 0px 0px 10px 10px;
+    padding: 10px;
 }
 
 .book-data tbody td:nth-child(1) {
     width: 10%;
+    padding: 1px;
 }
 
 
 .book-data tbody tr:nth-child(2) {
     font-size: 20px;
     font-weight: bold;
-
-    line-height: 0.8;
 }
 
 .book-data tbody tr:nth-child(7) {
     border-top: 1px solid #ccc;
 
-    line-height: 3;
     font-weight: bold;
 }
 
@@ -118,7 +125,8 @@
     justify-content: end;
     align-items: center;
 
-    height: 100%;
+    height: 230px;
+
 }
 
 .button-container img {
@@ -144,7 +152,46 @@
     cursor: pointer;
 }
 
+/* purchase-container basis 2 */
+.total-container {
+    flex-basis: 30%;
 
+    margin-right: 30px;
+    
+}
+
+.total-border {
+    padding: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 3px;
+}
+
+.total-purchase {
+    line-height: 1.4;
+}
+
+.total-count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-count p {
+    margin: 5px 0px 5px;
+}
+
+.total-count button {
+    background-color: transparent;
+}
+
+.total-count input {
+    width: 30px;
+
+    text-align: center;
+}
+
+.split-line {
+    border: 1px dashed #dbdbdb;
+}
 
 
 

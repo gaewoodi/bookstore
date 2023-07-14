@@ -73,7 +73,7 @@ public class PurchaseController {
             // 커넥션 input output 전해줄게 있는지 없는지
             connection.setDoOutput(true);
 
-            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/fail&cancel_url=http://localhost:8888/cancel";
+            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/purchase&cancel_url=http://localhost:8888/purchase";
             OutputStream outputStream = connection.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeBytes(payData);

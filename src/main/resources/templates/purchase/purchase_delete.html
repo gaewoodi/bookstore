@@ -13,13 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/purchase_delete.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
-    <link rel="stylesheet" href="/static/css/purchase/purchase_delete.css">
-    <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/reset.css">
 </head>
 
 <body>
@@ -44,7 +41,7 @@
                             <div class="book-cointainer">
                                 <input type="checkbox" checked>
                                 <div class="image-container">
-                                    <img src="/static/images/purchase/backgang.jpg" alt="백광">
+                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
                                 </div>
                                 <div class="book-data">
                                     <table>
@@ -89,8 +86,8 @@
                 </div>
             </div>
         </main>
+        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script src="/js/side_menu.js"></script>
+    <script src="/js/fragment/side_menu.js"></script>
 </body>
-
 </html>
