@@ -17,14 +17,16 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/purchase_delete.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
+    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/purchase/purchase_delete.css">
 </head>
 
 <body>
     <div id="container">
-        <header id="header" th:insert="~{fragment/header::headers}">
-
-            
-        </header>
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
 
         <main class="main-container">
             <div class="serve-container">
@@ -33,7 +35,7 @@
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
-                    <h1><input type="checkbox"> 현재 주문 목록(배송전)</h1>
+                    <h1><input type="checkbox"> 주문 목록(취소하기)</h1>
                     <hr>
 
                     <div class="third-container">
@@ -41,7 +43,8 @@
                             <div class="book-cointainer">
                                 <input type="checkbox" checked>
                                 <div class="image-container">
-                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
+                                    <!-- <img th:src="@{/images/purchase/backgang.jpg}" alt="백광"> -->
+                                    <img src="/static/images/purchase/backgang.jpg" alt="백광">
                                 </div>
                                 <div class="book-data">
                                     <table>
@@ -79,6 +82,181 @@
                                     <button>주문취소</button>
                                 </div>
                             </div>
+
+                            <div class="book-cointainer">
+                                <input type="checkbox" checked>
+                                <div class="image-container">
+                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
+                                    <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>AL0000002747</td>
+                                            </tr>
+                                            <tr>
+                                                <td>도서제목</td>
+                                                <td>백광</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작가</td>
+                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                            </tr>
+                                            <tr>
+                                                <td>출판사</td>
+                                                <td>모모</td>
+                                            </tr>
+                                                <td>출판연도</td>
+                                                <td>2022</td>
+                                            <tr>
+                                                <td>분류</td>
+                                                <td>소설/시/희곡</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가격</td>
+                                                <td>35,000원</td>
+                                            </tr>
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                                <div class="button-container">
+                                    <button>주문취소</button>
+                                </div>
+                            </div>
+
+                            <div class="book-cointainer">
+                                <input type="checkbox" checked>
+                                <div class="image-container">
+                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
+                                    <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>AL0000002747</td>
+                                            </tr>
+                                            <tr>
+                                                <td>도서제목</td>
+                                                <td>백광</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작가</td>
+                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                            </tr>
+                                            <tr>
+                                                <td>출판사</td>
+                                                <td>모모</td>
+                                            </tr>
+                                                <td>출판연도</td>
+                                                <td>2022</td>
+                                            <tr>
+                                                <td>분류</td>
+                                                <td>소설/시/희곡</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가격</td>
+                                                <td>35,000원</td>
+                                            </tr>
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                                <div class="button-container">
+                                    <button>주문취소</button>
+                                </div>
+                            </div>
+
+                            <div class="book-cointainer">
+                                <input type="checkbox" checked>
+                                <div class="image-container">
+                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
+                                    <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>AL0000002747</td>
+                                            </tr>
+                                            <tr>
+                                                <td>도서제목</td>
+                                                <td>백광</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작가</td>
+                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                            </tr>
+                                            <tr>
+                                                <td>출판사</td>
+                                                <td>모모</td>
+                                            </tr>
+                                                <td>출판연도</td>
+                                                <td>2022</td>
+                                            <tr>
+                                                <td>분류</td>
+                                                <td>소설/시/희곡</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가격</td>
+                                                <td>35,000원</td>
+                                            </tr>
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                                <div class="button-container">
+                                    <button>주문취소</button>
+                                </div>
+                            </div>
+
+                            <div class="book-cointainer">
+                                <input type="checkbox" checked>
+                                <div class="image-container">
+                                    <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
+                                    <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>AL0000002747</td>
+                                            </tr>
+                                            <tr>
+                                                <td>도서제목</td>
+                                                <td>백광</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작가</td>
+                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                            </tr>
+                                            <tr>
+                                                <td>출판사</td>
+                                                <td>모모</td>
+                                            </tr>
+                                                <td>출판연도</td>
+                                                <td>2022</td>
+                                            <tr>
+                                                <td>분류</td>
+                                                <td>소설/시/희곡</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가격</td>
+                                                <td>35,000원</td>
+                                            </tr>
+                                        </tbody>
+                                        
+                                    </table>
+                                </div>
+                                <div class="button-container">
+                                    <button>주문취소</button>
+                                </div>
+                            </div>
+
+
+
                         </div> 
 
 

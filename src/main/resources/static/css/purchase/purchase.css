@@ -31,6 +31,7 @@
     flex-basis: 85%;
 
     margin: 10px;
+    height: auto;
 }
 
 .book-purchase-list h1 { 
@@ -47,14 +48,19 @@
 .purchase-container {
     display: flex;
     
+    margin-bottom: 10px;
     width: 100%;
-    height: calc(95vh - 80px);
 }
 
 /* purchase-container basis 1 */
 .book-cointainer {
-    display: flex;
     flex-basis: 75%;
+}
+
+.book-main-container {
+    display: flex;
+
+    padding-bottom: 10px;
 }
 
 .image-input-container {
@@ -62,8 +68,6 @@
     align-items: center;
 
     height: 230px;
-
-    background-color: antiquewhite;
 }
 
 .image-container {
@@ -131,8 +135,8 @@
 
 .button-container img {
     margin-bottom: 10px;
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 40px;
 }
 
 
@@ -152,32 +156,38 @@
     cursor: pointer;
 }
 
+.button-container button:hover {
+    background-color: #f9a4a4;
+}
+
 /* purchase-container basis 2 */
 .total-container {
     flex-basis: 30%;
 
     margin-right: 30px;
-    
+
+    line-height: 1.5 ;
 }
 
-.total-border {
+.right-box {
     padding: 20px;
     border: 1px solid #e7e7e7;
     border-radius: 3px;
 }
 
-.total-purchase {
-    line-height: 1.4;
+.book-title, .total-count, .book-price {
+    padding-bottom: 5px;
 }
 
-.total-count {
+.book-title label, .total-count label, .book-price label {
+    font-weight: bold;
+}
+
+.book-price, .total-count, .total-price {
     display: flex;
     justify-content: space-between;
 }
 
-.total-count p {
-    margin: 5px 0px 5px;
-}
 
 .total-count button {
     background-color: transparent;
@@ -192,7 +202,6 @@
 .split-line {
     border: 1px dashed #dbdbdb;
 }
-
 
 
 
