@@ -1,11 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 주문 관리 페이지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/header.css">
+    <link rel="stylesheet" href="/css/admin/main.css">
+    <link rel="stylesheet" href="/css/admin/meida.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <style>
+        .order-top ul{
+            display: flex;
+        }
+        .order-top ul li{
+            font-size: 23px;
+            margin-right : 6px;
+            margin-bottom: 5px;
+        }
+
+        .order-mid{
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .order-mid ul{
+            display: flex;
+
+        }
+
+        .order-mid ul li{
+            border: 1px solid #000;
+
+        }
+
+        .order-mid ul li button{
+            background-color: aliceblue;
+            font-size: 20px;
+            
+            padding : 3px;
+        }
+
+        .mid-right {
+            margin-left : 10px;
+        }
+
+        #order-bot{
+            display: flex;
+            border: 1px solid #000;
+        }
+        
+        .bot-body th, .bot-body td{ 
+            border: 1px solid #000;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
+
+    <div class="container">
+        <header th:insert="~{fragment/admin/header::headers}"></header>
+
+        <main>
+            <div class="main-right">
+                <div class="main-order">
+                    <h2 style="margin-bottom: 6px;">주문관리</h2>
+                    <div class="order-top">
+                        <ul>
+                            <li><a href="#">신규주문</a></li>
+                            <li><a href="#">입금대기</a></li>
+                            <li><a href="#">결제완료</a></li>
+                            <li><a href="#">배송준비중</a></li>
+                            <li><a href="#">배송중</a></li>
+                            <li><a href="#">배송완료</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="order-mid">
+                            <ul class="mid-left">
+                                <li><button>입금확인 처리</button></li>
+                                <li><button>배송준비 처리</button></li>
+                                <li><button>발송 처리</button></li>
+                                <li><select>기타 주문처리</select></li>
+                            </ul>
+                            <ul class="mid-right">
+                                <li><button>판매취소</button></li>
+                                <li><button>반품</button></li>
+                                <li><button>교환</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <table id="order">
+                        <thead>
+                          <tr class="bot-body">
+                            <th><input type="checkbox">주문코드</th>
+                            <th>고객명</th>
+                            <th>주문 물품</th>
+                            <th>주문일자</th>
+                            <th>주문상태</th>
+                            <th>작업</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          <tr class="bot-body">
+                            <td><input type="checkbox"></td>
+                            <td>홍길동</td>
+                            <th>책~~~~~~~~~~</th>
+                            <td>2023-07-17</td>
+                            <td>배송중</td>
+                            <td>
+                              <button onclick="openModal(1)">상세 보기</button>
+                              <button onclick="cancelOrder(1)">주문 취소</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script th:src="@{/js/admin/sidebar.js}"></script>
 </body>
+
 </html>

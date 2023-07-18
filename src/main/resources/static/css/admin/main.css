@@ -67,6 +67,30 @@
     width: 100%;
 }
 
+.inven-top ul{
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.inven-mid{
+    font-size: 17px;
+}
+
+.inven-bot button{
+    font-size: 17px;
+    background-color: aliceblue;
+}
+
+.apply .btn{
+    border: 1px solid #fff;
+    border-radius: 1px;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #393732;
+    color: #fff;
+}
+
 #inventory thead tr th:nth-child(1){width: 10%;}  /* 상품번호 넓이 */
 #inventory thead tr th:nth-child(2){width: auto;} /* 상품명+이미지 넓이 */
 #inventory thead tr th:nth-child(3){width: 7%;} /* 창고재고 넓이 */
@@ -96,7 +120,7 @@
     width: 97%;
 }
 
-.btnIV{
+.btnIv{
     background-color: aliceblue;
     color: #393732;
     border: 0;
@@ -104,3 +128,16 @@
     cursor: pointer;
     padding: 12px 8px;
 }
+
+/* ------------------------------ 주문관리 css---------------------------------- */
+
+#order{
+    width: 100%;
+}
+
+#order thead tr th:nth-child(1){width: 13%;} 
+#order thead tr th:nth-child(2){width: 10%;} 
+#order thead tr th:nth-child(3){width: auto;} 
+#order thead tr th:nth-child(4){width: 28%;} 
+#order thead tr th:nth-child(5){width: 10%;} 
+#order thead tr th:nth-child(6){width: 13%;} 
