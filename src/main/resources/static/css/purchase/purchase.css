@@ -161,8 +161,10 @@
 }
 
 /* purchase-container basis 2 */
-.total-container {
-    flex-basis: 30%;
+.purchase-box-container {
+    position: fixed;
+    top: 20%;
+    left: 70%;
 
     margin-right: 30px;
 
