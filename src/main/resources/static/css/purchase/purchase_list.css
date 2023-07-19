@@ -19,11 +19,8 @@
     padding: 10px;
     height: calc(95vh - 80px);
     width: 100%;
-
-    background-color: #e0212119;
-
-    border: 1px solid #f9f9f9;
-    border-style: solid;
+    
+    /* background-color: #e0212119; */
 }
 
 /* main-container basis 2 */

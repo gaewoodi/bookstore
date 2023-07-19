@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.purchase;
 
+import com.siot.IamportRestClient.IamportClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,9 +42,9 @@ public class PurchaseController {
 
             InputStream inputStream;
 
-            if(resultCode == 200) {
+            if (resultCode == 200) {
                 inputStream = connection.getInputStream();
-            }else {
+            } else {
                 inputStream = connection.getErrorStream();
             }
 
@@ -60,11 +61,6 @@ public class PurchaseController {
         return "{\"result\":\"NO\"}";
     }
 
-    @PostMapping("")
-    public String getinicis() {
-
-        return "";
-    }
 
     @GetMapping("/list")
     public String getPurchaseList() {
