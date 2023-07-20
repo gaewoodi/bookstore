@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원관리 페이지</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/header.css">
+    <link rel="stylesheet" href="/css/admin/main.css">
+    <link rel="stylesheet" href="/css/admin/meida.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+    <style>
+    </style>
+</head>
+
+<body>
+    <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
+
+    <div class="container">
+        <header th:insert="~{fragment/admin/header::headers}"></header>
+
+        <main>
+            <div class="main-right">
+                <div class="main-emp">
+                    <h2>::Account LIST</h2>
+                    <table id="Account">
+                        <thead>
+                            <tr>
+                                <th>회원번호</th>
+                                <th>이미지</th>
+                                <th>분류</th> <!--회원,사원 구분-->
+                                <th>아이디</th>
+                                <th>등급</th>
+                                <th>생성날</th>
+                                <th>비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                               <td>11111111</td> 
+                               <td>이미지</td>
+                               <td>사원</td>
+                               <td>dydwk12304@naver.com</td>
+                               <td>platinum</td>
+                               <td>2023 07. 13. 23:12</td>
+                               <td>
+                                <a href="#"><button class="btn-clr1">상세보기</button></a>
+                                <a href="#"><button class="btn-clr2">주문내역</button></a>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script th:src="@{/js/admin/sidebar.js}"></script>
+</body>
+
+</html>
