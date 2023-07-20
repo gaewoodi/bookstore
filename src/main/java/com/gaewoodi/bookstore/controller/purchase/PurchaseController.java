@@ -1,11 +1,12 @@
 package com.gaewoodi.bookstore.controller.purchase;
 
+import com.gaewoodi.bookstore.mappers.purchase.PurchaseMapper;
+import com.gaewoodi.bookstore.service.purchase.PagingService;
 import com.siot.IamportRestClient.IamportClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -14,6 +15,12 @@ import java.net.URL;
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {
+
+    @Autowired
+    private PurchaseMapper purchaseMapper;
+
+    @Autowired
+    private PagingService pagingService;
 
     @GetMapping("")
     public String getPurchase() {
@@ -63,7 +70,11 @@ public class PurchaseController {
 
 
     @GetMapping("/list")
-    public String getPurchaseList() {
+    public String getPurchaseList(Model model, @RequestParam(defaultValue = "1", value = "page") int page) {
+        model.addAttribute("book", pagingService.getPagingPurchaseList(page));
+        model.addAttribute("pagination", pagingService.purchaseListCalculator(page));
+
+
         return "purchase/purchase_list";
     }
 

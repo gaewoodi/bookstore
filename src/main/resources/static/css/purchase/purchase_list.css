@@ -99,10 +99,13 @@
     padding: 1px;
 }
 
-
+/* 도서제목 */
 .book-data tbody tr:nth-child(2) {
     font-size: 20px;
     font-weight: bold;
+
+    /* 줄바꿈 안 시키는거 */
+    white-space: nowrap;
 }
 
 .book-data tbody tr:nth-child(7) {
