@@ -49,6 +49,6 @@ public class PagingService {
         map.put("start", pageStartNumber);
         map.put("limit", pagingDto.getPageCount());
 
-        return purchaseMapper.getBook(map);
+        return purchaseMapper.getBookList(map);
     }
 }

@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.controller.book;
 
 import com.gaewoodi.bookstore.dto.purchase.PurchaseDto;
+import com.gaewoodi.bookstore.mappers.book.BookMapper;
 import com.gaewoodi.bookstore.mappers.purchase.PurchaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BookContainer {
 
     @Autowired
-    private PurchaseMapper purchaseMapper;
+    private BookMapper bookMapper;
 
     @GetMapping("")
     public String getBookList(Model model) {
-
+        model.addAttribute("book", bookMapper.getBook());
+        
         return "book/book";
     }
 }
