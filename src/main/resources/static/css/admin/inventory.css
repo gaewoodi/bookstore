@@ -1,0 +1,78 @@
+@charset 'utf-8';
+
+.main-right {
+    background-color: aliceblue;
+    padding-top: 1%;
+    padding-left: 5px;
+    height: 100vh;
+    margin-left: 180px;
+}
+
+/* ------------------------------ 재고관리 css---------------------------------- */
+
+#inventory {
+    width: 100%;
+}
+
+.inven-top ul{
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.inven-mid{
+    font-size: 17px;
+}
+
+.inven-bot button{
+    font-size: 17px;
+    background-color: aliceblue;
+}
+
+.apply .btn{
+    border: 1px solid #fff;
+    border-radius: 1px;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #393732;
+    color: #fff;
+}
+
+#inventory thead tr th:nth-child(1){width: 10%;}  /* 상품번호 넓이 */
+#inventory thead tr th:nth-child(2){width: auto;} /* 상품명+이미지 넓이 */
+#inventory thead tr th:nth-child(3){width: 7%;} /* 창고재고 넓이 */
+#inventory thead tr th:nth-child(4){width: 7%;}  /* 주문대기 넓이*/
+#inventory thead tr th:nth-child(5){width: 10%;} /* 총 재고 넓이 */
+#inventory thead tr th:nth-child(6){width: 7%;} /* 재고수정 넓이 */
+#inventory thead tr th:nth-child(7){width: 7%;} /* 통보수량 넓이 */
+#inventory thead tr th:nth-child(8){width: 13%;} /* 판매상황 넓이 */
+#inventory thead tr th:nth-child(9){width: 7%;} /* 관리 넓이 */
+
+#inventory thead tr{
+    height: 45px;
+    color: rgb(23,23,23);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#inventory tbody tr{
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#inventory tbody tr td {
+    padding : 10px 0;
+}
+.amount{
+    width: 97%;
+}
+
+.btnIv{
+    background-color: aliceblue;
+    color: #393732;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 12px 8px;
+}
+
