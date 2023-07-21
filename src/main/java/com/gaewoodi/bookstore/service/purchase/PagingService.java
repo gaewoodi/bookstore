@@ -2,6 +2,7 @@ package com.gaewoodi.bookstore.service.purchase;
 
 import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.purchase.PagingDto;
+import com.gaewoodi.bookstore.mappers.book.BookMapper;
 import com.gaewoodi.bookstore.mappers.purchase.PurchaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +15,15 @@ import java.util.Map;
 public class PagingService {
 
     @Autowired
-    private PurchaseMapper purchaseMapper;
+    private BookMapper bookMapper;
 
-    public PagingDto purchaseListCalculator(int page) {
-        int totalCount = purchaseMapper.getTotalCount();
-
+    public PagingDto bookCalculator(int page) {
+        int totalCount = bookMapper.getTotalCount();
         PagingDto pagingDto = new PagingDto();
 
         int totalPage = (int) Math.ceil((double)totalCount / pagingDto.getPageCount());
 
-        int startPage = (((int)Math.ceil((double) page / pagingDto.getBlockCount())) - 1) * pagingDto.getBlockCount() + 1 ;
+        int startPage = (((int) Math.ceil((double) page / pagingDto.getBlockCount())) - 1) * pagingDto.getBlockCount() + 1;
 
         int endPage = startPage + pagingDto.getBlockCount() - 1;
 
@@ -32,23 +32,26 @@ public class PagingService {
         }
 
         pagingDto.setPage(page);
-        pagingDto.setTotalPage(page);
-        pagingDto.setStartPage(page);
-        pagingDto.setEndPage(page);
+        pagingDto.setTotalPage(totalPage);
+        pagingDto.setStartPage(startPage);
+        pagingDto.setEndPage(endPage);
 
         return pagingDto;
-
     }
 
-    public List<BookDto> getPagingPurchaseList(int page) {
+    public List<BookDto> getBookPaging(int page) {
         Map<String, Object> map = new HashMap<>();
 
         PagingDto pagingDto = new PagingDto();
 
         int pageStartNumber = (page - 1) * pagingDto.getPageCount();
+
         map.put("start", pageStartNumber);
         map.put("limit", pagingDto.getPageCount());
 
-        return purchaseMapper.getBookList(map);
+
+        return bookMapper.getBook(map);
     }
+
+
 }

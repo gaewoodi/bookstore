@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class PagingDto {
     //한 페이지에 표시될 게시물 수
-    private int pageCount = 2;
+    private int pageCount = 3;
     //표시할 페이지 번호의 갯수
-    private int blockCount = 5;
+    private int blockCount = 10;
     //페이지 표시
     private int page;
     //전체 게시물 수 => 계산할 때 필요

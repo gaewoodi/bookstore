@@ -10,8 +10,8 @@ import java.util.Map;
 @Mapper
 public interface PurchaseMapper {
 
-    @Select("SELECT * FROM book_mst ORDER BY book_id ASC LIMIT #{start}, #{limit}")
-    List<BookDto> getBookList(Map<String, Object> map);
+    @Select("SELECT * FROM book_mst ORDER BY book_id ASC")
+    List<BookDto> getBookList();
 
     //paging
     @Select("SELECT count(*) FROM book_mst")

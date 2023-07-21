@@ -70,10 +70,7 @@ public class PurchaseController {
 
 
     @GetMapping("/list")
-    public String getPurchaseList(Model model, @RequestParam(defaultValue = "1", value = "page") int page) {
-        model.addAttribute("book", pagingService.getPagingPurchaseList(page));
-        model.addAttribute("pagination", pagingService.purchaseListCalculator(page));
-
+    public String getPurchaseList(Model model) {
 
         return "purchase/purchase_list";
     }

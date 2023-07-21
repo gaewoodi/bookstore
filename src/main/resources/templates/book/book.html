@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>book-store < 전체도서</title>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/purchase/purchase_list.css}">
+    <link rel="stylesheet" th:href="@{/css/book/book.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
 </head>
 
@@ -35,8 +35,8 @@
                     <h1>도서 목록</h1>
                     <hr>
 
-                    <div class="third-container" th:each="book: ${book}">
-                        <div class="book-cointainer">
+                    <div class="third-container">
+                        <div class="book-cointainer" th:each="book: ${book}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.png}" alt="백광">
                                 <!-- <img th:src="@{http://localhost:8888/image} + ${book.saveName}" alt="백광"> -->
@@ -77,22 +77,31 @@
 
 
                     <div class="paging-container">
-                        <a>
+                        <a th:if="${pagination.page > 1}" th:href="@{/book?(page=${pagination.page -1})}">
                             <button><i class="fa-regular fa-circle-left"></i></button>
                         </a>
-                        <a>
-                            <button>1</button>
+                        <a th:unless="${pagination.page > 1}">
+                            <button><i class="fa-regular fa-circle-left"></i></button>
                         </a>
-                        <a>
+                        <a th:each="i: ${#numbers.sequence(pagination.startPage, pagination.endPage, 1)}" th:href="@{/book?(page=${i})}">
+                            <button>[[${i}]]</button>
+                        </a>
+                        <a th:if="${pagination.page < pagination.totalPage}" th:href="@{/book?(page=${pagination.page +1})}">
+                            <button><i class="fa-regular fa-circle-right"></i></button>
+                        </a>
+                        <a th:unless="${pagination.page < pagination.totalPage}">
                             <button><i class="fa-regular fa-circle-right"></i></button>
                         </a>
                     </div>
 
+                    
+
                 </div>
+
             </div>
         </main>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script src="/js/fragment/side_menu.js"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
 </body>
 </html>
