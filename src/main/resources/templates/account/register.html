@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/main/resources/static/css/account/reset.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/account/register.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/src/main/resources/static/images/favicon.png" />
 </head>
 <body>
     <div class="member">
@@ -16,7 +17,8 @@
 
        <div class="UserId">
             <p>아이디</p>
-            <span class="placehold-text"><input type="text"></span>
+            <input type="userid" class="userid">
+            <input type="button" class="userid1" value="아이디 중복확인">
         </div>
         <div class="UserPw">
             <p>비밀번호</p>
@@ -31,7 +33,7 @@
             <input type="text">
         </div>
 
-       <div class="field birth">
+       <div class="field-birth">
             <p>생년월일</p>
             <div>
                 <select>
@@ -45,28 +47,34 @@
                 </select> 
             </div>
         </div>
-
+    </div>
+    <div class="member1">
         <div class="Email">
-            <p>이메일 주소 입력</p>
-            <input type="email" placeholder="이메일 주소를 선택해 주세요">
+            <p>이메일 주소 입력</p>            
+                <input type="email" class="email1"> @         
+                    <select class="email2">
+                        <option value="">직접 입력</option>                   
+                    </select>                     
+        </div>
+
+        <div class="Address">
+            <p>주소</p>
+                <input type="adr" class="adr1">
+                <input type="button" class="adr2" value="우편번호 검색">
         </div>
         
         <div class="tel-number">
             <p>휴대전화</p>
-            <select>
-                <option value="">대한민국 +82</option>
-            </select>
             <div>
-                <input type="tel" placeholder="전화번호 입력">
-                <input type="button" value="인증번호 받기">
+                <input type="tel" class="tel1" placeholder="전화번호 입력">
+                <input type="button" class="tel2" value="인증번호 받기">
             </div>
-            <input type="number" placeholder="인증번호를 입력하세요">
         </div>
-
-       <input type="submit" value="회원가입 하기">
-
-        
+        <div>
+            <input type="submit" class="reg" value="회원가입 하기">
+        </div>
     </div>
+
     <div class="member-footer">
             <div class="footer1">
                 <ul>
