@@ -17,65 +17,10 @@ body {
 .menu-container {
     height: calc(100vh - 80px);
     flex-basis: 15%;
-    background-color: antiquewhite;
     margin: 0 auto;
 }
 
 
-
-/* side_menu.css 부분 */
-.menu-container ol ul {
-    padding: 20px 10px;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.menu-container ul {
-    cursor: pointer;
-}
-
-.menu-container input {
-    background-color: transparent;
-
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.mypage-menu {
-    visibility: hidden;
-
-    padding: 10px;
-}
-
-.sub-menu {
-    display: block;
-    display: flex;
-
-    margin-bottom: 10px;
-}
-
-.sub-menu a {
-    display: flex;
-
-    line-height: 30px;
-
-    cursor: pointer;
-}
-
-.icon-box {
-    width: 20px;
-    
-    color: rgb(239, 84, 77);
-    text-align: center;
-}
-
-.mypage-menu strong {
-    padding-left: 5px;
-
-    font-size: 16px;
-}
-/* 나중에 제외 */
 
 .menu-container ol ul {
     padding: 20px 10px;
@@ -154,47 +99,104 @@ body {
     text-align: right;
 }
 
-.main-container {
-    display: flex;
-    justify-content: center;
-}
+/* best page 시작 */
 
 .section-right {
-    background-color: aqua;
     flex-basis: 85%;
 }
 
 .search-container {
-    margin: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
 }
 
 .anb {
-    display: flex;
-    margin-top: 20px;
+    width: 100%;
 }
 
+.anb img {
+    width: 100%;
+}
 
 .btn button{
     background-color: #eee;
     padding: 5px;
     border-radius: 10px;
     margin-right: 7px;
-    margin-top: 20px;
+    margin-top: 30px;
+    border: none;
+    margin-bottom: 20px;
 }
 
 .btn button:hover {
     cursor: pointer;
 }
 
-.one-book img {
+.cate-bar {
+    margin-top: 5px;
+    margin-bottom: 50px;
+    text-align: right;
+}
+
+.cate-bar select {
+    background-color: #fff;
+    border: 1px solid #cacaca;
+    padding: 5px;
+
+}
+
+.main-book {
+    width: 100%;
+    /* background-color: #ff0b0b; */
+    display: flex;
+    max-height: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+
+.book {
+    /* display: flex; */
     width: 250px;
+    /* background-color: antiquewhite; */
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.img-wrap {
+    width: 250px;
+    height: auto;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.img-wrap img {
+    width: 100%;
     height: 250px;
-    margin-left: 20px;
+    transition: 0.5s;
+}
+
+.img-wrap img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.one-book .con{
+    height: 16px;
 }
 
 .one-book P {
     font-size: 13px;
-    padding-left: 20px;
 }
 
 .one-book .one {
@@ -207,20 +209,33 @@ body {
     font-size: 23px;
 }
 
-.one-book .asterion {
-    padding-top: 5px;
+
+.book2 {
+    display: flex;
+    margin-top: 70px;
 }
 
-.button button {
-    background-color: #fff;
-    border: 1px solid #000;
-    color: #595858;
-    font-size: 12px;
-    padding: 3px;
-    margin-left: 20px;
+.book3 {
+    display: flex;
+    margin-top: 70px;
+}
+
+.pass {
     margin-top: 10px;
+    text-align: center;
 }
 
-.one-book {
-    
+.pass button {
+    padding-right: 10px;
+    padding: 7px;
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #aaaaaa;
+    font-size: 13px;
 }
+
+.pass button:hover {
+    cursor: pointer;
+}
+
+
