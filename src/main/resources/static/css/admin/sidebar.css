@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 .sidebar {
-  background-color: blueviolet;
+  background-color: rgb(255, 177, 172);
   top: 0;
   width: 180px;
   height: 100vh;
