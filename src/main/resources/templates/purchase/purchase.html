@@ -41,7 +41,9 @@
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
-                    <h1><input type="checkbox" checked> 도서 결제</h1>
+                    <h1>
+                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 결제
+                    </h1>
                     <hr>
 
                     <div class="third-container">
@@ -50,7 +52,7 @@
                             <div class="book-cointainer">
                                 <div class="book-main-container">
                                     <div class="image-input-container">
-                                        <input type="checkbox" checked>
+                                        <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                         <div class="image-container">
                                             <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
                                             <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
@@ -93,7 +95,7 @@
                                         <button onclick="requestPay()">결제하기</button>
                                     </div>
                                 </div>
-
+                                
                             </div>
 
                             
@@ -135,7 +137,9 @@
         </main>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script src="/js/fragment/side_menu.js"></script>
+    <script th:src="@{/js/fragment/header.js}"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/purchase/checkBox.js}"></script>
     <script src="/js/purchase/kakaoPay.js"></script>
     <script src="/js/purchase/portone.js"></script>
     <script src="/js/purchase/right_box_scroll.js"></script>

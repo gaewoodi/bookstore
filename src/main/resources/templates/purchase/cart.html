@@ -38,13 +38,15 @@
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
-                    <h1><input type="checkbox"> 장바구니</h1>
+                    <h1>
+                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 장바구니
+                    </h1>
                     <hr>
 
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container">
-                                <input type="checkbox" checked>
+                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
                                     <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
                                     <!-- <img src="/static/images/purchase/backgang.jpg" alt="백광"> -->
@@ -434,7 +436,7 @@
                                     </table>
                                 </div>
                                 <div class="button-container">
-                                    <button>주문하기</button>
+                                    <button>결제하기</button>
                                     <button>삭제하기</button>
                                 </div>
                             </div>
@@ -448,6 +450,8 @@
         </main>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script src="/js/fragment/side_menu.js"></script>
+    <script th:src="@{/js/fragment/header.js}"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/purchase/checkBox.js}"></script>
 </body>
 </html>

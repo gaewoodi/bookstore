@@ -14,7 +14,7 @@ public class PurchaseDto {
     private Year publicationDate;
     private String category;
     private String price;
-    private int BookCount;
+    private int bookCount;
     private int purchaseBookCount;
 
 }

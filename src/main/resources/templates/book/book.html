@@ -38,7 +38,10 @@
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <div class="title-container">
-                        <h1><input type="checkbox"> 도서 목록</h1>
+                        <h1>
+                            <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
+                        </h1>
+                        <input type="hidden" id="SA">
                         <div class="button-container">
                             <button>장바구니</button>
                         </div>
@@ -47,7 +50,7 @@
 
                     <div class="third-container">
                         <div class="book-cointainer" th:each="book: ${book}">
-                            <input type="checkbox">
+                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.png}" alt="백광">
                                 <!-- <img th:src="@{http://localhost:8888/image} + ${book.saveName}" alt="백광"> -->
@@ -124,5 +127,6 @@
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/purchase/checkBox.js}"></script>
 </body>
 </html>

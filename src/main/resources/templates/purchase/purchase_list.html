@@ -33,11 +33,14 @@
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
-                    <h1>도서 구매 내역</h1>
+                    <h1>
+                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 구매 내역
+                    </h1>
                     <hr>
 
                     <div class="third-container">
                         <div class="book-cointainer">
+                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                             <div class="image-container">
                                 <img th:src="@{/images/purchase/backgang.jpg}" alt="백광">
                             </div>
@@ -72,216 +75,19 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-
-                        <div class="book-cointainer">
-                            <div class="image-container">
-                                <img th:src="@{/images/purchase/guckgaro.jpg}" alt="백광">
-                            </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>AL0000002747</td>
-                                        </tr>
-                                        <tr>
-                                            <td>도서제목</td>
-                                            <td>백광</td>
-                                        </tr>
-                                        <tr>
-                                            <td>작가</td>
-                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
-                                        </tr>
-                                        <tr>
-                                            <td>출판사</td>
-                                            <td>모모</td>
-                                        </tr>
-                                            <td>출판연도</td>
-                                            <td>2022</td>
-                                        <tr>
-                                            <td>분류</td>
-                                            <td>소설/시/희곡</td>
-                                        </tr>
-                                        <tr>
-                                            <td>가격</td>
-                                            <td>35,000원</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="button-container">
+                                <button>주문취소</button>
                             </div>
                         </div>
-
-                        <div class="book-cointainer">
-                            <div class="image-container">
-                                <img th:src="@{/images/purchase/wanbuckhansagua.jpg}" alt="백광">
-                            </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>AL0000002747</td>
-                                        </tr>
-                                        <tr>
-                                            <td>도서제목</td>
-                                            <td>백광</td>
-                                        </tr>
-                                        <tr>
-                                            <td>작가</td>
-                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
-                                        </tr>
-                                        <tr>
-                                            <td>출판사</td>
-                                            <td>모모</td>
-                                        </tr>
-                                            <td>출판연도</td>
-                                            <td>2022</td>
-                                        <tr>
-                                            <td>분류</td>
-                                            <td>소설/시/희곡</td>
-                                        </tr>
-                                        <tr>
-                                            <td>가격</td>
-                                            <td>35,000원</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="book-cointainer">
-                            <div class="image-container">
-                                <img th:src="@{/images/purchase/wanbuckhansagua.jpg}" alt="백광">
-                            </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>AL0000002747</td>
-                                        </tr>
-                                        <tr>
-                                            <td>도서제목</td>
-                                            <td>백광</td>
-                                        </tr>
-                                        <tr>
-                                            <td>작가</td>
-                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
-                                        </tr>
-                                        <tr>
-                                            <td>출판사</td>
-                                            <td>모모</td>
-                                        </tr>
-                                            <td>출판연도</td>
-                                            <td>2022</td>
-                                        <tr>
-                                            <td>분류</td>
-                                            <td>소설/시/희곡</td>
-                                        </tr>
-                                        <tr>
-                                            <td>가격</td>
-                                            <td>35,000원</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="book-cointainer">
-                            <div class="image-container">
-                                <img th:src="@{/images/purchase/wanbuckhansagua.jpg}" alt="백광">
-                            </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>AL0000002747</td>
-                                        </tr>
-                                        <tr>
-                                            <td>도서제목</td>
-                                            <td>백광</td>
-                                        </tr>
-                                        <tr>
-                                            <td>작가</td>
-                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
-                                        </tr>
-                                        <tr>
-                                            <td>출판사</td>
-                                            <td>모모</td>
-                                        </tr>
-                                            <td>출판연도</td>
-                                            <td>2022</td>
-                                        <tr>
-                                            <td>분류</td>
-                                            <td>소설/시/희곡</td>
-                                        </tr>
-                                        <tr>
-                                            <td>가격</td>
-                                            <td>35,000원</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="book-cointainer">
-                            <div class="image-container">
-                                <img th:src="@{/images/purchase/wanbuckhansagua.jpg}" alt="백광">
-                            </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>AL0000002747</td>
-                                        </tr>
-                                        <tr>
-                                            <td>도서제목</td>
-                                            <td>백광</td>
-                                        </tr>
-                                        <tr>
-                                            <td>작가</td>
-                                            <td>렌조 미키히코 지음; 양윤옥 옮김</td>
-                                        </tr>
-                                        <tr>
-                                            <td>출판사</td>
-                                            <td>모모</td>
-                                        </tr>
-                                            <td>출판연도</td>
-                                            <td>2022</td>
-                                        <tr>
-                                            <td>분류</td>
-                                            <td>소설/시/희곡</td>
-                                        </tr>
-                                        <tr>
-                                            <td>가격</td>
-                                            <td>35,000원</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        
                     </div>
-
-                    <div class="paging-container">
-                        <a th:if="${pagination.page > 1}" th:href="@{/book?(page=${pagination.page -1})}">
-                            <button><i class="fa-regular fa-circle-left"></i></button>
-                        </a>
-                        <a th:unless="${pagination.page > 1}">
-                            <button><i class="fa-regular fa-circle-left"></i></button>
-                        </a>
-                        <a th:each="i: ${#numbers.sequence(pagination.startPage, pagination.endPage, 1)}" th:href="@{/book?(page=${i})}">
-                            <button>[[${i}]]</button>
-                        </a>
-                        <a th:if="${pagination.page < pagination.totalPage}" th:href="@{/book?(page=${pagination.page +1})}">
-                            <button><i class="fa-regular fa-circle-right"></i></button>
-                        </a>
-                        <a th:unless="${pagination.page < pagination.totalPage}">
-                            <button><i class="fa-regular fa-circle-right"></i></button>
-                        </a>
-                    </div>
-
-
-
                 </div>
             </div>
         </main>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script src="/js/fragment/side_menu.js"></script>
+    <script th:src="@{/js/fragment/header.js}"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/purchase/checkBox.js}"></script>
 </body>
 </html>
