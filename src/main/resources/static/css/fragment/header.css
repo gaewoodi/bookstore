@@ -98,7 +98,10 @@
     margin-top: 35px;
     
 }
+
+
 .submenu {
+    display: none;
     background-color: #444;
     position: absolute;
     top : 50px;
