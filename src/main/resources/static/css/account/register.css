@@ -11,7 +11,6 @@ body{
     width: 400px;
     margin: 0 auto; 
     padding: 0 20px;
-    
 }
 
 .member .logo{
@@ -38,8 +37,23 @@ body{
     display: flex;
 }
 
+.gender1 {
+    width: 400px;
+    height : 30px;
+    margin: 0 auto;
+    display : flex;
+    padding: 25px 20px;
+    align-items: center;   
+}
+
+.userGender {
+    margin-left: 20px;
+    margin-right: 10px;
+    letter-spacing: 20px;
+}
+
 .member p{
-    display: block; 
+    display: block;
     margin-bottom: 5px;
 }
 
@@ -54,7 +68,7 @@ body{
     width: 400px;
     margin: 0 auto; 
     padding: 0 18px;
-    margin-bottom: 20px;       
+    margin-bottom: 20px;  
 }
 
 .Email {
@@ -111,9 +125,12 @@ body{
     background-color: #e7e7e7;
 }
 
-.member1 .reg {
+.member1 .btn {
     margin-top: 20px;
     background-color: #f5f832;
+    width: 360px;
+    height : 50px;
+    cursor: pointer;
 }
 
 .member-footer {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,66 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/main/resources/static/css/account/reset.css">
+    <link rel="stylesheet" href="/css/account/reset.css">
+    <link rel="stylesheet" href="/css/account/login.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/main/resources/static/css/reset.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/account/login.css">
     <link rel="shortcut icon" type="image/x-icon" href="/src/main/resources/static/images/favicon.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="wrap">
-        <header id = "header">
-            <div class="container">
-                <div class="logo">
-                    <div class="logo-wrap">
-                        <a href="#"><img src="/src/main/resources/static/images/account/gaewoodi.png" alt="개우디서점에 오신것을 환영합니다."></a>
-                        <!-- <a href="index.html"><img src="images/logo/logo2.png" alt=""></a> -->
-                    </div>
-                </div>
-                <div class="search-wrap">
-                    <form action="">
-                        <input type="text" class="search">
-                    </form>
-                    <div class="search-btnwrap">
-                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </div>
-                </div>
-                <div class="mypage">
-                    <div class="mypage-wrap">
-                        <ul>
-                            <li><a href="#">
-                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
-                            </li>
-                            <li><a href="#">
-                                <i class="fa-solid fa-user"></i></a>
-                            </li>
-                            <li><a href="#">
-                                <i class="fa-solid fa-cart-shopping"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="menu-menu">
-                                    <i class="fa-sharp fa-solid fa-bars"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    <div>
-                </div>
-        </header>
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
     </div>
+
     <div class="wrap">
         <div class="login-wrap">
             <div class="welcom-box">
                 <h1>Welcome</h1>
             </div>
             <div class="login-box">
-                <form method="post" id="login-form">
+                <form method="post" id="login-form" onsubmit="return loginCheck()">
                     <div class="login">          
-                        <input type="text" name="frm" class="userid" onsubmit="return loginCheck()" placeholder="Email" /><br />
-                        <input type="password" class="password" placeholder="Password" /><br />
+                        <input type="text" name="frm" class="userid" placeholder="Email" /><br />
+                        <input type="password" class="passwd" placeholder="Password" /><br />
                     </div>
                     <label class="remember-check">
                         <input type="checkbox" id="remember-check" checked>로그인 상태 유지
                     </label>
-                    <button class="btn">로그인</button> 
+                    <button type="submit" class="btn">로그인</button>
                     
                     <div class="tbody">
                         <div class="tbody1">
@@ -118,6 +88,21 @@
                 </div>
             </div>        
         </div>                               
-    </div>    
+    </div>
+
+    <script>
+        function loginCheck() {
+            let userid = $(".userid");
+            let passwd = $(".passwd");
+
+            if( !userid.val() ) {
+                alert("아이디를 입력해 주세요.");
+                userid.focus();
+                return false;
+            }
+        }
+    </script>
+
+    <script th:src="@{/js/fragment/header.js}"></script>
 </body>
 </html>
