@@ -13,3 +13,7 @@ CREATE TABLE user_mst (
     user_level int default 1,
     primary key(user_id)
 );
+
+SELECT * FROM user_mst;
+
+desc book_mst;

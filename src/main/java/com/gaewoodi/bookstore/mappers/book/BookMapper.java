@@ -10,7 +10,6 @@ import java.util.Map;
 @Mapper
 public interface BookMapper {
 
-
     @Select("SELECT * FROM book_mst LIMIT #{start}, #{limit}")
     List<BookDto> getBook(Map<String, Object> map);
 

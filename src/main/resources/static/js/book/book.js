@@ -62,3 +62,24 @@ function AllUnCheck(){
         v.checked = false;
     });
 }
+function formCheck() {
+
+    $.ajax({
+        type: "post",
+        url: "/cart?(bookId=${cart.bookId})",
+        dataType: "json",
+        data: {
+            "bookId": bookId
+        },
+        success: function(res) {
+            if(res.msg == "success") {
+                alert("장바구니에 추가되었습니다.");
+                location.href = "/cart";
+            }
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+
+}
