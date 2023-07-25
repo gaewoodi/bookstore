@@ -10,4 +10,15 @@ public class AccountController {
     public String urlAccount(){
         return "admin/admin_Account";
     }
+
+
+
+
+
+
+
+    @GetMapping("/admin/AccountView")
+    public String urlAccountView(){
+        return "admin/AccountView";
+    }
 }

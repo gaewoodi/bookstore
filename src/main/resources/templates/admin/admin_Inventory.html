@@ -13,8 +13,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/admin/header.css">
-    <link rel="stylesheet" href="/css/admin/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/body.css">
+    <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
+    <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
     <link rel="stylesheet" href="/css/admin/inventory.css">
     <link rel="stylesheet" href="/css/admin/meida.css">
 
@@ -33,7 +34,7 @@
         <main>
             <div class="main-right">
                 <div class="main-inven">
-                    <h2 style="margin-bottom: 6px;">::재고관리 페이지</h2>
+                    <h2>::재고관리 페이지</h2>
                     <div class="inven-top">
                         <ul>
                             <li><a href="#">전체목록</a></li>
@@ -52,11 +53,11 @@
                     <table id="inventory">
                         <thead>
                             <tr>
-                                <th>도서번호</th>
+                                <th>도서코드</th>
                                 <th>도서명</th>
-                                <th>창고재고</th> 
-                                <th>주문대기</th>
-                                <th>총 재고량</th>
+                                <th>창고재고</th>  <!--책 수량-->
+                                <th>주문대기</th> <!-- 주문대기 -->
+                                <th>가 재고량</th> <!--창고재고 - 결제-->
                                 <th>재고수정</th> 
                                 <th>통보수량</th> <!--상품 페이지에 나오는 남은 재고-->
                                 <th>판매상황</th> <!--판매,품절,재입고-->
@@ -65,8 +66,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                               <td>123123123</td> 
-                               <td>미움받을용기</td>
+                               <td>[[${bookCode}]]</td> 
+                               <td>[[${bookName}]]</td>
                                <td>50</td>
                                <td>10</td>
                                <td>40</td>

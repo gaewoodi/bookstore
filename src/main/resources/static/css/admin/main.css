@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-.main-right {
-    background-color: aliceblue;
-    padding-top: 1%;
-    padding-left: 5px;
-    height: 100vh;
-    margin-left: 180px;
-}
 
 /* ------------------------------ 대시보드 css---------------------------------- */
 .top-h2 {
