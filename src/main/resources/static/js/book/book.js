@@ -62,15 +62,18 @@ function AllUnCheck(){
         v.checked = false;
     });
 }
+
+
+
+
 function formCheck() {
+    const checkValue = document.querySelector(".check").value;
 
     $.ajax({
         type: "post",
         url: "/cart?(bookId=${cart.bookId})",
         dataType: "json",
-        data: {
-            "bookId": bookId
-        },
+        data: checkValue,
         success: function(res) {
             if(res.msg == "success") {
                 alert("장바구니에 추가되었습니다.");

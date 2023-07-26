@@ -26,16 +26,16 @@ public class CartController {
         return "purchase/cart";
     }
 
-    @PostMapping("/cart")
-    @ResponseBody
-    public  Map<String, Object> getCart(@ModelAttribute CartDto cartDto) {
-        Map<String, Object> map = new HashMap<>();
-
-        cartMapper.getBookData();
-
-        map.put("msg", "success");
-
-
-        return map;
-    }
+//    @PostMapping("/cart")
+//    @ResponseBody
+//    public  Map<String, Object> getCart(@ModelAttribute CartDto cartDto) {
+//        Map<String, Object> map = new HashMap<>();
+//
+//        cartMapper.getBookData();
+//
+//        map.put("msg", "success");
+//
+//
+//        return map;
+//    }
 }

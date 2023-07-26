@@ -13,12 +13,12 @@ import java.util.List;
 @Mapper
 public interface CartMapper {
 
-//    @Insert("INSERT INTO cart VALUES (NULL, book_code = {bookCode}, book_name = {bookName}, book_count  = #{bookCount}, author = #{author}, publisher = #{publisher}, publication_date = #{publicationDate}, category = #{category}, price = #{price})")
+//    @Insert("INSERT INTO cart VALUES (NULL, {bookCode}, {bookName}, #{bookCount}, #{author}, #{publisher}, #{publicationDate}, #{category}, #{price})")
 //    void getCart(CartDto cartDto);
 
     @Select("SELECT * FROM book_mst WHERE book_id = #{bookId}")
     List<BookDto> getCartBook();
 
-    @Select("SELECT * FROM book_mst")
-    List<BookDto> getBookData();
+//    @Select("SELECT * FROM book_mst")
+//    List<BookDto> getBookData();
 }
