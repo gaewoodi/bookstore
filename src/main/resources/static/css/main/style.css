@@ -616,9 +616,14 @@ input, textarea, select {
 
 
 
-.main6 {
+
+
+
+/* main css */
+ .main6 {
     font-family: 'Nanum Gothic', sans-serif;
     margin-top: 10px;
+    position: relative;
 }
 
 .main6-h1 h1 {
@@ -631,24 +636,31 @@ input, textarea, select {
 }
 
 
-
-
 .main6-menu ul {
     display: flex;
+    margin-left :310px;
     margin-top: 30px;
-    padding-left: 300px;
+    /* 넘치면 가려주세요 */
+    overflow:hidden;
 }
+
+.main6-menu ul li {
+    float: left;
+}
+
 
 .main6-menu ul a {
     margin-right: 40px;
     justify-content: center;
     font-weight: bolder;
-    
 }
+
 
 .main6-menu ul a:hover {
     color: rgb(239, 84, 77);
 }
+
+
 
 .main6-list-wrap {
     display: flex;
@@ -657,17 +669,14 @@ input, textarea, select {
 }
 
 
-
-
-
-
 .main6-list {
     width: 1200px;
     margin: 0 auto;
     flex-basis: 16.5%;
-    margin-top: 7px;
+    margin-top: 20px;
     text-align: center;
     position: relative;
+    /* z-index: 10; */
 }
 
 
@@ -676,6 +685,8 @@ input, textarea, select {
     height: 210px;
     box-shadow: 0 0 5px 3px rgb(192, 192, 192);
 }
+
+
 .main6-list-subject img:hover {
     transform: scale(1.03);
     transition: 0.1s;
@@ -700,19 +711,19 @@ input, textarea, select {
 
 .main6-list-text p:hover {
     color: #777;
-    
 }
 
-.main6-list1 {
-    width: 1200px;
-    margin: 0 auto;
-    flex-basis: 16.5%;
-    text-align: center;
+
+
+#two {
+    width : 1200px;
     position: absolute;
-    top: 1330px;
-    left : 400;
-    display: none;
+    top: 0px;
+    left: 0px;
+    /* z-index: 5;   */
 }
+
+
 
 
 

@@ -11,8 +11,8 @@
     <link rel="stylesheet" th:href="@{/css/main/owl.theme.default.css}">
     <!-- <link rel="stylesheet" href="/main/resources/static/css/main/style.css">
     <link rel="stylesheet" href="/main/resources/static/css/main/owl.carousel.css">
-    <link rel="stylesheet" href="/main/resources/static/css/main/owl.theme.default.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" /> -->
+    <link rel="stylesheet" href="/main/resources/static/css/main/owl.theme.default.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
     <script th:src="@{https://code.jquery.com/jquery-latest.min.js}"></script>
     <script th:src="@{/js/main/js.js}"></script>
     <script th:src="@{/js/main/owl.carousel.js}"></script>
@@ -298,137 +298,141 @@
                     <div class="main6-h1">
                         <h1>BESTSELLER</h1>
                     </div>
-                    <div class="main6-secondwrap">
-                        <div class="main6-menu">
-                            <ul>
-                                <a href="#" onclick="menu2one()"><li>문학/소설</li></a>
-                                <a href="#" onclick="menu2two()"><li>유아/청소년</li></a>
-                                <a href="#" onclick="menu2three()"><li>육아</li></a>
-                                <a href="#" onclick="menu2four()"><li>건강</li></a>
-                                <a href="#" onclick="menu2five()"><li>경제</li></a>
-                                <a href="#" onclick="menu2six()"><li>인문/사회</li></a>
-                                <a href="#" onclick="menu2seven()"><li>과학/IT</li></a>
+                    <div class="main6-secondwrap">  
+                        <div class="main6-menu"><!-- //tab_menu -->
+                            <ul> <!-- list-->
+                                <li class="is_on"><!-- is_on -->
+                                    <a href="#one" class="btn">문학/소설</a>
+                                </li> 
+                                <li><a href="#two" class="btn">유아/청소년</a></li>
+                                <li><a href="#" class="btn">육아</a></li>
+                                <li><a href="#" class="btn">건강</a></li>
+                                <li><a href="#" class="btn">경제</a></li>
+                                <li><a href="#" class="btn">인문/사회</a></li>
+                                <li><a href="#" class="btn">과학</a></li>
                             </ul>
-                        </div>
-                        <div class="main6-list">
-                            <div class="main6-list-wrap">
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#" ><h6>센강의 이름 모를 여인</h6></a>
-                                           <a href="#"><p>14800원 + 1480P</p></a>
+
+
+
+                            <!-- 재확인 -->
+                            <div class="main6-list"> <!-- cont_area -->
+                                <!-- 문학/소설 -->
+                                <div id="one" class="main6-list-wrap"> <!-- //cont -->
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#" ><h6>센강의 이름 모를 여인</h6></a>
+                                                <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>우리가 빛의 속도로 <br/>갈 수 없다면</h6></a>
+                                                <a href="#"><p>9900원 + 990P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>백의 그림자</h6></a>
+                                                <a href="#"><p>11700원 + 1170P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>천개의파랑</h6></a>
+                                                <a href="#"><p>12420원 + 1240P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>훌훌</h6></a>
+                                                <a href="#"><p>14850원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
+                                                <a href="#"><p>26820원 + 1480P</p></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>우리가 빛의 속도로 <br/>갈 수 없다면</h6></a>
-                                            <a href="#"><p>9900원 + 990P</p></a>
+    
+                                <!-- 유아/청소년 -->
+                                <div id="two" class="main6-list-wrap"> <!-- //cont -->
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
+                                               <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>백의 그림자</h6></a>
-                                            <a href="#"><p>11700원 + 1170P</p></a>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>구미호식당</h6></a>
+                                                <a href="#"><p>9900원 + 990P</p></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>천개의파랑</h6></a>
-                                            <a href="#"><p>12420원 + 1240P</p></a>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>설민석의 한국사 대모험</h6></a>
+                                                <a href="#"><p>11700원 + 1170P</p></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>훌훌</h6></a>
-                                            <a href="#"><p>14850원 + 1480P</p></a>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>흔한남매</h6></a>
+                                                <a href="#"><p>12420원 + 1240P</p></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="main6-list 1">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
-                                            <a href="#"><p>26820원 + 1480P</p></a>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>에그박사</h6></a>
+                                                <a href="#"><p>14850원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
+                                                <a href="#"><p>26820원 + 1480P</p></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-
-                        <div class="main6-list1">
-                            <div class="main6-list-wrap">
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
-                                           <a href="#"><p>14800원 + 1480P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>구미호식당</h6></a>
-                                            <a href="#"><p>9900원 + 990P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>설민석의 한국사 대모험</h6></a>
-                                            <a href="#"><p>11700원 + 1170P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>흔한남매</h6></a>
-                                            <a href="#"><p>12420원 + 1240P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>에그박사</h6></a>
-                                            <a href="#"><p>14850원 + 1480P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="main6-list 2">
-                                    <div class="main6-list-subject">
-                                        <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
-                                        <div class="main6-list-text">
-                                            <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
-                                            <a href="#"><p>26820원 + 1480P</p></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div>    
                     </div>
                 </div>
             </div>
