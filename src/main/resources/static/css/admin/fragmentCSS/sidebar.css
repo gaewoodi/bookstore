@@ -1,0 +1,55 @@
+@charset 'UTF-8';
+
+.sidebar {
+  background-color: rgb(255, 177, 172);
+  top: 0;
+  width: 180px;
+  height: 100vh;
+  position: fixed;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0, auto;
+}
+
+.sidebar li {
+  padding: 10px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar .logo {
+  text-align: center;
+  height: 82px;
+  border-bottom: 1px solid #fff;
+}
+
+
+.sidebar .dashboard {
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+.sidebar .sub-link {
+  margin-left: 20px;
+  display: none;
+  max-height: 0;
+  overflow: auto;
+}
+
+.dashboard.opened .sub-link,
+#dash-up {
+  display: block;
+  max-height: 300px;
+}

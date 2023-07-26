@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 @charset 'utf-8';
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+>>>>>>> origin/admin
 * {
     margin: 0;
     padding: 0;
@@ -13,8 +17,9 @@ html {
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
     font-family: 'Poppins', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 ol, ul {
