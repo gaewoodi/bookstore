@@ -46,7 +46,7 @@
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="cart: ${cart}">
-                                <input type="hidden" th:text="${cart.bookId}">
+                                <input type="text" th:text="${cart.bookId}">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
                                     <img th:src="@{/images/purchase/backgang.jpg}">

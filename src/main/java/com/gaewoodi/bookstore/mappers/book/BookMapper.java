@@ -15,4 +15,5 @@ public interface BookMapper {
 
     @Select("SELECT count(*) FROM book_mst")
     int getTotalCount();
+
 }

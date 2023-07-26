@@ -28,9 +28,33 @@ function checkboxClick(){
     });
 
     // 출력
-    // document.getElementById('result').innerText = result;
+    document.getElementById('result').innerText = result;
 
     console.log(result);
+
+    const cartButton = document.querySelector(".cart-button");
+
+    cartButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "post",
+            url: "/cart",
+            dataType: "json",
+            data: result,
+            success: function(res) {
+                if(res.msg == "success") {
+                    alert("장바구니에 추가되었습니다.");
+                    location.href = "/cart";
+                }
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+    });
+        
 
     //체크박스 전체개수와 체크된 체크박스 전체개수가 같으면 전체 체크박스 체크
     if(allCount == selectedElementsCount){
@@ -41,8 +65,6 @@ function checkboxClick(){
     else{
         document.getElementById('selectAll').checked = false;
     }
-
-    
 
 
 }
@@ -66,23 +88,4 @@ function AllUnCheck(){
 
 
 
-function formCheck() {
-    const checkValue = document.querySelector(".check").value;
 
-    $.ajax({
-        type: "post",
-        url: "/cart?(bookId=${cart.bookId})",
-        dataType: "json",
-        data: checkValue,
-        success: function(res) {
-            if(res.msg == "success") {
-                alert("장바구니에 추가되었습니다.");
-                location.href = "/cart";
-            }
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
-
-}
