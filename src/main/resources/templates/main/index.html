@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지금핫한 : 신작추천!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/main/owl.theme.default.css}">
+    <!-- <link rel="stylesheet" href="/main/resources/static/css/main/style.css">
+    <link rel="stylesheet" href="/main/resources/static/css/main/owl.carousel.css">
+    <link rel="stylesheet" href="/main/resources/static/css/main/owl.theme.default.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <script th:src="@{https://code.jquery.com/jquery-latest.min.js}"></script>
+    <script th:src="@{/js/main/js.js}"></script>
+    <script th:src="@{/js/main/owl.carousel.js}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/js/main/js.js"></script>
+    <script src="/js/main/owl.carousel.js"></script> -->
+
+</head>
+<body>
+    <div class="wrap">
+        <header id = "header">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="#"><img src="/images/main/logo/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                        <!-- <a href="index.html"><img src="images/logo/logo2.png" alt=""></a> -->
+                    </div>
+                </div>
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href="" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+                <div class="mypage">
+                    <div class="mypage-wrap">
+                        <ul>
+                            <li><a href="#">
+                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            </li>
+                            <li><a href="#">
+                                <i class="fa-solid fa-user"></i></a>
+                            </li>
+                            <li><a href="#">
+                                <i class="fa-solid fa-cart-shopping"></i></a>
+                            </li>
+                            <li class="four" onclick="openmenu()">
+                                <a href="#">
+                                    <i class="fa-sharp fa-solid fa-bars"></i>
+                                </a>
+                                <ul class="submenu"> 
+                                    <h1>전체카테고리</h1>
+                                    <li><a href="#">소설/시/희곡</a></li>
+                                    <li><a href="#">에세이</a></li>
+                                    <li><a href="#">인문/사회</a></li>
+                                    <li><a href="#">정치/경제</a></li>
+                                    <li><a href="#">자기계발</a></li>
+                                    <li><a href="#">역사/문화</a></li>
+                                    <li><a href="#">IT/과학</a></li>
+                                    <li><a href="#">가정/생활</a></li>
+                                    <li><a href="#">진로/교육</a></li>
+                                    <li><a href="#">유아/어린이</a></li>
+                                    <li><a href="#">기타</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <div>
+                </div>
+        </header>
+
+
+
+
+        <section id ="category">
+            <div class="container">
+                <div class="menu">
+                    <div class="menu-wrap">
+                        <ul>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">웹툰</a></li>
+                            <li><a href="#">웹소설</a></li>
+                            <li><a href="#">책</a></li>
+                            <li><a href="#">바로가기</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="button-wrap">
+                        <ul>
+                            <li class="first"><a href="#">지금핫한</a></li>
+                            <li><a href="#">남성인기</a></li>
+                            <li><a href="#">실시간랭킹</a></li>
+                            <li><a href="#">완결추천</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">오늘신작</a></li>
+                            <li><a href="#">완전판</a></li>
+                            <li><a href="#">여성인기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <main id ="main">
+            <div class="container">
+                <div class="main1">
+                    <div class="main1-wrap">
+                        <img src="/images/main/book/갓오브블랙필드.jpg">
+                        <h1><a href="#"><strong>갓오블</strong>컴백기념 3억 쏜다!</a></h1>
+                    </div>
+                </div> 
+                <div class="main2">
+                    <div class="main2-wrap">
+                        <div class="owl-carousel owl-theme">
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/main/book-main/원피스 고화질.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>2023 추천작 : 원피스</h1></a>
+                                    <a href="#"><p>난 해적왕이 될거야</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/main/book-main/마리끌레르.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>Marrie claire</h1></a>
+                                    <a href="#"><p>두번째 스물로 돌아온 배우 문가영</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/main/book-main/신과함께.jpg" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>신과함께 : 죄와벌 절찬재판매중 !</h1></a>
+                                    <a href="#"><p>지나간 일에 새로운 눈물을 낭비하지 말자</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/main/book-main/정여울의 심리테라피.png" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>열번째 : 정여울 신작</h1></a>
+                                    <a href="#"><p>나를 돌보지 않는 나에게</p></a>
+                                </div>
+                            </div>
+                            <div class="main2-img item">
+                                <a href="#">
+                                    <img src="images/main/book-main/나미야잡화점의 기적.png" alt="원피스">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>히가시노게이고</h1></a>
+                                    <a href="#"><p>당신에게도 나누고 싶은 고민이 있나요?</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- main3은 비디오자리임 -->
+                <div class="main3"></div>
+                </br>
+                <div class="main4">
+                    <div class="main4-wrap">
+                        <div class="recommand1">
+                            <div class="recommand-gawoodi">
+                                <div class="recommand-gawoodi1">
+                                    <div class="recommand-subject">
+                                        <h4>| GAWOOD <strong>Choice</strong>!</h4>
+                                        <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi1.jpg"></a>
+                                    </div>
+                                    <div class="recommand-book">
+                                        <div class="recommand-book1">
+                                            <a href="#"><h2>밀레니얼 세대가 <br/>돈 버는법!</h2><br/></a>
+                                            <a href="#"><p>프리랜서 5년 차가 알려주는  <br/>‘내 일 찾기’ 프로젝트</p></a>
+                                        </div>
+                                        
+                                        <div class="recommand-book2">
+                                            <a href="#"><h2>요즘 부부를 위한 <br/>신디의 관계수업</h2><br/></a>
+                                            <a href="#"><p>서로 다른 너와 나를 위한 <br/>9가지 결혼 심리학</p></a>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="recommand-gawoodi2">
+                                    <div class="recommand-subject">
+                                        <a href="#"><h4>MEDIA <strong>Choice</strong>!</h4></a>
+                                        <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi2.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trend">
+                                <div class="recommand-subject">
+                                    <h4>| Trend<strong> Issue</strong>? |</h4>
+                                    <a href="#"><img src="/images/main/main-recommand/Trend.jpg"></a>
+                                    <br/>
+                                    <div class="recommand-text">
+                                        <a href="#"><p>지금 플랫폼기업에 올라탈때! </p></a></a>
+                                        <a href="#"><h4>≪ 카카오 네이버, 지금 사도 될까요? ≫</h4></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="recommand2">
+                            <div class="choice">
+                                <div class="choice-wrap">
+                                    <h1>출판사 <strong>추천!</strong></h1>
+                                    <div class="border">
+                                        <a href="#"><img src="/images/main/main-recommand/choice.jpg" alt=""></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>나에게 고맙다</h4></a>
+                                            <a href="#"><p class="p"><strong>전승환의 인생내공</strong></p></a>
+                                            <a href="#"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-wrap">
+                                    <h1>미디어 <strong>추천!</strong></h1>
+                                    <div class="border">
+                                        <a href="#"><img src="/images/main/main-recommand/media.jpg" alt=""></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>대통령의 염쟁이</h4></a>
+                                            <a href="#"><p class="p"><strong>노무현·김영삼·이건희
+                                                장례지도사가 들려주는 죽음과 삶의 이야기</strong></p></a>
+                                            <a href="#"><p>장례명장이 어루만진 삶의 끝과 시작</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="thisbook">
+                                <div class="thisbook-wrap">
+                                    <h1><strong>이 책</strong> 어때?</h1>
+                                    <div class="border">
+                                        <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>꽃잎 한 장처럼</h4></a>
+                                            <a href="#"><p class="p"><strong>오늘을 살아가는 <br/>당신을 위한 이해인 수녀의 시 편지</strong></p></a>
+                                            <a href="#"><p>살아갈수록 나에겐 <br/>사람들이
+                                                어여쁘게 <br/>사랑으로 걸어오네</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+
+
+
+        <br/>
+            <div class="ad">
+                <div class="ad-wrap">
+                    <div class="ad-text one">
+                        <a href="#">
+                            <p class="ad1"><i class="fa-solid fa-gift"></i>  매일매일 선착순 도서 상품권 받기 <strong>이달의 혜택모음</strong></p></a>
+                    </div>
+                    <div class="ad-text two">
+                        <a href="#"><p class="ad2">친구에게 상품권 선물 FLEX로 포인트 적립까지 <strong>상품권선물하기</strong></p></a>
+                    </div>
+                </div>
+            </div>
+        <br/>
+        
+
+
+
+
+
+
+
+
+        
+        <div class="main">
+            <div class="container">
+                <div class="main6">
+                    <div class="main6-h1">
+                        <h1>BESTSELLER</h1>
+                    </div>
+                    <div class="main6-secondwrap">  
+                        <div class="main6-menu"><!-- //tab_menu -->
+                            <ul> <!-- list-->
+                                <li class="is_on"><!-- is_on -->
+                                    <a href="#one" class="btn">문학/소설</a>
+                                </li> 
+                                <li><a href="#two" class="btn">유아/청소년</a></li>
+                                <li><a href="#" class="btn">육아</a></li>
+                                <li><a href="#" class="btn">건강</a></li>
+                                <li><a href="#" class="btn">경제</a></li>
+                                <li><a href="#" class="btn">인문/사회</a></li>
+                                <li><a href="#" class="btn">과학</a></li>
+                            </ul>
+
+
+
+                            <!-- 재확인 -->
+                            <div class="main6-list"> <!-- cont_area -->
+                                <!-- 문학/소설 -->
+                                <div id="one" class="main6-list-wrap"> <!-- //cont -->
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#" ><h6>센강의 이름 모를 여인</h6></a>
+                                                <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>우리가 빛의 속도로 <br/>갈 수 없다면</h6></a>
+                                                <a href="#"><p>9900원 + 990P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>백의 그림자</h6></a>
+                                                <a href="#"><p>11700원 + 1170P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>천개의파랑</h6></a>
+                                                <a href="#"><p>12420원 + 1240P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>훌훌</h6></a>
+                                                <a href="#"><p>14850원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
+                                                <a href="#"><p>26820원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- 유아/청소년 -->
+                                <div id="two" class="main6-list-wrap"> <!-- //cont -->
+                                    <div class="main6-list">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
+                                               <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>구미호식당</h6></a>
+                                                <a href="#"><p>9900원 + 990P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>설민석의 한국사 대모험</h6></a>
+                                                <a href="#"><p>11700원 + 1170P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>흔한남매</h6></a>
+                                                <a href="#"><p>12420원 + 1240P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>에그박사</h6></a>
+                                                <a href="#"><p>14850원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main6-list 2">
+                                        <div class="main6-list-subject">
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
+                                                <a href="#"><p>26820원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <footer id ="footer">
+            <div class="container">
+                <div class="info1">
+                    <div class="info1-wrap">
+                        <ul>
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div class="info2-wrap">
+                        <ul>
+                            <li>대표자 이진수, 김성수</li>
+                            <li>호스팅서비스사업자 (주)카카오엔터테인먼트</li>
+                            <li><a href="#">사업자정보확인</a></li>
+                        </ul>
+                        <ul>
+                            <li>사업자등록번호 220-88-02594</li>
+                            <li>통신판매업신고 2018-성남분당B-0004</li>
+                        </ul>
+                        <ul>
+                            <li>대표전화 051-222-0000</li>
+                            <li>이메일 koreait@koreait.co.kr</li>
+                            <li>부산광역시 부산진구 에이원프라자 1동 403호</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info3">
+                    <p>Korea it Academy &copy;</p>
+                </div>
+            </div>    
+        </footer>
+    </div>
+    </body>
+</html>
