@@ -20,6 +20,20 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <style>
+    table tr{
+      border-bottom: 1px solid #ccc;
+    }
+
+    table tr:nth-child(1) {
+      border-top:1px solid #ccc;
+    }
+
+    .tit {
+      background-color: #0b5ed7;
+      color: #fff;
+      text-align: center;
+    }
+
 
   </style>
 </head>
@@ -37,10 +51,15 @@
             <table>
               <tbody>
                 <tr>
-                  <td class="tit w-img">이미지</td> <!-- 프로필 사진 -->
+                  <td class="tit w-img">이미지
+                    <img>
+                  </td> <!-- 프로필 사진 -->
 
                   <td class="tit w-15">번호 <!-- 계정 넘버 -->
                     <p>구분<!-- 관리자, 회원 구분 --></p>
+                  </td>
+                  <td class="w-35">
+                    <p></p>
                   </td>
                 </tr>
                 <tr>
