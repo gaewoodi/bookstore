@@ -1,4 +1,4 @@
-package com.gaewoodi.bookstore.mappers.book;
+package com.gaewoodi.bookstore.mappers.purchase;
 
 import com.gaewoodi.bookstore.dto.BookDto;
 import org.apache.ibatis.annotations.Mapper;

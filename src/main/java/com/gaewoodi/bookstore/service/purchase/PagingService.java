@@ -2,8 +2,7 @@ package com.gaewoodi.bookstore.service.purchase;
 
 import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.purchase.PagingDto;
-import com.gaewoodi.bookstore.mappers.book.BookMapper;
-import com.gaewoodi.bookstore.mappers.purchase.PurchaseMapper;
+import com.gaewoodi.bookstore.mappers.purchase.BookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

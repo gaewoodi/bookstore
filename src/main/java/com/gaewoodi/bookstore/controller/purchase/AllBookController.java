@@ -1,6 +1,6 @@
-package com.gaewoodi.bookstore.controller.book;
+package com.gaewoodi.bookstore.controller.purchase;
 
-import com.gaewoodi.bookstore.mappers.book.BookMapper;
+import com.gaewoodi.bookstore.mappers.purchase.BookMapper;
 import com.gaewoodi.bookstore.service.purchase.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/book")
-public class BookController {
+public class AllBookController {
 
     @Autowired
     private BookMapper bookMapper;
@@ -24,7 +24,7 @@ public class BookController {
         model.addAttribute("book", pagingService.getBookPaging(page));
         model.addAttribute("pagination", pagingService.bookCalculator(page));
 
-        return "book/book";
+        return "purchase/book";
     }
 
 }

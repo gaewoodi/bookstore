@@ -1,14 +1,11 @@
 package com.gaewoodi.bookstore.controller.purchase;
 
-import com.gaewoodi.bookstore.dto.BookDto;
-import com.gaewoodi.bookstore.dto.purchase.CartDto;
-import com.gaewoodi.bookstore.mappers.book.CartMapper;
+import com.gaewoodi.bookstore.mappers.purchase.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.HashMap;
 import java.util.Map;
 
