@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.purchase;
 
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.mappers.purchase.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,17 +23,5 @@ public class CartController {
         return "purchase/cart";
     }
 
-    @PostMapping
-    @ResponseBody
-    public Map<String, Object> saveCart(@RequestParam int bookId) {
-        Map<String, Object> map = new HashMap<>();
-
-        cartMapper.getBookData(bookId);
-        map.put("msg", "success");
-
-        System.out.println(bookId);
-        return map;
-
-    }
 
 }

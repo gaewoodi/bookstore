@@ -17,5 +17,5 @@ public interface CartMapper {
     BookDto getCartBook(int bookId);
 
     @Select("SELECT * FROM book_mst")
-    BookDto getBookData(int bookId);
+    BookDto getBookData(BookDto bookDto);
 }

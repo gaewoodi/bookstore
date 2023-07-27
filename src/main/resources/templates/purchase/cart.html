@@ -10,9 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
@@ -20,11 +20,11 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/cart.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
-    <link rel="stylesheet" href="/static/css/reset.css">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/purchase/cart.css">
+    <link rel="stylesheet" href="/static/css/purchase/cart.css"> -->
 </head>
 
 <body>
@@ -46,10 +46,9 @@
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="cart: ${cart}">
-                                <input type="text" th:text="${cart.bookId}">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
-                                    <img th:src="@{/images/purchase/backgang.jpg}">
+                                    <img th:src="@{/images/no_image_pink.png}">
                                     <!-- <img src="/static/images/purchase/backgang.jpg"> -->
                                 </div>
                                 <div class="book-data">

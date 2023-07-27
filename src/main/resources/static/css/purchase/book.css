@@ -1,5 +1,10 @@
 @charset 'utf-8';
 
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -88,6 +93,8 @@
     padding-left: 20px;
     width: 100%;
     height: 240px;
+
+    font-size: 14px;
 }
 
 .image-container {
@@ -134,10 +141,13 @@
     padding: 1px;
 }
 
+.book-data tbody td:nth-child(2), .book-data tbody tr:nth-child(2) {
+    padding: 5px;
+}
 
 /* 도서제목 */
 .book-data tbody tr:nth-child(2) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 
     /* 줄바꿈 안 시키는거 */
@@ -160,6 +170,7 @@
 }
 
 .paging-container { 
+    margin-top: 20px;
     text-align: center;
 }
 

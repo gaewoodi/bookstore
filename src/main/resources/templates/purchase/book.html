@@ -1,4 +1,4 @@
-<!DOCTYPE html>
++<!DOCTYPE html>
 <html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,32 +9,33 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
     <!-- css -->
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/book/book.css}">
+    <link rel="stylesheet" th:href="@{/css/purchase/book.css}">
     <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
     <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/book/book.css"> -->
+    <link rel="stylesheet" href="/static/css/purchase/book.css"> -->
 </head>
 
 <body>
     <div id="container">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
-
         <main class="main-container">
             <div class="serve-container">
                 <!--main-container basis 1 -->
                 <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
-                
+                <th:block>
+                    
+                </th:block>
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <div class="title-container">
@@ -42,10 +43,9 @@
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
                         <div class="button-container">
-                            <button type="button" class="cart-button" onclick="getCart()">장바구니</button>
-                            <!-- <a href="/cart?">
-                                <button>장바구니</button>
-                            </a> -->
+                            <a>
+                                <button type="submit" class="cart-button">장바구니</button>
+                            </a>
                         </div>
                     </div>
                     <hr>
@@ -55,8 +55,6 @@
                             <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.png}" alt="백광">
-                                <!-- <img th:src="@{http://localhost:8888/image} + ${book.saveName}" alt="백광"> -->
-                                <!-- <img src="/static/images/no_image_pink.png"> -->
                             </div>
                             <div class="book-data">
                                 <table>
@@ -64,7 +62,7 @@
                                         <tr>
                                             <td class="bookCode">[[${book.bookCode}]]</td>
                                         </tr>
-                                        <tr>0v                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                        <tr>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                                             <td>도서제목</td>
                                             <td class="bookName">[[${book.bookName}]]</td>
                                         </tr>
@@ -95,8 +93,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            
                            
+                            <!-- <div class="button-container">
+                                <a th:href="@{/cart?(bookId=${book.bookId})}">
+                                    <button type="button">장바구니</button>
+                                </a>
+                            </div> -->
                         </div>
                     </div> 
 
@@ -127,10 +129,30 @@
         </main>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
+    <script>
+        let cartButton = document.querySelector(".cart-button");
+        
+        cartButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            //체크된 체크박스 전체개수
+            const query = 'input[name="check"]:checked'
+            // 선택된 목록 가져오기
+            const selectedElements = document.querySelectorAll(query);
+
+            let bookId = '';
+            // 선택된 목록에서 value 찾기
+            selectedElements.forEach((el) => {
+                bookId += el.value + '';
+            });
+
+            console.log("이벤트안" + bookId);
+            
+            location.href = `/cart?bookId=${bookId}`;
+        });
+    </script>
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/fragment/side_menu.js}"></script>
     <script th:src="@{/js/purchase/checkBox.js}"></script>
-    <script src="/js/purchase/test.js"></script>
-    <!-- <script src="/js/book/book.js"></script> -->
+    <!-- <script src="/js/purchase/book.js"></script> -->
 </body>
 </html>
