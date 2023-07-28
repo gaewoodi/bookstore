@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재고관리 페이지</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/admin/body.css">
+    <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
+    <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
+    <link rel="stylesheet" href="/css/admin/inventory.css">
+    <link rel="stylesheet" href="/css/admin/meida.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header th:insert="~{fragment/admin/header::headers}"></header>
+        <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
+
+        <main>
+            <div class="main-right">
+                <div class="main-inven">
+                    <h2>::재고관리 페이지</h2>
+                    <div class="inven-top">
+                        <ul>
+                            <li><a href="#">전체목록</a></li>
+                            <li><a href="#">부족한 상품8개</a></li>
+                        </ul>
+                    </div>
+                    <div class="inven-mid">
+                        <select>전체분류</select>
+                        <select>상품명</select>
+                        <input type="search">
+                    </div>
+                    <div class="inven-bot">
+                        <button>상품추가/옵션설정</button>
+                        <button>판매순위</button>
+                    </div>
+                    <table id="inventory">
+                        <thead>
+                            <tr>
+                                <th>도서코드</th>
+                                <th>도서명</th>
+                                <th>창고재고</th>  <!--책 수량-->
+                                <th>주문대기</th> <!-- 주문대기 -->
+                                <th>가 재고량</th> <!--창고재고 - 결제-->
+                                <th>재고수정</th> 
+                                <th>통보수량</th> <!--상품 페이지에 나오는 남은 재고-->
+                                <th>판매상황</th> <!--판매,품절,재입고-->
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                               <td>[[${bookCode}]]</td> 
+                               <td>[[${bookName}]]</td>
+                               <td>50</td>
+                               <td>10</td>
+                               <td>40</td>
+                               <td><input type="number" class="amount"></td>
+                               <td><input type="number" class="amount"></td>
+                               <td><select>판매중</select></td>
+                               <td><button class="btnIv">상품수정</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="apply"><button class="btn">설정 적용</button></div>
+            </div>
+        </main>
+    </div>
+    <script th:src="@{/js/admin/sidebar.js}"></script>
+</body>
+
+</html>

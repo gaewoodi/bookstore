@@ -1,0 +1,26 @@
+@charset 'utf-8';
+
+@media screen and (max-width: 1000px) {
+    .top-right .userinfo {
+        display: none;
+    }
+
+    .top-right .menu {
+        display: none;
+    }
+
+    .icons {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .section-left {
+        display: none;
+    }
+
+    .section-right {
+        flex-basis: 100%;
+    }
+}

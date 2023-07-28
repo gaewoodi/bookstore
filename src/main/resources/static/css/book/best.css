@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+body {
+    width:100%;
+    
+}
+.main-wrap {
+    width: 1400px;
+    margin-left: 200px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.menu-container {
+    height: calc(100vh - 80px);
+    flex-basis: 15%;
+    margin: 0 auto;
+}
+
+
+
+
+.menu-container ol ul {
+    padding: 20px 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.menu-container ul {
+    cursor: pointer;
+}
+
+.book-button, .mypage-button {
+    background-color: transparent;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mypage-menu {
+    display: none;
+
+    padding: 10px;
+}
+
+.sub-menu {
+    display: flex;
+
+    margin-bottom: 10px;
+}
+
+.sub-menu a {
+    display: flex;
+
+    line-height: 30px;
+
+    cursor: pointer;
+}
+
+.icon-box {
+    width: 20px;
+    
+    color: rgb(239, 84, 77);
+    text-align: center;
+}
+
+.mypage-menu strong {
+    padding-left: 5px;
+
+    font-size: 16px;
+}
+
+.box {
+    border-bottom: 2px solid #000;
+    width: 100%;
+    height: 120px;
+    
+}
+
+.box1 {
+    width: 100%;
+    height: 80px;    
+}
+
+.box1 p {
+    padding-top: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.txt1 {
+    color: #ff0b0b;
+}
+
+.txt {
+    text-align: right;
+}
+
+/* best page 시작 */
+
+.section-right {
+    flex-basis: 85%;
+}
+
+.search-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+.anb {
+    width: 100%;
+}
+
+.anb img {
+    width: 100%;
+}
+
+.btn button{
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 7px;
+    margin-top: 30px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.btn button:hover {
+    cursor: pointer;
+}
+
+.main-book {
+    width: 100%;
+    /* background-color: #ff0b0b; */
+    display: flex;
+    max-height: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+
+.book {
+    /* display: flex; */
+    width: 250px;
+    /* background-color: antiquewhite; */
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.img-wrap {
+    width: 250px;
+    height: auto;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: 250px;
+    transition: 0.5s;
+}
+
+.img-wrap img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.one-book .con{
+    height: 16px;
+}
+
+.one-book P {
+    font-size: 13px;
+}
+
+.one-book .one {
+    margin-top: 5px;
+    color: #201f1f;
+}
+
+.one-book .price {
+    padding-top: 5px;
+    font-size: 23px;
+}
+
+
+.book2 {
+    display: flex;
+    margin-top: 70px;
+}
+
+.book3 {
+    display: flex;
+    margin-top: 70px;
+}
+
+.pass {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pass button {
+    padding-right: 10px;
+    padding: 7px;
+    font-size: 20px;
+    background-color: #fff;
+    border: 1px solid #aaaaaa;
+    font-size: 13px;
+}
+
+.pass button:hover {
+    cursor: pointer;
+}
+
+
