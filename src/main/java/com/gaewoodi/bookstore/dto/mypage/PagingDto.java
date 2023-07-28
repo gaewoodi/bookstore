@@ -1,4 +1,4 @@
-package com.gaewoodi.bookstore.dto.purchase;
+package com.gaewoodi.bookstore.dto.mypage;
 
 import lombok.Data;
 

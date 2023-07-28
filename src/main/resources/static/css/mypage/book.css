@@ -58,9 +58,6 @@ body{
 }
 
 .button-container button {
-    width: 80px;
-    height: 30px;
-
     border-radius: 3px;
 
     font-size: 15px;
@@ -74,6 +71,11 @@ body{
 
 .button-container button:hover {
     background-color: #f9a4a4;
+}
+
+.cart-button {
+    width: 80px;
+    height: 30px;
 }
 
 .third-container {
@@ -142,13 +144,14 @@ body{
 }
 
 .book-data tbody td:nth-child(2), .book-data tbody tr:nth-child(2) {
-    padding: 5px;
+    padding: 6px;
 }
 
 /* 도서제목 */
 .book-data tbody tr:nth-child(2) {
     font-size: 18px;
     font-weight: bold;
+    flex-direction: row;
 
     /* 줄바꿈 안 시키는거 */
     white-space: nowrap;
@@ -169,6 +172,13 @@ body{
     margin-left: 5px;
 }
 
+.purchase-button {
+    width: 100px;
+    height: 50px;
+}
+
+
+/* paging */
 .paging-container { 
     margin-top: 20px;
     text-align: center;

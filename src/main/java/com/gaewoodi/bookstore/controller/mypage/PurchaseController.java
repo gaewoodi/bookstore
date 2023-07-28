@@ -1,8 +1,8 @@
-package com.gaewoodi.bookstore.controller.purchase;
+package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.mappers.purchase.PurchaseMapper;
-import com.gaewoodi.bookstore.service.purchase.PagingService;
-import com.siot.IamportRestClient.IamportClient;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
+import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
+import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +20,16 @@ public class PurchaseController {
     private PurchaseMapper purchaseMapper;
 
     @Autowired
+    private CartMapper cartMapper;
+
+    @Autowired
     private PagingService pagingService;
 
     @GetMapping("")
-    public String getPurchase() {
-        return "purchase/purchase";
+    public String getPurchase(@RequestParam int bookId, Model model) {
+        model.addAttribute("book", cartMapper.getCartBook(bookId));
+
+        return "mypage/purchase";
     }
 
     @PostMapping("/kakaopay")
@@ -72,12 +77,12 @@ public class PurchaseController {
     @GetMapping("/list")
     public String getPurchaseList(Model model) {
 
-        return "purchase/purchase_list";
+        return "mypage/purchase_list";
     }
 
     @GetMapping("/delete")
     public String getPurchaseDelete() {
-        return "purchase/purchase_delete";
+        return "mypage/purchase_delete";
     }
 }
 

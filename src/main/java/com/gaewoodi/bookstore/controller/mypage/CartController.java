@@ -1,14 +1,10 @@
-package com.gaewoodi.bookstore.controller.purchase;
+package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.dto.BookDto;
-import com.gaewoodi.bookstore.mappers.purchase.CartMapper;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class CartController {
@@ -18,10 +14,12 @@ public class CartController {
 
     @GetMapping("/cart")
     public String getCart(Model model, @RequestParam int bookId) {
-        model.addAttribute("cart", cartMapper.getCartBook(bookId));
+        model.addAttribute("book", cartMapper.getCartBook(bookId));
 
-        return "purchase/cart";
+
+        return "mypage/cart";
     }
+
 
 
 }

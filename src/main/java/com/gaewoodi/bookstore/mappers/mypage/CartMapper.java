@@ -1,7 +1,6 @@
-package com.gaewoodi.bookstore.mappers.purchase;
+package com.gaewoodi.bookstore.mappers.mypage;
 
 import com.gaewoodi.bookstore.dto.BookDto;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,8 +13,6 @@ public interface CartMapper {
 //    void getCart(CartDto cartDto);
 
     @Select("SELECT * FROM book_mst WHERE book_id = #{bookId}")
-    BookDto getCartBook(int bookId);
+    List<BookDto> getCartBook(int bookId);
 
-    @Select("SELECT * FROM book_mst")
-    BookDto getBookData(BookDto bookDto);
 }

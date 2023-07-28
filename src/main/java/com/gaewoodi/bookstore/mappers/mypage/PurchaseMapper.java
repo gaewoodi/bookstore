@@ -1,11 +1,10 @@
-package com.gaewoodi.bookstore.mappers.purchase;
+package com.gaewoodi.bookstore.mappers.mypage;
 
 import com.gaewoodi.bookstore.dto.BookDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 public interface PurchaseMapper {

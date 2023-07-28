@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book-store < 장바구니</title>
+    <title>book-store < 주문취소</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +18,13 @@
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/purchase/cart.css}">
-    <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
-    <!-- <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" th:href="@{/css/mypage/purchase_delete.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/footer.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/purchase/cart.css"> -->
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/mypage/purchase_delete.css">
 </head>
 
 <body>
@@ -39,56 +39,57 @@
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <h1>
-                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 장바구니
+                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 주문 목록(취소하기)
                     </h1>
                     <hr>
 
                     <div class="third-container">
                         <div class="purchase-container">
-                            <div class="book-container" th:each="cart: ${cart}">
+                            <div class="book-cointainer">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
+                                    <!-- <img th:src="@{/images/purchase/backgang.jpg}" alt="백광"> -->
                                     <img th:src="@{/images/no_image_pink.png}">
-                                    <!-- <img src="/static/images/purchase/backgang.jpg"> -->
                                 </div>
                                 <div class="book-data">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td>[[${cart.bookCode}]]</td>
+                                                <td>AL0000002747</td>
                                             </tr>
                                             <tr>
                                                 <td>도서제목</td>
-                                                <td>[[${cart.bookName}]]</td>
+                                                <td>백광</td>
                                             </tr>
                                             <tr>
                                                 <td>작가</td>
-                                                <td>[[${cart.author}]]</td>
+                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
                                             </tr>
                                             <tr>
                                                 <td>출판사</td>
-                                                <td>[[${cart.publisher}]]</td>
+                                                <td>모모</td>
                                             </tr>
                                                 <td>출판연도</td>
-                                                <td>[[${cart.publicationDate}]]</td>
+                                                <td>2022</td>
                                             <tr>
                                                 <td>분류</td>
-                                                <td>[[${cart.category}]]</td>
+                                                <td>소설/시/희곡</td>
                                             </tr>
                                             <tr>
                                                 <td>가격</td>
-                                                <td>[[${cart.price}]]</td>
+                                                <td>35,000원</td>
                                             </tr>
                                         </tbody>
                                         
                                     </table>
                                 </div>
                                 <div class="button-container">
-                                    <button>주문하기</button>
-                                    <button>삭제하기</button>
+                                    <button>주문취소</button>
                                 </div>
                             </div>
+                           
                         </div> 
+
 
                     </div>  
                 </div>
@@ -98,6 +99,6 @@
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/fragment/side_menu.js}"></script>
-    <script th:src="@{/js/purchase/checkBox.js}"></script>
+    <script th:src="@{/js/mypage/checkBox.js}"></script>
 </body>
 </html>

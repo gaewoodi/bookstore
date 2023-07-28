@@ -1,8 +1,8 @@
-package com.gaewoodi.bookstore.service.purchase;
+package com.gaewoodi.bookstore.service.mypage;
 
 import com.gaewoodi.bookstore.dto.BookDto;
-import com.gaewoodi.bookstore.dto.purchase.PagingDto;
-import com.gaewoodi.bookstore.mappers.purchase.BookMapper;
+import com.gaewoodi.bookstore.dto.mypage.PagingDto;
+import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
