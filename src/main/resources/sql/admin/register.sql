@@ -23,3 +23,5 @@ reg_id int not null auto_increment,
 );
 
 INSERT INTO book_register VALUES(NULL, 'admin', '0824', '관리자', now(), 'M', 'admin@mail.com', NULL, '010', '1234', '4567', '9', null, now(), now(), '', 0, '');
+
+
