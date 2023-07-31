@@ -39,15 +39,7 @@
             <div class="field-birth">
                 <p>생년월일</p>
                 <div>
-                    <select>
-                        <option value="">연도</option>
-                    </select>
-                    <select>
-                        <option value="">월</option>
-                    </select>
-                    <select>
-                        <option value="">일</option>
-                    </select>
+                    <input type="date" value="yyyy" min="MM" max="dd" name="bookRegBirth">
                 </div>
             </div>
         </div>
@@ -60,17 +52,33 @@
         </form>
         <div class="member1">
             <div class="Email">
-                <p>이메일 주소 입력</p>
+                <p>이메일 주소</p>
                     <input type="email" name="bookRegEmail" class="email1"> @
                         <select class="email2">
                             <option value="">직접 입력</option>
                         </select>
             </div>
 
+<!--            <div class="Address">-->
+<!--                <p>주소</p>-->
+<!--                    <input type="adr" name="bookRegAdr" class="adr1">-->
+<!--                    <input type="button" name="bookRegAdr2" class="adr2" value="우편번호 검색">-->
+<!--            </div>-->
+
             <div class="Address">
-                <p>주소</p>
-                    <input type="adr" name="bookRegAdr" class="adr1">
-                    <input type="button" name="bookRegAdr2" class="adr2" value="우편번호 검색">
+                <p>
+                    <input type="text" name="bookRegAdr" id="bookRegAdr" placeholder="우편번호" readonly>
+                    <input type="button" onclick="execDaumPostcode()" class="adr1" value="우편번호 찾기">
+                <p>
+                </p>
+                    <input type="text" id="address" placeholder="도로명주소" style="width: 360px" readonly>
+                <p>
+                </p>
+                    <input type="text" id="address1" placeholder="지번주소" style="width: 360px" readonly>
+                <p>
+                </p>
+                    <input type="text" id="address2" placeholder="상세주소" style="width: 360px">
+                </p>
             </div>
 
             <div class="tel-number">
@@ -114,5 +122,6 @@
             </div>
         </div>
         <script th:src="@{/js/account/register.js}"></script>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>
