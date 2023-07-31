@@ -1,4 +1,4 @@
-package com.gaewoodi.bookstore.controller.purchase;
+package com.gaewoodi.bookstore.controller.mypage;
 
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;

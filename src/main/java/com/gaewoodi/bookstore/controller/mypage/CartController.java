@@ -1,6 +1,6 @@
-package com.gaewoodi.bookstore.controller.purchase;
+package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.mappers.book.CartMapper;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
