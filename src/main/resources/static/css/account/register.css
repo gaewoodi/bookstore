@@ -15,7 +15,7 @@ body{
 
 .member .logo{
     display: block;
-    width: 250px;
+    width: 220px;
     margin: 0 auto;
 }
 
@@ -95,19 +95,21 @@ body{
     width: 44%;
 }
 
+.Address {
+    margin-top : 5px;
+}
+
 .member1 .Address p {
-    display: block;
+    width: 98%;
+    display: flex;
     margin-bottom: 5px;
 }
 
-.member1 .Address .adr1 {
-    width: 68%;
-}
-
-.member1 .Address .adr2 {
-    width: 30%;
-    padding-top: 12px;
-    background-color: #e7e7e7;
+.Address .adr1 {
+    width : 50%;
+    height: 45px;
+    border: 1px solid #ccc;
+    padding: 15px 15px;
 }
 
 .member1 .tel-number p {
