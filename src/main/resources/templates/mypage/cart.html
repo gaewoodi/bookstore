@@ -10,29 +10,17 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-=======
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
->>>>>>> mypage
     <!-- css -->
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-<<<<<<< HEAD
-    <link rel="stylesheet" th:href="@{/css/purchase/cart.css}">
-    <link rel="stylesheet" th:href="@{/css/purchase/responsive.css}">
-    <link rel="stylesheet" href="/static/css/reset.css">
-    <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/mypage/cart.css">
-=======
     <link rel="stylesheet" th:href="@{/css/mypage/cart.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
     <!-- <link rel="stylesheet" href="/static/css/reset.css">
@@ -40,7 +28,6 @@
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
     <link rel="stylesheet" href="/static/css/mypage/cart.css"> -->
->>>>>>> mypage
 </head>
 
 <body>
@@ -61,49 +48,15 @@
 
                     <div class="third-container">
                         <div class="purchase-container">
-<<<<<<< HEAD
-                            <div class="book-container" th:each="cart: ${cart}">
-                                <input type="text" th:text="${cart.bookId}">
-                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
-                                <div class="image-container">
-                                    <img th:src="@{/images/purchase/backgang.jpg}">
-                                    <!-- <img src="/static/images/purchase/backgang.jpg"> -->
-=======
                             <div class="book-container" th:each="book: ${book}">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.png}">
->>>>>>> mypage
                                 </div>
                                 <div class="book-data">
                                     <table>
                                         <tbody>
                                             <tr>
-<<<<<<< HEAD
-                                                <td>[[${cart.bookCode}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>도서제목</td>
-                                                <td>[[${cart.bookName}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>작가</td>
-                                                <td>[[${cart.author}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>출판사</td>
-                                                <td>[[${cart.publisher}]]</td>
-                                            </tr>
-                                                <td>출판연도</td>
-                                                <td>[[${cart.publicationDate}]]</td>
-                                            <tr>
-                                                <td>분류</td>
-                                                <td>[[${cart.category}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>가격</td>
-                                                <td>[[${cart.price}]]</td>
-=======
                                                 <td>[[${book.bookCode}]]</td>
                                             </tr>
                                             <tr>
@@ -127,7 +80,6 @@
                                             <tr>
                                                 <td>가격</td>
                                                 <td>[[${book.price}]]</td>
->>>>>>> mypage
                                             </tr>
                                         </tbody>
                                         
@@ -137,10 +89,8 @@
                                     <button>주문하기</button>
                                     <button>삭제하기</button>
                                 </div>
-<<<<<<< HEAD
-=======
                                 <input type="hidden" name="bookId" th:value="${book.bookId}">
->>>>>>> mypage
+
                             </div>
                         </div> 
 
@@ -152,10 +102,6 @@
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/fragment/side_menu.js}"></script>
-<<<<<<< HEAD
-    <script th:src="@{/js/purchase/checkBox.js}"></script>
-=======
     <script th:src="@{/js/mypage/checkBox.js}"></script>
->>>>>>> mypage
 </body>
 </html>

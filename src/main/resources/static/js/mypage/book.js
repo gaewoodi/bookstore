@@ -24,10 +24,28 @@ function checkboxClick() {
     // 선택된 목록에서 value 찾기
     let result = '';
 
+
     selectedElements.forEach((el) => {
         result += el.value + ' ';
     });
 
+    let cartButton = document.querySelector(".cart-button");
+        
+    cartButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        if(result != null) {
+            console.log("result[0] : " + result[0]);
+            console.log("result[2] : " + result[2]);
+            console.log("result[4] : " + result[4]);
+        }
+      
+
+        // location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
+
+
+
+    });
 
     console.log(result);
 
@@ -55,8 +73,6 @@ function checkboxClick() {
 }
 
 
-   
-
 //체크박스 전체 체크
 function AllCheck(){
     document.querySelectorAll(".check").forEach(function(v) {
@@ -70,3 +86,5 @@ function AllUnCheck(){
         v.checked = false;
     });
 }
+
+

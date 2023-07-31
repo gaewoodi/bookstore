@@ -5,10 +5,7 @@ function selectAll() {
    
     if(isChecked) {
         AllCheck()
-<<<<<<< HEAD
-=======
 
->>>>>>> mypage
     }else {
         AllUnCheck()
     }
@@ -16,9 +13,13 @@ function selectAll() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function checkboxClick(){
 =======
 function checkboxClick() {
+>>>>>>> mypage
+=======
+function checkboxClick(){
 >>>>>>> mypage
     //체크박스 전체개수
     const allCount = document.querySelectorAll(".check").length;
@@ -30,6 +31,7 @@ function checkboxClick() {
 
     // 선택된 목록에서 value 찾기
     let result = '';
+
 
     selectedElements.forEach((el) => {
         result += el.value + ' ';
