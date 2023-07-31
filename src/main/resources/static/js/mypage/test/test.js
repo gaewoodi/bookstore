@@ -1,7 +1,4 @@
 let cartButton = document.querySelector(".cart-button");
-
-const URLSearch = new URLSearchParams(location.search);
-
         
 cartButton.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,29 +6,36 @@ cartButton.addEventListener('click', function(e) {
     // 체크한 데이터를 담을 배열 선언
     const checkArray = [];
     // Name이 check 속성 취득
-    const checks = document.getElementsByName("check");
+    const query = 'input[name="check"]:checked'
+    const selectedElements = document.querySelectorAll(query);
+
     // 취득한 속성 만큼 루프
-    for (let i = 0; i < checks.length; i++) {
+    for (let i = 0; i < selectedElements.length; i++) {
         // 속성중에 체크 된 항목이 있을 경우
-        if (checks[i].checked == true) {
-            checkArray.push(checks[i].value);
-            
+        if (selectedElements[i].checked == true) {
+            checkArray.push(selectedElements[i].value);
         }
     }
     // 결과를 표시
-    console.log(checkArray);
+    console.log("checkArray 안에 값들" + checkArray);
 
-    $.ajax({
-        type: "POST",
-        url: "/book",
-        dataType: "json",
-        success: function() {
-            alert("성공");
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
+    console.log(checkArray[0]);
+    console.log(checkArray[1]);
+    console.log(checkArray[2]);
+
+    // location.href = `/cart?bookId=${checkArray[0]}&bookId=${checkArray[1]}&bookId=${checkArray[2]}`;
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/book",
+    //     dataType: "json",
+    //     success: function() {
+    //         alert("성공");
+    //     },
+    //     error: function(err) {
+    //         console.log(err);
+    //     }
+    // });
 
 
     

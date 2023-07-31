@@ -35,6 +35,6 @@ public class AllBookController {
             System.out.println(c);
         }
 
-        return "/cart?bookId=${c}";
+        return "";
     }
 }

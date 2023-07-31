@@ -28,8 +28,6 @@ function checkboxClick() {
         result += el.value + ' ';
     });
 
-    // 출력
-    // document.getElementById('result').innerText = result;
 
     console.log(result);
 
@@ -43,10 +41,19 @@ function checkboxClick() {
         document.getElementById('selectAll').checked = false;
     }
 
-    
+    let cartButton = document.querySelector(".cart-button");
+
+    cartButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        for(let i = 0; i < result.length; i++) {
+            location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
+        }
+    });
 
 
 }
+
 
    
 
