@@ -25,11 +25,4 @@ public class LoginController {
 
         return "account/login";
     }
-
-    @GetMapping("/register")
-    public String getRegister() {
-        return "account/register";
-    }
-
-
 }
