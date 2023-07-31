@@ -6,9 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+>>>>>>> mypage
 @Controller
 public class CartController {
 
@@ -17,6 +20,7 @@ public class CartController {
 
     @GetMapping("/cart")
     public String getCart(Model model, @RequestParam int bookId) {
+<<<<<<< HEAD
         model.addAttribute("cart", cartMapper.getCartBook(bookId));
 
         return "purchase/cart";
@@ -34,5 +38,14 @@ public class CartController {
         return map;
 
     }
+=======
+        model.addAttribute("book", cartMapper.getCartBook(bookId));
+
+
+        return "mypage/cart";
+    }
+
+
+>>>>>>> mypage
 
 }

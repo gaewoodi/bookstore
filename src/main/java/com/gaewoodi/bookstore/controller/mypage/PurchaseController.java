@@ -1,5 +1,9 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+<<<<<<< HEAD
+=======
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
+>>>>>>> mypage
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +23,24 @@ public class PurchaseController {
     private PurchaseMapper purchaseMapper;
 
     @Autowired
+<<<<<<< HEAD
     private PagingService pagingService;
 
     @GetMapping("")
     public String getPurchase() {
         return "purchase/purchase";
+=======
+    private CartMapper cartMapper;
+
+    @Autowired
+    private PagingService pagingService;
+
+    @GetMapping("")
+    public String getPurchase(@RequestParam int bookId, Model model) {
+        model.addAttribute("book", cartMapper.getCartBook(bookId));
+
+        return "mypage/purchase";
+>>>>>>> mypage
     }
 
     @PostMapping("/kakaopay")
@@ -71,12 +88,20 @@ public class PurchaseController {
     @GetMapping("/list")
     public String getPurchaseList(Model model) {
 
+<<<<<<< HEAD
         return "purchase/purchase_list";
+=======
+        return "mypage/purchase_list";
+>>>>>>> mypage
     }
 
     @GetMapping("/delete")
     public String getPurchaseDelete() {
+<<<<<<< HEAD
         return "purchase/purchase_delete";
+=======
+        return "mypage/purchase_delete";
+>>>>>>> mypage
     }
 }
 

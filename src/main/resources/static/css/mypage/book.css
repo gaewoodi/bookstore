@@ -1,5 +1,10 @@
 @charset 'utf-8';
 
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -53,9 +58,6 @@
 }
 
 .button-container button {
-    width: 80px;
-    height: 30px;
-
     border-radius: 3px;
 
     font-size: 15px;
@@ -69,6 +71,11 @@
 
 .button-container button:hover {
     background-color: #f9a4a4;
+}
+
+.cart-button {
+    width: 80px;
+    height: 30px;
 }
 
 .third-container {
@@ -88,6 +95,8 @@
     padding-left: 20px;
     width: 100%;
     height: 240px;
+
+    font-size: 14px;
 }
 
 .image-container {
@@ -134,11 +143,15 @@
     padding: 1px;
 }
 
+.book-data tbody td:nth-child(2), .book-data tbody tr:nth-child(2) {
+    padding: 6px;
+}
 
 /* 도서제목 */
 .book-data tbody tr:nth-child(2) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
+    flex-direction: row;
 
     /* 줄바꿈 안 시키는거 */
     white-space: nowrap;
@@ -159,7 +172,15 @@
     margin-left: 5px;
 }
 
+.purchase-button {
+    width: 100px;
+    height: 50px;
+}
+
+
+/* paging */
 .paging-container { 
+    margin-top: 20px;
     text-align: center;
 }
 

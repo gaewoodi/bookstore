@@ -5,13 +5,14 @@ function selectAll() {
    
     if(isChecked) {
         AllCheck()
+
     }else {
         AllUnCheck()
     }
     
 }
 
-function checkboxClick(){
+function checkboxClick() {
     //체크박스 전체개수
     const allCount = document.querySelectorAll(".check").length;
     //체크된 체크박스 전체개수
@@ -27,34 +28,8 @@ function checkboxClick(){
         result += el.value + ' ';
     });
 
-    // 출력
-    document.getElementById('result').innerText = result;
 
     console.log(result);
-
-    const cartButton = document.querySelector(".cart-button");
-
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        $.ajax({
-            type: "post",
-            url: "/cart",
-            dataType: "json",
-            data: result,
-            success: function(res) {
-                if(res.msg == "success") {
-                    alert("장바구니에 추가되었습니다.");
-                    location.href = "/cart";
-                }
-            },
-            error: function(err) {
-                console.log(err);
-            }
-        });
-
-    });
-        
 
     //체크박스 전체개수와 체크된 체크박스 전체개수가 같으면 전체 체크박스 체크
     if(allCount == selectedElementsCount){
@@ -66,8 +41,19 @@ function checkboxClick(){
         document.getElementById('selectAll').checked = false;
     }
 
+    let cartButton = document.querySelector(".cart-button");
+
+    cartButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        for(let i = 0; i < result.length; i++) {
+            location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
+        }
+    });
+
 
 }
+
 
    
 
@@ -84,8 +70,3 @@ function AllUnCheck(){
         v.checked = false;
     });
 }
-
-
-
-
-
