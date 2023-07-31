@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 페이지</title>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
@@ -67,8 +68,8 @@
 
             <div class="Address">
                 <p>
-                    <input type="text" name="bookRegAdr" id="bookRegAdr" placeholder="우편번호" readonly>
-                    <input type="button" onclick="execDaumPostcode()" class="adr1" value="우편번호 찾기">
+                    <input type="text" name="bookRegAdr" id="bookRegAdr" class="adr1" placeholder="우편번호" readonly>
+                    <input type="button" onclick="execDaumPostcode()" class="adr2" value="우편번호 찾기">
                 <p>
                 </p>
                     <input type="text" id="address" placeholder="도로명주소" style="width: 360px" readonly>
@@ -122,6 +123,6 @@
             </div>
         </div>
         <script th:src="@{/js/account/register.js}"></script>
-        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="/js/account/postcode.v2.js"></script>
 </body>
 </html>
