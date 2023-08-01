@@ -5,10 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
-<<<<<<< HEAD
+
 import java.util.Map;
-=======
->>>>>>> mypage
 
 @Mapper
 public interface PurchaseMapper {

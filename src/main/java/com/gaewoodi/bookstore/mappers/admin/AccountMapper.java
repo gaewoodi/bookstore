@@ -12,34 +12,34 @@ import java.util.List;
 @Mapper
 public interface AccountMapper {
 
-    @Insert("INSERT INTO book_register VALUES(NULL, " +
-            "#{bookRegUserid}, " +
-            "#{bookRegPasswd}, " +
-            "#{bookRegName}, " +
+    @Insert("INSERT INTO register VALUES(NULL, " +
+            "#{regUserid}, " +
+            "#{regPasswd}, " +
+            "#{regName}, " +
             "now(), " +
             "'M', " +
-            "#{bookRegEmail}, " +
+            "#{regEmail}, " +
             "NULL, " +
-            "#{bookRegTel}, '1', null, now(), now(), '', 0, '')")
+            "#{regTel}, '1', null, now(), now(), '', 0, '')")
     void getRegister(RegisterDto registerDto);
 
-    @Select("SELECT * FROM book_register ORDER BY book_reg_id DESC")
+    @Select("SELECT * FROM register ORDER BY reg_id DESC")
     List<RegisterDto> getMemberAll();
 
-    @Select("SELECT * FROM book_register WHERE book_reg_id = #{bookRegId}")
+    @Select("SELECT * FROM register WHERE reg_id = #{regId}")
     RegisterDto getMemberOne(int id);
 
-    @Update("UPDATE book_register SET " +
-            "book_reg_userid = #{bookRegUserid}, " +
-            "book_reg_passwd = #{bookRegPasswd}, " +
-            "book_reg_name = #{bookRegName}, " +
-            "book_reg_email = #{bookRegEmail}, " +
-            "book_reg_adr = #{bookRegAdr}, " +
-            "book_reg_tel=#{bookRegTel}, " +
-            "book_reg_level=#{bookRegLevel}, " +
-            "book_reg_grade=#{Grade}, " +
-            "book_reg_modified= NOW() " +
-            "WHERE book_reg_id = #{bookRegId}")
+    @Update("UPDATE register SET " +
+            "reg_userid = #{regUserid}, " +
+            "reg_passwd = #{regPasswd}, " +
+            "reg_name = #{regName}, " +
+            "reg_email = #{regEmail}, " +
+            "reg_adr = #{regAdr}, " +
+            "reg_tel=#{regTel}, " +
+            "reg_level=#{regLevel}, " +
+            "reg_grade=#{regGrade}, " +
+            "reg_modified= NOW() " +
+            "reg_id = #{regId}")
     void setAccountUpdate(RegisterDto registerDto);
 
 

@@ -1,12 +1,13 @@
 use bookstore
 
 create table Account_level(
-    book_reg_level int,
-    book_reg_level_name varchar(30)
+    reg_level int,
+    reg_level_name varchar(30)
 );
 
 INSERT INTO Account_level VALUES(9, "관리자");
-INSERT INTO Account_level VALUES(1, "회원")
+INSERT INTO Account_level VALUES(2, "사원");
+INSERT INTO Account_level VALUES(1, "회원");
 
 create table Account_grade(
     -- 구매 정보값
