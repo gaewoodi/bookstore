@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../../static/css/main/test.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        line-height: 1;
+        height: 100%;
+      }
+
+      body {
+        font-family: "Nanum Gothic", sans-serif;
+        font-family: "Poppins", sans-serif;
+        /* font-family: 'Noto Sans KR', sans-serif; */
+      }
+
+      ol,
+      ul {
+        list-style-type: none;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      input,
+      textarea,
+      select {
+        box-sizing: border-box;
+      }
+
+      .main6 {
+        font-family: "Nanum Gothic", sans-serif;
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .main6-h1 h1 {
+        text-align: center;
+        color: rgb(239, 84, 77);
+        padding-bottom: 25px;
+        border-bottom: 1px solid #999;
+        text-shadow: 0 0 5px 3px rgb(192, 192, 192);
+        letter-spacing: 3px;
+      }
+
+      .main6-menu h3 {
+        margin-left: 310px;
+        margin-top: 30px;
+        /* 넘치면 가려주세요 */
+        overflow: hidden;
+      }
+
+      .main6-menu a {
+        margin-right: 40px;
+        justify-content: center;
+        font-weight: bolder;
+      }
+
+      .main6-menu a:hover {
+        color: rgb(239, 84, 77);
+      }
+
+      /* .main6-list-wrap {
+    display: flex;
+    border-radius: 25px;
+    padding-top: 20px;
+} */
+
+      .main6-list-wrap ul {
+        display: flex;
+      }
+
+      .main6-list-wrap.last ul li a {
+        display: block;
+      }
+
+      .main6-list {
+        width: 1200px;
+        margin: 0 auto;
+        flex-basis: 16.5%;
+        margin-top: 20px;
+        text-align: center;
+        /* z-index: 10; */
+      }
+
+      .main6-list-subject img {
+        width: 150px;
+        height: 210px;
+        box-shadow: 0 0 5px 3px rgb(192, 192, 192);
+      }
+
+      .main6-list-subject img:hover {
+        transform: scale(1.03);
+        transition: 0.1s;
+      }
+
+      .main6-list-text h6 {
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      .main6-list-text h6:hover {
+        color: #777;
+      }
+
+      .main6-list-text p {
+        letter-spacing: -0.5px;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .main6-list-text p:hover {
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="main6">
+          <div class="main6-h1">
+            <h1>BESTSELLER</h1>
+          </div>
+          <div class="main6-secondwrap">
+            <div class="main6-menu">
+              <ul class="tabs">
+                <li class="active" data-tab="tab-1">문학/소설</li>
+                <li data-tab="tab-2">유아/청소년</li>
+                <li data-tab="tab-3">육아</li>
+                <li data-tab="tab-4">건강</li>
+                <li data-tab="tab-5">경제</li>
+                <li data-tab="tab-6">인문/사회</li>
+                <li data-tab="tab-7">과학</li>
+              </ul>  
+            </div>
+
+            <div class="main6-list">
+              <!-- 문학/소설 -->
+              <div class="main6-list-wrap">
+                <ul>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#">
+                        <img src="/images/main/bestceller/소설/2.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>백의 그림자</h6></a>
+                        <a href="#"><p>11700원 + 1170P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#">
+                        <img src="/images/main/bestceller/소설/5.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>천개의파랑</h6></a>
+                        <a href="#"><p>12420원 + 1240P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#">
+                        <img src="/images/main/bestceller/소설/6.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>훌훌</h6></a>
+                        <a href="#"><p>14850원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
+                        <a href="#"><p>26820원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>센강의 이름 모를 여인</h6></a>
+                        <a href="#"><p>14800원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
+                        <a href="#"><p>9900원 + 990P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 유아/청소년 -->
+              <div class="main6-list-wrap">
+                <ul>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"
+                        ><img
+                          src="/images/main/bestceller/유아청소년/2.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
+                        <a href="#"><p>14800원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>구미호식당</h6></a>
+                        <a href="#"><p>9900원 + 990P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>설민석의 한국사 대모험</h6></a>
+                        <a href="#"><p>11700원 + 1170P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"> <img src="images/main/bestceller/유아청소년/6.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>흔한남매</h6></a>
+                        <a href="#"><p>12420원 + 1240P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>에그박사</h6></a>
+                        <a href="#"><p>14850원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="main6-list-subject">
+                      <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg"alt=""/></a>
+                      <div class="main6-list-text">
+                        <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
+                        <a href="#"><p>26820원 + 1480P</p></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 육아 -->
+              <div class="main6-list-wrap">
+                <ul>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">3</a></li>
+                </ul>
+              </div>
+
+              <!-- 건강 -->
+              <div class="main6-list-wrap">
+                <ul>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">4</a></li>
+                </ul>
+              </div>
+
+              <!-- 경제 -->
+              <div class="main6-list-wrap">
+                <ul>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">5</a></li>
+                </ul>
+              </div>
+              <div class="main6-list-wrap">
+                <ul>
+                  <li><a href="#">6</a></li>
+                  <li><a href="#">6</a></li>
+                  <li><a href="#">6</a></li>
+                  <li><a href="#">6</a></li>
+                  <li><a href="#">6</a></li>
+                  <li><a href="#">6</a></li>
+                </ul>
+              </div>
+              <div class="main6-list-wrap last">
+                <ul>
+                  <li><a href="#">7</a></li>
+                  <li><a href="#">7</a></li>
+                  <li><a href="#">7</a></li>
+                  <li><a href="#">7</a></li>
+                  <li><a href="#">7</a></li>
+                  <li><a href="#">7</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // $(document).ready(function () {
+      //     $('ul.tabs li').click(function () {
+      //         var tab_id = $(this).attr('data-tab');
+
+      //         $('.main6-menu ul.tabs li').removeClass('active');
+      //         $('.main6-list-wrap').removeClass('active');
+
+      //         //tab-content의 내용을 display:none으로 처리해 두고 탭 버튼을 누르면 해당 tab-content에 active.
+      //         $(this).addClass('active');
+      //         $("#" + tab_id).addClass('active');
+      //     })
+
+      // })
+
+      const tabBtn = $(".main6-menu h3 a");
+      const tabCont = $(".main6-list > div");
+      tabCont.hide().eq(0).show();
+
+      tabBtn.click(function () {
+        const index = $(this).index();
+
+        $(this).addClass("active").siblings().removeClass("active");
+        tabCont.eq(index).show().siblings().hide();
+      });
+    </script>
+  </body>
+</html>

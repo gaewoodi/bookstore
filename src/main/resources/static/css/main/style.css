@@ -620,7 +620,7 @@ input, textarea, select {
 
 
 /* main css */
- .main6 {
+.main6 {
     font-family: 'Nanum Gothic', sans-serif;
     margin-top: 10px;
     position: relative;
@@ -636,54 +636,75 @@ input, textarea, select {
 }
 
 
+
+
+
 .main6-menu ul {
     display: flex;
-    margin-left :310px;
     margin-top: 30px;
+    margin-left :300px;
+
     /* 넘치면 가려주세요 */
     overflow:hidden;
 }
-
-.main6-menu ul li {
-    float: left;
-}
-
-
-.main6-menu ul a {
+.main6-menu ul li{
+    padding: 15px;
     margin-right: 40px;
     justify-content: center;
     font-weight: bolder;
+    cursor: pointer;
+}
+
+/* 배경색 바뀌게 해주는거 이거개중요!! */
+ul li.active {
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(239, 84, 77);
+}
+
+.main6-menu li:hover {
+    color: rgb(239, 84, 77);
 }
 
 
-.main6-menu ul a:hover {
-    color: rgb(239, 84, 77);
+.tab-content {
+    display: none;
 }
 
 
 
 .main6-list-wrap {
     display: flex;
-    border-radius: 25px;
-    padding-top: 20px;
+    padding : 10px;
+    justify-content : space-between;
 }
 
+
+.main6-list-wrap.last ul li a {
+    display: block;
+}
 
 .main6-list {
     width: 1200px;
     margin: 0 auto;
-    flex-basis: 16.5%;
     margin-top: 20px;
-    text-align: center;
-    position: relative;
-    /* z-index: 10; */
+    padding : 20px;
 }
+
+
+.tab-content.active {
+    display: block;
+}
+
+
+
+
 
 
 .main6-list-subject img {
     width: 150px;
     height: 210px;
     box-shadow: 0 0 5px 3px rgb(192, 192, 192);
+    text-align: center;
 }
 
 
@@ -692,10 +713,10 @@ input, textarea, select {
     transition: 0.1s;
 }
 
-
 .main6-list-text h6 {
     font-size: 14px;
     margin-top: 15px;
+    text-align: center;
 }
 
 .main6-list-text h6:hover {
@@ -709,25 +730,17 @@ input, textarea, select {
     margin: 20px 0;
 }
 
+.main6-list-text.one {
+    margin-top: -5px;
+}
+
+.main6-list-text.one p {
+    margin-top: 10px;
+}
+
 .main6-list-text p:hover {
     color: #777;
 }
-
-
-
-#two {
-    width : 1200px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    /* z-index: 5;   */
-}
-
-
-
-
-
-
 
 
 
@@ -791,7 +804,6 @@ input, textarea, select {
     margin-right: 20px;
     margin-bottom: 5px;
     letter-spacing: 0.5;
-    
 }
 
 
@@ -802,9 +814,6 @@ input, textarea, select {
 .info2-wrap ul li a {
     color: #fff;
 }
-
-
-
 
 .info3 {
     margin-top: 25px;
