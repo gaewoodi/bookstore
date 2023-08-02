@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface CartMapper {
@@ -13,6 +14,15 @@ public interface CartMapper {
 //    void getCart(CartDto cartDto);
 
     @Select("SELECT * FROM book_mst WHERE book_id = #{bookId}")
-    List<BookDto> getCartBook(int bookId);
+    BookDto getBook(int bookId);
+
+    @Select("SELECT * FROM book_mst WHERE ${checkResult} ")
+    List<BookDto> getCartBookList(Map<String, Object> map);
+//
+//     @Select("SELECT * FROM book_mst WHERE ${checkResult}")
+//    List<BookDto> getCartBookList(int bookId);
+
+
+
 
 }

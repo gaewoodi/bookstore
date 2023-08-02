@@ -1,7 +1,5 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.dto.BookDto;
-import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +27,5 @@ public class AllBookController {
         return "mypage/book";
     }
 
-    @PostMapping("")
-    public String setMultiCheck(@RequestParam List<String> check) {
-        for (String c : check) {
-            System.out.println(c);
-        }
 
-        return "";
-    }
 }
