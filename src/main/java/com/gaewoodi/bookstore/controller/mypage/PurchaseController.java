@@ -20,14 +20,11 @@ public class PurchaseController {
     private PurchaseMapper purchaseMapper;
 
     @Autowired
-    private CartMapper cartMapper;
-
-    @Autowired
     private PagingService pagingService;
 
     @GetMapping("")
     public String getPurchase(@RequestParam int bookId, Model model) {
-        model.addAttribute("book", cartMapper.getCartBook(bookId));
+        model.addAttribute("book", purchaseMapper.getPurchaseBook(bookId));
 
         return "mypage/purchase";
     }
