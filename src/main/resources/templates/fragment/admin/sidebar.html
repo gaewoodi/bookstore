@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <!-- sidebar 시작 -->
+    <div id="sidebar" class="sidebar" th:fragment="sidebars">
+        <ul class="logo">
+            <li>
+                <a href="/admin/dashboard">
+                    <img src="/images/logo.png" style="height: 60px; width: 120px;" alt="로고">
+                </a>
+            </li>
+        </ul>
+
+        <div class="scrollbar">
+            <li class="dashboard">
+                <div style="display: flex;">
+                    <h4>Dashboard</h4>
+                    <div class="dash-icon" style="margin-left: 30px;">
+                        <i class="fa-solid fa-angle-down" id="dash-down"></i>
+                        <i class="fa-solid fa-angle-up" id="dash-up" style="display: none;" ></i>
+                    </div>
+                </div>
+                <ul class="sub-link">
+                    <li>
+                        <a href="/admin/dashboard">요약</a>
+                    </li>
+                    <li>
+                        <a href="/admin/inventory">재고관리</a>
+                    </li>
+                    <li>
+                        <a href="/admin/order">주문관리</a>
+                    </li>
+                    <li>
+                        <a href="/admin/account">회원관리</a>
+                    </li>
+                    <li>
+                        <a href="#">#</a>
+                    </li>
+                </ul>
+            </li>
+        </div> 
+    </div>
+    <!-- sidebar 끝 -->
+
+</body>
+
+</html>

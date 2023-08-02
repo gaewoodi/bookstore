@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <div th:fragment="headers">
+    <i class="fa-solid fa-bars" style="cursor: pointer;" id="sidebar-icon"></i>
+    <ul class="header-links">
+      <li class="sub-link">
+        <a href="#">로그인 정보 : email@email.com(고정)</a>
+      </li>
+      <li class="sub-link">
+        <a href="#">남은 로그인 시간(링크아님)</a>
+      </li>
+      <li class="sub-link" id="t-text">
+        <a href="#">
+          <i class="fa-solid fa-shop" id="t-icon"></i>
+        </a>
+      </li>
+      <div class="myinfo" style="margin-left: 15px;">
+        <i class="fa-solid fa-user" type="button" id="user-icon">
+          <button></button>
+        </i>  
+      </div>
+    </ul>
+  </div>
+</body>
+
+</html>

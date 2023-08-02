@@ -1,0 +1,60 @@
+@charset 'utf-8';
+/* .menu- {
+    padding: 20px 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+} */
+
+.menu-container ul {
+    cursor: pointer;
+}
+
+.book-button, .mypage-button {
+    margin-bottom: 10px;
+
+    background-color: transparent;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mypage-menu {
+    display: none;
+
+    padding: 10px;
+}
+
+.sub-menu {
+    display: flex;
+
+    margin-bottom: 10px;
+}
+
+.sub-menu a {
+    display: flex;
+
+    line-height: 30px;
+
+    cursor: pointer;
+}
+
+.icon-box {
+    width: 20px;
+    
+    color: rgb(239, 84, 77);
+    text-align: center;
+
+}
+
+.mypage-menu strong {
+    padding-left: 5px;
+
+    font-size: 16px;
+}
+
+hr {
+    margin-bottom: 10px;
+
+    border: 1px solid #dbdbdb;
+}
