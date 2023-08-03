@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Controller
 public class RegisterController {
 
@@ -21,9 +22,18 @@ public class RegisterController {
         return "account/register";
     }
 
-    @PostMapping("/chkPwd")
+    @PostMapping("/register")
     @ResponseBody
-    public int chkPwd(@RequestParam String bookRegPasswd) {
-        return registerMapper.chkPwd(bookRegPasswd);
+    public Map<String, Object> saveRegister(@ModelAttribute RegisterDto registerDto) {
+        Map<String, Object> map = new HashMap<>();
+//        if(registerDto != null) {
+//            registerMapper.saveRegister(registerDto);
+//            map.put("msg", "success");
+//        }
+            registerMapper.saveRegister(registerDto);
+            map.put("msg", "success");
+
+        return map;
     }
 }
+

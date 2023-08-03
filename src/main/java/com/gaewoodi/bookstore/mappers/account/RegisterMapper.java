@@ -8,12 +8,10 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface RegisterMapper {
 
-    @Insert("INSERT INTO book_register VALUES(NULL, #{bookRegUserid}, #{bookRegPasswd}, #{bookRegName}, now(), 'M', #{bookRegEmail}, NULL, #{bookRegTel}, '1', null, now(), now(), '', 0, '')")
+    @Insert("INSERT INTO register VALUES(NULL, #{id}, #{passwd}, #{name}, now(), 'M', #{email}, #{postcode}, #{address}, #{address1}, #{tel}, '9', null, now(), now(), '', 0, '')")
     void getRegister(RegisterDto registerDto);
 
-    @Select("SELECT COUNT(*) FROM book_register WHERE book_reg_passwd = #{bookRegPasswd}")
-    int chkPwd(String passwd);
-
-
+    @Insert("INSERT INTO register VALUES(NULL, #{id}, #{passwd}, #{name}, #{birth}, #{gender}, #{email}, #{postcode}, #{address}, #{address1}, #{tel}, #{level}, #{gender}, now(), now(), '', 0, '')")
+    void saveRegister(RegisterDto registerDto);
 
 }
