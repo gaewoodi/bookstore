@@ -25,6 +25,7 @@ public class RegisterController {
     @PostMapping("/register")
     @ResponseBody
     public Map<String, Object> saveRegister(@ModelAttribute RegisterDto registerDto) {
+        System.out.println(registerDto);
         Map<String, Object> map = new HashMap<>();
 //        if(registerDto != null) {
 //            registerMapper.saveRegister(registerDto);

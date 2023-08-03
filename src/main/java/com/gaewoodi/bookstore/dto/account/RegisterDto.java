@@ -11,7 +11,7 @@ public class RegisterDto {
     private String id;
     private String passwd;
     private String name;
-    private Date birth;
+    private String birth;
     private String gender;
     private String email;
     private int postcode;

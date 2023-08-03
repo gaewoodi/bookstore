@@ -41,7 +41,7 @@
             <div class="field-birth">
                 <p>생년월일</p>
                 <div>
-                    <input type="date" value="yyyy" min="MM" max="dd" name="birth" class="birth">
+                    <input type="date" min="MM" max="dd" name="birth" class="birth">
                 </div>
             </div>
         </div>
@@ -55,14 +55,14 @@
         <div class="member1">
             <div class="Email">
                 <p>이메일 주소</p>
-                    <input type="email" name="email" class="email1"> @
+                    <input type="email" name="email" class="email1">
                         <select class="email2">
                             <option value="1">직접 입력</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="nate.com">nate.com</option>
-                            <option value="hanmail.net">hanmail.net</option>
-                            <option value="daum.net">daum.net</option>
+                            <option value="@naver.com">@naver.com</option>
+                            <option value="@gmail.com">@gmail.com</option>
+                            <option value="@nate.com">@nate.com</option>
+                            <option value="@hanmail.net">@hanmail.net</option>
+                            <option value="@daum.net">@daum.net</option>
                         </select>
             </div>
             <div class="Address">
@@ -78,9 +78,11 @@
             </div>
             <div class="tel-number">
                 <p>휴대전화<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; text-transform: uppercase">주문배송문자, 본인확인용으로 사용</span></p>
-                <div>
+                <div onload="randomNum.printRandom('auth', 5)">
+
                     <input type="tel" name="tel" class="tel1" placeholder="'-없이 숫자만 입력'">
-                    <input type="button" name="tel2" class="tel2" value="인증번호 받기">
+                    <input type="button" name="tel2" class="tel2" value="인증번호 받기" onclick="getSend()">
+                    <p>고객님의 인증번호는 <span id="auth">00000</span>입니다.</p>
                 </div>
             </div>
             <div>
@@ -120,5 +122,6 @@
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script th:src="@{/js/account/register.js}"></script>
         <script src="/js/account/postcode.v2.js"></script>
+        <script th:src="@{/js/account/rand.js}"></script>
 </body>
 </html>
