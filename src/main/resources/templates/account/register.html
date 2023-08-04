@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/account/reset.css">
+    <link rel="stylesheet" href="/css/account/register.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+        <div class="member">
+            <img class="logo" src="/images/account/gaewoodi.png">
+
+        <div class="UserId">
+                <p>아이디</p>
+                <input type="userid" class="userid">
+                <input type="button" class="userid1" value="아이디 중복확인">
+            </div>
+            <div class="UserPw">
+                <p>비밀번호</p>
+                <input type="password" class="userpw">
+            </div>
+            <div class="Re-UserPw">
+                <p>비밀번호 확인</p>
+                <input type="password" class="userpw-confirm">
+            </div>
+            <div class="UserName">
+                <p>이름</p>
+                <input type="text" class="username">
+            </div>
+
+            <div class="field-birth">
+                <p>생년월일</p>
+                <div>
+                    <select>
+                        <option value="">연도</option>
+                    </select>
+                    <select>
+                        <option value="">월</option>
+                    </select>
+                    <select>
+                        <option value="">일</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <form class="gender">
+            <div class="gender1">
+                <label>성별</label>
+                <input type="radio" name="userGender" class="userGender" value="M"> 남자
+                <input type="radio" name="userGender" class="userGender" value="W" checked> 여자
+            </div>
+        </form>
+        <div class="member1">
+            <div class="Email">
+                <p>이메일 주소 입력</p>
+                    <input type="email" class="email1"> @
+                        <select class="email2">
+                            <option value="">직접 입력</option>
+                        </select>
+            </div>
+
+            <div class="Address">
+                <p>주소</p>
+                    <input type="adr" class="adr1">
+                    <input type="button" class="adr2" value="우편번호 검색">
+            </div>
+
+            <div class="tel-number">
+                <p>휴대전화</p>
+                <div>
+                    <input type="tel" class="tel1" placeholder="전화번호 입력">
+                    <input type="button" class="tel2" value="인증번호 받기">
+                </div>
+            </div>
+            <div>
+<!--                <input type="submit" class="reg" value="회원가입 하기">-->
+                <button type="button" class="btn" onclick="frmCheck()">회원가입</button>
+            </div>
+        </div>
+
+        <div class="member-footer">
+            <div class="footer1">
+                <ul>
+                    <li>
+                        <a href="#">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보 처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#">운영정책</a>
+                    </li>
+                    <li>
+                        <a href="#">고객센터</a>
+                    </li>
+                    <li>
+                        <a href="#">공지사항</a>
+                    </li>
+                    <li>
+                        <a href="#">언어</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2">
+                <a href="#">Copyright © Kakao Corp. All rights reserved.</a>
+            </div>
+        </div>
+</body>
+</html>

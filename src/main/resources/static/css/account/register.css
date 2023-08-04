@@ -1,0 +1,161 @@
+@charset 'utf-8';
+
+body{
+    font-size:14px;
+    background-color: #fff;
+    line-height: 1.5em;
+    color : #000;
+}
+
+.member{
+    width: 400px;
+    margin: 0 auto; 
+    padding: 0 20px;
+}
+
+.member .logo{
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.member .UserId{
+    margin :5px 0; 
+}
+
+.member .UserId .userid {
+    width: 65%;
+}
+
+.member .UserId .userid1 {
+    width: 33.9%;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+}
+
+.field-birth div {
+    display: flex;
+}
+
+.gender1 {
+    width: 400px;
+    height : 30px;
+    margin: 0 auto;
+    display : flex;
+    padding: 25px 20px;
+    align-items: center;   
+}
+
+.userGender {
+    margin-left: 20px;
+    margin-right: 10px;
+    letter-spacing: 20px;
+}
+
+.member p{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.member input, .member select{
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.member1 {
+    width: 400px;
+    margin: 0 auto; 
+    padding: 0 18px;
+    margin-bottom: 20px;  
+}
+
+.Email {
+    margin-left: 3px;
+}
+
+.member1 .Email p{
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.member1 input, .member1 select{
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.member1 .Email .email1 {
+    width: 49%;
+}
+
+.member1 .Email .email2 {
+    width: 44%;
+}
+
+.member1 .Address p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.member1 .Address .adr1 {
+    width: 68%;
+}
+
+.member1 .Address .adr2 {
+    width: 30%;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+}
+
+.member1 .tel-number p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.member1 .tel-number .tel1 {
+    width: 65%;
+}
+
+.member1 .tel-number .tel2 {
+    width: 33%;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+}
+
+.member1 .btn {
+    margin-top: 20px;
+    background-color: #f5f832;
+    width: 360px;
+    height : 50px;
+    cursor: pointer;
+}
+
+.member-footer {
+    width: 400px;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin : 0 auto;
+}
+
+.footer1 ul {
+    display: flex;
+    margin-left: 20px;
+} 
+
+.footer1 ul li {
+    margin-right: 12px;
+    margin-left: 5px;
+}
+
+.footer2 a {
+    margin-left: 90px;
+}
+
+
+
+
+

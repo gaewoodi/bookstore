@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test페이지</title>
+</head>
+<style>
+    ul, li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #555;
+    }
+
+
+
+
+
+    .tab-menu {
+        position:relative;
+    }
+
+    .tab-menu ul {
+        overflow:hidden;
+    }
+
+    .tab-menu ul li {
+        float:left; 
+        margin-right:14px;
+    }
+
+
+    /*  */
+    .tab-menu ul .btn {
+        font-size:13px;
+    }
+
+    .tab-menu ul .cont {
+        display:none; 
+        position:absolute; 
+        
+        width:250px; 
+        height:100px; 
+
+        background:#555; 
+        color:#fff; 
+
+        text-align:center; 
+        line-height:100px;
+    }
+    .tab-menu ul li.button1-wrap .btn {
+        font-weight:bold; 
+        color:green;
+    }
+    .tab-menu ul li.button1-wrap .cont {
+        display:block;
+    }
+  </style>
+<body>
+      
+      <div class="tab-menu">
+        <ul>
+          <li class="button1-wrap">
+            <a href="#tab1" class="btn">버튼1</a>
+          </li>
+          <li>
+            <a href="#tab2" class="btn">버튼2</a>
+          </li>
+          <li>
+            <a href="#tab3" class="btn">버튼3</a>
+          </li>
+        </ul>
+
+        <div id="tab1" class="cont">버튼1내용~~</div>
+        <div id="tab2" class="cont">버튼2내용~~</div>
+        <div id="tab3" class="cont">버튼3내용~~</div>
+      </div>
+      
+
+      
+
+      <!-- li안에 cont가 들어가있을때 버전 -->
+    <script>
+        const tabList = document.querySelectorAll('.tab-menu ul li');
+        
+        for(let i = 0; i < tabList.length; i++){
+            tabList[i].querySelector('.btn').addEventListener('click', function(e){
+            e.preventDefault();
+            for(let j = 0; j < tabList.length; j++){
+                tabList[j].classList.remove('button1-wrap');
+            }
+            this.parentNode.classList.add('button1-wrap');
+            });
+        }
+        
+        for(let i=0; i<tabList.length; i++) {
+            tabList[i].querySelector('.btn').addEventListener('click', function(e) {
+                e.preventDefault();
+        
+                for(let j=0; j<tabList.length; j++) {
+                    tabList[j].classList.remove();
+                } 
+            });
+        }
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
