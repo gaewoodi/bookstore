@@ -18,7 +18,7 @@ public interface AccountMapper {
     @Select("SELECT * FROM register WHERE reg_id = #{regId}")
     RegisterDto getMemberOne(int regId);
 
-    @Update("UPDATE register SET level=#{level} ")
+//    @Update("UPDATE register SET level=#{level} ")
 
     @Update("UPDATE register SET id = {id}, " +
             "passwd={passwd}, " +

@@ -7,19 +7,23 @@ import java.util.Date;
 
 @Data
 public class RegisterDto {
-    private int bookRegId;
-    private String bookRegUserid;
-    private String bookRegPasswd;
-    private String bookRegName;
-    private Date bookRegBirth;
-    private String bookRegGender;
-    private String bookRegEmail;
-    private String bookRegAdr;
-    private String bookRegTel;
-    private int bookRegLevel;
-    private String bookRegGrade;
-    private LocalDateTime bookRegCreated;
-    private LocalDateTime bookRegModified;
-    private Long bookRegImageSize;
-    private String bookRegTransName;
+    private int regId;
+    private String id;
+    private String passwd;
+    private String name;
+    private String birth;
+    private String gender;
+    private String email;
+    private int postcode;
+    private String adr2;
+    private String address;
+    private String address1;
+    private String tel;
+    private int level;
+    private String grade;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+    private String imageName;
+    private Long imageSize;
+    private String transName;
 }
