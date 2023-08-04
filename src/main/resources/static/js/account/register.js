@@ -1,7 +1,6 @@
 
 function frmCheck() {
      let userid = document.querySelector(".userid");
-     let userid1 = document.querySelector(".userid1");
      let passwd = document.querySelector(".passwd");
      let passwd2 = document.querySelector(".passwd2");
      let username = document.querySelector(".username");
@@ -37,7 +36,7 @@ function frmCheck() {
          username.focus();
          return false;
      }
-     let email = $(".email1").val() +$(".email2").val()
+     let email = $(".email1").val() + $(".email2").val()
 
     let obj = {
         userid : $(".userid").val(),
@@ -62,11 +61,15 @@ function frmCheck() {
         success : function(res) {
             if(res.msg == "success") {
                 alert("회원가입이 완료되었습니다.\n 로그인 후 이용 가능합니다.");
-                location.href = "/main";
+                location.href = "/login";
             }
         }
     });
 }
 
 document.querySelector(".btn").addEventListener('click', frmCheck);
+
+let userid1 = document.querySelector(".userid1");
+
+
 
