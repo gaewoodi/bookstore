@@ -62,8 +62,8 @@
 
         })
 
-        function search(){
-            alert("안녕하세요")
+        function like(){
+            <i class="fa-solid fa-heart"></i>
         }
 
 

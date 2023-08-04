@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" href="../../static/css/fragment/header.css">
 <body>
-    <div class="container">
+    <div class="container" th:fragment="headers">
         <div class="logo">
             <div class="logo-wrap">
                 <a href="/main"><img src="/images/main/logo/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
@@ -19,7 +20,9 @@
         <div class="mypage">
             <div class="mypage-wrap">
                 <ul>
-                    <li class="login"><a href="#">Login</a></li>
+                    <li class="login-a"><a href="#" class="login">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                    </li>
                     <li><a href="#">
                         <i class="fa-solid fa-user"></i></a>
                     </li>
@@ -31,7 +34,7 @@
                             <i class="fa-sharp fa-solid fa-bars"></i>
                         </a>
                         <ul class="submenu"> 
-                            <h1>전체카테고리</h1>
+                            <a href=""><h1>전체카테고리</h1></a>
                             <li><a href="#">소설/시/희곡</a></li>
                             <li><a href="#">에세이</a></li>
                             <li><a href="#">인문/사회</a></li>
