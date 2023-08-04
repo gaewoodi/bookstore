@@ -1,23 +1,25 @@
 use bookstore;
 
-create table book_register(
-book_reg_id int not null auto_increment,
-book_reg_userid varchar(20),
-book_reg_passwd varchar(20) not null,
-book_reg_name varchar(10) not null,
-book_reg_birth date,
-book_reg_gender char(1),
-book_reg_email varchar(50) not null unique,
-book_reg_adr varchar(255),
-book_reg_tel varchar(15),
-book_reg_level int default 1,
-book_reg_grade varchar(50),
-book_reg_created datetime,
-book_reg_modified datetime,
-book_reg_image_name varchar(255),
-book_reg_image_size bigint,
-book_reg_trans_name varchar(255),
-primary key(book_reg_id)
+create table register(
+reg_id int not null auto_increment,
+id varchar(20),
+passwd varchar(20) not null,
+name varchar(10) not null,
+birth date,
+gender char(1),
+email varchar(50) not null unique,
+postcode int not null,
+address varchar(255) not null,
+address1 varchar(255),
+tel varchar(15),
+level int default 1, -- 1 : 회원, 2 : 사원, 9 : 관리자
+grade varchar(50),
+created datetime,
+modified datetime,
+image_name varchar(255),
+image_size bigint,
+trans_name varchar(255),
+primary key(reg_id)
 );
 
-INSERT INTO book_register VALUES(NULL, 'admin', '0824', '관리자', now(), 'M', 'admin@mail.com', NULL, '010-1111-1111', '1', null, now(), now(), '', 0, '');
+INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', now(), 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');

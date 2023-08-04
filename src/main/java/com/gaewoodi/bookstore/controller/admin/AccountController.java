@@ -27,12 +27,10 @@ public class AccountController {
 
 
     @GetMapping("/admin/AccountView")
-    public String urlAccountView(@RequestParam int bookRegId, Model model){
-        if (bookRegId > 0){
-            model.addAttribute("acc", accountMapper.getMemberAll());
-//            model.addAttribute("level", );
-        }
+    public String urlAccountView(){
 
         return "admin/AccountView";
     }
+
+
 }
