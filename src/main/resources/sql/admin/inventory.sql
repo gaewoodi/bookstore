@@ -6,6 +6,4 @@ create inventory(
     cart_order int
     total int
     stock varchar(10)
-
-
 );
