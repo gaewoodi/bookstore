@@ -29,23 +29,6 @@ function checkboxClick() {
         result += el.value + ' ';
     });
 
-    let cartButton = document.querySelector(".cart-button");
-        
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        if(result != null) {
-            console.log("result[0] : " + result[0]);
-            console.log("result[2] : " + result[2]);
-            console.log("result[4] : " + result[4]);
-        }
-      
-
-        // location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
-
-
-
-    });
 
     console.log(result);
 
@@ -59,29 +42,19 @@ function checkboxClick() {
         document.getElementById('selectAll').checked = false;
     }
 
-    let cartButton = document.querySelector(".cart-button");
-
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        for(let i = 0; i < result.length; i++) {
-            location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
-        }
-    });
-
 
 }
 
 
 //체크박스 전체 체크
-function AllCheck(){
+function AllCheck() {
     document.querySelectorAll(".check").forEach(function(v) {
         v.checked = true;
     });
 }
 
 //체크박스 전체 체크 해제
-function AllUnCheck(){
+function AllUnCheck() {
     document.querySelectorAll(".check").forEach(function(v) {
         v.checked = false;
     });

@@ -17,7 +17,7 @@ public class SelectService {
         Map<String, Object> map = new HashMap<>();
 
         String checkResult = "";
-        String select = "book_id = ";
+        String select = " " + "book_id = ";
         String marks = "'";
 
         String orSelect = "OR" + " ";
@@ -52,7 +52,7 @@ public class SelectService {
                     checkResult = result1 + andSelect.repeat(j);
 
                     System.out.println("-----------------------------------");
-                    System.out.println("**1번째 값 : " + checkResult);
+//                    System.out.println("**1번째 값 : " + checkResult);
                 }
                 System.out.println("j값: " + andSelect.repeat(j));
                 checkResult = result1 + andSelect.repeat(j);
@@ -60,8 +60,8 @@ public class SelectService {
             }
 
 
-            System.out.println("2번째 값 : " + checkResult);
-
+//            System.out.println("2번째 값 : " + checkResult);
+            System.out.println("DB 값: " + "SELECT * FROM book_mst WHERE"  +checkResult);
         }
 
             map.put("checkResult", checkResult);
