@@ -37,5 +37,12 @@ public class RegisterController {
 
         return map;
     }
+
+    @PostMapping("/idCheck")
+    @ResponseBody
+    public int idCheck(@RequestParam String id) {
+        System.out.println(id);
+        return registerMapper.idCheck(id);
+    }
 }
 

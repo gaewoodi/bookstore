@@ -14,4 +14,7 @@ public interface RegisterMapper {
     @Insert("INSERT INTO register VALUES(NULL, #{id}, #{passwd}, #{name}, #{birth}, #{gender}, #{email}, #{postcode}, #{address}, #{address1}, #{tel}, #{level}, #{grade}, now(), now(), '', 0, '')")
     void saveRegister(RegisterDto registerDto);
 
+    @Select("SELECT COUNT(*) FROM register WHERE id = #{id}")
+    int idCheck(String id);
+
 }

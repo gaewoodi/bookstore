@@ -39,11 +39,11 @@ function frmCheck() {
      let email = $(".email1").val() + $(".email2").val()
 
     let obj = {
-        userid : $(".userid").val(),
+        id : $(".userid").val(),
         passwd : $(".passwd").val(),
         name : $(".username").val(),
         birth : $(".birth").val(),
-        userGender : $("input[type='radio']:checked").val(),
+        gender : $("input[type='radio']:checked").val(),
         postcode : $("#postcode").val(),
         address : $("#address").val(),
         address1 : $("#address1").val(),
@@ -69,7 +69,38 @@ function frmCheck() {
 
 document.querySelector(".btn").addEventListener('click', frmCheck);
 
+let userid = document.querySelector(".userid");
 let userid1 = document.querySelector(".userid1");
 
+function chkId() {
 
+    if(!userid.value) {
+        alert("아이디 중복확인을 해주세요.");
+        userid.focus();
+        return false;
+
+    }else {
+        $.ajax({
+            type : "post",
+            url : "/idCheck",
+            dataType : "json",
+            data : {id : userid.value},
+            success : function(res) {
+                if(res > 0) {
+                    alert("사용할 수 없는 아이디입니다.");
+                    userid.value = "";
+                    userid.focus();
+
+                }else {
+                    alert("사용 가능한 아이디입니다.");
+                }
+            },
+            error : function(err) {
+                console.log(err);
+            }
+        });
+    }
+}
+
+userid1.addEventListener('click', chkId);
 
