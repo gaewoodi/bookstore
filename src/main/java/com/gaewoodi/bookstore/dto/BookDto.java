@@ -1,7 +1,6 @@
 package com.gaewoodi.bookstore.dto;
 
 import lombok.Data;
-
 import java.time.Year;
 
 @Data

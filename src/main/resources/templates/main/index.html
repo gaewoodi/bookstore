@@ -26,23 +26,21 @@
             <div class="container">
                 <div class="logo">
                     <div class="logo-wrap">
-                        <a href="#"><img src="/images/main/logo/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
-                        <a href="index.html"><img src="images/logo/logo2.png" alt=""></a>
+                        <a href="/main"><img src="/images/main/logo/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
                     </div>
                 </div>
                 <div class="search-wrap">
                     <form action="">
-                        <input type="text" class="search">
+                        <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
                     </form>
                     <div class="search-btnwrap">
-                        <a href="" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        <a href="#" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </div>
                 </div>
                 <div class="mypage">
                     <div class="mypage-wrap">
                         <ul>
-                            <li><a href="#">
-                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            <li class="login-a"><a href="#" class="login">Login</a>
                             </li>
                             <li><a href="#">
                                 <i class="fa-solid fa-user"></i></a>
@@ -116,8 +114,8 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <img src="/images/main/book/갓오브블랙필드.jpg">
-                        <h1><a href="#"><strong>갓오블</strong>컴백기념 3억 쏜다!</a></h1>
+                        <img src="/images/main/book/스콘.jpg">
+                        <h1><a th:href="@{/bookinfo?(bookId = ${book.bookId})}"><strong>[[${book.bookName}]]</strong>먹어볼래?</a></h1>
                     </div>
                 </div> 
                 <div class="main2">
@@ -125,47 +123,47 @@
                         <div class="owl-carousel owl-theme">
                             <div class="main2-img item">
                                 <a href="#">
-                                    <img src="images/main/book-main/원피스 고화질.jpg" alt="원피스">
+                                    <img src="/images/main/book-main/슈퍼해빗.jpg" alt="슈퍼해빗">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>2023 추천작 : 원피스</h1></a>
-                                    <a href="#"><p>난 해적왕이 될거야</p></a>
+                                    <a href="#"><h1>슈퍼 해빗</h1></a>
+                                    <a href="#"><p>완전한 변화로 이끄는 7가지 체인지 부스터</p></a>
                                 </div>
                             </div>
                             <div class="main2-img item">
                                 <a href="#">
-                                    <img src="/images/main/book-main/마리끌레르1.jpg" alt="마리끌레르">
+                                    <img src="/images/main/book-main/지금 이대로 좋다.jpg" alt="지금이대로 좋다.">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>Marrie claire</h1></a>
-                                    <a href="#"><p>댄스가수 유랑단 : 이효리</p></a>
+                                    <a href="#"><h1>지금 이대로 좋다</h1></a>
+                                    <a href="#"><p>법륜스님이 당신에게 : 자유롭고 행복하고싶나?</p></a>
                                 </div>
                             </div>
                             <div class="main2-img item">
                                 <a href="#">
-                                    <img src="images/main/book-main/신과함께3.jpg" alt="원피스">
+                                    <img src="/images/main/book-main/리더의 말그릇.jpeg" alt="리더의 말그릇">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>신과함께 : 죄와벌 절찬재판매중 !</h1></a>
-                                    <a href="#"><p>지나간 일에 새로운 눈물을 낭비하지 말자</p></a>
+                                    <a href="#"><h1>리더의말그릇</h1></a>
+                                    <a href="#"><p>리더의 영향력은 말그릇에서 나온다.</p></a>
                                 </div>
                             </div>
                             <div class="main2-img item">
                                 <a href="#">
-                                    <img src="images/main/book-main/정여울의 심리테라피.png" alt="원피스">
+                                    <img src="/images/main/book-main/센강의 일므모를 여인.jpg" alt="센강의 이름모를 여인">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>열번째 : 정여울 신작</h1></a>
-                                    <a href="#"><p>나를 돌보지 않는 나에게</p></a>
+                                    <a href="#"><h1>센강의 이름모를 여인</h1></a>
+                                    <a href="#"><p>기욤뮈소신작 : 항공기사고의 그녀, 강에서 발견?</p></a>
                                 </div>
                             </div>
                             <div class="main2-img item">
                                 <a href="#">
-                                    <img src="images/main/book-main/나미야잡화점의 기적.png" alt="원피스">
+                                    <img src="/images/main/book-main/늙는다는 착각.jpg" alt="늙는다는 착각">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>히가시노게이고</h1></a>
-                                    <a href="#"><p>당신에게도 나누고 싶은 고민이 있나요?</p></a>
+                                    <a href="#"><h1>늙는다는 착각</h1></a>
+                                    <a href="#"><p>내 나이를 되돌리는 마법의 심리학</p></a>
                                 </div>
                             </div>
                         </div>
@@ -235,10 +233,10 @@
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/media.jpg" alt=""></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>대통령의 염쟁이</h4></a>
+                                            <a href="#"><h4>대통령의 <br/>염장이</h4></a>
                                             <a href="#"><p class="p"><strong>노무현·김영삼·이건희
                                                 장례지도사가 들려주는 죽음과 삶의 이야기</strong></p></a>
-                                            <a href="#"><p>장례명장이 어루만진 삶의 끝과 시작</p></a>
+                                            <a href=""><p>장례명장이 어루만진 삶의 끝과 시작</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -646,8 +644,6 @@
                                 </div>
 
 
-
-
                             </div>
                         </div>
 
@@ -657,9 +653,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
         <footer id ="footer">
             <div class="container">

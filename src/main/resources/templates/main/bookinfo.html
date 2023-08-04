@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <tr>
+        <td>id</td>
+        <td>코드</td>
+        <td>이름</td>
+        <td>갯수</td>
+        <td>작가</td>
+        <td>출판사</td>
+        <td>출판일</td>
+        <td>카테고리</td>
+        <td>가격</td>
+    </tr>
+    <br/>
+    <tr th:each="m: ${main}">
+        <td>[[${m.bookId}]]</td>
+        <td>[[${m.bookCode}]]</td>
+        <td>[[${m.bookName}]]</td>
+        <td>[[${m.bookCount}]]</td>
+        <td>[[${m.author}]]</td>
+        <td>[[${m.publisher}]]</td>
+        <td>[[${m.publicationDate}]]</td>
+        <td>[[${m.category}]]</td>
+        <td>[[${m.price}]]</td>
+    </tr>
+    
+</body>
+</html>

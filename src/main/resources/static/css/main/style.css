@@ -63,6 +63,7 @@ input, textarea, select {
     height: 100px;
     display: flex;
     justify-content: space-between;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .logo {
@@ -116,7 +117,8 @@ input, textarea, select {
 }
 
 .mypage-wrap {
-    margin-top: 25px;
+    position : relative;
+    margin-top: 35px;
 }
 
 .mypage > ul {
@@ -137,12 +139,20 @@ input, textarea, select {
     margin-right : 35px;
 }
 
-
-.mypage-wrap {
-    position : relative;
-    margin-top: 35px;
-    
+.login-a {
+margin-top : 5px;
 }
+
+.mypage .mypage-wrap > ul > li .login {
+    font-size: 15px;
+    background-color : rgb(239, 84, 77);
+    border-radius: 10px;
+    color: #fff;
+    letter-spacing : -0.5px;
+    padding : 10px;
+}
+
+
 
 
 
@@ -318,6 +328,7 @@ input, textarea, select {
 
 
 
+
 .main2 {
     height: 10%;
     font-family: 'Nanum Gothic', sans-serif;
@@ -327,9 +338,12 @@ input, textarea, select {
     position: relative;
 }
 
-.main2-img img { 
+.main2-img img {
+    width: 1200px;
+    height : 650px;
     margin-top: 10px;
     border-radius: 15px;
+    overflow:hidden;
 }
 
 .main2-text {
@@ -642,7 +656,7 @@ input, textarea, select {
 .main6-menu ul {
     display: flex;
     margin-top: 30px;
-    margin-left :300px;
+    margin-left :210px;
 
     /* 넘치면 가려주세요 */
     overflow:hidden;

@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class MainDto {
-    private String bookname;
+    private String bookName;
 }
