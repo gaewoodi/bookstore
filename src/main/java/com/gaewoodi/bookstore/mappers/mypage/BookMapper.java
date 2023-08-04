@@ -16,4 +16,7 @@ public interface BookMapper {
     @Select("SELECT count(*) FROM book_mst")
     int getTotalCount();
 
+    @Select("SELECT * FROM book_mst WHERE book_id = #{bookId}")
+    List<BookDto> viewBook(int bookId);
+
 }

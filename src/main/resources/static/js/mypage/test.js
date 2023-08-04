@@ -28,35 +28,22 @@ function checkboxClick() {
     selectedElements.forEach((el) => {
         result += el.value + ' ';
     });
+    
+    console.log("result값: " + result);
 
-    let cartButton = document.querySelector(".cart-button");
-        
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        if(result != null) {
-            console.log("result[0] : " + result[0]);
-            console.log("result[2] : " + result[2]);
-            console.log("result[4] : " + result[4]);
+    const checkArray = [];
+    // Name이 check 속성 취득
+    const checks = document.getElementsByName("bookId");
+    // 취득한 속성 만큼 루프
+    for (let i = 0; i < checks.length; i++) {
+        // 속성중에 체크 된 항목이 있을 경우
+        if (checks[i].checked == true) {
+            checkArray.push(checks[i].value);
+            
         }
-      
-
-        // location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
-
-
-
-    });
-    console.log(result);
-
-    //체크박스 전체개수와 체크된 체크박스 전체개수가 같으면 전체 체크박스 체크
-    if(allCount == selectedElementsCount){
-         document.getElementById('selectAll').checked = true;
     }
-
-    //같지않으면 전체 체크박스 해제
-    else{
-        document.getElementById('selectAll').checked = false;
-    }
+    // 결과를 표시
+    console.log("checkArray 안에 값들" + checkArray.value);
 
     let cartButton = document.querySelector(".cart-button");
 

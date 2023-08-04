@@ -1,3 +1,4 @@
+
 use bookstore;
 
 create table register(
@@ -6,10 +7,14 @@ id varchar(20),
 passwd varchar(20) not null,
 name varchar(10) not null,
 <<<<<<< HEAD
+<<<<<<< HEAD
 birth date,
 =======
 birth varchar(12),
 >>>>>>> origin/account
+=======
+birth varchar(12),
+>>>>>>> origin/mypage
 gender char(1),
 email varchar(50) not null unique,
 postcode int not null,
@@ -27,7 +32,11 @@ primary key(reg_id)
 );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', now(), 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');
 =======
 INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-08-03', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');
 >>>>>>> origin/account
+=======
+INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-08-03', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');
+>>>>>>> origin/mypage

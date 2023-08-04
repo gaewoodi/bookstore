@@ -49,9 +49,10 @@
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
+                                <input type="text" name="checkValue">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
-                                    <img th:src="@{/images/no_image_pink.png}">
+                                    <img th:src="@{/images/no_image_pink.jpg}">
                                 </div>
                                 <div class="book-data">
                                     <table>

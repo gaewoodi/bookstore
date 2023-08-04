@@ -27,42 +27,48 @@
 </head>
 
 <body>
-    <div id="container">
-        <header id="header" th:insert="~{fragment/header::headers}"></header>
-        <main class="main-container">
-            <div class="serve-container">
-                <!--main-container basis 1 -->
-                <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
+<div id="container">
+    <header id="header" th:insert="~{fragment/header::headers}"></header>
+    <main class="main-container">
+        <div class="serve-container">
+            <!--main-container basis 1 -->
+            <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
 
-                <!--main-container basis 2 -->
-                <div class="book-purchase-list">
-                    <div class="title-container">
-                        <h1>
-                            <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
-                        </h1>
-                        <div class="button-container">
-                            <a>
-                                <button type="submit" class="cart-button">장바구니</button>
-                            </a>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="third-container">
-                        <div class="book-cointainer" th:each="book: ${book}">
-                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
-                            <div class="image-container">
-                                <img th:src="@{/images/no_image_pink.png}" alt="백광">
+            <div class="third-container">
+                <form action="/cart" method="get">
+                    <!--main-container basis 2 -->
+                    <div class="book-purchase-list">
+                        <div class="title-container">
+                            <h1>
+                                <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
+                            </h1>
+                            <div class="button-container">
+                                <a>
+                                    <button type="submit" class="cart-button">장바구니</button>
+                                </a>
                             </div>
-                            <div class="book-data">
-                                <table>
-                                    <tbody>
+                        </div>
+                        <hr>
+
+                        <div class="fourth-container">
+                            <div class="book-cointainer" th:each="book: ${book}">
+                                <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                                <div class="image-container">
+                                    <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
                                         <tr>
                                             <td class="bookCode">[[${book.bookCode}]]</td>
                                         </tr>
-                                        <tr>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                        <tr>
                                             <td>도서제목</td>
-                                            <td class="bookName">[[${book.bookName}]]</td>
+                                            <td class="bookName">
+                                                <a th:href="@{/book/view?(bookId=${book.bookId})}">
+                                                    [[${book.bookName}]]
+                                                </a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>작가</td>
@@ -72,8 +78,8 @@
                                             <td>출판사</td>
                                             <td class="publisher">[[${book.publisher}]]</td>
                                         </tr>
-                                            <td>출판연도</td>
-                                            <td class="publicationDate">[[${book.publicationDate}]]</td>
+                                        <td>출판연도</td>
+                                        <td class="publicationDate">[[${book.publicationDate}]]</td>
                                         <tr>
                                             <td>분류</td>
                                             <td class="category">[[${book.category}]]</td>
@@ -83,53 +89,50 @@
                                             <td class="price">
                                                 [[${book.price}]]
                                                 <span class="view-container">
-                                                    <i class="fa-solid fa-eye view"></i>
-                                                    <span>[[${book.view}]]</span>
-                                                </span>
+                                                            <i class="fa-solid fa-eye view"></i>
+                                                            <span>[[${book.view}]]</span>
+                                                        </span>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        
-                            <div class="button-container">
-                                <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                    <button type="button" class="purchase-button">결제하기</button>
-                                </a>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="button-container">
+                                    <a th:href="@{/purchase?(bookId=${book.bookId})}">
+                                        <button type="button" class="purchase-button">결제하기</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div> 
-
-
-                    <div class="paging-container">
-                        <a th:if="${pagination.page > 1}" th:href="@{/book?(page=${pagination.page -1})}">
-                            <button><i class="fa-regular fa-circle-left"></i></button>
-                        </a>
-                        <a th:unless="${pagination.page > 1}">
-                            <button><i class="fa-regular fa-circle-left"></i></button>
-                        </a>
-                        <a th:each="i: ${#numbers.sequence(pagination.startPage, pagination.endPage, 1)}" th:href="@{/book?(page=${i})}">
-                            <button>[[${i}]]</button>
-                        </a>
-                        <a th:if="${pagination.page < pagination.totalPage}" th:href="@{/book?(page=${pagination.page +1})}">
-                            <button><i class="fa-regular fa-circle-right"></i></button>
-                        </a>
-                        <a th:unless="${pagination.page < pagination.totalPage}">
-                            <button><i class="fa-regular fa-circle-right"></i></button>
-                        </a>
                     </div>
-
-                    
-
+                </form>
+                <div class="paging-container">
+                    <a th:if="${pagination.page > 1}" th:href="@{/book?(page=${pagination.page -1})}">
+                        <button><i class="fa-regular fa-circle-left"></i></button>
+                    </a>
+                    <a th:unless="${pagination.page > 1}">
+                        <button><i class="fa-regular fa-circle-left"></i></button>
+                    </a>
+                    <a th:each="i: ${#numbers.sequence(pagination.startPage, pagination.endPage, 1)}" th:href="@{/book?(page=${i})}">
+                        <button>[[${i}]]</button>
+                    </a>
+                    <a th:if="${pagination.page < pagination.totalPage}" th:href="@{/book?(page=${pagination.page +1})}">
+                        <button><i class="fa-regular fa-circle-right"></i></button>
+                    </a>
+                    <a th:unless="${pagination.page < pagination.totalPage}">
+                        <button><i class="fa-regular fa-circle-right"></i></button>
+                    </a>
                 </div>
             </div>
-        </main>
-        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
-    </div>
-    <script th:src="@{/js/fragment/header.js}"></script>
-    <script th:src="@{/js/fragment/side_menu.js}"></script>
-    <!-- <script th:src="@{/js/mypage/checkBox.js}"></script> -->
-    <!-- <script th:src="@{/js/mypage/book.js}"></script> -->
-    <script src="/js/mypage/test.js"></script>
+        </div>
+    </main>
+    <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
+</div>
+<script th:src="@{/js/fragment/header.js}"></script>
+<script th:src="@{/js/fragment/side_menu.js}"></script>
+<!-- <script th:src="@{/js/mypage/checkBox.js}"></script> -->
+<!-- <script th:src="@{/js/mypage/book.js}"></script> -->
+<script src="/js/mypage/test.js"></script>
 </body>
 </html>
