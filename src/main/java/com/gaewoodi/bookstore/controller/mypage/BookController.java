@@ -7,11 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/book")
-public class AllBookController {
+public class BookController {
 
     @Autowired
     private BookMapper bookMapper;
@@ -26,6 +24,24 @@ public class AllBookController {
 
         return "mypage/book";
     }
+
+    @GetMapping("/view")
+    public String viewBook(@RequestParam int bookId, Model model) {
+        model.addAttribute("book", bookMapper.viewBook(bookId));
+
+        return "mypage/view";
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

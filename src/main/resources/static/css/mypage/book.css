@@ -78,7 +78,7 @@ body{
     height: 30px;
 }
 
-.third-container {
+.fourth-container {
     width: 100%;
 }
 
@@ -119,6 +119,7 @@ body{
 }
 
 .book-data {
+    display: flex;
     width: 700px;
     height: 230px;
 
@@ -180,7 +181,8 @@ body{
 
 /* paging */
 .paging-container { 
-    margin-top: 20px;
+    margin: 20px 0px;
+    
     text-align: center;
 }
 
@@ -190,6 +192,8 @@ body{
     background-color: transparent;
 
     font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
     
     cursor: pointer;
 }

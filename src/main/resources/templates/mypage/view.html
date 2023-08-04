@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book-store < 도서상세보기</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- 폰트, 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/book.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
+        <main class="main-container">
+            <div class="serve-container">
+                <!--main-container basis 1 -->
+                <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
+
+                <div class="third-container">
+                  
+                    <!--main-container basis 2 -->
+                    <div class="book-purchase-list">
+                        <div class="fourth-container">
+                            <div class="book-cointainer" th:each="book: ${book}">
+                                <div class="image-container">
+                                    <img th:src="@{/images/no_image_pink.jpg}" alt="백광">
+                                </div>
+                                <div class="book-data">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="bookCode">[[${book.bookCode}]]</td>
+                                            </tr>
+                                            <tr>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                <td>도서제목</td>
+                                                <td class="bookName">[[${book.bookName}]]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>작가</td>
+                                                <td class="author">[[${book.author}]]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>출판사</td>
+                                                <td class="publisher">[[${book.publisher}]]</td>
+                                            </tr>
+                                                <td>출판연도</td>
+                                                <td class="publicationDate">[[${book.publicationDate}]]</td>
+                                            <tr>
+                                                <td>분류</td>
+                                                <td class="category">[[${book.category}]]</td>
+                                            </tr>
+                                            <tr>
+                                                <td>가격</td>
+                                                <td class="price">
+                                                    [[${book.price}]]
+                                                    <span class="view-container">
+                                                        <i class="fa-solid fa-eye view"></i>
+                                                        <span>[[${book.view}]]</span>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
+    </div>
+    <script th:src="@{/js/fragment/header.js}"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
+</body>
+</html>

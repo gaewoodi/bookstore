@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book-store < 회원정보수정</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- 폰트, 아이콘 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- css -->
+    <link rel="stylesheet" href="/css/account/reset.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/account/register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <div class="member">
+                <img class="logo" src="/images/account/gaewoodi.png">
+
+                <div class="UserId">
+                    <p>아이디</p>
+                    <input type="userid" name="bookRegUserid" class="userid">
+                    <input type="button" name="bookRegUserid1" class="userid1" value="아이디 중복확인">
+                </div>
+                <div class="UserPw">
+                    <p>비밀번호<span id="chkPage" style="color:#f00"></span></p>
+                    <input type="password" name="bookRegPasswd" class="passwd">
+                </div>
+                <div class="Re-UserPw">
+                    <p>비밀번호 확인<span id="chkPage1" style="color:#f00"></span></p>
+                    <input type="password" name="bookRegPasswd2" class="passwd2">
+                </div>
+                <div class="UserName">
+                    <p>이름</p>
+                    <input type="text" name="bookRegName" class="username">
+                </div>
+
+                <div class="field-birth">
+                    <p>생년월일</p>
+                    <div>
+                        <input type="date" value="yyyy" min="MM" max="dd" name="bookRegBirth">
+                    </div>
+                </div>
+            </div>
+            <form class="gender">
+                <div class="gender1">
+                    <label>성별</label>
+                    <input type="radio" name="bookRegGender" class="userGender" value="M"> 남자
+                    <input type="radio" name="bookRegGender" class="userGender" value="W" checked> 여자
+                </div>
+            </form>
+            <div class="member1">
+                <div class="Email">
+                    <p>이메일 주소</p>
+                        <input type="email" name="bookRegEmail" class="email1"> @
+                            <select class="email2">
+                                <option value="">직접 입력</option>
+                            </select>
+                </div>
+
+    <!--            <div class="Address">-->
+    <!--                <p>주소</p>-->
+    <!--                    <input type="adr" name="bookRegAdr" class="adr1">-->
+    <!--                    <input type="button" name="bookRegAdr2" class="adr2" value="우편번호 검색">-->
+    <!--            </div>-->
+
+                <div class="Address">
+                    <p>
+                        <input type="text" name="bookRegAdr" id="bookRegAdr" class="adr1" placeholder="우편번호" readonly>
+                        <input type="button" onclick="execDaumPostcode()" class="adr2" value="우편번호 찾기">
+                    <p>
+                    </p>
+                        <input type="text" id="address" placeholder="도로명주소" style="width: 360px" readonly>
+                    <p>
+                    </p>
+                        <input type="text" id="address1" placeholder="지번주소" style="width: 360px" readonly>
+                    <p>
+                    </p>
+                        <input type="text" id="address2" placeholder="상세주소" style="width: 360px">
+                    </p>
+                </div>
+
+                <div class="tel-number">
+                    <p>휴대전화</p>
+                    <div>
+                        <input type="tel" name="bookRegTel" class="tel1" placeholder="전화번호 입력">
+                        <input type="button" name="bookRegTel2" class="tel2" value="인증번호 받기">
+                    </div>
+                </div>
+                <div>
+    <!--                <input type="submit" class="reg" value="회원가입 하기">-->
+                    <button type="button" class="btn">회원가입</button>
+                </div>
+            </div>
+
+            <div class="member-footer">
+                <div class="footer1">
+                    <ul>
+                        <li>
+                            <a href="#">이용약관</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보 처리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">운영정책</a>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                        </li>
+                        <li>
+                            <a href="#">공지사항</a>
+                        </li>
+                        <li>
+                            <a href="#">언어</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer2">
+                    <a href="#">Copyright © Kakao Corp. All rights reserved.</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+        <script th:src="@{/js/account/register.js}"></script>
+        <script src="/js/account/postcode.v2.js"></script>
+</body>
+</html>

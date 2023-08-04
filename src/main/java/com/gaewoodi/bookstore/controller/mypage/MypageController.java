@@ -10,4 +10,10 @@ public class MypageController {
     public String getMypage() {
         return "mypage/mypage";
     }
+
+    @GetMapping("/user/edit")
+    public String getserEdit() {
+
+        return "mypage/user_edit";
+    }
 }
