@@ -1,118 +1,330 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test페이지</title>
-</head>
-<style>
-    ul, li {
-        list-style: none;
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <style>
+    
+    
+    * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    }
+
+    html {
+        line-height: 1;
+        height: 100%;
+    }
+
+    body {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-family: 'Poppins', sans-serif;
+        /* font-family: 'Noto Sans KR', sans-serif; */
+    }
+
+    ol, ul {
+        list-style-type: none;
     }
 
     a {
+        color: black;
         text-decoration: none;
-        color: #555;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    input, textarea, select {
+        box-sizing: border-box;
     }
 
 
 
 
 
-    .tab-menu {
-        position:relative;
+/* 레이아웃 */
+.wrap {
+    width : 100%;
+    margin: 0 auto;
+
+}
+
+.container {
+    width : 1200px;
+    margin : 0 auto;
+}
+
+    
+    
+    .main6 {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 10px;
+    position: relative;
     }
 
-    .tab-menu ul {
-        overflow:hidden;
-    }
+    .main6-h1 h1 {
+    text-align: center;
+    color : rgb(239, 84, 77);
+    padding-bottom: 25px;
+    border-bottom: 1px solid #999;
+    text-shadow: 0 0 5px 3px rgb(192, 192, 192);
+    letter-spacing:3px;
+}
 
-    .tab-menu ul li {
-        float:left; 
-        margin-right:14px;
-    }
 
 
-    /*  */
-    .tab-menu ul .btn {
-        font-size:13px;
-    }
 
-    .tab-menu ul .cont {
-        display:none; 
-        position:absolute; 
-        
-        width:250px; 
-        height:100px; 
 
-        background:#555; 
-        color:#fff; 
+.main6 {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 10px;
+    position: relative;
+}
 
-        text-align:center; 
-        line-height:100px;
-    }
-    .tab-menu ul li.button1-wrap .btn {
-        font-weight:bold; 
-        color:green;
-    }
-    .tab-menu ul li.button1-wrap .cont {
-        display:block;
-    }
-  </style>
+.main6-h1 h1 {
+    text-align: center;
+    color : rgb(239, 84, 77);
+    padding-bottom: 25px;
+    border-bottom: 1px solid #999;
+    text-shadow: 0 0 5px 3px rgb(192, 192, 192);
+    letter-spacing:3px;
+}
+
+
+
+
+
+.main6-menu ul {
+    display: flex;
+    margin-top: 30px;
+    margin-left :300px;
+
+    /* 넘치면 가려주세요 */
+    overflow:hidden;
+}
+.main6-menu ul li{
+    margin-right: 40px;
+    justify-content: center;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.main6-menu li:hover {
+    color: rgb(239, 84, 77);
+}
+
+
+
+
+
+.tab-content {
+    display: none;
+}
+
+.main6-list-wrap {
+    display: flex;
+    padding : 10px;
+    justify-content : space-between;
+}
+
+.main6-list-wrap.last ul li a {
+    display: block;
+}
+
+.main6-list {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding : 20px;
+}
+
+
+.tab-content.active {
+    display: block;
+}
+
+
+
+
+
+
+.main6-list-subject img {
+    width: 150px;
+    height: 210px;
+    box-shadow: 0 0 5px 3px rgb(192, 192, 192);
+}
+
+
+.main6-list-subject img:hover {
+    transform: scale(1.03);
+    transition: 0.1s;
+}
+
+.main6-list-text h6 {
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.main6-list-text h6:hover {
+    color: #777;
+}
+
+.main6-list-text p {
+    letter-spacing: -0.5px;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main6-list-text p:hover {
+    color: #777;
+}
+    </style>
+</head>
+
 <body>
-      
-      <div class="tab-menu">
-        <ul>
-          <li class="button1-wrap">
-            <a href="#tab1" class="btn">버튼1</a>
-          </li>
-          <li>
-            <a href="#tab2" class="btn">버튼2</a>
-          </li>
-          <li>
-            <a href="#tab3" class="btn">버튼3</a>
-          </li>
+    <div class="main6-menu"><!-- main6-menu -->
+        <ul class="tabs"> <!-- h3 -->
+            <li class="active" data-tab="tab-1">문학/소설</li> <!-- a -->
+            <li data-tab="tab-2">유아/청소년</li>
+            <li data-tab="tab-3">육아</li>
+            <li data-tab="tab-4">건강</li>
+            <li data-tab="tab-5">경제</li>
+            <li data-tab="tab-6">인문/사회</li>
+            <li data-tab="tab-6">과학</li>
         </ul>
-
-        <div id="tab1" class="cont">버튼1내용~~</div>
-        <div id="tab2" class="cont">버튼2내용~~</div>
-        <div id="tab3" class="cont">버튼3내용~~</div>
-      </div>
-      
-
-      
-
-      <!-- li안에 cont가 들어가있을때 버전 -->
+        <div class="main6-list">
+            <div id="tab-1" class="tab-content active">
+                <div class="main6-list-wrap">
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>백의 그림자</h6></a>
+                            <a href="#"><p>11700원 + 1170P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>천개의파랑</h6></a>
+                            <a href="#"><p>12420원 + 1240P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>훌훌</h6></a>
+                            <a href="#"><p>14850원 + 1480P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
+                            <a href="#"><p>26820원 + 1480P</p></a>
+                        </div>            
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>센강의 이름 모를 여인</h6></a>
+                            <a href="#"><p>14800원 + 1480P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
+                            <a href="#"><p>9900원 + 990P</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-2" class="tab-content">
+                <div class="main6-list-wrap">
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
+                        <a href="#"><p>14800원 + 1480P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>구미호식당</h6></a>
+                            <a href="#"><p>9900원 + 990P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>설민석의 한국사 대모험</h6></a>
+                            <a href="#"><p>11700원 + 1170P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>흔한남매</h6></a>
+                            <a href="#"><p>12420원 + 1240P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>에그박사</h6></a>
+                            <a href="#"><p>14850원 + 1480P</p></a>
+                        </div>
+                    </div>
+                    <div class="main6-list-subject">
+                        <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
+                        <div class="main6-list-text">
+                            <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
+                            <a href="#"><p>26820원 + 1480P</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-3" class="tab-content">
+                내용3
+            </div>
+            <div id="tab-4" class="tab-content">
+                내용4
+            </div>
+            <div id="tab-5" class="tab-content">
+                내용5
+            </div>
+            <div id="tab-6" class="tab-content">
+                내용6
+            </div>
+        </div>
+    </div>
     <script>
-        const tabList = document.querySelectorAll('.tab-menu ul li');
-        
-        for(let i = 0; i < tabList.length; i++){
-            tabList[i].querySelector('.btn').addEventListener('click', function(e){
-            e.preventDefault();
-            for(let j = 0; j < tabList.length; j++){
-                tabList[j].classList.remove('button1-wrap');
-            }
-            this.parentNode.classList.add('button1-wrap');
-            });
-        }
-        
-        for(let i=0; i<tabList.length; i++) {
-            tabList[i].querySelector('.btn').addEventListener('click', function(e) {
-                e.preventDefault();
-        
-                for(let j=0; j<tabList.length; j++) {
-                    tabList[j].classList.remove();
-                } 
-            });
-        }
+        $(document).ready(function () {
+
+            $('.main6-menu ul li').click(function () {
+                var tab_id = $(this).attr('data-tab');
+
+                $('.main6-menu ul li').removeClass('active');
+                $('.tab-content').removeClass('active');
+
+                //tab-content의 내용을 display:none으로 처리해 두고 탭 버튼을 누르면 해당 tab-content에 active.
+                $(this).addClass('active');
+                $("#" + tab_id).addClass('active');
+            })
+
+        })
     </script>
-
-
 </body>
 </html>
-
-
-
-
-
-
