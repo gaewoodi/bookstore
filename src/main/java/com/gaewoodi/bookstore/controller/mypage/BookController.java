@@ -27,7 +27,11 @@ public class BookController {
 
     @GetMapping("/view")
     public String viewBook(@RequestParam int bookId, Model model) {
-        model.addAttribute("book", bookMapper.viewBook(bookId));
+        if(bookId > 0) {
+            bookMapper.updateVisit(bookId);
+            model.addAttribute("book", bookMapper.viewBook(bookId));
+
+        }
 
         return "mypage/view";
     }

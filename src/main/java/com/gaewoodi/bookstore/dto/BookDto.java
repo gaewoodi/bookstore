@@ -14,5 +14,5 @@ public class BookDto {
     private Year publicationDate;
     private String category;
     private String price;
-    private int view;
+    private int visit;
 }
