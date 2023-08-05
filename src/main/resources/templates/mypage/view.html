@@ -17,26 +17,185 @@
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/mypage/book.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/view.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
+    <link rel="stylesheet" href="/static/css/mypage/view.css">
+    <link rel="stylesheet" href="/static/css/mypage/responsive.css">
 </head>
 
 <body>
     <div id="container">
-        <header id="header" th:insert="~{fragment/header::headers}"></header>
+        <!-- <header id="header" th:insert="~{fragment/header::headers}"></header> -->
+        <!-- header 삭제 부분 -->
+        <header id="header">
+            <div class="container" th:fragment="headers">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="/main"><img src="/static/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                    </div>
+                </div>
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+                <div class="mypage">
+                    <div class="mypage-wrap">
+                        <ul>
+                            <li><a href="/register">
+                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            </li>
+        
+                            <li><a href="/mypage">
+                                <i class="fa-solid fa-user"></i></a>
+                            </li>
+                            <li>
+                                <a href="/cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-menu">
+                                    <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                                </a>
+                                <div class="submenu">
+                                    <div class="submenu-wrap">
+                                        <div class="submenu1">
+                                            <ul>
+                                                <h1>전체카테고리</h1>
+                                                <a href="#"><li>소설/시/희곡</li></a>
+                                                <a href="#"><li>에세이</li></a>
+                                                <a href="#"><li>인문/사회</li></a>
+                                                <a href="#"><li>정치/경제</li></a>
+                                                <a href="#"><li>자기계발</li></a>
+                                                <a href="#"><li>역사/문화</li></a>
+                                                <a href="#"><li>IT/과학</li></a>
+                                                <a href="#"><li>가정/생활</li></a>
+                                                <a href="#"><li>진로/교육</li></a>
+                                                <a href="#"><li>유아/어린이</li></a>
+                                                <a href="#"><li>기타</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
         <main class="main-container">
             <div class="serve-container">
                 <!--main-container basis 1 -->
-                <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
+                <!-- <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div> -->
+
+                <!-- ** side menu 삭제** -->
+                <div class="menu-container">
+                    <ol th:fragment="sideMenu">
+                        <ul>
+                            <button class="book-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 도서</button>
+                            <div class="mypage-menu" id="tab1">
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-book"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/book">전체도서</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-book"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/best">베스트도서</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                
+                        <ul>
+                            <button class="mypage-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 마이페이지</button>
+                            <div class="mypage-menu" id="tab2">
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-receipt"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/purchase/list">구매내역</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-receipt"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/purchase">도서결제</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-receipt"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/purchase/delete">구매취소</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                                <hr>
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-cart-arrow-down"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/cart">장바구니</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="">
+                                        <div class="icon-box">
+                                            <i class="fa-solid fa-user-pen"></i>
+                                        </div>
+                                        <strong>
+                                            <a href="/user/edit">정보수정</a>
+                                        </strong>
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </ol>
+                </div>
 
                 <div class="third-container">
-                  
                     <!--main-container basis 2 -->
-                    <div class="book-purchase-list">
+                    <div class="book-list">
+                        <div class="title-container">
+                            <h1>도서 상세보기</h1>
+                        </div>
+                        <hr>
                         <div class="fourth-container">
-                            <div class="book-cointainer" th:each="book: ${book}">
+                            <div class="book-container" th:each="book: ${book}">
                                 <div class="image-container">
-                                    <img th:src="@{/images/no_image_pink.jpg}" alt="백광">
+                                    <!-- <img th:src="@{/images/no_image_pink.jpg}" alt="백광"> -->
+                                    <img src="/static/images/no_image_pink.jpg" alt="백광">
                                 </div>
                                 <div class="book-data">
                                     <table>
@@ -66,6 +225,16 @@
                                                 <td>가격</td>
                                                 <td class="price">
                                                     [[${book.price}]]
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>재고상황</td>
+                                                <td>
+                                                   sold out
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
                                                     <span class="view-container">
                                                         <i class="fa-solid fa-eye view"></i>
                                                         <span>[[${book.visit}]]</span>

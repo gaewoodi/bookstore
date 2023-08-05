@@ -37,7 +37,7 @@
             <div class="third-container">
                 <form action="/cart" method="get">
                     <!--main-container basis 2 -->
-                    <div class="book-purchase-list">
+                    <div class="book-list">
                         <div class="title-container">
                             <h1>
                                 <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
@@ -51,7 +51,7 @@
                         <hr>
 
                         <div class="fourth-container">
-                            <div class="book-cointainer" th:each="book: ${book}">
+                            <div class="book-container" th:each="book: ${book}">
                                 <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
