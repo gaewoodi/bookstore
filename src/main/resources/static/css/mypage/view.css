@@ -1,8 +1,9 @@
 @charset 'utf-8';
 
 body{
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
     font-family: 'Roboto', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .main-container {
@@ -24,8 +25,6 @@ body{
     padding: 10px;
     height: calc(95vh - 80px);
     width: 100%;
-    
-    background-color: #e0212119;
 }
 
 /* main-container basis 2 */
@@ -91,13 +90,13 @@ body{
 
     font-size: 14px;
 
-    background-color: beige;
+    /* background-color: beige; */
 }
 
 .image-container {
-    margin-top: 10px;
-    width: 500px;
-    height: 600px;
+    margin-top: 20px;
+    width: 300px;
+    height: 400px;
 
     overflow: hidden;
 }
@@ -114,11 +113,12 @@ body{
 }
 
 .book-data {
-    margin-top: 20px;
-    width: 700px;
-    height: 230px;
+    margin-top: 30px;
+    width: 1000px;
 
-    font-size: 30px;
+    font-size: 20px;
+
+    /* background-color: aquamarine; */
 }
 
 .book-data table {
@@ -126,28 +126,18 @@ body{
     width: 90%;
 }
 
-/* .book-data tbody tr, .book-data tbody tr td {
-    border: 1px solid #ccc;
-} */
-
 .book-data tbody td {
     padding: 10px;
 }
 
-.book-data tbody td:nth-child(1) {
-    width: 10%;
-    padding: 1px;
-}
-
-.book-data tbody td:nth-child(2), .book-data tbody tr:nth-child(2) {
-    padding: 6px;
-}
 
 /* 도서제목 */
-.book-data tbody tr:nth-child(2) {
-    font-size: 18px;
-    font-weight: bold;
+.book-data tbody tr:nth-child(1) {
     flex-direction: row;
+
+    width: 10%;
+    
+    font-weight: bold;
 
     /* 줄바꿈 안 시키는거 */
     white-space: nowrap;
@@ -155,8 +145,6 @@ body{
 
 /* 가격부분!!! */
 .book-data tbody tr:nth-child(7) {
-    border-top: 1px solid #ccc;
-
     font-weight: bold;
 }
 
