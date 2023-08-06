@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-body{
+body {
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
@@ -161,12 +161,20 @@ body{
     font-weight: bold;
 }
 
-.view-container {
+.user-container {
     margin-left: 10px;
 }
 
-.view-container span{    
+.view {    
     margin-left: 5px;
+}
+
+.book-like {
+    margin-left: 10px;
+}
+
+.book-like:hover {
+    cursor: pointer;
 }
 
 .purchase-button {

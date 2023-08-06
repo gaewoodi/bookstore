@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap');
+
 body {
-    width:100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
     
+    width:100%;
 }
 .main-wrap {
     width: 1400px;
@@ -18,20 +22,6 @@ body {
     height: calc(100vh - 80px);
     flex-basis: 15%;
     margin: 0 auto;
-}
-
-
-
-
-.menu-container ol ul {
-    padding: 20px 10px;
-
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.menu-container ul {
-    cursor: pointer;
 }
 
 .book-button, .mypage-button {

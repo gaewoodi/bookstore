@@ -12,3 +12,8 @@ CREATE table order_mst (
     payment_end_date datetime, -- 결제 완료일
     primary key(order_id)
 );
+
+-- 도서명, 수량, 금액, 총결제금액
+-- book_mst, order_mst join해서 bookName 들고와서 같이 써야함.
+
+SELECT * FROM order_mst INNER JOIN book_mst
