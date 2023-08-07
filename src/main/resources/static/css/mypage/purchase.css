@@ -192,6 +192,13 @@ body{
     justify-content: space-between;
 }
 
+.minus:hover {
+    cursor: pointer;
+}
+
+.plus:hover {
+    cursor: pointer;
+}
 
 .total-count button {
     background-color: transparent;
