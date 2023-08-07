@@ -19,8 +19,9 @@
     <link rel="stylesheet" href="/css/admin/account.css">
     <link rel="stylesheet" href="/css/admin/media.css">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
     <style>
     </style>
 </head>
@@ -28,15 +29,15 @@
 <body>
 
 
-    <div class="container" >
+    <div class="container">
         <header th:insert="~{fragment/admin/header::headers}"></header>
         <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
-        <main >
+        <main>
             <div class="main-right">
                 <div class="main-emp">
                     <h2>::Account LIST</h2>
-                    <table id="Account" th:each="Acct : ${acct}">
+                    <table id="Account" >
                         <thead>
                             <tr>
                                 <th>회원번호</th>
@@ -48,18 +49,18 @@
                                 <th>비고</th>
                             </tr>
                         </thead>
-                        <tbody >
-                            <tr >
-                               <td >[[${Acct.regId}]]</td>
-                               <td>이미지</td>
-                                <td></td>
-                               <td>[[${Acct.id}]]</td>
-                               <td>[[${Acct.grade}]]</td>
-                               <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd hh:mm:ss')}]]</td>
-                               <td>
-                                <a href="/admin/AccountView"><button class="btn-clr1">상세보기</button></a>
-                                <a href="#"><button class="btn-clr2">주문내역</button></a>
-                            </td>
+                        <tbody th:each="Acct : ${acct}">
+                            <tr>
+                                <td>[[${Acct.regId}]]</td>
+                                <td>이미지</td>
+                                <td>[[${Acct.levelName}]]</td>
+                                <td>[[${Acct.id}]]</td>
+                                <td>[[${Acct.grade}]]</td>
+                                <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd hh:mm:ss')}]]</td>
+                                <td>
+                                    <a href="/admin/AccountView"><button class="btn-clr1">상세보기</button></a>
+                                    <a href="#"><button class="btn-clr2">주문내역</button></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

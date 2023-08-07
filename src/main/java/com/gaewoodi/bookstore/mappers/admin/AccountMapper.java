@@ -1,7 +1,6 @@
 package com.gaewoodi.bookstore.mappers.admin;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
-import com.gaewoodi.bookstore.dto.admin.AccountDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -9,16 +8,15 @@ import java.util.List;
 @Mapper
 public interface AccountMapper {
 
-    @Select("select R.*,Acct.level_name FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level ORDER BY reg_id=#{regId}")
+    @Select("select R.*,Acct.level_name FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level ORDER BY R.reg_id DESC")
     List<RegisterDto> getMemberAll();
 
-    @Delete("DELETE FROM register WHERE reg_id={regId}")
+    @Delete("DELETE FROM register WHERE reg_id=#{regId}")
     void deleteAccount(int regId);
 
-    @Select("SELECT * FROM register WHERE reg_id = #{regId}")
+    @Select("SELECT * FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level WHERE R.reg_id = #{regId}")
     RegisterDto getMemberOne(int regId);
 
-//    @Update("UPDATE register SET level=#{level} ")
 
     @Update("UPDATE register SET id = {id}, " +
             "passwd={passwd}, " +
@@ -30,6 +28,6 @@ public interface AccountMapper {
             "address={address}, " +
             "address1={address1}, " +
             "tel={tel}, '', grade={grade}, modified=now() WHERE reg_id=#{regId}")
-    void setAccountUpdate(AccountDto accountDto);
+    void setAccountUpdate(RegisterDto registerDto);
 
 }

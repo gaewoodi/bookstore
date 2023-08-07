@@ -20,6 +20,7 @@ public class RegisterDto {
     private String address1;
     private String tel;
     private int level;
+    private String levelName;
     private String grade;
     private LocalDateTime created;
     private LocalDateTime modified;

@@ -10,7 +10,6 @@ import java.util.List;
 @Mapper
 public interface LevelMapper {
 
-    @Select("select R.level, Acct.level_name FROM register R " +
-            "INNER JOIN Account_level Acct ON R.level = Acct.level WHERE Acct.level_name=#{levelName}")
+    @Select("SELECT * FROM Account_level ORDER BY level_name ASC")
     List<LevelDto> getLevel();
 }
