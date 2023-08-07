@@ -57,9 +57,9 @@
                 </div>
 
                 <div class="main-book">
-                    <div class="book" th:each="name: ${list}">
+                    <div class="book" th:each="name, i: ${list}">
                         <i class="fa-solid fa-crown" >
-                            <!-- <span>BEST [[${i.count}]]</span> -->
+                            <span>BEST [[${i.count}]]</span>
                         </i>
                         <div class="one-book">
                             <div class="img-wrap">

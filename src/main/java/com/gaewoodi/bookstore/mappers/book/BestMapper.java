@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface BestMapper {
 
-@Select("select visit from book_mst order by visit desc limit 30")
+@Select("select * from book_mst order by visit desc limit 30")
 List<BestDto> getBestDtoList();
 
 }
