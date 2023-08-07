@@ -48,7 +48,8 @@ function frmCheck() {
         address : $("#address").val(),
         address1 : $("#address1").val(),
         tel : $(".tel1").val(),
-        email : email
+        email : email,
+        level : $(".level").val()
     };
 
     console.log(obj);
