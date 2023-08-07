@@ -8,19 +8,22 @@ import java.util.Date;
 @Data
 public class AccountDto {
     private int regId;
-    private String regUserid;
-    private String regPasswd;
-    private String regName;
-    private Date regBirth;
-    private char regGender;
-    private String regEmail;
-    private String regAdr;
-    private String regTel;
-    private int regLevel;
-    private String regGrade;
-    private LocalDateTime regCreated;
-    private LocalDateTime regModified;
-    private String regImageName;
-    private Long regImageSize;
-    private String regTransName;
+    private String id;
+    private String passwd;
+    private String name;
+    private String birth;
+    private String gender;
+    private String email;
+    private int postcode;
+    private String adr2;
+    private String address;
+    private String address1;
+    private String tel;
+    private int level;
+    private String grade;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+    private String imageName;
+    private Long imageSize;
+    private String transName;
 }

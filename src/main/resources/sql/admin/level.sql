@@ -12,12 +12,9 @@ INSERT INTO Account_level VALUES(1, "회원");
 
 
 --조인
-select R.level, Acc.level_name FROM register R
-INNER JOIN Account_level Acc ON R.level = Acc.level;
+select R.level, Acct.level_name FROM register R
+INNER JOIN Account_level Acct ON R.level = Acct.level;
 
 
-select R.level, Acc.level_name, R.name FROM register R
-INNER JOIN Account_level Acc ON R.level = Acc.level;
-
-select R.*,Acc.level_name FROM register R
-INNER JOIN Account_level Acc ON R.level = Acc.level ORDER BY reg_id DESC;
+select R.*,Acct.level_name FROM register R
+INNER JOIN Account_level Acct ON R.level = Acct.level ORDER BY reg_id DESC;
