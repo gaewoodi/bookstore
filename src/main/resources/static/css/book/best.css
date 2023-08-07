@@ -20,20 +20,6 @@ body {
     margin: 0 auto;
 }
 
-
-
-
-.menu-container ol ul {
-    padding: 20px 10px;
-
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.menu-container ul {
-    cursor: pointer;
-}
-
 .book-button, .mypage-button {
     background-color: transparent;
 
