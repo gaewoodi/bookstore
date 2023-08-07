@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-    @charset 'utf-8';
-=======
 @charset 'utf-8';
 
 body{
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
->>>>>>> mypage
 
 .main-container {
     display: flex;
