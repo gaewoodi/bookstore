@@ -9,7 +9,7 @@ CREATE table book_mst (
        publisher varchar(45),
        publication_date year,
        category varchar(45) not null,
-       price varchar(45) not null,
+       price int not null,
        visit int default 0,
        primary key(book_id)
 );
