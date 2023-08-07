@@ -49,7 +49,8 @@ function frmCheck() {
         address1 : $("#address1").val(),
         tel : $(".tel1").val(),
         email : email,
-        level : $(".level").val()
+        level : $(".level").val(),
+        grade : $(".grade").val()
     };
 
     console.log(obj);
