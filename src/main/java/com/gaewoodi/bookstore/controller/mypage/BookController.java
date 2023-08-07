@@ -36,16 +36,4 @@ public class BookController {
         return "mypage/view";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }

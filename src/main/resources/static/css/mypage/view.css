@@ -16,13 +16,17 @@ body {
     width: 1400px;
 }
 
+.third-container {
+    height: 680px;
+}
+
 /* main-container basis 1 */
 .menu-container {
     flex-basis: 15%;
 
     margin: 10px;
     padding: 10px;
-    height: calc(80vh - 65px);
+    height: calc(80vh - 90px);
     width: 100%;
 }
 
@@ -30,9 +34,9 @@ body {
 .book-list {
     flex-basis: 85%;
 
-    margin: 10px;
+    margin: 10px 10px 0px;
     width: 1050px;
-    height: calc(80vh - 65px);
+    height: calc(80vh - 90px);
 }
 
 .title-container {
@@ -76,6 +80,7 @@ body {
 .book-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     margin-bottom: 5px;
@@ -86,9 +91,8 @@ body {
 }
 
 .image-container {
-    margin-top: 20px;
     width: 300px;
-    height: 400px;
+    height: 350px;
 
     overflow: hidden;
 }
@@ -105,16 +109,16 @@ body {
 
 .fourth-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     width: 100%;
 }
 
 .book-data {
-    margin-top: 30px;
-    width: 500px;
+    margin-top: 15px;
+    width: 400px;
 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .book-data table {
@@ -140,10 +144,10 @@ body {
 }
 
 .user-container {
-    margin-top: 70px;
-    width: 500px;
+    margin-top: 45px;
+    width: 200px;
 
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .user-container p {

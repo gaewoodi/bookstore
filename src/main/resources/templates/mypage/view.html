@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
@@ -44,7 +46,8 @@
                         <hr>
                         <div class="book-container" th:each="book: ${book}">
                             <div class="image-container">
-                                <img th:src="@{/images/no_image_pink.jpg}" alt="백광">
+                                <!-- <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지"> -->
+                                <img src="/images/no_image_pink.jpg">
                             </div>
                             <div class="fourth-container">
                                 <div class="book-data">
@@ -102,6 +105,7 @@
                 </div>
             </div>
         </main>
+
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
