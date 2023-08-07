@@ -24,7 +24,7 @@
                 <p>도서</p>
             </div>
             <div class="txt">
-                <span class="txt1" th:each="cnt">1,565,349</span>
+                <span class="txt1">1,565,349</span>
                 <span class="txt2">개의 상품이 있습니다.</span>
             </div>
 
@@ -57,9 +57,9 @@
                 </div>
 
                 <div class="main-book">
-                    <div class="book" th:each="name, i: ${list}">
+                    <div class="book" th:each="name: ${list}">
                         <i class="fa-solid fa-crown" >
-                            <span>BEST [[${i.count}]]</span>
+                            <!-- <span>BEST [[${i.count}]]</span> -->
                         </i>
                         <div class="one-book">
                             <div class="img-wrap">
