@@ -41,7 +41,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" th:if="${session.id != null}}">
     <header th:insert="~{fragment/admin/header::headers}"></header>
     <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
@@ -51,8 +51,8 @@
           <h2>::Account VIEW</h2>
           <div class="tbl">
             <table>
-              <tbody>
-                <tr>
+              <tbody th:each="Acct : ${acct}">
+                <tr >
                   <td class="tit w-img">이미지
                     <img src="/images/test.jpg" alt="테스트">
                   </td> <!-- 프로필 사진 -->
@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                   <td class="tit w-15">이름
-                    <p>아이디</p>
+                    <p >아이디 : [[${Acct.id}]]</p>
                     <p>성별</p>
                   </td>
                   <td>등급

@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface AccountMapper {
 
-    @Select("SELECT * FROM register ORDER BY reg_id DESC")
+    @Select("select R.*,Acct.level_name FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level ORDER BY reg_id=#{regId}")
     List<RegisterDto> getMemberAll();
 
     @Delete("DELETE FROM register WHERE reg_id={regId}")
@@ -29,7 +29,7 @@ public interface AccountMapper {
             "postcode={postcode}, " +
             "address={address}, " +
             "address1={address1}, " +
-            "tel={tel}, grade={grade}, modified=now() WHERE reg_id=#{regId}")
+            "tel={tel}, '', grade={grade}, modified=now() WHERE reg_id=#{regId}")
     void setAccountUpdate(AccountDto accountDto);
 
 }
