@@ -20,10 +20,9 @@ public class AccountController {
 
 
     @GetMapping("/admin/account")
-    public String urlAccount(Model model, @RequestParam(defaultValue = "1", value = "page") int page){
+    public String urlAccount(Model model ,@RequestParam(defaultValue = "1", value = "page") int page){
         model.addAttribute("acct", accountMapper.getMemberAll());
         model.addAttribute("level", levelMapper.getLevel());
-
 
         return "admin/admin_Account";
     }
@@ -34,11 +33,8 @@ public class AccountController {
 
 
     @GetMapping("/admin/AccountView")
-    public String getAccountView(@RequestParam int regId, Model model){
-            if (regId > 0){
-                model.addAttribute("acct", accountMapper.getMemberOne(regId));
-                model.addAttribute("level", levelMapper.getLevel());
-            }
+    public String getAccountView( Model model){
+
         return "admin/AccountView";
     }
 

@@ -24,24 +24,22 @@
       width: 100%;
     }
 
-    table tr{
+    table tr {
       border-bottom: 1px solid #888;
     }
 
     table tr:nth-child(1) {
-      border-top:1px solid #ccc;
+      border-top: 1px solid #ccc;
     }
 
-    .w-15 p{
-      border-top:1px solid #ccc;
+    .w-15 p {
+      border-top: 1px solid #ccc;
     }
-
-
   </style>
 </head>
 
 <body>
-  <div class="container" th:if="${session.id != null}}">
+  <div class="container" >
     <header th:insert="~{fragment/admin/header::headers}"></header>
     <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
@@ -51,20 +49,20 @@
           <h2>::Account VIEW</h2>
           <div class="tbl">
             <table>
-              <tbody th:each="Acct : ${acct}">
-                <tr >
+              <tbody >
+                <tr>
                   <td class="tit w-img">이미지
                     <img src="/images/test.jpg" alt="테스트">
                   </td> <!-- 프로필 사진 -->
                 </tr>
                 <tr>
-                  <td class="tit w-15">번호  <!-- 계정 넘버 -->
+                  <td class="tit w-15">번호 <!-- 계정 넘버 -->
                     <p>구분<!-- 관리자, 회원 구분 --></p>
                   </td>
                 </tr>
                 <tr>
                   <td class="tit w-15">이름
-                    <p >아이디 : [[${Acct.id}]]</p>
+                    <p>아이디 : </p>
                     <p>성별</p>
                   </td>
                   <td>등급
@@ -78,9 +76,9 @@
                   <td>우편번호 <input type="search">
                     <p>
                       주소
-                      <p>
-                        <input type="text" placeholder="나머지주소">
-                      </p>
+                    <p>
+                      <input type="text" placeholder="나머지주소">
+                    </p>
                     </p>
                   </td>
                 </tr>
