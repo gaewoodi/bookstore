@@ -2,25 +2,53 @@
 
 body{
     font-size:14px;
-    background-color: #fff;
     line-height: 1.5em;
-    color : #000;
 
     font-family: 'Nanum Gothic', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
+
+.size-container {
+    margin: 0 auto;
+    width: 1400px;
+}
+
 .main-container {
+    display: flex;
+
+    width: 1400px;
+}
+
+/* flex-basis 1 */
+.menu-container {
+    flex-basis: 15%;
+
+    margin: 10px;
+    padding: 10px;
+    height: calc(74vh - 80px);
+    width: 100%;
+}
+
+/* flex-basis 2 */
+.register-container {
+    flex-basis: 85%;
+
+    margin: 20px 10px 10px;
+}
+
+.serve-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 10px;
+    width: 1100px;
+    height: 550px;
 }
 
-/* main-container 1 */
+/* serve-container 1 */
 .image-container {
-    width: 300px;
+    width: 250px;
     text-align: center;
 }
 
@@ -30,39 +58,50 @@ body{
 }
 
 .profile-button {
-    font-size: 20px;
+    width: 100px;
+    height: 40px;
 
-     background-color: rgb(239,84, 77, 0.1);
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 3px;
+    background-color: #ef544d1a;
+
+    cursor: pointer;
 }
 
-/* main-container 2 */
-.register-container {
+.profile-button:hover {
+    background-color: #f9a4a4;
+}
+
+/* serve-container */
+.register-group {
     display: flex;
     justify-content: space-between;
     width: 800px;
-
-    background-color: antiquewhite;
 }
 
-/* serve */
-.serve-container {
+/* input group */
+.input-group-one {
     padding: 0 18px;
     width: 400px;
 }
 
-.serve-container p{
-    display: block;
+.input-group-one p {
     margin-bottom: 5px;
 }
 
-.id-input-group input, .passwd, .passwd2, .name, .birth, .serve-container select {
-    border: 1px solid #ccc;
-    padding: 15px;
+.id-input-group input, .passwd, .passwd2, .name, .birth, .input-group-one select {
+    margin-bottom: 5px;
+    padding: 3px 10px;
     width: 100%;
-    margin-bottom: 5px;
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
-.serve-container span {
+.input-group-one span {
     font-size: 13px;
     font-style: italic;
     color : red;
@@ -75,15 +114,17 @@ body{
 .id-input-group {
     display: flex;
     justify-content: space-between;
+
+    width: 100%;
 }
 
 .id-container .id {
-    width: 65%;
+    width: 200px;
 }
 
 .id-container .id-check {
-    width: 33.9%;
-    padding-top: 12px;
+    width: 120px;
+
     background-color: #e7e7e7;
 }
 
@@ -113,14 +154,13 @@ body{
 }
 
 .userGender {
-    margin: 0 5px 0 40px;
+    margin: 0 5px 0 20px;
 }
 
-/* third */
-.third-container {
+/* input-group-two */
+.input-group-two {
     width: 400px;
     padding: 0 18px;
-    margin-bottom: 20px;  
 }
 
 .email-container {
@@ -132,33 +172,40 @@ body{
     margin-bottom: 5px;
 }
 
-.third-container input,.third-container select {
+.input-group-two input,.input-group-two select {
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    height: 40px;
+
     border: 1px solid #ccc;
-    padding: 15px;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-.email {
-    width: 49%;
-}
-
-.select-email {
-    width: 44%;
+    border-radius: 3px;
 }
 
 .address-container {
     margin-top : 5px;
 }
 
+.email {
+    width: 200px;
+}
+
+
 .postcode {
-    width: 65%;
+    width: 200px;
 }
 
 .postcode-search {
-    width : 33%;
-    padding-top : 12px;
+    width: 130px;
+
     background-color : #e7e7e7;
+}
+
+.address {
+    width: 330px;
+}
+
+.address1 {
+    width: 330px;
 }
 
 .telephone-container p {
@@ -167,7 +214,7 @@ body{
 }
 
 .telephone {
-    width: 65%;
+    width: 330px;
 }
 
 telephone-container span {
@@ -175,12 +222,38 @@ telephone-container span {
     font-style: italic;
 }
 
-.third-container .btn {
+.input-group-two .btn {
     margin-top: 20px;
-    background-color: #f5f832;
     width: 360px;
     height : 50px;
+    
+    background-color: #FFADAD;
+
     cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+
+    height: 75px;
+}
+
+.edit-button {
+    width: 100px;
+    height: 40px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 3px;
+    background-color: #ef544d1a;
+
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #f9a4a4;
 }
 
 
