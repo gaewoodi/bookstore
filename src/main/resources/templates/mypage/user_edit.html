@@ -4,132 +4,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book-store < 회원정보수정</title>
+    <title>book-store < 회원수정</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <!-- css -->
-    <link rel="stylesheet" href="/css/account/reset.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
-    <link rel="stylesheet" href="/css/account/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
+    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/mypage/user_edit.css">
 </head>
 <body>
     <div class="container">
-        <div class="image-container">
-            <div class="member">
-                <img class="logo" src="/images/account/gaewoodi.png">
-
-                <div class="UserId">
-                    <p>아이디</p>
-                    <input type="userid" name="bookRegUserid" class="userid">
-                    <input type="button" name="bookRegUserid1" class="userid1" value="아이디 중복확인">
+        <header id="header">
+            <div class="container" th:fragment="headers">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="/main"><img src="/static/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                    </div>
                 </div>
-                <div class="UserPw">
-                    <p>비밀번호<span id="chkPage" style="color:#f00"></span></p>
-                    <input type="password" name="bookRegPasswd" class="passwd">
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
                 </div>
-                <div class="Re-UserPw">
-                    <p>비밀번호 확인<span id="chkPage1" style="color:#f00"></span></p>
-                    <input type="password" name="bookRegPasswd2" class="passwd2">
-                </div>
-                <div class="UserName">
-                    <p>이름</p>
-                    <input type="text" name="bookRegName" class="username">
-                </div>
-
-                <div class="field-birth">
-                    <p>생년월일</p>
-                    <div>
-                        <input type="date" value="yyyy" min="MM" max="dd" name="bookRegBirth">
+                <div class="mypage">
+                    <div class="mypage-wrap">
+                        <ul>
+                            <li><a href="/register">
+                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            </li>
+        
+                            <li><a href="/mypage">
+                                <i class="fa-solid fa-user"></i></a>
+                            </li>
+                            <li>
+                                <a href="/cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-menu">
+                                    <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                                </a>
+                                <div class="submenu">
+                                    <div class="submenu-wrap">
+                                        <div class="submenu1">
+                                            <ul>
+                                                <h1>전체카테고리</h1>
+                                                <a href="#"><li>소설/시/희곡</li></a>
+                                                <a href="#"><li>에세이</li></a>
+                                                <a href="#"><li>인문/사회</li></a>
+                                                <a href="#"><li>정치/경제</li></a>
+                                                <a href="#"><li>자기계발</li></a>
+                                                <a href="#"><li>역사/문화</li></a>
+                                                <a href="#"><li>IT/과학</li></a>
+                                                <a href="#"><li>가정/생활</li></a>
+                                                <a href="#"><li>진로/교육</li></a>
+                                                <a href="#"><li>유아/어린이</li></a>
+                                                <a href="#"><li>기타</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <form class="gender">
-                <div class="gender1">
-                    <label>성별</label>
-                    <input type="radio" name="bookRegGender" class="userGender" value="M"> 남자
-                    <input type="radio" name="bookRegGender" class="userGender" value="W" checked> 여자
+        </header>
+
+        <div class="menu-container">
+            <ol th:fragment="sideMenu">
+                <ul>
+                    <button class="book-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 도서</button>
+                    <div class="mypage-menu" id="tab1">
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-book"></i>
+                                </div>
+                                <strong>
+                                    <a href="/book">전체도서</a>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-book"></i>
+                                </div>
+                                <strong>
+                                    <a href="/best">베스트도서</a>
+                                </strong>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+        
+                <ul>
+                    <button class="mypage-button"><i class="fa-solid fa-moon" style="color: #ffd24c;"></i> 마이페이지</button>
+                    <div class="mypage-menu" id="tab2">
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+                                <strong>
+                                    <a href="/purchase/list">구매내역</a>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+                                <strong>
+                                    <a href="/purchase">도서결제</a>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+                                <strong>
+                                    <a href="/purchase/delete">구매취소</a>
+                                </strong>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-cart-arrow-down"></i>
+                                </div>
+                                <strong>
+                                    <a href="/cart">장바구니</a>
+                                </strong>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-user-pen"></i>
+                                </div>
+                                <strong>
+                                    <a href="/user/edit">정보수정</a>
+                                </strong>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+            </ol>
+        </div>
+        <div class="title-container">
+            <h1>도서 상세보기</h1>
+        </div>
+        <form method="post" id="reg-form">
+            <div class="main-container">
+                
+
+                <!-- main-container 1 -->
+                <div class="image-container">
+                    <img src="/static/images/user.png" alt="profile">
+                    <button class="profile-button">이미지수정</button>
                 </div>
-            </form>
-            <div class="member1">
-                <div class="Email">
-                    <p>이메일 주소</p>
-                        <input type="email" name="bookRegEmail" class="email1"> @
-                            <select class="email2">
-                                <option value="">직접 입력</option>
+                <!-- main-container 2 -->
+                <div class="register-container">
+                    <div class="serve-container">
+                        <div class="id-container">
+                            <p>아이디 <span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">(4자~12자리의 영문자, 숫자 / @,#$등 특수문자는 제외)</span></p>
+                            <div class="id-input-group">
+                                <input type="userid" name="id" class="id">
+                                <input type="button" name="id1" class="id-check"  value="아이디 중복확인">
+                            </div>
+                        </div>
+                        <div class="password-container">
+                            <p>비밀번호<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; line-height: 11px;">영문, 숫자, 특수문자 중 2가지 조합하여 8자~20자리</span></p>
+                            <input type="password" name="passwd" class="passwd">
+                        </div>
+                        <div class="password-check-container">
+                            <p>비밀번호 확인<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">비밀번호를 다시 한번 입력해주세요.</span></p>
+                            <input type="password" name="passwd2" class="passwd2">
+                        </div>
+                        <div class="name-container">
+                            <p>이름</p>
+                            <input type="text" name="name" class="name">
+                        </div>
+
+                        <div class="birth-container">
+                            <p>생년월일</p>
+                            <div>
+                                <input type="date" min="MM" max="dd" name="birth" class="birth">
+                            </div>
+                        </div>
+                        <div class="gender-container">
+                            <label>성별</label>
+                            <div class="radio-container">
+                                <input type="radio" name="gender" class="userGender" value="M"> 남자
+                                <input type="radio" name="gender" class="userGender" value="W" checked> 여자
+                            </div>
+                        </div>
+                    </div>
+                    <div class="third-container">
+                        <div class="email-container">
+                            <p>이메일 주소</p>
+                            <input type="email" name="email" class="email">
+                            <select class="select-email">
+                                <option value="1">직접 입력</option>
+                                <option value="@naver.com">@naver.com</option>
+                                <option value="@gmail.com">@gmail.com</option>
+                                <option value="@nate.com">@nate.com</option>
+                                <option value="@hanmail.net">@hanmail.net</option>
+                                <option value="@daum.net">@daum.net</option>
                             </select>
-                </div>
-
-    <!--            <div class="Address">-->
-    <!--                <p>주소</p>-->
-    <!--                    <input type="adr" name="bookRegAdr" class="adr1">-->
-    <!--                    <input type="button" name="bookRegAdr2" class="adr2" value="우편번호 검색">-->
-    <!--            </div>-->
-
-                <div class="Address">
-                    <p>
-                        <input type="text" name="bookRegAdr" id="bookRegAdr" class="adr1" placeholder="우편번호" readonly>
-                        <input type="button" onclick="execDaumPostcode()" class="adr2" value="우편번호 찾기">
-                    <p>
-                    </p>
-                        <input type="text" id="address" placeholder="도로명주소" style="width: 360px" readonly>
-                    <p>
-                    </p>
-                        <input type="text" id="address1" placeholder="지번주소" style="width: 360px" readonly>
-                    <p>
-                    </p>
-                        <input type="text" id="address2" placeholder="상세주소" style="width: 360px">
-                    </p>
-                </div>
-
-                <div class="tel-number">
-                    <p>휴대전화</p>
-                    <div>
-                        <input type="tel" name="bookRegTel" class="tel1" placeholder="전화번호 입력">
-                        <input type="button" name="bookRegTel2" class="tel2" value="인증번호 받기">
+                        </div>
+                        <div class="address-container">
+                            <p>
+                                <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" >
+                                <input type="button" onclick="execDaumPostcode()" class="postcode-search" value="우편번호 찾기">
+                                <p></p>
+                                <input type="text" name="address" id="address" placeholder="도로명주소" style="width: 360px">
+                                <p></p>
+                                <input type="text" name="address1" id="address1" placeholder="상세주소" style="width: 360px">
+                                <p></p>
+                            </p>
+                        </div>
+                        <div class="telephone-container">
+                            <p>휴대전화<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; text-transform: uppercase">주문배송문자, 본인확인용으로 사용</span></p>
+                            <div>
+                                <input type="tel" name="tel" class="telephone" placeholder="전화번호 입력">
+                                <input type="hidden" class="level" value="1">
+                                <input type="hidden" class="grade" value="Nomal">
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn">회원수정</button>
+                        </div>
                     </div>
                 </div>
-                <div>
-    <!--                <input type="submit" class="reg" value="회원가입 하기">-->
-                    <button type="button" class="btn">회원가입</button>
-                </div>
             </div>
-
-            <div class="member-footer">
-                <div class="footer1">
+        </form>
+       
+    </div>
+    <footer id="footer">
+        <div class="container" th:fragment="footers">
+            <div class="info1">
+                <div class="info1-wrap">
                     <ul>
-                        <li>
-                            <a href="#">이용약관</a>
-                        </li>
-                        <li>
-                            <a href="#">개인정보 처리방침</a>
-                        </li>
-                        <li>
-                            <a href="#">운영정책</a>
-                        </li>
-                        <li>
-                            <a href="#">고객센터</a>
-                        </li>
-                        <li>
-                            <a href="#">공지사항</a>
-                        </li>
-                        <li>
-                            <a href="#">언어</a>
-                        </li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">청소년보호정책</a></li>
+                        <li><a href="#">공지사항</a></li>
                     </ul>
                 </div>
-                <div class="footer2">
-                    <a href="#">Copyright © Kakao Corp. All rights reserved.</a>
+            </div>
+            <div class="info2">
+                <div class="info2-wrap">
+                    <ul>
+                        <li>대표자 이진수, 김성수</li>
+                        <li>호스팅서비스사업자 (주)코리아엔터테인먼트</li>
+                        <li><a href="#">사업자정보확인</a></li>
+                    </ul>
+                    <ul>
+                        <li>사업자등록번호 220-88-02594</li>
+                        <li>통신판매업신고 2018-성남분당B-0004</li>
+                    </ul>
+                    <ul>
+                        <li>대표전화 051-222-0000</li>
+                        <li>이메일 koreait@koreait.co.kr</li>
+                        <li>부산광역시 부산진구 에이원프라자 1동 403호</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-
-    </div>
-        <script th:src="@{/js/account/register.js}"></script>
-        <script src="/js/account/postcode.v2.js"></script>
+            <div class="info3">
+                <p>Korea it Academy &copy;</p>
+            </div>
+        </div>  
+    </footer>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script th:src="@{/js/account/register.js}"></script>
+    <script src="/js/account/postcode.v2.js"></script>
 </body>
 </html>

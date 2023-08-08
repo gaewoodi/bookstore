@@ -1,0 +1,186 @@
+@charset 'utf-8';
+
+body{
+    font-size:14px;
+    background-color: #fff;
+    line-height: 1.5em;
+    color : #000;
+
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+/* main-container 1 */
+.image-container {
+    width: 300px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-button {
+    font-size: 20px;
+
+     background-color: rgb(239,84, 77, 0.1);
+}
+
+/* main-container 2 */
+.register-container {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+
+    background-color: antiquewhite;
+}
+
+/* serve */
+.serve-container {
+    padding: 0 18px;
+    width: 400px;
+}
+
+.serve-container p{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.id-input-group input, .passwd, .passwd2, .name, .birth, .serve-container select {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.serve-container span {
+    font-size: 13px;
+    font-style: italic;
+    color : red;
+}
+
+.id-container {
+    margin :5px 0;
+}
+
+.id-input-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.id-container .id {
+    width: 65%;
+}
+
+.id-container .id-check {
+    width: 33.9%;
+    padding-top: 12px;
+    background-color: #e7e7e7;
+}
+
+.birth-container div {
+    display: flex;
+}
+
+.gender-container {
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 364px;
+    height : 50px;
+}
+
+.gender-container label {
+    margin-right: 10px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 30px;
+}
+
+.userGender {
+    margin: 0 5px 0 40px;
+}
+
+/* third */
+.third-container {
+    width: 400px;
+    padding: 0 18px;
+    margin-bottom: 20px;  
+}
+
+.email-container {
+    margin-left: 3px;
+}
+
+.email-container .email p{
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.third-container input,.third-container select {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.email {
+    width: 49%;
+}
+
+.select-email {
+    width: 44%;
+}
+
+.address-container {
+    margin-top : 5px;
+}
+
+.postcode {
+    width: 65%;
+}
+
+.postcode-search {
+    width : 33%;
+    padding-top : 12px;
+    background-color : #e7e7e7;
+}
+
+.telephone-container p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.telephone {
+    width: 65%;
+}
+
+telephone-container span {
+    font-size: 13px;
+    font-style: italic;
+}
+
+.third-container .btn {
+    margin-top: 20px;
+    background-color: #f5f832;
+    width: 360px;
+    height : 50px;
+    cursor: pointer;
+}
+
+
