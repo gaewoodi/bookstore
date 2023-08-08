@@ -19,14 +19,14 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
-    <link rel="stylesheet" href="/static/css/reset.css">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/mypage/user_edit.css">
+    <link rel="stylesheet" href="/static/css/mypage/user_edit.css"> -->
 </head>
 <body>
-    <div class="wrap">
+    <div class="wrap" th:each="user: ${user}">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
         <div class="size-container">
             <main class="main-container">
@@ -38,7 +38,7 @@
                     <div class="title-container">
                         <h1>회원 수정</h1>
                     </div>
-                    <form method="post" id="reg-form">
+                    <form>
                         <div class="serve-container">
                             <!-- serve-container 1 -->
                             <div class="image-container">
@@ -48,44 +48,48 @@
                             <!-- serve-container 2 -->
                             <div class="register-group">
                                 <div class="input-group-one">
+                                    <input type="hidden" class="regId" th:value="${user.regId}">
+                                    <input type="hidden" class="level" th:value="${user.level}">
+                                    <input type="hidden" class="grade" th:value="${user.grade}">
+
                                     <div class="id-container">
                                         <p>아이디 <span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">(4자~12자리의 영문자, 숫자 / @,#$등 특수문자는 제외)</span></p>
                                         <div class="id-input-group">
-                                            <input type="userid" name="id" class="id">
-                                            <input type="button" name="id1" class="id-check"  value="아이디 중복확인">
+                                            <input type="text" name="id" class="id" th:value="${user.id}">
+                                            <input type="button" name="id1" class="id-check" value="아이디 중복확인">
                                         </div>
                                     </div>
                                     <div class="password-container">
                                         <p>비밀번호<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; line-height: 11px;">영문, 숫자, 특수문자 중 2가지 조합하여 8자~20자리</span></p>
-                                        <input type="password" name="passwd" class="passwd">
+                                        <input type="password" name="passwd" class="passwd" th:value="${user.passwd}">
                                     </div>
                                     <div class="password-check-container">
-                                        <p>비밀번호 확인<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">비밀번호를 다시 한번 입력해주세요.</span></p>
+                                        <p>비밀번호 확인</p>
                                         <input type="password" name="passwd2" class="passwd2">
                                     </div>
                                     <div class="name-container">
                                         <p>이름</p>
-                                        <input type="text" name="name" class="name">
+                                        <input type="text" name="name" class="name" th:value="${user.name}">
                                     </div>
 
                                     <div class="birth-container">
                                         <p>생년월일</p>
                                         <div>
-                                            <input type="date" min="MM" max="dd" name="birth" class="birth">
+                                            <input type="date" min="MM" max="dd" name="birth" class="birth" th:value="${user.birth}">
                                         </div>
                                     </div>
                                     <div class="gender-container">
                                         <label>성별</label>
                                         <div class="radio-container">
-                                            <input type="radio" name="gender" class="userGender" value="M"> 남자
-                                            <input type="radio" name="gender" class="userGender" value="W" checked> 여자
+                                            <input type="radio" name="gender" class="userGender" value="M" th:value="${user.gender}"> 남자
+                                            <input type="radio" name="gender" class="userGender" value="W" th:value="${user.gender}"> 여자
                                         </div>
                                     </div>
                                 </div>
                                 <div class="input-group-two">
                                     <div class="email-container">
                                         <p>이메일 주소</p>
-                                        <input type="email" name="email" class="email">
+                                        <input type="email" name="email" class="email" th:value="${user.email}">
                                         <select class="select-email">
                                             <option value="1">직접 입력</option>
                                             <option value="@naver.com">@naver.com</option>
@@ -97,25 +101,24 @@
                                     </div>
                                     <div class="address-container">
                                         <p>
-                                            <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" >
+                                            <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" th:value="${user.postcode}">
                                             <input type="button" onclick="execDaumPostcode()" class="postcode-search" value="우편번호 찾기">
                                             <p></p>
-                                            <input type="text" name="address" id="address" class="address" placeholder="도로명주소">
+                                            <input type="text" name="address" id="address" class="address" placeholder="도로명주소" th:value="${user.address}">
                                             <p></p>
-                                            <input type="text" name="address1" id="address1" class="address1" placeholder="상세주소">
+                                            <input type="text" name="address1" id="address1" class="address1" placeholder="상세주소" th:value="${user.address1}">
                                             <p></p>
                                         </p>
                                     </div>
                                     <div class="telephone-container">
                                         <p>휴대전화<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; text-transform: uppercase">주문배송문자, 본인확인용으로 사용</span></p>
                                         <div>
-                                            <input type="tel" name="tel" class="telephone" placeholder="전화번호 입력">
-                                            <input type="hidden" class="level" value="1">
-                                            <input type="hidden" class="grade" value="Nomal">
+                                            <input type="tel" name="tel" class="telephone" placeholder="전화번호 입력" th:value="${user.tel}">
+                                            
                                         </div>
                                     </div>
                                     <div class="button-container">
-                                        <button type="button" class="edit-button">회원수정</button>
+                                        <button class="edit-button">회원수정</button>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +131,7 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script th:src="@{/js/account/register.js}"></script>
-    <script src="/js/account/postcode.v2.js"></script>
+    <script th:src="@{/js/account/postcode.v2.js}"></script>
+    <script th:src="@{/js/mypage/user_edit.js}"></script>
 </body>
 </html>
