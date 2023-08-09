@@ -167,13 +167,13 @@ body {
     margin-left: 5px;
 }
 
-.book-like {
+.like-button {
     margin-left: 10px;
+
+    background: none;
 }
 
-.book-like:hover {
-    cursor: pointer;
-}
+
 
 .purchase-button {
     width: 100px;

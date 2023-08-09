@@ -60,4 +60,27 @@ function AllUnCheck() {
     });
 }
 
+// ** 좋아요 ** //
+const likeButton = document.querySelector(".like-button");
+
+likeButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        type: "post",
+        url: "/like",
+        dataType: "json",
+        success : function(res) {
+            if(res.msg == "success") {
+                alert("좋아요 성공.");
+                location.reload();
+            }
+        },
+        error: error => {
+            console.log(error);
+        }
+    });
+    
+    
+});
 

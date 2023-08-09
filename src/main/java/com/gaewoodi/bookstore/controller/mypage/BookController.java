@@ -1,11 +1,16 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.mypage.LikeDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
+import com.gaewoodi.bookstore.mappers.mypage.LikeMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/book")
@@ -16,6 +21,9 @@ public class BookController {
 
     @Autowired
     private PagingService pagingService;
+
+    @Autowired
+    private LikeMapper likeMapper;
 
     //도서전체
     @GetMapping("")
@@ -36,6 +44,18 @@ public class BookController {
         }
 
         return "mypage/view";
+    }
+
+    @PostMapping("/like")
+    public Map<String, Object> getLike(@ModelAttribute LikeDto likeDto) {
+
+        likeMapper.addLike(likeDto);
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("msg", "success");
+
+        return map;
+
     }
 
 }
