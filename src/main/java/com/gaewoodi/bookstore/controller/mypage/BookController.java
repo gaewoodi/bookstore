@@ -17,6 +17,7 @@ public class BookController {
     @Autowired
     private PagingService pagingService;
 
+    //도서전체
     @GetMapping("")
     public String getBookList(Model model, @RequestParam(defaultValue = "1", value="page") int page) {
         model.addAttribute("book", pagingService.getBookPaging(page));
@@ -25,6 +26,7 @@ public class BookController {
         return "mypage/book";
     }
 
+    //도서상세
     @GetMapping("/view")
     public String viewBook(@RequestParam int bookId, Model model) {
         if(bookId > 0) {
