@@ -7,7 +7,7 @@
     <div id="sidebar" class="sidebar" th:fragment="sidebars">
         <ul class="logo">
             <li>
-                <a href="/admin/dashboard">
+                <a th:href="@{/admin/dashboard}">
                     <img src="/images/logo.png" style="height: 60px; width: 120px;" alt="로고">
                 </a>
             </li>
@@ -24,16 +24,16 @@
                 </div>
                 <ul class="sub-link">
                     <li>
-                        <a href="/admin/dashboard">현황</a>
+                        <a th:href="@{/admin/dashboard}">현황</a>
                     </li>
                     <li>
-                        <a href="/admin/order">주문관리</a>
+                        <a th:href="@{/admin/order}">주문관리</a>
                     </li>
                     <li>
-                        <a href="/admin/inventory">재고관리</a>
+                        <a th:href="@{/admin/inventory}">재고관리</a>
                     </li>
                     <li>
-                        <a href="/admin/account">회원관리</a>
+                        <a th:href="@{/admin/account}">회원관리</a>
                     </li>
                     <li>
                         <a href="#">#</a>
