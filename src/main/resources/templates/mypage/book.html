@@ -52,7 +52,6 @@
 
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
-                            <input type="hidden" class="book-id" th:value="${book.bookId}">
                             <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
@@ -93,8 +92,8 @@
                                                     <i class="fa-solid fa-eye view"></i>
                                                     <span>[[${book.visit}]]</span>
                                                     <button class="like-button">
-                                                        <i class="fa-solid fa-heart book-like"></i>
-                                                        <span class="like-count">[[${book.likeCount}]]</span>
+                                                        <i class="fa-solid fa-heart"></i>
+                                                        <span>0</span>
                                                     </button>
                                                 </span>
                                             </td>
@@ -105,7 +104,7 @@
 
                             <div class="button-container">
                                 <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                    <button class="purchase-button">결제하기</button>
+                                    <button type="button" class="purchase-button">결제하기</button>
                                 </a>
                             </div>
                         </div>

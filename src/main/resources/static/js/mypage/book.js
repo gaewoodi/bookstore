@@ -77,63 +77,27 @@ function AllUnCheck() {
     });
 }
 
+// ** 좋아요 ** //
 const likeButton = document.querySelector(".like-button");
-
 
 likeButton.addEventListener('click', function(e) {
     e.preventDefault();
 
-    alert("버튼 클릭");
-
-    // const likeButtons = document.querySelectorAll(".like-buttons");
-    // const bookIds = document.querySelectorAll(".book-id");
-    // const likeCounts = document.querySelectorAll(".like-count");
-
-    // likeButtons.forEach((button, index) => {
-    //     button.onclick = () => {
-    //         if(button.classList.contains("like-button")) {
-    //             let bookIdValues = bookIds[index].value;
-    //             let likeCount = -1;
-                    
+    $.ajax({
+        type: "post",
+        url: "/like",
+        dataType: "json",
+        success : function(res) {
+            if(res.msg == "success") {
+                alert("좋아요 성공.");
+                location.reload();
+            }
+        },
+        error: error => {
+            console.log(error);
+        }
+    });
     
-    //             if(likeCount != -1){
-    //                 likeCounts[index].textContent = likeCount;
-    //                 button.classList.remove("like-button");
-    //                 button.classList.add("dislike-button");
-    //                 button.textContent = "추천취소";
-    //             }
-              
-    //         }
-    //         // else {
-    //         //     if(likeCount != -1){
-    //         //         likeCounts[index].textContent = likeCount;
-    //         //         button.classList.remove("dislike-button");
-    //         //         button.classList.add("like-button");
-    //         //         button.textContent = "추천";
-    //         //     }
-    //         // }
     
-    //     }
-
-    //     $.ajax({
-    //         type: "post",
-    //         url: "/like",
-    //         dataType: "json",
-    //         success : function(res) {
-    //             if(res.msg == "success") {
-    //                 alert("좋아요 성공.");
-    //                 location.reload();
-    //             }
-    //         },
-    //         error: error => {
-    //             console.log(error);
-    //         }
-    //     });
-    
-    // });
-
-    
-
 });
-
 

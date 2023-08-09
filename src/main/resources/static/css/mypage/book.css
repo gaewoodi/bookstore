@@ -169,6 +169,8 @@ body {
 
 .like-button {
     margin-left: 10px;
+
+    background: none;
 }
 
 .purchase-button {
