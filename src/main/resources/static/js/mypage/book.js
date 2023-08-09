@@ -1,3 +1,17 @@
+$(function() {
+    $.ajax ({
+        type: "get",
+        url: "/book",
+        dataType: "json",
+        error: function(error) {
+            console.log(error);
+        }
+
+    });
+});
+
+
+
 //전체 선택했을 때
 function selectAll() {
     const checkbox = document.getElementById("selectAll");
