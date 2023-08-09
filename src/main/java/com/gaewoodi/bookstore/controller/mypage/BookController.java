@@ -75,4 +75,9 @@ public class BookController {
 
     }
 
+    @GetMapping("/test")
+    public String getTest() {
+        return "mypage/test";
+    }
+
 }
