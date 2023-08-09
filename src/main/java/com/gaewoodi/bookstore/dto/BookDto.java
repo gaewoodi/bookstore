@@ -16,4 +16,5 @@ public class BookDto {
     private String category;
     private String price;
     private int visit;
+    private int likeCount;
 }

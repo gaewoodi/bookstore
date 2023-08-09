@@ -36,82 +36,81 @@
             <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
 
             <div class="third-container">
-                <form action="/cart" method="get">
-                    <!--main-container basis 2 -->
-                    <div class="book-list">
-                        <div class="title-container">
-                            <h1>
-                                <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
-                            </h1>
+                <!--main-container basis 2 -->
+                <div class="book-list">
+                    <div class="title-container">
+                        <h1>
+                            <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
+                        </h1>
+                        <div class="button-container">
+                            <a>
+                                <button class="cart-button">장바구니</button>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="fourth-container">
+                        <div class="book-container" th:each="book: ${book}">
+                            <input type="hidden" class="book-id" th:value="${book.bookId}">
+                            <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                            <div class="image-container">
+                                <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
+                            </div>
+                            <div class="book-data">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="bookCode">[[${book.bookCode}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>도서제목</td>
+                                            <td class="bookName">
+                                                <a th:href="@{/book/view?(bookId=${book.bookId})}">
+                                                    [[${book.bookName}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>작가</td>
+                                            <td class="author">[[${book.author}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>출판사</td>
+                                            <td class="publisher">[[${book.publisher}]]</td>
+                                        </tr>
+                                        <td>출판연도</td>
+                                        <td class="publicationDate">[[${book.publicationDate}]]</td>
+                                        <tr>
+                                            <td>분류</td>
+                                            <td class="category">[[${book.category}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td>가격</td>
+                                            <td class="price">
+                                                [[${book.price}]]
+                                                <span class="user-container">
+                                                    <i class="fa-solid fa-eye view"></i>
+                                                    <span>[[${book.visit}]]</span>
+                                                    <button class="like-button">
+                                                        <i class="fa-solid fa-heart book-like"></i>
+                                                        <span class="like-count">[[${book.likeCount}]]</span>
+                                                    </button>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <div class="button-container">
-                                <a>
-                                    <button type="submit" class="cart-button">장바구니</button>
+                                <a th:href="@{/purchase?(bookId=${book.bookId})}">
+                                    <button class="purchase-button">결제하기</button>
                                 </a>
                             </div>
                         </div>
-                        <hr>
-
-                        <div class="fourth-container">
-                            <div class="book-container" th:each="book: ${book}">
-                                <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
-                                <div class="image-container">
-                                    <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
-                                </div>
-                                <div class="book-data">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="bookCode">[[${book.bookCode}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>도서제목</td>
-                                                <td class="bookName">
-                                                    <a th:href="@{/book/view?(bookId=${book.bookId})}">
-                                                        [[${book.bookName}]]
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>작가</td>
-                                                <td class="author">[[${book.author}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>출판사</td>
-                                                <td class="publisher">[[${book.publisher}]]</td>
-                                            </tr>
-                                            <td>출판연도</td>
-                                            <td class="publicationDate">[[${book.publicationDate}]]</td>
-                                            <tr>
-                                                <td>분류</td>
-                                                <td class="category">[[${book.category}]]</td>
-                                            </tr>
-                                            <tr>
-                                                <td>가격</td>
-                                                <td class="price">
-                                                    [[${book.price}]]
-                                                    <span class="user-container">
-                                                        <i class="fa-solid fa-eye view"></i>
-                                                        <span>[[${book.visit}]]</span>
-                                                        <button class="like-button">
-                                                            <i class="fa-solid fa-heart"></i>
-                                                            <span>0</span>
-                                                        </button>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="button-container">
-                                    <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                        <button type="button" class="purchase-button">결제하기</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </form>
+                </div>
                 <div class="paging-container">
                     <a th:if="${pagination.page > 1}" th:href="@{/book?(page=${pagination.page -1})}">
                         <button><i class="fa-regular fa-circle-left"></i></button>
