@@ -15,7 +15,6 @@ CREATE table order_mst (
 -- book_mst, order_mst join해서 bookName 들고와서 같이 써야함.
 
 SELECT * FROM order_mst INNER JOIN book_mst
-<<<<<<< HEAD
 
 -- 2단 조인 order_mst랑 register left outer join
 SELECT om.*,r.name, r.email, r.address, r.address1, r.tel, r.postcode FROM order_mst om LEFT OUTER JOIN register r ON om.id = r.id

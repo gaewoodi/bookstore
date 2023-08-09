@@ -24,8 +24,6 @@ body {
     padding: 10px;
     height: calc(95vh - 80px);
     width: 100%;
-    
-    /* background-color: #e0212119; */
 }
 
 /* main-container basis 2 */
@@ -169,12 +167,8 @@ body {
     margin-left: 5px;
 }
 
-.book-like {
+.like-button {
     margin-left: 10px;
-}
-
-.book-like:hover {
-    cursor: pointer;
 }
 
 .purchase-button {

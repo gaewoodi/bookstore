@@ -13,3 +13,6 @@ CREATE table book_mst (
        visit int default 0,
        primary key(book_id)
 );
+
+UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now()
+UPDATE register SET id = #{id}
