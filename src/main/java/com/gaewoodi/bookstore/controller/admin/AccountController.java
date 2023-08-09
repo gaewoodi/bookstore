@@ -2,6 +2,7 @@ package com.gaewoodi.bookstore.controller.admin;
 
 import com.gaewoodi.bookstore.mappers.admin.AccountMapper;
 import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
+import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,8 @@ public class AccountController {
     @Autowired
     private LevelMapper levelMapper;
 
-
+    @Autowired
+    private MypageMapper mypageMapper;
 
     @GetMapping("/admin/account")
     public String urlAccount(Model model ,@RequestParam(defaultValue = "1", value = "page") int page){
@@ -37,6 +39,7 @@ public class AccountController {
         if (regId > 0) {
             model.addAttribute("acct", accountMapper.getMemberOne(regId));
             model.addAttribute("level", levelMapper.getLevel());
+            model.addAttribute("user", mypageMapper.getMypageId(regId));
         }
         return "admin/AccountView";
     }
