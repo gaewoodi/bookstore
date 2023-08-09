@@ -58,7 +58,7 @@
                                 <td>[[${Acct.grade}]]</td>
                                 <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd hh:mm:ss')}]]</td>
                                 <td>
-                                    <a href="/admin/AccountView"><button class="btn-clr1">상세보기</button></a>
+                                    <a th:href="@{/admin/AccountView?(regId=${Acct.regId})}"><button class="btn-clr1">상세보기</button></a>
                                     <a href="#"><button class="btn-clr2">주문내역</button></a>
                                 </td>
                             </tr>
@@ -69,6 +69,10 @@
         </main>
     </div>
     <script th:src="@{/js/admin/sidebar.js}"></script>
+
+
+
+</div>
 </body>
 
 </html>

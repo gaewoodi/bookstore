@@ -33,8 +33,11 @@ public class AccountController {
 
 
     @GetMapping("/admin/AccountView")
-    public String getAccountView( Model model){
-
+    public String getAccountView(@RequestParam int regId, Model model){
+        if (regId > 0) {
+            model.addAttribute("acct", accountMapper.getMemberOne(regId));
+            model.addAttribute("level", levelMapper.getLevel());
+        }
         return "admin/AccountView";
     }
 
