@@ -42,4 +42,5 @@ public interface BookMapper {
     // 카테고리
     @Select("SELECT * FROM book_mst WHERE category = #{category}")
     List<BookDto> getCategory(String category);
+
 }

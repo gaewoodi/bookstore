@@ -1,17 +1,3 @@
-$(function() {
-    $.ajax ({
-        type: "get",
-        url: "/book",
-        dataType: "json",
-        error: function(error) {
-            console.log(error);
-        }
-
-    });
-});
-
-
-
 //전체 선택했을 때
 function selectAll() {
     const checkbox = document.getElementById("selectAll");
@@ -75,19 +61,44 @@ function AllUnCheck() {
 }
 
 // ** 좋아요 ** //
-const likeButton = document.querySelector(".like-button");
+// const likeButton = document.querySelector(".like-button");
 
-likeButton.addEventListener('click', function(e) {
+// likeButton.addEventListener('click', function(e) {
+//     e.preventDefault();
+    
+//     // let likeCount = 
+    
+//     $.ajax({
+//         type: "post",
+//         url: "/like",
+//         dataType: "json",
+//         success : function(res) {
+//             if(res.msg == "success") {
+//                 alert("좋아요 성공.");
+//                 location.reload();
+//             }
+//         },
+//         error: error => {
+//             console.log(error);
+//         }
+//     });
+    
+    
+// });
+
+const mypageButton = document.querySelector(".mypage-button");
+
+mypageButton.addEventListener('click', function(e) {
     e.preventDefault();
 
     $.ajax({
         type: "post",
-        url: "/like",
+        url: "/book",
         dataType: "json",
-        success : function(res) {
+        success : function(res, data) {
             if(res.msg == "success") {
-                alert("좋아요 성공.");
-                location.reload();
+                alert("마이페이지로 이동합니다.");
+                location.href = "/mypage?id=";
             }
         },
         error: error => {
@@ -95,6 +106,4 @@ likeButton.addEventListener('click', function(e) {
         }
     });
     
-    
 });
-
