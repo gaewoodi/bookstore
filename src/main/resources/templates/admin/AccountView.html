@@ -20,8 +20,9 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <style>
-    tbody {
-      width: 100%;
+    #Account-view{
+    width: 100%;
+    height: 100%;
     }
 
     table tr {
@@ -58,11 +59,13 @@
         <div class="main-empview">
           <h2>::Account VIEW</h2>
           <div class="tbl">
-            <table>
-              <tbody >
+            <table id="Account-view">
+              <tbody>
                 <tr>
                   <td class="tit w-img">
-                    <img src="/images/test.jpg" alt="테스트">
+                    <img th:src="@{/images/user.png}" alt="profile" style="height: 260px; width: 260px;">
+                    <button>이미지업로드</button>
+                    <button>이미지삭제</button>
                   </td> <!-- 프로필 사진 -->
                 </tr><br/>
                 <tr>

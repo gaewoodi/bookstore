@@ -27,8 +27,6 @@
 </head>
 
 <body>
-
-
     <div class="container">
         <header th:insert="~{fragment/admin/header::headers}"></header>
         <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
@@ -37,7 +35,7 @@
             <div class="main-right">
                 <div class="main-emp">
                     <h2>::Account LIST</h2>
-                    <table id="Account" >
+                    <table id="Account">
                         <thead>
                             <tr>
                                 <th>회원번호</th>
@@ -52,11 +50,11 @@
                         <tbody th:each="Acct : ${acct}">
                             <tr>
                                 <td>[[${Acct.regId}]]</td>
-                                <td>이미지</td>
+                                <td><img th:src="@{/images/user.png}" alt="profile" style="height: 60px; width: 60px; border-radius: 50%;"></td>
                                 <td>[[${Acct.levelName}]]</td>
                                 <td>[[${Acct.id}]]</td>
                                 <td>[[${Acct.grade}]]</td>
-                                <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd hh:mm:ss')}]]</td>
+                                <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd')}]]</td>
                                 <td>
                                     <a th:href="@{/admin/AccountView?(regId=${Acct.regId})}"><button class="btn-clr1">상세보기</button></a>
                                     <a href="#"><button class="btn-clr2">주문내역</button></a>
