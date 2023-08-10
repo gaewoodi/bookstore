@@ -1,14 +1,25 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap');
 
-body {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    /* font-family: 'Noto Sans KR', sans-serif; */
+
+
+
+
+/* 레이아웃 */
+.wrap {
+    width : 100%;
+    margin: 0 auto;
+
+}
+
+.container {
+    width : 1200px;
+    margin : 0 auto;
 }
 
 
 /* 레이아웃 */
+/* 헤더 */
 #header {
     height: 100px;
 }
@@ -347,27 +358,15 @@ margin-top : 5px;
 
 }
 
-
-
 .recommand-subject h4{ 
     font-family: 'Nanum Gothic', sans-serif;
     color: #000;
     text-align: left;
     margin-bottom: 15px;
-    justify-content: space-between;
 }
 
 .recommand-subject h4 strong {
     color: rgb(239, 84, 77);
-}
-
-.recommand-subject h4 span {
-    margin-left : 60px;
-    font-size : 8px;
-}
-
-.recommand-subject h4 .span2 {
-margin-left : 90px;
 }
 
 .recommand-subject img {
@@ -435,17 +434,11 @@ margin-left : 90px;
 
 
 
-
 .trend {
     width: 30%;
     background-color: rgba(239, 84, 77, 0.3);
     padding: 20px;
     border-radius : 20px;
-}
-
-.trend a span{
-    font-size : 10px;
-    margin-left : 260px;
 }
 
 .trend .recommand-subject h4 {
@@ -496,12 +489,6 @@ margin-left : 90px;
     color: rgb(239, 84, 77);
 }
 
-.recommand2 h1 a {
-    font-size : 8px;
-    margin-left : 10px;
-    letter-spacing : -1px;
-}
-
 .border {
     width: 400px;
     display: flex;
@@ -534,14 +521,9 @@ margin-left : 90px;
 
 
 
-
-
-
 .choice {
     width:32%;
 }
-
-
 
 
 
@@ -702,22 +684,12 @@ ul li.active {
     height: 210px;
     box-shadow: 0 0 5px 3px rgb(192, 192, 192);
     text-align: center;
-
 }
 
 
 .main6-list-subject img:hover {
     transform: scale(1.03);
     transition: 0.1s;
-}
-
-.main6-list-subject i {
-    color : rgb(239, 84, 77);
-    font-size :28px;
-    position : absolute;
-    top:200px;
-    transform: translate(-50%, -50%);
-
 }
 
 .main6-list-text h6 {
