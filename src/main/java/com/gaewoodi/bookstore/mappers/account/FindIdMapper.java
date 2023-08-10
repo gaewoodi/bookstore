@@ -8,4 +8,7 @@ import org.apache.ibatis.annotations.Select;
 public interface FindIdMapper {
     @Select("SELECT COUNT(*) FROM register WHERE name = #{name} AND birth = #{birth}")
     int getFindInfo(RegisterDto registerDto);
+
+    @Select("SELECT id FROM register WHERE name = #{name} AND birth = #{birth}")
+    RegisterDto getUserId(RegisterDto registerDto);
 }
