@@ -9,4 +9,7 @@ public interface LoginMapper {
 
     @Select("SELECT * FROM register WHERE id = #{id} AND passwd = #{passwd} AND level = #{level}")
     RegisterDto getBookInfo(RegisterDto registerDto);
+
+    @Select("SELECT * FROM register WHERE name = #{name} AND birth = #{birth}")
+    RegisterDto getCheck(RegisterDto registerDto);
 }

@@ -15,17 +15,21 @@ function findCheck() {
         return false;
     }
 
+
     $.ajax({
         type : "post",
         url : "/findid",
         dataType : "json",
         data : {
-            name : name.value, 
+            name : name.value,
             birth : birth.value
         },
         success : function(res) {
-             if(res > 0) {
-                 alert("등록된 사용자정보입니다.");
+        console.log(res.id);
+             if(res.id != '' ) {
+                // $("#id").text(data);
+                 alert(`사용자의 아이디는 ${res.id} 입니다.`);
+//                 alert(`사용자의 아이디는 $('#id').val() 입니다.`);
                  name.value = "";
                  name.focus();
 
