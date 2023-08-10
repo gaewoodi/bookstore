@@ -26,7 +26,6 @@ public class FindIdController {
 
     @PostMapping("/findid")
     @ResponseBody
-
     public Map<String, Object> getCheck(@ModelAttribute RegisterDto registerDto) {
         Map<String, Object> map = new HashMap<>();
         if( loginMapper.getCheck(registerDto) != null ) {

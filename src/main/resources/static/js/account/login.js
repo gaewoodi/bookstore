@@ -30,7 +30,7 @@ let id = document.querySelector(".id");
                         location.href = "/admin/dashboard";
                     }else {
                         alert("일반회원입니다.");
-                        location.href = "/main";
+                        location.href = "/book";
                     }
                 }
             });
