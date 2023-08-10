@@ -111,12 +111,15 @@
                 return false;
             }
 
+
+
             $.ajax({
                 type : "post",
                 url : "/login",
                 dataType : "json",
                 data : {id : id.value, passwd : passwd.value},
                 success : function(res) {
+                    alert(res.id)
                     if(res.msg == "success") {
                         alert("로그인 되었습니다.");
                         location.href = "/main";

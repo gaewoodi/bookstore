@@ -1,17 +1,11 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@300&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap');
 
 /* 레이아웃 */
 .wrap {
     width : 100%;
     margin: 0 auto;
 
-}
-
-body {
-    font-family: 'Nanum Gothic', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    /* font-family: 'Noto Sans KR', sans-serif; */
 }
 
 .container {
@@ -30,6 +24,7 @@ body {
     height: 100px;
     display: flex;
     justify-content: space-between;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .logo {
@@ -37,16 +32,22 @@ body {
     margin-left: 30px;
 }
 
+/* .logo a img{
+    width: 20%;
+} */
+
 .logo-wrap img{
     width: 85%;
+    
+    
 }
-
 .search-wrap {
+    font-family: 'Nanum Gothic', sans-serif;
     display: flex;
 }
 
+
 .search-wrap .search {
-    font-family: 'Nanum Gothic', sans-serif;
     width : 500px;
     height : 40px;
     border: 2.5px solid rgb(239, 84, 77);
@@ -54,7 +55,6 @@ body {
     margin-top: 30px;
     padding : 10px 20px;
     outline : 0;
-    color: #444;
 }
 
 .search-btnwrap {
@@ -88,35 +88,37 @@ body {
     display: flex;
     justify-content: space-between;
     margin : 15px 70px;
-    padding-left : 10px;
 }
 
 .mypage .mypage-wrap > ul {
-    margin-left : 35px;
     display: flex;
-}
-
-.mypage .mypage-wrap > ul > li {
-    display : flex;
+    justify-content: space-between;
 }
 
 .mypage .mypage-wrap > ul > li > a {
     color: rgb(239, 84, 77);
     font-size: 25px;
-
+    margin-right : 35px;
 }
+
+.login-a {
+    margin-top : 5px;
+}
+
 
 
 .mypage .mypage-wrap > ul > li .login {
-    width : 80px;
-    font-family: 'Poppins', sans-serif;
     font-size: 15px;
+    background-color : rgb(239, 84, 77);
     border-radius: 10px;
+    color: #fff;
     letter-spacing : -0.5px;
-    padding : 0 12px;
-    margin-top : -10px;
-
+    padding : 10px;
 }
+
+
+
+
 
 
 .submenu {
@@ -133,13 +135,17 @@ body {
     display: none;
 }
 
-.submenu h1{
+.submenu1 h1{
     font-size: 25px;
     margin-bottom: 20px;
     color: #fff;
 }
 
-.submenu > li  {
+.submenu1 > ul > a{
+    color: #fff;
+}
+
+.submenu1 ul > a > li  {
     margin-bottom: 10px;
     padding-left: 10px;
     font-weight: 550;
@@ -147,6 +153,3 @@ body {
 }
 
 
-.submenu > li > a{
-    color: #fff;
-}

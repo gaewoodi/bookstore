@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>지금핫한 : 신작추천!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../static/css/reset.css">
+    <link rel="stylesheet" href="../../static/css/fragment/header.css">
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
-    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/main/style.css}">
     <link rel="stylesheet" th:href="@{/css/main/owl.carousel.css}">
     <link rel="stylesheet" th:href="@{/css/main/owl.theme.default.css}">
@@ -65,7 +66,7 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <a href=""><img src="/images/main/book/스콘.jpg"></a>
+                        <img src="/images/main/book/스콘.jpg">
                         <h1><a th:href="@{/bookinfo?(bookId = ${book.bookId})}"><strong>[[${book.bookName}]]</strong>먹어볼래?</a></h1>
                     </div>
                 </div> 
@@ -129,7 +130,7 @@
                             <div class="recommand-gawoodi">
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
-                                        <h4>| GAWOOD <strong>Choice</strong>!<a href=""><span>>>더보기</span></a></h4>
+                                        <h4>| GAWOOD <strong>Choice</strong>!</h4>
                                         <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi1.jpg"></a>
                                     </div>
                                     <div class="recommand-book">
@@ -146,15 +147,14 @@
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>MEDIA <strong>Choice</strong>!<a href=""><span class="span2">>>더보기</span></a></h4></a>
+                                        <a href="#"><h4>MEDIA <strong>Choice</strong>!</h4></a>
                                         <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi2.jpg"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
-                                <a href=""><span><strong>>>더보기</strong></span></a>
                                 <div class="recommand-subject">
-                                    <h4>| Trend<strong> Issue</strong>? |!</h4>
+                                    <h4>| Trend<strong> Issue</strong>? |</h4>
                                     <a href="#"><img src="/images/main/main-recommand/Trend.jpg"></a>
                                     <br/>
                                     <div class="recommand-text">
@@ -168,7 +168,7 @@
                         <div class="recommand2">
                             <div class="choice">
                                 <div class="choice-wrap">
-                                    <h1>출판사 <strong>추천!</strong>!<a href=""><span>>>&nbsp&nbsp더보기</span></a></h1>
+                                    <h1>출판사 <strong>추천!</strong></h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/choice.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -181,7 +181,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-wrap">
-                                    <h1>미디어 <strong>추천!</strong>!<a href=""><span>>>&nbsp&nbsp더보기</span></a></h1>
+                                    <h1>미디어 <strong>추천!</strong></h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/media.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -195,7 +195,7 @@
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <h1><strong>이 책</strong> 어때?!<a href=""><span>>>&nbsp&nbsp더보기</span></a></h1>
+                                    <h1><strong>이 책</strong> 어때?</h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -264,7 +264,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요" onclick="like()"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>백의 그림자</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
@@ -272,7 +271,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>천개의파랑</h6></a>
                                                 <a href="#"><p>12420원 + 1240P</p></a>
@@ -280,7 +278,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>훌훌</h6></a>
                                                 <a href="#"><p>14850원 + 1480P</p></a>
@@ -288,7 +285,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
                                                 <a href="#"><p>26820원 + 1480P</p></a>
@@ -296,7 +292,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>센강의 이름 모를 여인</h6></a>
                                                 <a href="#"><p>14800원 + 1480P</p></a>
@@ -304,7 +299,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
                                                 <a href="#"><p>9900원 + 990P</p></a>
@@ -318,7 +312,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
                                             <a href="#"><p>10800 + 1080P</p></a>
@@ -326,7 +319,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>구미호식당</h6></a>
                                                 <a href="#"><p>11250원 + 1200P</p></a>
@@ -334,7 +326,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>설민석의 한국사 대모험</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
@@ -342,7 +333,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>흔한남매</h6></a>
                                                 <a href="#"><p>12600원 + 1260P</p></a>
@@ -350,7 +340,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>에그박사</h6></a>
                                                 <a href="#"><p>13050원 + 1300P</p></a>
@@ -358,7 +347,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
                                                 <a href="#"><p>10800원 + 1080P</p></a>
@@ -372,7 +360,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>근육에 힘좀 빼고 삽시다</h6></a>
                                             <a href="#"><p>11700원 + 1170P</p></a>
@@ -380,7 +367,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>당뇨병을 이긴  <br />사람들의 비밀</h6></a>
                                                 <a href="#"><p>13500원 + 1350P</p></a>
@@ -388,7 +374,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>무기력이 무기력해지도록</h6></a>
                                                 <a href="#"><p>16020원 + 1600P</p></a>
@@ -396,7 +381,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>식사가 잘못 됐습니다.</h6></a>
                                                 <a href="#"><p>13050원 + 1300P</p></a>
@@ -404,7 +388,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>암은 병이 아니다</h6></a>
                                                 <a href="#"><p>16200원 + 1620P</p></a>
@@ -412,7 +395,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/건강/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>통증 때려잡는 스트레칭</h6></a>
                                                 <a href="#"><p>17010원 + 1700P</p></a>
@@ -426,7 +408,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>나는 월급쟁이에서  <br />이렇게 독립했다.</h6></a>
                                             <a href="#"><p>14400원 + 1440P</p></a>
@@ -434,7 +415,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>밀레니얼 세대가 돈 버는 법</h6></a>
                                                 <a href="#"><p>13500원 + 1350P</p></a>
@@ -442,7 +422,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>수소경제</h6></a>
                                                 <a href="#"><p>18000원 + 1800P</p></a>
@@ -450,7 +429,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>우리아이 주식부자 만들기</h6></a>
                                                 <a href="#"><p>15300원 + 1530P</p></a>
@@ -458,16 +436,16 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>카카오 네이버,  <br />지금사도 될까요?</h6></a>
+                                                <a href="#"><p>16200원 + 1620P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/경제/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>해외 구매대행으로  <br />평생 돈벌기</h6></a>
+                                                <a href="#"><p>17550원 + 1750P</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -478,7 +456,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>기묘한 미술관</h6></a>
                                             <a href="#"><p>14800원 + 1480P</p></a>
@@ -486,7 +463,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>나를 살리는 철학</h6></a>
                                                 <a href="#"><p>16020원 + 1600P</p></a>
@@ -494,7 +470,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>도시는 왜 사라졌는가</h6></a>
                                                 <a href="#"><p>14400원 + 1440P</p></a>
@@ -502,7 +477,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>세계사를 뒤바꾼 가짜뉴스</h6></a>
                                                 <a href="#"><p>14400원 + 1440P</p></a>
@@ -510,7 +484,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>음식에 대한 거의 모든 생각</h6></a>
                                                 <a href="#"><p>16200원 + 1620P</p></a>
@@ -518,7 +491,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/인문사회/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>코로나 이후의 세상</h6></a>
                                                 <a href="#"><p>13320원 + 1330P</p></a>
@@ -532,7 +504,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>감사의 재발견</h6></a>
                                             <a href="#"><p>13950원 + 1390P</p></a>
@@ -540,7 +511,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>나를 알고 싶을 때  <br />뇌 과학을 공부합니다.</h6></a>
                                                 <a href="#"><p>17820원 + 1780P</p></a>
@@ -548,7 +518,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>사이언스 픽션</h6></a>
                                                 <a href="#"><p>20000원 + 2000P</p></a>
@@ -556,7 +525,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>인공지능 마음을 묻다</h6></a>
                                                 <a href="#"><p>11200원 + 1120P</p></a>
@@ -564,7 +532,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>인지심리학</h6></a>
                                                 <a href="#"><p>29700원 + 2970P</p></a>
@@ -572,7 +539,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/과학/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>중독에 빠진 뇌과학자</h6></a>
                                                 <a href="#"><p>17100원 + 17100P</p></a>
@@ -586,7 +552,6 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/1.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>4~7세보다  <br />중요한 시기는 없습니다.</h6></a>
                                             <a href="#"><p>14800원 + 1480P</p></a>
@@ -594,7 +559,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/2.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>생일을 모르는 아이</h6></a>
                                                 <a href="#"><p>9900원 + 990P</p></a>
@@ -602,7 +566,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/3.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>오은영의 화해</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
@@ -610,7 +573,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/4.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>세상쉬운 우리 아이 성교육</h6></a>
                                                 <a href="#"><p>12420원 + 1240P</p></a>
@@ -618,7 +580,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/5.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>인성이 내 아이의  <br />인생을 바꾼다.</h6></a>
                                                 <a href="#"><p>14850원 + 1480P</p></a>
@@ -626,7 +587,6 @@
                                         </div>
                                         <div class="main6-list-subject">
                                             <a href="#"><img src="/images/main/bestceller/육아/6.jpg" alt=""></a>
-                                            <a href="#"><i class="fa-regular fa-heart" title = "이 책이 좋으면 ❤️를 눌러주세요"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>취향육아</h6></a>
                                                 <a href="#"><p>26820원 + 1480P</p></a>
@@ -646,7 +606,42 @@
             </div>
         </div>
 
-        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
+        <footer id ="footer">
+            <div class="container">
+                <div class="info1">
+                    <div class="info1-wrap">
+                        <ul>
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div class="info2-wrap">
+                        <ul>
+                            <li>대표자 이진수, 김성수</li>
+                            <li>호스팅서비스사업자 (주)카카오엔터테인먼트</li>
+                            <li><a href="#">사업자정보확인</a></li>
+                        </ul>
+                        <ul>
+                            <li>사업자등록번호 220-88-02594</li>
+                            <li>통신판매업신고 2018-성남분당B-0004</li>
+                        </ul>
+                        <ul>
+                            <li>대표전화 051-222-0000</li>
+                            <li>이메일 koreait@koreait.co.kr</li>
+                            <li>부산광역시 부산진구 에이원프라자 1동 403호</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info3">
+                    <p>Korea it Academy &copy;</p>
+                </div>
+            </div>    
+        </footer>
     </div>
     <script th:src="@{/js/main/js.js}"></script>
     <script th:src="@{/js/main/owl.carousel.js}"></script>

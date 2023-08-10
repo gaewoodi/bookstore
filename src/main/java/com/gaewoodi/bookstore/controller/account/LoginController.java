@@ -40,7 +40,6 @@ public class LoginController {
             hs.setMaxInactiveInterval(60 * 30);
         }
         map.put("msg", "success");
-
         return map;
     }
 

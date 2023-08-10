@@ -62,6 +62,10 @@
 
         })
 
+        function search(){
+            alert("안녕하세요")
+        }
+
 
 
         
