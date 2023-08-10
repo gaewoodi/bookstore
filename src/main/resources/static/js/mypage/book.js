@@ -1,20 +1,3 @@
-$(function() {
-    $.ajax ({
-        type: "get",
-        url: "/book",
-        dataType: "json",
-        success: function() {
-            console.log("book정보가져오기성공");
-        },
-        error: function(error) {
-            console.log(error);
-        }
-
-    });
-});
-
-
-
 //전체 선택했을 때
 function selectAll() {
     const checkbox = document.getElementById("selectAll");
@@ -102,25 +85,3 @@ function AllUnCheck() {
     
     
 // });
-
-const mypageButton = document.querySelector(".mypage-button");
-
-mypageButton.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    $.ajax({
-        type: "post",
-        url: "/book",
-        dataType: "json",
-        success : function(res, data) {
-            if(res.msg == "success") {
-                alert("마이페이지로 이동합니다.");
-                location.href = "/mypage?id=";
-            }
-        },
-        error: error => {
-            console.log(error);
-        }
-    });
-    
-});

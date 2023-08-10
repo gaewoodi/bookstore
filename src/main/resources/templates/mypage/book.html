@@ -34,7 +34,9 @@
             location.href = "/login";
         </script>
     </div>
-   
+    <!-- <p>로그인 번호: [[${session.id}]]</p>
+    <p>로그인 번호2: [[${session.regId}]]</p> -->
+    
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -59,7 +61,9 @@
     
                         <li> 
                             <a class="mypage-button">
-                                <i class="fa-solid fa-user"></i>
+                                <a th:href="@{/mypage?(regId=${session.regId})}">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
                             </a>
                         </li>
                         <li>
@@ -106,7 +110,7 @@
             <div class="third-container">
                 <!--main-container basis 2 -->
                 <div class="book-list">
-                    <div class="title-container" >
+                    <div class="title-container">
                         <h1>
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
@@ -208,5 +212,7 @@
 <!-- <script th:src="@{/js/mypage/checkBox.js}"></script> -->
 <script th:src="@{/js/mypage/book.js}"></script>
 <!-- <script src="/js/mypage/test.js"></script> -->
+
+
 </body>
 </html>

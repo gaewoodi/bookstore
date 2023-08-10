@@ -32,14 +32,29 @@ public class LoginController {
         System.out.println(loginMapper.getBookInfo(registerDto));
         RegisterDto r = loginMapper.getBookInfo(registerDto);
 
-        if(r != null) {
-            // 회원가입 된 사람이면 session 생성
-            HttpSession hs = req.getSession();
-            hs.setAttribute("id", r.getId());
-            hs.setAttribute("passwd", r.getPasswd());
-            hs.setMaxInactiveInterval(60 * 30);
+        if(r.getLevel() > 1) {
+            if(r != null) {
+                // 회원가입 된 사람이면 session 생성
+                HttpSession hs = req.getSession();
+                hs.setAttribute("regId", r.getRegId());
+                hs.setAttribute("id", r.getId());
+                hs.setAttribute("passwd", r.getPasswd());
+                hs.setAttribute("level", r.getLevel());
+                hs.setMaxInactiveInterval(60 * 30);
+
+                map.put("msg", "confirm");
+            }
+
+        }else{
+            map.put("msg", "1");
         }
+<<<<<<< HEAD
         map.put("msg", "success");
+=======
+
+
+
+>>>>>>> c58588e8cfa175c9dc6ac4bdfe915040d4ac6615
         return map;
     }
 
