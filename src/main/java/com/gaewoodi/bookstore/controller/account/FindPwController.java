@@ -1,7 +1,7 @@
 package com.gaewoodi.bookstore.controller.account;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
-import com.gaewoodi.bookstore.mappers.account.FindIdMapper;
+import com.gaewoodi.bookstore.mappers.account.FindPwMapper;
 import com.gaewoodi.bookstore.mappers.account.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,28 +14,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class FindIdController {
+public class FindPwController {
 
     @Autowired
-    private FindIdMapper findIdMapper;
+    private FindPwMapper findPwMapper;
 
     @Autowired
     private LoginMapper loginMapper;
 
-    @PostMapping("/findid")
-    @ResponseBody
-    public Map<String, Object> getCheck(@ModelAttribute RegisterDto registerDto) {
-        Map<String, Object> map = new HashMap<>();
-        if( loginMapper.getCheck(registerDto) != null ) {
-            map.put("id", loginMapper.getCheck(registerDto).getId());
-        }else{
-            map.put("id", "");
-        }
-        return map;
+    @GetMapping("/findpw")
+    public String getPages() {
+        return "account/findpw";
     }
 
-    @GetMapping("/findid")
-    public String getPages() {
-        return "account/findid";
+    @PostMapping("/findpw")
+    @ResponseBody
+    public Map<String, Object> getPwChk(@ModelAttribute RegisterDto registerDto) {
+        Map<String, Object> map = new HashMap<>();
+        if(loginMapper.getPwChk(registerDto) != null) {
+            map.put("passwd", loginMapper.getPwChk(registerDto).getPasswd());
+        }else {
+            map.put("passwd", "");
+        }
+        return map;
     }
 }
