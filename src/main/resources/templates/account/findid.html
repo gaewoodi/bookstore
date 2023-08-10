@@ -20,9 +20,10 @@
     <div class="find-box">
         <label>이름</label>
         <input type="text" name="name" class="name">
+         <input type="hidden" id="id" name="id" th:value="${id}">
         <label>생년월일</label>
         <input type="date" min="MM" max="dd" name="birth" class="birth">
-        <button class="btn">아이디 찾기</button>
+        <button  class="btn">아이디 찾기</button>
     </div>
     <script th:src="@{/js/account/findid.js}"></script>
 </body>
