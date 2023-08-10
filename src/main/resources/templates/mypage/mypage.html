@@ -17,13 +17,13 @@
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/mypage.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
     <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
     <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/mypage/user_edit.css"> -->
+    <link rel="stylesheet" href="/static/css/mypage/mypage.css"> -->
 </head>
 <body>
     <div class="wrap" th:if="${session.id != null}">
@@ -158,8 +158,8 @@
                                         <input type="tel" name="tel" class="telephone" th:value="${user.tel}" placeholder="전화번호 입력" readonly>
                                     </div>
                                 </div>
-                                <div class="button-container">
-                                    <a href="/update">
+                                <div >
+                                    <a th:href="@{/update?(regId=${user.regId})}" class="button-container">
                                         <button class="edit-button">정보수정</button>
                                     </a>
                                 </div>
