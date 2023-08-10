@@ -87,56 +87,8 @@
             </div>        
         </div>                               
     </div>
-<<<<<<< HEAD
 
-    <script>
-        
-        // let userid = $(".userid");
-        // let passwd = $(".passwd");
-        let id = document.querySelector(".id");
-        let passwd = document.querySelector(".passwd");
-        let btn = document.querySelector(".btn");
-
-        btn.addEventListener('click', function(e){
-            e.preventDefault();
-
-            if( !id.value ) {
-                alert("아이디를 입력해 주세요.");
-                id.focus();
-                return false;
-            }
-
-            if( !passwd.value ) {
-                alert("비밀번호를 입력해 주세요.");
-                passwd.focus();
-                return false;
-            }
-
-
-
-            $.ajax({
-                type : "post",
-                url : "/login",
-                dataType : "json",
-                data : {id : id.value, passwd : passwd.value},
-                success : function(res) {
-                    alert(res.id)
-                    if(res.msg == "success") {
-                        alert("로그인 되었습니다.");
-                        location.href = "/main";
-                    }
-                }
-            });
-
-        });
-
-      
-        
-    </script>
-
-=======
     <script th:src="@{/js/account/login.js}"></script>
->>>>>>> c58588e8cfa175c9dc6ac4bdfe915040d4ac6615
     <script th:src="@{/js/fragment/header.js}"></script>
 </body>
 </html>

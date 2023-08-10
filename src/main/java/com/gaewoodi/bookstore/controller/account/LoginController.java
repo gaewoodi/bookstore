@@ -48,13 +48,9 @@ public class LoginController {
         }else{
             map.put("msg", "1");
         }
-<<<<<<< HEAD
-        map.put("msg", "success");
-=======
 
 
 
->>>>>>> c58588e8cfa175c9dc6ac4bdfe915040d4ac6615
         return map;
     }
 
