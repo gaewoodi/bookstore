@@ -45,6 +45,7 @@ function formCheck() {
     let email = $(".email1").val() + $(".email2").val()
 
     let obj = {
+        regId: $(".regId"),
         id : $(".id").val(),
         passwd : $(".passwd").val(),
         name : $(".name").val(),
@@ -64,8 +65,8 @@ function formCheck() {
         url : "/update",
         dataType : "json",
         data : obj,
-        success : function(response) {
-            if(response.message == "success") {
+        success : function(res) {
+            if(res.msg == "success") {
                 alert("회원 정보가 수정되었습니다.");
                 location.reload();
             }

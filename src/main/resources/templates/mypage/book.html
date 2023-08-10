@@ -28,8 +28,76 @@
 </head>
 
 <body>
-<div id="container">
-    <header id="header" th:insert="~{fragment/header::headers}"></header>
+<div id="container"> 
+    <div th:if="${session.id == null}"> 
+        <script>
+            location.href = "/login";
+        </script>
+    </div>
+   
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-wrap">
+                    <a href="/main"><img src="/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                </div>
+            </div>
+            <div class="search-wrap">
+                <form action="">
+                    <input type="text" class="search">
+                </form>
+                <div class="search-btnwrap">
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+            </div>
+            <div class="mypage">
+                <div class="mypage-wrap">
+                    <ul>
+                        <li><a href="/register">
+                            <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                        </li>
+    
+                        <li> 
+                            <a class="mypage-button">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/cart">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="menu-menu">
+                                <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                            </a>
+                            <div class="submenu">
+                                <div class="submenu-wrap">
+                                    <div class="submenu1">
+                                        <ul>
+                                            <h1>전체카테고리</h1>
+                                            <a href="#"><li>소설/시/희곡</li></a>
+                                            <a href="#"><li>에세이</li></a>
+                                            <a href="#"><li>인문/사회</li></a>
+                                            <a href="#"><li>정치/경제</li></a>
+                                            <a href="#"><li>자기계발</li></a>
+                                            <a href="#"><li>역사/문화</li></a>
+                                            <a href="#"><li>IT/과학</li></a>
+                                            <a href="#"><li>가정/생활</li></a>
+                                            <a href="#"><li>진로/교육</li></a>
+                                            <a href="#"><li>유아/어린이</li></a>
+                                            <a href="#"><li>기타</li></a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <main class="main-container">
         <div class="serve-container">
             <!--main-container basis 1 -->
@@ -38,7 +106,7 @@
             <div class="third-container">
                 <!--main-container basis 2 -->
                 <div class="book-list">
-                    <div class="title-container">
+                    <div class="title-container" >
                         <h1>
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
@@ -52,6 +120,7 @@
 
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
+                            <input type="hidden" class="book-id" th:value="${book.bookId}">
                             <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
@@ -92,8 +161,8 @@
                                                     <i class="fa-solid fa-eye view"></i>
                                                     <span>[[${book.visit}]]</span>
                                                     <button class="like-button">
-                                                        <i class="fa-solid fa-heart"></i>
-                                                        <span>0</span>
+                                                        <i class="fa-solid fa-heart book-like"></i>
+                                                        <span class="like-count">[[${book.likeCount}]]</span>
                                                     </button>
                                                 </span>
                                             </td>
@@ -104,7 +173,7 @@
 
                             <div class="button-container">
                                 <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                    <button type="button" class="purchase-button">결제하기</button>
+                                    <button class="purchase-button">결제하기</button>
                                 </a>
                             </div>
                         </div>
@@ -130,8 +199,10 @@
             </div>
         </div>
     </main>
+   
     <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
 </div>
+
 <script th:src="@{/js/fragment/header.js}"></script>
 <script th:src="@{/js/fragment/side_menu.js}"></script>
 <!-- <script th:src="@{/js/mypage/checkBox.js}"></script> -->

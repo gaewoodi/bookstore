@@ -1,8 +1,10 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.LikeDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
 import com.gaewoodi.bookstore.mappers.mypage.LikeMapper;
+import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class BookController {
     @Autowired
     private LikeMapper likeMapper;
 
+    @Autowired
+    private MypageMapper mypageMapper;
+
     //도서전체
     @GetMapping("")
     public String getBookList(Model model, @RequestParam(defaultValue = "1", value="page") int page) {
@@ -32,6 +37,18 @@ public class BookController {
         model.addAttribute("pagination", pagingService.bookCalculator(page));
 
         return "mypage/book";
+    }
+
+    @PostMapping("")
+    @ResponseBody
+    public Map<String, Object> setMypage() {
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("msg", "success");
+
+        mypageMapper.getMemberAll();
+
+        return map;
     }
 
     //도서상세
@@ -56,6 +73,11 @@ public class BookController {
 
         return map;
 
+    }
+
+    @GetMapping("/test")
+    public String getTest() {
+        return "mypage/test";
     }
 
 }
