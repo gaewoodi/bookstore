@@ -40,6 +40,7 @@ public class AccountController {
             model.addAttribute("acct", accountMapper.getMemberOne(regId));
             model.addAttribute("level", levelMapper.getLevel());
             model.addAttribute("user", mypageMapper.getMypageId(regId));
+            System.out.println(regId);
         }
         return "admin/AccountView";
     }
