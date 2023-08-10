@@ -24,9 +24,13 @@ let id = document.querySelector(".id");
                 dataType : "json",
                 data : {id : id.value, passwd : passwd.value},
                 success : function(res) {
-                    if(res.msg == "success") {
+                console.log(res.msg);
+                    if(res.msg == "confirm") {
                         alert("로그인 되었습니다.");
-                        location.href = "/book";
+                        location.href = "/admin/dashboard";
+                    }else {
+                        alert("일반회원입니다.");
+                        location.href = "/main";
                     }
                 }
             });
