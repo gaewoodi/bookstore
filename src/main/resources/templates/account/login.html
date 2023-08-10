@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/account/reset.css">
+    <link rel="stylesheet" href="/css/account/login.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="wrap">
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
+    </div>
+
+    <div class="wrap">
+        <div class="login-wrap">
+            <div class="welcom-box">
+                <h1>Welcome</h1>
+            </div>
+            <div class="login-box">
+                <div class="login-container">
+                    <div class="login">          
+                        <input type="text" name="id" class="id" placeholder="아이디" /><br />
+                        <input type="password" name="passwd" class="passwd" placeholder="비밀번호" /><br />
+                    </div>
+                    <label class="remember-check">
+                        <input type="checkbox" id="remember-check" checked>로그인 상태 유지
+                    </label>
+                    <button type="button" class="btn">로그인</button>
+
+                    <div class="tbody">
+                        <div class="tbody1">
+                            <p>
+                                <a href="/register">회원가입</a>
+                            </p>
+                        </div> 
+                        <div class="tbody2">
+                            <ul>
+                                <li>
+                                    <a th:href="@{/findid}">아이디 찾기</a>
+                                </li>
+                                <li>
+                                    <a href="#">비밀번호 찾기</a>
+                                </li>
+                            </ul>                       
+                        </div>               
+                    </div> 
+                </div>
+            </div>
+            
+            <div class="footer-wrap">
+                <div class="footer">
+                    <div class="footer1">
+                        <ul>
+                            <li>
+                                <a href="#">이용약관</a>
+                            </li>
+                            <li>
+                                <a href="#">개인정보 처리방침</a>
+                            </li>
+                            <li>
+                                <a href="#">운영정책</a>
+                            </li>
+                            <li>
+                                <a href="#">고객센터</a>
+                            </li>
+                            <li>
+                                <a href="#">공지사항</a>
+                            </li>
+                            <li>
+                                <a href="#">언어</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer2">
+                        <a href="#">Copyright © Kakao Corp. All rights reserved.</a>        
+                    </div>
+                </div>
+            </div>        
+        </div>                               
+    </div>
+
+    <script>
+        
+        // let userid = $(".userid");
+        // let passwd = $(".passwd");
+        let id = document.querySelector(".id");
+        let passwd = document.querySelector(".passwd");
+        let btn = document.querySelector(".btn");
+
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+
+            if( !id.value ) {
+                alert("아이디를 입력해 주세요.");
+                id.focus();
+                return false;
+            }
+
+            if( !passwd.value ) {
+                alert("비밀번호를 입력해 주세요.");
+                passwd.focus();
+                return false;
+            }
+
+            $.ajax({
+                type : "post",
+                url : "/login",
+                dataType : "json",
+                data : {id : id.value, passwd : passwd.value},
+                success : function(res) {
+                    if(res.msg == "success") {
+                        alert("로그인 되었습니다.");
+                        location.href = "/main";
+                    }
+                }
+            });
+
+        });
+
+      
+        
+    </script>
+
+    <script th:src="@{/js/fragment/header.js}"></script>
+</body>
+</html>

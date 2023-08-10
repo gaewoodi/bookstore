@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 찾기</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/account/findid.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="wrap">
+        <img class="logo" src="/images/account/gaewoodi.png">
+    </div>
+    <div class="find-box">
+        <label>이름</label>
+        <input type="text" name="name" class="name">
+        <label>생년월일</label>
+        <input type="date" min="MM" max="dd" name="birth" class="birth">
+        <button class="btn">아이디 찾기</button>
+    </div>
+    <script th:src="@{/js/account/findid.js}"></script>
+</body>
+</html>
