@@ -16,19 +16,19 @@ public class MypageController {
     @Autowired
     private MypageMapper mypageMapper;
 
-    @GetMapping("/mypage")
-    public String getMypage() {
-
-
-        return "mypage/mypage";
-    }
 //    @GetMapping("/mypage")
-//    public String getMypage(Model model, int regId) {
-//        model.addAttribute("user", mypageMapper.getMypageId(regId));
+//    public String getMypage() {
 //
 //
 //        return "mypage/mypage";
 //    }
+    @GetMapping("/mypage")
+    public String getMypage(Model model, int regId) {
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
+
+
+        return "mypage/mypage";
+    }
 
 //    @PostMapping("/mypage")
 //    @ResponseBody
