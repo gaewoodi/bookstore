@@ -17,6 +17,8 @@ public interface AccountMapper {
     @Select("SELECT * FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level WHERE R.reg_id = #{regId}")
     RegisterDto getMemberOne(int regId);
 
+    @Select("SELECT COUNT(*) FROM register")
+    int getTotalCount();
 
     @Update("UPDATE register SET id = {id}, " +
             "passwd={passwd}, " +

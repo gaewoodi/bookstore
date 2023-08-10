@@ -1,8 +1,10 @@
 package com.gaewoodi.bookstore.controller.admin;
 
+import com.gaewoodi.bookstore.dto.admin.PagingDto;
 import com.gaewoodi.bookstore.mappers.admin.AccountMapper;
 import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
+import com.gaewoodi.bookstore.service.admin.AccountPagingSrv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AccountController {
+
+    @Autowired
+    private AccountPagingSrv pagingSrv;
 
     @Autowired
     private AccountMapper accountMapper;
@@ -25,6 +30,10 @@ public class AccountController {
     public String urlAccount(Model model ,@RequestParam(defaultValue = "1", value = "page") int page){
         model.addAttribute("acct", accountMapper.getMemberAll());
         model.addAttribute("level", levelMapper.getLevel());
+
+        model.addAttribute("emp", pagingSrv.getPagingEmp(page));
+
+        model.addAttribute("pagination", pagingSrv.pageCalc(page));
 
         return "admin/admin_Account";
     }
