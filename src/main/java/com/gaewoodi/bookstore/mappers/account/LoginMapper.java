@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface LoginMapper {
 
-    @Select("SELECT * FROM register WHERE id = #{id} AND passwd = #{passwd}")
+    @Select("SELECT * FROM register WHERE id = #{id} AND passwd = #{passwd} AND level = #{level}")
     RegisterDto getBookInfo(RegisterDto registerDto);
 }

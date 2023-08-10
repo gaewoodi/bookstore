@@ -37,6 +37,7 @@ public class LoginController {
             HttpSession hs = req.getSession();
             hs.setAttribute("id", r.getId());
             hs.setAttribute("passwd", r.getPasswd());
+            hs.setAttribute("level", r.getLevel());
             hs.setMaxInactiveInterval(60 * 30);
         }
         map.put("msg", "success");
