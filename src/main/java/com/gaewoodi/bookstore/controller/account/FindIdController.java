@@ -26,11 +26,7 @@ public class FindIdController {
 
     @PostMapping("/findid")
     @ResponseBody
-<<<<<<< HEAD
-    public int getCheck(@ModelAttribute RegisterDto registerDto) {
 
-        return findIdMapper.getFindInfo(registerDto);
-=======
     public Map<String, Object> getCheck(@ModelAttribute RegisterDto registerDto) {
         Map<String, Object> map = new HashMap<>();
         if( loginMapper.getCheck(registerDto) != null ) {
@@ -39,7 +35,6 @@ public class FindIdController {
             map.put("id", "");
         }
         return map;
->>>>>>> ef861ad2b3cb85adbd3591a8b5da72bedb06ee07
     }
 
     @GetMapping("/findid")
