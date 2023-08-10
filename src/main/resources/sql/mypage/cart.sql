@@ -1,15 +1,9 @@
 use bookstore;
 
 CREATE TABLE cart (
-    cart_id int not null auto_increment,
-    book_code varchar(45) not null unique,
-    book_name varchar(45) not null,
-    book_count int,
-    author varchar(45),
-    publisher varchar(45),
-    publication_date year,
-    category varchar(10) not null,
-    price varchar(45) not null,
+    cart_id int not null auto_increment, --
+    book_code varchar(45) not null,
+    quantity int not null, -- 수량
     primary key(cart_id)
 );
 

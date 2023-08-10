@@ -1,0 +1,25 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container" th:if="${session.id != null}">
+            <p>아이디 : [[${session.id}]]</p>
+            <p>이름 : [[${session.passwd}]]</p>
+        </div>
+        <div class="login-container" th:unless="${session.id != null}">
+            <script>
+                alert("로그인이 필요합니다.");
+                location.href = "/login";
+            </script>
+        </div>
+
+        <a href="/book">전체도서</a>
+        <a href="/main">메인</a>
+    </div>
+</body>
+</html>

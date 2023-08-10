@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-body{
+body {
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
@@ -24,12 +24,10 @@ body{
     padding: 10px;
     height: calc(95vh - 80px);
     width: 100%;
-    
-    /* background-color: #e0212119; */
 }
 
 /* main-container basis 2 */
-.book-purchase-list {
+.book-list {
     flex-basis: 85%;
 
     margin: 10px;
@@ -74,20 +72,16 @@ body{
 }
 
 .cart-button {
-    width: 80px;
+    width: 100px;
     height: 30px;
 }
 
-.third-container {
+.fourth-container {
     width: 100%;
 }
 
-.purchase-container {
-    margin-top: 10px;
-    height: 300px;
-}
 
-.book-cointainer {
+.book-container {
     display: flex;
     align-items: center;
 
@@ -119,6 +113,7 @@ body{
 }
 
 .book-data {
+    display: flex;
     width: 700px;
     height: 230px;
 
@@ -164,12 +159,18 @@ body{
     font-weight: bold;
 }
 
-.view-container {
+.user-container {
     margin-left: 10px;
 }
 
-.view-container span{    
+.view {    
     margin-left: 5px;
+}
+
+.like-button {
+    margin-left: 10px;
+
+    background: none;
 }
 
 .purchase-button {
@@ -180,7 +181,8 @@ body{
 
 /* paging */
 .paging-container { 
-    margin-top: 20px;
+    margin: 20px 0px;
+    
     text-align: center;
 }
 
@@ -190,6 +192,8 @@ body{
     background-color: transparent;
 
     font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
     
     cursor: pointer;
 }

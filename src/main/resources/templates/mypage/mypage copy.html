@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book-store < 마이페이지(내정보)</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- 폰트, 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
+    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/mypage/user_edit.css"> -->
+</head>
+<body>
+    <div class="login-container" th:if="${session.id != null}">
+        <p>아이디 : [[${session.id}]]</p>
+        <p>이름 : [[${session.passwd}]]</p>
+    </div>
+    <div class="login-container" th:unless="${session.id != null}">
+        <script>
+            alert("로그인이 필요합니다.");
+            location.href = "/login";
+        </script>
+    </div>
+    <div class="wrap">
+        <header id="header" th:insert="~{fragment/header::headers}">
+            <div class="container" th:fragment="headers">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="/main"><img src="/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                    </div>
+                </div>
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+                <div class="mypage">
+                    <div class="mypage-wrap" th:each="user: ${user}">
+                        <ul>
+                            <li><a href="/register">
+                                <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                            </li>
+        
+                            <li> 
+                                <a th:href="@{/mypage?(regId=${user.regId})}">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-menu">
+                                    <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                                </a>
+                                <div class="submenu">
+                                    <div class="submenu-wrap">
+                                        <div class="submenu1">
+                                            <ul>
+                                                <h1>전체카테고리</h1>
+                                                <a href="#"><li>소설/시/희곡</li></a>
+                                                <a href="#"><li>에세이</li></a>
+                                                <a href="#"><li>인문/사회</li></a>
+                                                <a href="#"><li>정치/경제</li></a>
+                                                <a href="#"><li>자기계발</li></a>
+                                                <a href="#"><li>역사/문화</li></a>
+                                                <a href="#"><li>IT/과학</li></a>
+                                                <a href="#"><li>가정/생활</li></a>
+                                                <a href="#"><li>진로/교육</li></a>
+                                                <a href="#"><li>유아/어린이</li></a>
+                                                <a href="#"><li>기타</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="size-container">
+            <main class="main-container">
+
+                <!-- side-menu -->
+                <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
+                
+                <div class="register-container">
+                    <div class="title-container">
+                        <h1>내정보</h1>
+                    </div>
+                    <div class="serve-container">
+                        <!-- serve-container 1 -->
+                        <div class="image-container">
+                            <img th:src="@{/images/user.png}" alt="profile">
+                            <button class="profile-button">이미지수정</button>
+                        </div>
+                        <!-- serve-container 2 -->
+                        <div class="register-group">
+                            <div class="input-group-one">
+                                <input type="hidden" class="regId" th:value="${user.regId}">
+                                <input type="hidden" class="level" th:value="${user.level}">
+                                <input type="hidden" class="grade" th:value="${user.grade}">
+
+                                <div class="id-container">
+                                    <p>아이디</p>
+                                    <div class="id-input-group">
+                                        <input type="text" name="id" class="id" th:value="${user.id}" readonly>
+                                    </div>
+                                </div>
+                                <div class="name-container">
+                                    <p>이름</p>
+                                    <input type="text" name="name" class="name" th:value="${user.name}" readonly>
+                                </div>
+
+                                <div class="birth-container">
+                                    <p>생년월일</p>
+                                    <div>
+                                        <input type="date" min="MM" max="dd" name="birth" class="birth" th:value="${user.birth}" readonly>
+                                    </div>
+                                </div>
+                                <div class="gender-container">
+                                    <label>성별</label>
+                                    <div class="radio-container">
+                                        <input type="radio" name="gender" class="userGender" value="M" th:value="${user.gender}" readonly> 남자
+                                        <input type="radio" name="gender" class="userGender" value="W" th:value="${user.gender}" readonly> 여자
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group-two">
+                                <div class="email-container">
+                                    <p>이메일 주소</p>
+                                    <input type="email" name="email" class="email" th:value="${user.email}" readonly>
+                                </div>
+                                <div class="address-container">
+                                    <p>
+                                        <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" th:value="${user.postcode}" readonly>
+                                        <p></p>
+                                        <input type="text" name="address" id="address" class="address" placeholder="도로명주소" th:value="${user.address}" readonly>
+                                        <p></p>
+                                        <input type="text" name="address1" id="address1" class="address1" placeholder="상세주소" th:value="${user.address1}" readonly>
+                                        <p></p>
+                                    </p>
+                                </div>
+                                <div class="telephone-container">
+                                    <p>휴대전화</p>
+                                    <div>
+                                        <input type="tel" name="tel" class="telephone" placeholder="전화번호 입력" th:value="${user.tel}" readonly>
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    <a th:href="@{/update?(regId=${user.regId})}">
+                                        <button class="edit-button">정보수정</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
+    </div>
+</body>
+</html>

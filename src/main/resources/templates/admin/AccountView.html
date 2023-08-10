@@ -20,28 +20,37 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <style>
-    tbody {
-      width: 100%;
+    #Account-view{
+    width: 100%;
+    height: 100%;
     }
 
-    table tr{
+    table tr {
       border-bottom: 1px solid #888;
     }
 
     table tr:nth-child(1) {
-      border-top:1px solid #ccc;
+      border-top: 1px solid #ccc;
     }
 
-    .w-15 p{
-      border-top:1px solid #ccc;
+    .w-15 p {
+      border-top: 1px solid #ccc;
     }
 
+    .btn-wrap{
 
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .btn-wrap a{
+      margin : 3px;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" >
     <header th:insert="~{fragment/admin/header::headers}"></header>
     <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
@@ -50,55 +59,58 @@
         <div class="main-empview">
           <h2>::Account VIEW</h2>
           <div class="tbl">
-            <table>
+            <table id="Account-view">
               <tbody>
                 <tr>
-                  <td class="tit w-img">이미지
-                    <img src="/images/test.jpg" alt="테스트">
+                  <td class="tit w-img">
+                    <img th:src="@{/images/user.png}" alt="profile" style="height: 260px; width: 260px;">
+                    <button>이미지업로드</button>
+                    <button>이미지삭제</button>
                   </td> <!-- 프로필 사진 -->
-                </tr>
+                </tr><br/>
                 <tr>
-                  <td class="tit w-15">번호  <!-- 계정 넘버 -->
-                    <p>구분<!-- 관리자, 회원 구분 --></p>
+                  <td class="tit w-15">번호 : [[${acct.regId}]] <!-- 계정 넘버 -->
+                    <p>구분 : [[${acct.levelName}]]<!-- 관리자, 회원 구분 --></p>
                   </td>
                 </tr>
                 <tr>
-                  <td class="tit w-15">이름
-                    <p>아이디</p>
-                    <p>성별</p>
+                  <td class="tit w-15">이름 : [[${acct.name}]]
+                    <p>아이디 : [[${acct.id}]]</p>
+                    <p>성별 : [[${acct.gender}]]</p>
                   </td>
-                  <td>등급
-                    <img src="/images/test.jpg" alt="등급">
+                  <td>등급 : [[${acct.grade}]]</td>
+                </tr>
+                <tr>
+                  <td>이메일 : [[${acct.email}]]</td>
+                </tr>
+                <tr>
+                  <td>우편번호 : [[${acct.postcode}]]
+                    <p>
+                      주소 : [[${acct.address}]]
+                    </p>
+                    <p>
+                      상세 주소 : [[${acct.address1}]]
+                    </p>
                   </td>
                 </tr>
                 <tr>
-                  <td>이메일</td>
+                  <td>전화번호 : [[${acct.tel}]]</td>
                 </tr>
                 <tr>
-                  <td>주소</td>
-                </tr>
-                <tr>
-                  <td>전화번호</td>
-                </tr>
-                <tr>
-                  <td>회원 가입일</td>
-                  <td>회원 수정일</td>
+                  <td>회원 가입일 : [[${#temporals.format(acct.created, 'yyyy. MM. dd hh:mm:ss')}]]</td>
+                  <td>회원 수정일 : [[${#temporals.format(acct.modified, 'yyyy. MM. dd hh:mm:ss')}]]</td>
                 </tr>
               </tbody>
             </table>
             <div class="btn-wrap">
-              <a href="">
+              <a th:href="@{/admin/account}">
                 <button>계정목록</button>
               </a>
-            </div>
-            <div class="btn-wrap">
-              <a href="">
-                <button>계정삭제</button>
-              </a>
-            </div>
-            <div class="btn-wrap">
               <a href="">
                 <button>계정수정</button>
+              </a>
+              <a href="">
+                <button>계정삭제</button>
               </a>
             </div>
           </div>

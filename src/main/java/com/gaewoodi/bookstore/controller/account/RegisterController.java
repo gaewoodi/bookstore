@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
+
 
 @Controller
 public class RegisterController {
@@ -21,9 +23,26 @@ public class RegisterController {
         return "account/register";
     }
 
-    @PostMapping("/chkPwd")
+    @PostMapping("/register")
     @ResponseBody
-    public int chkPwd(@RequestParam String bookRegPasswd) {
-        return registerMapper.chkPwd(bookRegPasswd);
+    public Map<String, Object> saveRegister(@ModelAttribute RegisterDto registerDto) {
+        System.out.println(registerDto);
+        Map<String, Object> map = new HashMap<>();
+//        if(registerDto != null) {
+//            registerMapper.saveRegister(registerDto);
+//            map.put("msg", "success");
+//        }
+            registerMapper.saveRegister(registerDto);
+            map.put("msg", "success");
+
+        return map;
+    }
+
+    @PostMapping("/idCheck")
+    @ResponseBody
+    public int idCheck(@RequestParam String id) {
+        System.out.println(id);
+        return registerMapper.idCheck(id);
     }
 }
+

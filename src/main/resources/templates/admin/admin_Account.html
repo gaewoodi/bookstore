@@ -17,20 +17,19 @@
     <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
     <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
     <link rel="stylesheet" href="/css/admin/account.css">
-    <link rel="stylesheet" href="/css/admin/meida.css">
+    <link rel="stylesheet" href="/css/admin/media.css">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
     <style>
     </style>
 </head>
 
 <body>
-    <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
-
     <div class="container">
         <header th:insert="~{fragment/admin/header::headers}"></header>
-
+        <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
         <main>
             <div class="main-right">
@@ -48,19 +47,18 @@
                                 <th>비고</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody th:each="Acct : ${acct}">
                             <tr>
-                               <td>11111111</td> 
-
-                               <td>이미지</td>
-                               <td>사원</td>
-                               <td>dydwk12304@naver.com</td>
-                               <td>platinum</td>
-                               <td>2023 07. 13. 23:12</td>
-                               <td>
-                                <a href="/admin/AccountView"><button class="btn-clr1">상세보기</button></a>
-                                <a href="#"><button class="btn-clr2">주문내역</button></a>
-                            </td>
+                                <td>[[${Acct.regId}]]</td>
+                                <td><img th:src="@{/images/user.png}" alt="profile" style="height: 60px; width: 60px; border-radius: 50%;"></td>
+                                <td>[[${Acct.levelName}]]</td>
+                                <td>[[${Acct.id}]]</td>
+                                <td>[[${Acct.grade}]]</td>
+                                <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd')}]]</td>
+                                <td>
+                                    <a th:href="@{/admin/AccountView?(regId=${Acct.regId})}"><button class="btn-clr1">상세보기</button></a>
+                                    <a href="#"><button class="btn-clr2">주문내역</button></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -69,6 +67,10 @@
         </main>
     </div>
     <script th:src="@{/js/admin/sidebar.js}"></script>
+
+
+
+</div>
 </body>
 
 </html>

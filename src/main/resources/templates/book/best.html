@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="/static/css/book/best.css"> -->
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/book/best.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="main-wrap">
@@ -55,11 +57,13 @@
                 </div>
 
                 <div class="main-book">
-                    <div class="book" th:each="name: ${list}">
-                        <i class="fa-solid fa-crown" > best 1</i>
+                    <div class="book" th:each="name, i: ${list}">
+                        <i class="fa-solid fa-crown" >
+                            <span>BEST [[${i.count}]]</span>
+                        </i>
                         <div class="one-book">
                             <div class="img-wrap">
-                                <img th:src="@{/images/no_image_pink.png}" alt="사진1">
+                                <img th:src="@{/images/no_image_pink.jpg}" alt="사진1">
                             </div>
                             <p class="one">[[${name.bookName}]]</p>
                             <p class="price">[[${name.price}]]</p>
@@ -79,53 +83,17 @@
                     </div> -->
 
                 </div>
-                    
-
-                <div class="pass">
-                    <a>
-                        <button>
-                            <i class="fa-solid fa-angle-left"></i>
-                        </button>
-                    </a>
-                    
-                    <a>
-                        <button>1</button>
-                    </a>
-
-                    <a>
-                        <button>2</button>
-                    </a>
-
-                    <a>
-                        <button>3</button>
-                    </a>
-
-                    <a>
-                        <button>4</button>
-                    </a>
-
-                    <a>
-                        <button>5</button>
-                    </a>
-
-                    <a>
-                        <button>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </btton>
-                    </a>
-                </div>
             </div>
         </div>
-</div>
+        <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
+    </div>
             
         
        
-
-<footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
-    </div>
+        
+    
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/fragment/side_menu.js}"></script>
-
-    
 </body>
+
 </html>

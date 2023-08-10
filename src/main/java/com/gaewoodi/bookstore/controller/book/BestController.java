@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BookController {
+public class BestController {
 
     @Autowired
     private BestMapper bestMapper;
@@ -18,11 +18,6 @@ public class BookController {
         return "book/best";
     }
 
-    @GetMapping("/search")
-    public String getSearch(Model model) {
-        model.addAttribute("list", bestMapper.getBestDtoList());
-        return "book/search";
-    }
 
 
 }

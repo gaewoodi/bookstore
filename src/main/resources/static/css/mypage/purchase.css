@@ -1,13 +1,10 @@
 @charset 'utf-8';
 
-<<<<<<< HEAD
-=======
 body{
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
->>>>>>> mypage
 .main-container {
     display: flex;
     justify-content: center;
@@ -195,6 +192,13 @@ body{
     justify-content: space-between;
 }
 
+.minus:hover {
+    cursor: pointer;
+}
+
+.plus:hover {
+    cursor: pointer;
+}
 
 .total-count button {
     background-color: transparent;

@@ -6,33 +6,39 @@
     <div class="container" th:fragment="headers">
         <div class="logo">
             <div class="logo-wrap">
-                <a href="/main"><img src="/images/main/logo/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                <a href="/main"><img src="/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
             </div>
         </div>
         <div class="search-wrap">
             <form action="">
-                <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
+                <input type="text" class="search">
             </form>
             <div class="search-btnwrap">
-                <a href="#" onclick="search()"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
         </div>
         <div class="mypage">
             <div class="mypage-wrap">
                 <ul>
+<<<<<<< HEAD
                     <li class="login-a"><a href="#" class="login">
                         <i class="fa-solid fa-right-to-bracket"></i> Login</a>
                     </li>
                     <li><a href="#">
+=======
+                    <li><a href="/register">
+                        <i class="fa-sharp fa-solid fa-hand-pointer"></i></a>
+                    </li>
+
+                    <li><a href="/mypage">
+>>>>>>> main
                         <i class="fa-solid fa-user"></i></a>
                     </li>
-                    <li><a href="#">
-                        <i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
-                    <li class="four" onclick="openmenu()">
-                        <a href="#">
-                            <i class="fa-sharp fa-solid fa-bars"></i>
+                    <li>
+                        <a href="/cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </a>
+<<<<<<< HEAD
                         <ul class="submenu"> 
                             <a href=""><h1>전체카테고리</h1></a>
                             <li><a href="#">소설/시/희곡</a></li>
@@ -47,9 +53,38 @@
                             <li><a href="#">유아/어린이</a></li>
                             <li><a href="#">기타</a></li>
                         </ul>
+=======
+                    </li>
+                    <li>
+                        <a href="#" class="menu-menu">
+                            <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                        </a>
+                        <div class="submenu">
+                            <div class="submenu-wrap">
+                                <div class="submenu1">
+                                    <ul>
+                                        <h1>전체카테고리</h1>
+                                        <a href="#"><li>소설/시/희곡</li></a>
+                                        <a href="#"><li>에세이</li></a>
+                                        <a href="#"><li>인문/사회</li></a>
+                                        <a href="#"><li>정치/경제</li></a>
+                                        <a href="#"><li>자기계발</li></a>
+                                        <a href="#"><li>역사/문화</li></a>
+                                        <a href="#"><li>IT/과학</li></a>
+                                        <a href="#"><li>가정/생활</li></a>
+                                        <a href="#"><li>진로/교육</li></a>
+                                        <a href="#"><li>유아/어린이</li></a>
+                                        <a href="#"><li>기타</li></a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+>>>>>>> main
                     </li>
                 </ul>
-            <div>
+            </div>
         </div>
+    </div>
+
 </body>
 </html>

@@ -12,15 +12,8 @@ function selectAll() {
     
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function checkboxClick(){
-=======
 function checkboxClick() {
->>>>>>> mypage
-=======
-function checkboxClick(){
->>>>>>> mypage
+
     //체크박스 전체개수
     const allCount = document.querySelectorAll(".check").length;
     //체크된 체크박스 전체개수

@@ -20,19 +20,6 @@ body {
     margin: 0 auto;
 }
 
-
-
-.menu-container ol ul {
-    padding: 20px 10px;
-
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.menu-container ul {
-    cursor: pointer;
-}
-
 .book-button, .mypage-button {
     background-color: transparent;
 
@@ -135,19 +122,6 @@ body {
 
 .btn button:hover {
     cursor: pointer;
-}
-
-.cate-bar {
-    margin-top: 5px;
-    margin-bottom: 50px;
-    text-align: right;
-}
-
-.cate-bar select {
-    background-color: #fff;
-    border: 1px solid #cacaca;
-    padding: 5px;
-
 }
 
 .main-book {

@@ -1,3 +1,20 @@
+$(function() {
+    $.ajax ({
+        type: "get",
+        url: "/book",
+        dataType: "json",
+        success: function() {
+            console.log("book정보가져오기성공");
+        },
+        error: function(error) {
+            console.log(error);
+        }
+
+    });
+});
+
+
+
 //전체 선택했을 때
 function selectAll() {
     const checkbox = document.getElementById("selectAll");
@@ -29,23 +46,6 @@ function checkboxClick() {
         result += el.value + ' ';
     });
 
-    let cartButton = document.querySelector(".cart-button");
-        
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        if(result != null) {
-            console.log("result[0] : " + result[0]);
-            console.log("result[2] : " + result[2]);
-            console.log("result[4] : " + result[4]);
-        }
-      
-
-        // location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
-
-
-
-    });
 
     console.log(result);
 
@@ -59,32 +59,68 @@ function checkboxClick() {
         document.getElementById('selectAll').checked = false;
     }
 
-    let cartButton = document.querySelector(".cart-button");
-
-    cartButton.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        for(let i = 0; i < result.length; i++) {
-            location.href = `/cart?bookId=${result[0]}&bookId=${result[2]}&bookId=${result[4]}`;
-        }
-    });
-
 
 }
 
 
 //체크박스 전체 체크
-function AllCheck(){
+function AllCheck() {
     document.querySelectorAll(".check").forEach(function(v) {
         v.checked = true;
     });
 }
 
 //체크박스 전체 체크 해제
-function AllUnCheck(){
+function AllUnCheck() {
     document.querySelectorAll(".check").forEach(function(v) {
         v.checked = false;
     });
 }
 
+// ** 좋아요 ** //
+// const likeButton = document.querySelector(".like-button");
 
+// likeButton.addEventListener('click', function(e) {
+//     e.preventDefault();
+    
+//     // let likeCount = 
+    
+//     $.ajax({
+//         type: "post",
+//         url: "/like",
+//         dataType: "json",
+//         success : function(res) {
+//             if(res.msg == "success") {
+//                 alert("좋아요 성공.");
+//                 location.reload();
+//             }
+//         },
+//         error: error => {
+//             console.log(error);
+//         }
+//     });
+    
+    
+// });
+
+const mypageButton = document.querySelector(".mypage-button");
+
+mypageButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        type: "post",
+        url: "/book",
+        dataType: "json",
+        success : function(res, data) {
+            if(res.msg == "success") {
+                alert("마이페이지로 이동합니다.");
+                location.href = "/mypage?id=";
+            }
+        },
+        error: error => {
+            console.log(error);
+        }
+    });
+    
+});
