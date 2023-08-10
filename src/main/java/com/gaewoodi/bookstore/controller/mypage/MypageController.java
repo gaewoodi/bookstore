@@ -30,24 +30,14 @@ public class MypageController {
         return "mypage/mypage";
     }
 
-//    @PostMapping("/mypage")
-//    @ResponseBody
-//    public Map<String, Object> setMypage(@ModelAttribute RegisterDto registerDto) {
-//        Map<String, Object> map = new HashMap<>();
-//
-//        map.put("msg", "success");
-//
-//        return map;
-//    }
+
+    @GetMapping("/update")
+    public String getserEdit(Model model, @RequestParam int regId) {
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
 
 
-//    @GetMapping("/update")
-//    public String getserEdit(Model model, @RequestParam int regId) {
-//        model.addAttribute("user", mypageMapper.getMypageId(regId));
-//
-//
-//        return "mypage/user_edit";
-//    }
+        return "mypage/user_edit";
+    }
 //
 //    @PostMapping("/update")
 //    public Map<String, Object> setUpdate(@ModelAttribute RegisterDto registerDto) {

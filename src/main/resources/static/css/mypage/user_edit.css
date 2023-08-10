@@ -236,7 +236,7 @@ body{
     height: 75px;
 }
 
-.edit-button {
+.edit-button, .delete-button {
     width: 100px;
     height: 40px;
 
@@ -249,7 +249,11 @@ body{
     cursor: pointer;
 }
 
-.edit-button:hover {
+.edit-button:hover, .delete-button:hover {
     background-color: #f9a4a4;
+}
+
+.delete-button {
+    margin-left: 10px;
 }
 
