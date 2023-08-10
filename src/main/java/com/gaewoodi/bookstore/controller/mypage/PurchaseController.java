@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;

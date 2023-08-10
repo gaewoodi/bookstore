@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.LikeDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
 import com.gaewoodi.bookstore.mappers.mypage.LikeMapper;
