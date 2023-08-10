@@ -16,12 +16,6 @@ public class MypageController {
     @Autowired
     private MypageMapper mypageMapper;
 
-//    @GetMapping("/mypage")
-//    public String getMypage() {
-//
-//
-//        return "mypage/mypage";
-//    }
     @GetMapping("/mypage")
     public String getMypage(Model model, int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
@@ -38,14 +32,14 @@ public class MypageController {
 
         return "mypage/user_edit";
     }
-//
-//    @PostMapping("/update")
-//    public Map<String, Object> setUpdate(@ModelAttribute RegisterDto registerDto) {
-//        Map<String, Object> map = new HashMap<>();
-//
-//        mypageMapper.setRegister(registerDto);
-//
-//        map.put("msg", "success");
-//        return map;
-//    }
+
+    @PostMapping("/update")
+    public Map<String, Object> setUpdate(@ModelAttribute RegisterDto registerDto) {
+        Map<String, Object> map = new HashMap<>();
+
+        mypageMapper.setRegister(registerDto);
+
+        map.put("msg", "success");
+        return map;
+    }
 }

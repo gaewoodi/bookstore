@@ -8,3 +8,4 @@
         size bigint,
         primary key(image_id)
     );
+

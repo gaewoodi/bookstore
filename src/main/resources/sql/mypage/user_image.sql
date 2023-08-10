@@ -20,12 +20,4 @@ ON
     ui.user_image_id = r.reg_id
 -------------------------------------------------------------
 
-SELECT
-    ui.*,
-    r.reg_id
-FROM
-    user_image ui
-LEFT OUTER JOIN
-    register r
-ON
-    ui.user_image_id = r.reg_id
+SELECT ui.*, r.reg_id FROM user_image ui LEFT OUTER JOIN register r ON ui.user_image_id = r.reg_id
