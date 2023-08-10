@@ -62,10 +62,6 @@
 
         })
 
-        function like(){
-            <i class="fa-solid fa-heart"></i>
-        }
-
 
 
         
