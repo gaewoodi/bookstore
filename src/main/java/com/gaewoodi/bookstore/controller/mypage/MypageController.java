@@ -1,14 +1,11 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MypageController {

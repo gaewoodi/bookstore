@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="button-container">
                                     <button class="edit-button">수정하기</button>
-                                    <button class="delete-button">취소하기</button>
+                                    <a th:href="@{/mypage?(regId=${user.regId})}" class="delete-button button-container">취소하기</a>
                                 </div>
                             </div>
                         </div>
