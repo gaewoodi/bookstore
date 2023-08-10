@@ -13,8 +13,8 @@ public interface MypageMapper {
     @Select("SELECT * FROM register")
     List<RegisterDto> getMemberAll();
 
-    @Select("SELECT * FROM register WHERE id = #{id}")
-    RegisterDto getMypageId(String id);
+    @Select("SELECT * FROM register WHERE redId = #{redId}")
+    RegisterDto getMypageId(int redId);
 
     @Update("UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now()")
     void setRegister(RegisterDto registerDto);
