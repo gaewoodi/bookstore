@@ -3,11 +3,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body>
-  <div th:fragment="headers">
+
+  <div th:fragment="headers" th:if="${session.adminChk != null}">
+
     <i class="fa-solid fa-bars" style="cursor: pointer;" id="sidebar-icon"></i>
     <ul class="header-links">
       <li class="sub-link">
-        <a href="#">로그인 정보 : </a>
+        <p>[[${session.adminChk.level}]].Level 관리자</p>
+        <p>[[${session.adminChk.name}]]님 반갑습니다.</p>
       </li>
       <li class="sub-link">
         <a href="#">남은 로그인 시간(링크아님)</a>
@@ -19,11 +22,15 @@
       </li>
       <div class="myinfo" style="margin-left: 15px;">
         <i class="fa-solid fa-user" type="button" id="user-icon">
-          <button></button>
-        </i>  
+
+        </i>
       </div>
+      <a href="/logout">
+        <button>로그아웃</button>
+      </a>
     </ul>
   </div>
+
 </body>
 
 </html>
