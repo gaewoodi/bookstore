@@ -46,12 +46,19 @@
                 <div class="mypage">
                     <div class="mypage-wrap">
                         <ul>
-                            <li class="login-a"><a href="/login" class="login" >
-                                <i class="fa-solid fa-right-to-bracket"></i><a href="/logout">Login</a></a>
+                            <li class="login-a">
+                                <a href="/login" class="login" th:if="${session.id != null}">
+                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Logout
+                                </a>
+                                <a href="/logout" class="login" th:unless="${session.id != null}">
+                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
+                                </a>
                             </li>
         
-                            <li><a href="/mypage">
-                                <i class="fa-solid fa-user"></i></a>
+                            <li>
+                                <a href="/mypage">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
                             </li>
                             <li>
                                 <a href="/cart">
