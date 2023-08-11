@@ -1,9 +1,8 @@
 function modal(regId) {
     document.querySelector("#modal").style.display = "block";
     // regId에 해당되는 첨부파일 들고오기
-    document.querySelector("#button").addEventListener("click",  function () {
+    document.querySelector("#upload").addEventListener("click",  function () {
         let formData = new FormData();
-        // append("uploadFile", ..)여기 이름이 백엔드 MultipartFile 변수 명으로 가야함
         formData.append("uploadFile", $(".uploadFile")[0].files[0]);
         formData.append("regId", regId)
 
@@ -26,6 +25,7 @@ function modal(regId) {
 
         });
     });
+
 
 }
 

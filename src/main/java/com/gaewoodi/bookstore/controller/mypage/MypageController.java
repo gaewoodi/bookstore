@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +23,6 @@ public class MypageController {
 
     @Autowired
     private MypageMapper mypageMapper;
-
-    private String UPLOAD_LOCATION = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
 
     @GetMapping("")
     public String getMypage(Model model, int regId) {
@@ -57,16 +57,34 @@ public class MypageController {
     public Map<String, Object> fileUpload(MultipartFile uploadFile, int regId) {
         Map<String, Object> map = new HashMap<>();
 
+
+
         try {
+            String filePath = "D:\\bookstore\\upload";
+            String orginName = uploadFile.getOriginalFilename();
+            Long fileSize = uploadFile.getSize();
+
+            //폴더 이름은 2023-06-27 => new SimpleDateFormat() 사용
+            String folderName = new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis());
+            File file = new File(filePath +"\\"+ folderName);
+
             if(uploadFile != null) {
+                file.mkdir();
+                System.out.println("폴더가 생성 되었습니다.");
+
                 UserImageDto userImageDto = new UserImageDto();
-                userImageDto.setOriginName(uploadFile.getOriginalFilename());
-                userImageDto.setImageSize(uploadFile.getSize());
+
+                userImageDto.setOriginName(orginName);
+                userImageDto.setImageSize(fileSize);
                 userImageDto.setRegId(regId);
 
+//                mypageMapper.getUserIamge(userImageDto);
                 mypageMapper.fileUpload(userImageDto);
 
-                Path path = Paths.get(UPLOAD_LOCATION, uploadFile.getOriginalFilename());
+                String partially = orginName.substring(orginName.lastIndexOf("."));
+                String changeName = System.currentTimeMillis() + partially;
+
+                Path path = Paths.get(file.toString(), changeName);
                 Files.write(path, uploadFile.getBytes());
 
 
