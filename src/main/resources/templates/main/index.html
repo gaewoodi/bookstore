@@ -35,9 +35,7 @@
                 </div>
                 <div class="search-wrap">
                     <form action="">
-                        <form action="">
-                            <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
-                        </form>
+                        <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
                     </form>
                     <div class="search-btnwrap">
                         <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -46,15 +44,16 @@
                 <div class="mypage">
                     <div class="mypage-wrap">
                         <ul>
-                            <li class="login-a">
-                                <a href="/login" class="login" th:if="${session.id != null}">
+                            <li class="login-a" th:if="${session.id != null}">
+                                <a href="/logout" class="login" >
                                     <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Logout
                                 </a>
-                                <a href="/logout" class="login" th:unless="${session.id != null}">
+                            </li>
+                            <li class="login-a" th:unless="${session.id != null}">    
+                                <a href="/login" class="login">
                                     <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
                                 </a>
-                            </li>
-        
+                            </li>        
                             <li>
                                 <a href="/mypage">
                                     <i class="fa-solid fa-user"></i>
@@ -135,13 +134,13 @@
                 <div class="main1">
                     <div class="main1-wrap">
                         <img src="/images/main/book/스콘.jpg">
-                        <h1><a th:href="@{/bookinfo?(bookId = ${book.bookId})}"><strong>[[${book.bookName}]]</strong>먹어볼래?</a></h1>
+                        <h1><a th:href="@{/view?(bookCode = ${main.bookCode})}"><strong>≪ [[${main.bookName}]] ≫</strong></a></h1>
                     </div>
                 </div> 
                 <div class="main2">
                     <div class="main2-wrap">
                         <div class="owl-carousel owl-theme">
-                            <div class="main2-img item">
+                            <div class="main2-img item" >
                                 <a href="#">
                                     <img src="/images/main/book-main/슈퍼해빗.jpg" alt="슈퍼해빗">
                                 </a>
