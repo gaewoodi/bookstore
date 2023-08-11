@@ -26,7 +26,13 @@
     <link rel="stylesheet" href="/static/css/mypage/mypage.css"> -->
 </head>
 <body>
-    <div class="wrap" th:if="${session.id != null}">
+    <div class="wrap">
+        <div th:if="${session.id == null}"> 
+            <script>
+                location.href = "/login";
+            </script>
+        </div>
+    
         <header id="header">
             <div class="container">
                 <div class="logo">
