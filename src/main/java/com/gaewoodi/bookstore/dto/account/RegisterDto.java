@@ -24,7 +24,5 @@ public class RegisterDto {
     private String grade;
     private LocalDateTime created;
     private LocalDateTime modified;
-    private String imageName;
-    private Long imageSize;
-    private String transName;
+
 }
