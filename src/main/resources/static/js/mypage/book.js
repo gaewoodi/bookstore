@@ -85,26 +85,3 @@ function AllUnCheck() {
     
     
 // });
-
-// const mypageButton = document.querySelector(".mypage-button");
-
-// function pageCheck(e) {
-//     e.preventDefault();
-
-//     $.ajax({
-//         type: "post",
-//         url: "/book",
-//         dataType: "json",
-//         success : function(res) {
-//             if(res.msg == "success") {
-//                 alert("마이페이지로 이동합니다.");
-//                 location.href = `/mypage?id=${session.id}`;
-//             }
-//         },
-//         error: error => {
-//             console.log(error);
-//         }
-//     });
-// }
-
-// mypageButton.addEventListener('click', pageCheck);

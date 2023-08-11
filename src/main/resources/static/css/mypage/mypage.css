@@ -1,44 +1,255 @@
 @charset 'utf-8';
 
 body{
-    font-family: 'Noto Sans KR', sans-serif;
+    font-size:14px;
+    line-height: 1.5em;
+    font-family: 'Nanum Gothic', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
 
-.main-container {
-    display: flex;
-    justify-content: center;
+.size-container {
+    margin: 0 auto;
+    width: 1400px;
 }
 
-.serve-container {
+.main-container {
     display: flex;
 
     width: 1400px;
 }
 
-/* main-container basis 1 */
+/* flex-basis 1 */
 .menu-container {
     flex-basis: 15%;
 
     margin: 10px;
     padding: 10px;
-    height: calc(95vh - 80px);
+    height: calc(74vh - 80px);
     width: 100%;
-    
-    /* background-color: #e0212119; */
 }
 
-/* main-container basis 2 */
-.mypage-container {
+/* flex-basis 2 */
+.register-container {
     flex-basis: 85%;
 
-    margin: 10px;
+    margin: 20px 10px 10px;
+}
 
-    color: #fff;
-    background-color: #FFADAD;
+.serve-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 1100px;
+    height: 550px;
+}
+
+/* serve-container 1 */
+.image-container {
+    width: 250px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-button {
+    width: 100px;
+    height: 40px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 3px;
+    background-color: #ef544d1a;
+
+    cursor: pointer;
+}
+
+.profile-button:hover {
+    background-color: #f9a4a4;
+}
+
+/* serve-container */
+.register-group {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+}
+
+/* input group */
+.input-group-one {
+    padding: 0 18px;
+    width: 400px;
+}
+
+.input-group-one p {
+    margin-bottom: 5px;
+}
+
+.id-input-group input, .passwd, .passwd2, .name, .birth, .input-group-one select {
+    margin-bottom: 5px;
+    padding: 3px 10px;
+    width: 100%;
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.input-group-one span {
+    font-size: 13px;
+    font-style: italic;
+    color : red;
+}
+
+.id-container {
+    margin :5px 0;
+}
+
+.id-input-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.id-container .id {
+    width: 200px;
+}
+
+.id-container .id-check {
+    width: 120px;
+
+    background-color: #e7e7e7;
+}
+
+.birth-container div {
+    display: flex;
+}
+
+.gender-container {
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 364px;
+    height : 50px;
+}
+
+.gender-container label {
+    margin-right: 10px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+
+    width: 200px;
+    height: 30px;
+}
+
+.userGender {
+    margin: 0 5px 0 20px;
+}
+
+/* input-group-two */
+.input-group-two {
+    width: 400px;
+    padding: 0 18px;
+}
+
+.email-container {
+    margin-left: 3px;
+}
+
+.email-container .email p{
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.input-group-two input,.input-group-two select {
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.address-container {
+    margin-top : 5px;
+}
+
+.email {
+    width: 200px;
 }
 
 
+.postcode {
+    width: 200px;
+}
 
+.postcode-search {
+    width: 130px;
 
+    background-color : #e7e7e7;
+}
+
+.address {
+    width: 330px;
+}
+
+.address1 {
+    width: 330px;
+}
+
+.telephone-container p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.telephone {
+    width: 330px;
+}
+
+.telephone-container span {
+    font-size: 13px;
+    font-style: italic;
+}
+
+.input-group-two .btn {
+    margin-top: 20px;
+    width: 360px;
+    height : 50px;
+    
+    background-color: #FFADAD;
+
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+
+    height: 75px;
+}
+
+.edit-button {
+    width: 100px;
+    height: 40px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 3px;
+    background-color: #ef544d1a;
+
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #f9a4a4;
+}
 
