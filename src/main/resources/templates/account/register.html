@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/account/reset.css">
+    <link rel="stylesheet" href="/css/account/register.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <form method="post" id="reg-form">
+        <div class="member">
+            <img class="logo" src="/images/account/gaewoodi.png">
+
+            <div class="UserId">
+                <p>아이디 <span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">(4자~12자리의 영문자, 숫자 / @,#$등 특수문자는 제외)</span></p>
+                <input type="userid" name="id" class="userid">
+                <input type="button" name="id1" class="userid1"  value="아이디 중복확인">
+            </div>
+            <div class="UserPw">
+                <p>비밀번호<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; line-height: 11px;">영문, 숫자, 특수문자 중 2가지 조합하여 8자~20자리</span></p>
+                <input type="password" name="passwd" class="passwd">
+            </div>
+            <div class="Re-UserPw">
+                <p>비밀번호 확인<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">비밀번호를 다시 한번 입력해주세요.</span></p>
+                <input type="password" name="passwd2" class="passwd2">
+            </div>
+            <div class="UserName">
+                <p>이름</p>
+                <input type="text" name="name" class="username">
+            </div>
+
+            <div class="field-birth">
+                <p>생년월일</p>
+                <div>
+                    <input type="date" min="MM" max="dd" name="birth" class="birth">
+                </div>
+            </div>
+        </div>
+        <form class="gender">
+            <div class="gender1">
+                <label>성별</label>
+                <input type="radio" name="gender" class="userGender" value="M"> 남자
+                <input type="radio" name="gender" class="userGender" value="W" checked> 여자
+            </div>
+        </form>
+        <div class="member1">
+            <div class="Email">
+                <p>이메일 주소</p>
+                    <input type="email" name="email" class="email1">
+                        <select class="email2">
+                            <option value="1">직접 입력</option>
+                            <option value="@naver.com">@naver.com</option>
+                            <option value="@gmail.com">@gmail.com</option>
+                            <option value="@nate.com">@nate.com</option>
+                            <option value="@hanmail.net">@hanmail.net</option>
+                            <option value="@daum.net">@daum.net</option>
+                        </select>
+            </div>
+            <div class="Address">
+                <p>
+                    <input type="text" name="postcode" id="postcode" class="adr1" placeholder="우편번호" readonly>
+                    <input type="button" onclick="execDaumPostcode()" class="adr2" value="우편번호 찾기">
+                    <p></p>
+                    <input type="text" name="address" id="address" placeholder="도로명주소" style="width: 360px" readonly>
+                    <p></p>
+                    <input type="text" name="address1" id="address1" placeholder="상세주소" style="width: 360px">
+                    <p></p>
+                </p>
+            </div>
+            <div class="tel-number">
+                <p>휴대전화<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; text-transform: uppercase">주문배송문자, 본인확인용으로 사용</span></p>
+                <div>
+                    <input type="tel" name="tel" class="tel1" placeholder="전화번호 입력">
+<!--                    <input type="button" name="tel2" class="tel2" value="인증번호 받기">-->
+                    <input type="hidden" class="level" value="1">
+                    <input type="hidden" class="grade" value="Nomal">
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn">회원가입</button>
+            </div>
+        </div>
+    </form>
+
+        <div class="member-footer">
+            <div class="footer1">
+                <ul>
+                    <li>
+                        <a href="#">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보 처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#">운영정책</a>
+                    </li>
+                    <li>
+                        <a href="#">고객센터</a>
+                    </li>
+                    <li>
+                        <a href="#">공지사항</a>
+                    </li>
+                    <li>
+                        <a href="#">언어</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2">
+                <a href="#">Copyright © Kakao Corp. All rights reserved.</a>
+            </div>
+        </div>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script th:src="@{/js/account/register.js}"></script>
+        <script src="/js/account/postcode.v2.js"></script>
+</body>
+</html>
