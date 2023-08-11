@@ -200,7 +200,6 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </th:block>
     <th:block th:unless="${session.id == null}">
-        <p>로그인 번호: [[${session.id}]]</p>
         <header id="header">
             <div class="container">
                 <div class="logo">

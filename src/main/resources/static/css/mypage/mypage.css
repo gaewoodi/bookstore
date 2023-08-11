@@ -46,30 +46,17 @@ body{
 
 /* serve-container 1 */
 .image-container {
+    position: relative;
+    bottom: 60px;
+
     width: 250px;
+
     text-align: center;
 }
 
 .image-container img {
     width: 100%;
     border-radius: 50%;
-}
-
-.profile-button {
-    width: 100px;
-    height: 40px;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    border-radius: 3px;
-    background-color: #ef544d1a;
-
-    cursor: pointer;
-}
-
-.profile-button:hover {
-    background-color: #f9a4a4;
 }
 
 /* serve-container */

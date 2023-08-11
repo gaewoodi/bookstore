@@ -19,11 +19,6 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
-    <!-- <link rel="stylesheet" href="/static/css/reset.css">
-    <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/mypage/user_edit.css"> -->
 </head>
 <body>
     <th:block th:if="${session.id == null}">
@@ -107,7 +102,7 @@
                                 <div class="address-container">
                                     <p>
                                         <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" th:value="${user.postcode}">
-                                        <input type="button" onclick="execDaumPostcode()" class="postcode-search" value="우편번호 찾기">
+                                        <input type="button" onclick="execDaumPostcode()" class="postcode-search" value="우편번호 찾기" style="border: none;">
                                         <p></p>
                                         <input type="text" name="address" id="address" class="address" placeholder="도로명주소" th:value="${user.address}">
                                         <p></p>
@@ -124,7 +119,9 @@
                                 </div>
                                 <div class="button-container">
                                     <button class="edit-button">수정하기</button>
-                                    <button class="delete-button">취소하기</button>
+                                    <a th:href="@{/mypage?(regId=${user.regId})}">
+                                        <button class="delete-button">취소하기</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -137,15 +134,18 @@
         <div id="modal">
             <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
             <div class="modal-box">
-                <form>
-                    <input type="file" name="uploadFile" class="uploadFile"><br>
-                    <button type="button" id="upload">저장하기</button>
+                <form class="file-container">
+                    <input type="file" name="uploadFile" class="uploadFile">
+                    <div class="file-button">
+                        <button type="button" id="upload">저장하기</button>
+                    </div>
                 </form>
             </div>
         </div>
     
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script th:src="@{/js/account/postcode.v2.js}"></script>
     <script th:src="@{/js/mypage/user_edit.js}"></script>
