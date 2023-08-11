@@ -16,11 +16,8 @@ level int default 1, -- 1 : 회원, 2 : 사원, 9 : 관리자
 grade varchar(50),
 created datetime,
 modified datetime,
-image_name varchar(255),
-image_size bigint,
-trans_name varchar(255),
 primary key(reg_id)
 );
 
-INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-08-03', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');\
+INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-07-09', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now());
 
