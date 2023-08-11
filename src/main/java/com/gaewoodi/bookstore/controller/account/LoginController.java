@@ -32,7 +32,6 @@ public class LoginController {
         System.out.println(loginMapper.getBookInfo(registerDto));
         RegisterDto r = loginMapper.getBookInfo(registerDto);
 
-
         if(r.getLevel() > 1) {
             if(r != null) {
                 // 회원가입 된 사람이면 session 생성
@@ -48,8 +47,9 @@ public class LoginController {
 
         }else{
             map.put("msg", "1");
-
         }
+
+
 
         return map;
     }
