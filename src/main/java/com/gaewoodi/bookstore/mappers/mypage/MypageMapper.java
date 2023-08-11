@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.mappers.mypage;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
+import com.gaewoodi.bookstore.dto.mypage.UserImageDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -18,5 +19,8 @@ public interface MypageMapper {
 
     @Update("UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now()")
     void setRegister(RegisterDto registerDto);
+
+    @Update("UPDATE user_image SET origin_name = #{originName}, image_size = #{imageSize} WHERE user_image_id = #{userImageId}")
+    void fileUpload(UserImageDto userImageDto);
 }
 
