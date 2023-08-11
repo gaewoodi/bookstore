@@ -10,9 +10,9 @@ import java.util.List;
 @Mapper
 public interface MainMapper {
 
-    @Select("select * from book_mst order by book_id desc limit 1")
+    @Select("select * from book_mst order by book_id desc")
     BookDto getBookList();
 
-    @Select("select * from book_mst where book_code = #{bookCode}")
+    @Select("select * from book_mst where book_code = 'AL0000000504'")
     BookDto getMainDto(BookDto bookDto);
 }
