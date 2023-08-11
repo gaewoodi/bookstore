@@ -62,7 +62,7 @@ function formCheck() {
 
     $.ajax({
         type : "post",
-        url : "/update",
+        url : "/mypage/update",
         dataType : "json",
         data : obj,
         success : function(res) {
