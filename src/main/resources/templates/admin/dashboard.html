@@ -14,8 +14,8 @@
 
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/admin/body.css">
-  <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
-  <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
+  <link rel="stylesheet" th:href="@{/css/admin/fragmentCSS/header.css}">
+  <link rel="stylesheet" th:href="@{/css/admin/fragmentCSS/sidebar.css}">
   <link rel="stylesheet" href="/css/admin/main.css">
   <link rel="stylesheet" href="/css/admin/media.css">
 
@@ -56,6 +56,13 @@
   </div>
 
   <script th:src="@{/js/admin/sidebar.js}"></script>
+  <!--  로그인 체크 -->
+  <div th:unless="${session.adminChk != null}">
+    <script>
+      location.href = "/login";
+    </script>
+  </div>
+
 </body>
 
 </html>
