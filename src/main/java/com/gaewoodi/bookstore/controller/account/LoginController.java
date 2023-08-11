@@ -28,30 +28,30 @@ public class LoginController {
     @PostMapping("/login")
     @ResponseBody
     public Map<String, Object> checkLogin(@ModelAttribute RegisterDto registerDto, HttpServletRequest req) {
+
         Map<String, Object> map = new HashMap<>();
         System.out.println(loginMapper.getBookInfo(registerDto));
         RegisterDto r = loginMapper.getBookInfo(registerDto);
 
-        if(r.getLevel() > 1) {
-            if(r != null) {
-                // 회원가입 된 사람이면 session 생성
-                HttpSession hs = req.getSession();
-                hs.setAttribute("regId", r.getRegId());
-                hs.setAttribute("id", r.getId());
-                hs.setAttribute("passwd", r.getPasswd());
-                hs.setAttribute("level", r.getLevel());
-                hs.setMaxInactiveInterval(60 * 30);
+        HttpSession hs = req.getSession();
 
-                map.put("msg", "confirm");
-            }
+        if(r.getLevel() > 1 && r != null) {
+
+            hs.setAttribute("adminChk", r);
+            hs.setMaxInactiveInterval(60 * 30);
+
+            map.put("msg", "confirm");
 
         }else{
-            map.put("msg", "1");
+            hs.setAttribute("regId", r.getRegId());
+            hs.setAttribute("id", r.getId());
+            hs.setAttribute("passwd", r.getPasswd());
+
+            map.put("msg", "consumer login");
         }
 
-
-
         return map;
+
     }
 
     @GetMapping("/logout")
