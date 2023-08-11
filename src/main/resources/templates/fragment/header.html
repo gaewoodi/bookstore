@@ -29,8 +29,13 @@
                             <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
                         </a>
                     </li>        
-                    <li>
-                        <a href="/mypage">
+                    <li th:if="${session.id != null}">
+                        <a th:href="@{/mypage?(regId=${session.regId})}">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </li>
+                    <li th:unless="${session.id != null}">
+                        <a th:href="@{/login}">
                             <i class="fa-solid fa-user"></i>
                         </a>
                     </li>
