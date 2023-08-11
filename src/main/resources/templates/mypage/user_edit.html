@@ -48,7 +48,6 @@
                         <!-- serve-container 1 -->
                         <div class="image-container">
                             <img th:src="@{/images/user.png}" alt="profile">
-                            <!-- <button th:onclick="modal([[${emp.korEmpId}]])">IMAGE UPLOAD</button> -->
                             <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
                         </div>
                         <!-- serve-container 2 -->
@@ -140,7 +139,7 @@
             <div class="modal-box">
                 <form>
                     <input type="file" name="uploadFile" class="uploadFile"><br>
-                    <button type="button" id="button">저장하기</button>
+                    <button type="button" id="upload">저장하기</button>
                 </form>
             </div>
         </div>
