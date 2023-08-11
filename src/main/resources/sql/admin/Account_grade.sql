@@ -1,7 +1,3 @@
-create order(
-    -- 판매량
-);
-
 create table Account_grade(
     -- 구매 정보값
     grade varchar(20) -- 회원 등급 이름
