@@ -7,19 +7,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="login-container" th:if="${session.id != null}">
-            <p>아이디 : [[${session.id}]]</p>
-            <p>이름 : [[${session.passwd}]]</p>
-        </div>
-        <div class="login-container" th:unless="${session.id != null}">
-            <script>
-                alert("로그인이 필요합니다.");
-                location.href = "/login";
-            </script>
-        </div>
-
-        <a href="/book">전체도서</a>
-        <a href="/main">메인</a>
+        <input type="checkbox" name="test_check" value="1" />
+        <input type="checkbox" name="test_check" value="2" />
+        <input type="checkbox" name="test_check" value="3" />
+        <input type="checkbox" name="test_check" value="4" />
+        <button onclick="checkboxArr()">제출</button>
     </div>
+
+    <script>
+    //  function checkboxArray() {
+    //     var checkArray = [];     // 배열 초기화
+    //     $("input[name='test_check']:checked").each(function(i) {
+    //         checkArray.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+    //     });
+
+    //     $.ajax({
+    //         url: 'test',
+    //         type: 'post',
+    //         dataType: 'text',
+    //         data: {
+    //             valueArray: checkArray
+    //         }
+    //     });
+    // }
+
+        function checkboxArr() {
+            var checkArr = [];     // 배열 초기화
+            $("input[name='test_check']:checked").each(function(i) {
+                // 체크된 것만 값을 뽑아서 배열에 push
+                checkArr.push($(this).val());     
+            });
+
+            $.ajax({
+                url: 'test_check'
+                , type: 'post'
+                , dataType: 'text'
+                , data: {
+                    valueArrTest: checkArr
+                }
+            });
+        }
+    </script>
 </body>
 </html>

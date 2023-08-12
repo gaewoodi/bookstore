@@ -17,7 +17,7 @@ function checkboxClick() {
     //체크박스 전체개수
     const allCount = document.querySelectorAll(".check").length;
     //체크된 체크박스 전체개수
-    const query = 'input[name="check"]:checked'
+    const query = 'input[name="check"]:checked';
     // 선택된 목록 가져오기
     const selectedElements = document.querySelectorAll(query);
     const selectedElementsCount = selectedElements.length;
@@ -33,7 +33,7 @@ function checkboxClick() {
     // 출력
     // document.getElementById('result').innerText = result;
 
-    console.log(result);
+    // console.log(result);
 
     //체크박스 전체개수와 체크된 체크박스 전체개수가 같으면 전체 체크박스 체크
     if(allCount == selectedElementsCount){
@@ -44,9 +44,7 @@ function checkboxClick() {
     else{
         document.getElementById('selectAll').checked = false;
     }
-
     
-
 
 }
 

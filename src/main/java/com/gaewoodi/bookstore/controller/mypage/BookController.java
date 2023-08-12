@@ -3,6 +3,7 @@ package com.gaewoodi.bookstore.controller.mypage;
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.LikeDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.LikeMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -39,24 +41,13 @@ public class BookController {
         return "mypage/book";
     }
 
-    @PostMapping("")
-    @ResponseBody
-    public Map<String, Object> setMypage() {
-        Map<String, Object> map = new HashMap<>();
-
-        map.put("msg", "success");
-
-        mypageMapper.getMemberAll();
-
-        return map;
-    }
-
     //도서상세
     @GetMapping("/view")
     public String viewBook(@RequestParam int bookId, Model model) {
         if(bookId > 0) {
             bookMapper.updateVisit(bookId);
             model.addAttribute("book", bookMapper.viewBook(bookId));
+
 
         }
 
@@ -75,9 +66,6 @@ public class BookController {
 
     }
 
-    @GetMapping("/test")
-    public String getTest() {
-        return "mypage/test";
-    }
+
 
 }

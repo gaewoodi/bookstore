@@ -12,14 +12,8 @@ import java.util.List;
 @Mapper
 public interface MypageMapper {
 
-    @Select("SELECT * FROM register")
-    List<RegisterDto> getMemberAll();
-
     @Insert("INSERT INTO user_image VALUES(NULL, #{regId}, #{saveName}, #{originName}, #{imageSize})")
     void getUserIamge(UserImageDto userImageDto);
-
-//    @Select("SELECT * FROM register WHERE reg_id = #{regId}")
-//    RegisterDto getMypageId(int regId);
 
     // mypage 정보불러오기
     @Select("SELECT r.*, ui.* FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.user_image_id WHERE r.reg_id = #{regId}")

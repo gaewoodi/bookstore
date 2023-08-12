@@ -4,6 +4,7 @@ import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
 
@@ -65,6 +66,14 @@ public class SelectService {
         }
 
             map.put("checkResult", checkResult);
+
+        return cartMapper.getCartBookList(map);
+    }
+
+    public List<BookDto> getCartBook(List<String> checkArray) {
+        Map<String, Object> map = new HashMap<>();
+
+        System.out.println("service에서 checkArray:" + checkArray);
 
         return cartMapper.getCartBookList(map);
     }
