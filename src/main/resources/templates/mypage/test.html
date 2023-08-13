@@ -7,45 +7,33 @@
 </head>
 <body>
     <div class="container">
-        <input type="checkbox" name="test_check" value="1" />
-        <input type="checkbox" name="test_check" value="2" />
-        <input type="checkbox" name="test_check" value="3" />
-        <input type="checkbox" name="test_check" value="4" />
-        <button onclick="checkboxArr()">제출</button>
+        <form id="upload-form">
+            <label>이미지 업로드</label>
+            <input type="file" name="uploadFile" required><br>
+            <button onclick="frmUpload()">업로드</button>
+        </form>
     </div>
 
     <script>
-    //  function checkboxArray() {
-    //     var checkArray = [];     // 배열 초기화
-    //     $("input[name='test_check']:checked").each(function(i) {
-    //         checkArray.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
-    //     });
-
-    //     $.ajax({
-    //         url: 'test',
-    //         type: 'post',
-    //         dataType: 'text',
-    //         data: {
-    //             valueArray: checkArray
-    //         }
-    //     });
-    // }
-
-        function checkboxArr() {
-            var checkArr = [];     // 배열 초기화
-            $("input[name='test_check']:checked").each(function(i) {
-                // 체크된 것만 값을 뽑아서 배열에 push
-                checkArr.push($(this).val());     
-            });
+        function frmUpload() {
+            let frmData = new FormData($("#upload-form")[0]);
 
             $.ajax({
-                url: 'test_check'
-                , type: 'post'
-                , dataType: 'text'
-                , data: {
-                    valueArrTest: checkArr
+                type: "post",
+                url: "/mypage   /test",
+                encType: "multipart/form-data",
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: frmData,
+                success: function() {
+                    
+                },
+                error: function(err) {
+                    console.log(err);
                 }
             });
+
         }
     </script>
 </body>

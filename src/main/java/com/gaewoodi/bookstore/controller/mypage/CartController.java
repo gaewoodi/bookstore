@@ -65,25 +65,6 @@ public class CartController {
         return map;
     }
 
-    @GetMapping("/test_check")
-    public String getTest() {
-
-
-        return "mypage/test";
-    }
-
-    @PostMapping("/test_check")
-    @ResponseBody
-    public String setTest(@RequestParam(value = "valueArrTest[]") List<String> valueArr) {
-        System.out.println(valueArr);
-
-        return "";
-    }
-
-
-
-
-
 
 
 }

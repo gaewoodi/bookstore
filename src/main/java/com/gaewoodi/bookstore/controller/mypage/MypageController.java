@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/mypage")
@@ -60,13 +61,13 @@ public class MypageController {
 
 
         try {
-            String filePath = "D:\\bookstore\\upload";
+            String FILE_PATH = "D:\\bookstore\\upload";
             String orginName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
 
             //폴더 이름은 2023-06-27 => new SimpleDateFormat() 사용
             String folderName = new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis());
-            File file = new File(filePath +"\\"+ folderName);
+            File file = new File(FILE_PATH +"\\"+ folderName);
 
             if(uploadFile != null) {
                 file.mkdir();
@@ -96,5 +97,44 @@ public class MypageController {
         }
 
         return map;
+    }
+
+    @GetMapping("/test")
+    public String getTest() {
+
+        return "mypage/test";
+    }
+
+    @PostMapping("/test")
+    @ResponseBody
+//    첨부파일을 받을 땐, MultipartFile로 받아야함.
+    public String fileUpload(MultipartFile uploadFile) {
+
+        try {
+            // 상수 표기 법은 대문자이기 때문에 대문자로 표기
+            String UPLOAD_DIR = "C:\\Temp";
+
+            //파일 이름 암호화 하는 방법
+            String uuid = UUID.randomUUID().toString();
+//            1000분의 1초
+            long sysdate = System.currentTimeMillis();
+
+            String originName = uploadFile.getOriginalFilename();
+            String fileExt = uploadFile.getOriginalFilename()
+                    .substring(originName.lastIndexOf(".") + 1, originName.length());
+
+            String transFileName = uuid + "_" + sysdate + "." + fileExt;
+
+//            Path path = Paths.get(폴더, 파일이름);
+            Path path = Paths.get(UPLOAD_DIR, transFileName);
+            Files.write(path, uploadFile.getBytes());
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return "";
     }
 }
