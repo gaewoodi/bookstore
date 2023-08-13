@@ -1,7 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
-import com.gaewoodi.bookstore.service.mypage.SelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,38 +15,52 @@ public class CartController {
     @Autowired
     private CartMapper cartMapper;
 
-    @Autowired
-    private SelectService selectService;
 
     @GetMapping("/cart")
-    public String getCart(Model model, @RequestParam int[] bookId, @RequestParam List<String> checkArray) {
-        model.addAttribute("book", selectService.getCartBookList(bookId));
-        model.addAttribute("cart", selectService.getCartBook(checkArray));
+    public String getCart(Model model) {
+        model.addAttribute("book", cartMapper.getBook());
 
         return "mypage/cart";
     }
 
-//    @GetMapping("/cart")
-//    public String getCart(Model model, @RequestParam int bookId) {
-//        model.addAttribute("book", cartMapper.getBook(bookId));
-//
-//        return "mypage/cart";
-//    }
-
 
     @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@RequestParam(value="checkboxArray[]") List<String> checkArray,
-                                         @RequestParam(value = "checkboxResult") String result) {
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("checkArray 값: " + checkArray);
         System.out.println("result 값: " + result);
 
-//        String[] splitResult = result.toString().split(" ");
-//        System.out.println(Integer.parseInt(splitResult));
+        String checkResult = "";
+        String orCheckResult = "";
+
+        String[] splitResult = result.toString().split(" ");
+
+        for(int i = 0; i < splitResult.length -2; i++) {
+
+//            checkResult = "OR bookId = " + "'" + splitResult[i] + "'";
+            checkResult = "'" + splitResult[i] + "'";
+
+            map.put("checkResult", checkResult);
+
+            System.out.println("checkResult: " + checkResult);
+
+            for(int j = 1; j < splitResult.length; j++) {
+                orCheckResult = "OR book_id = " + "'" + splitResult[j] + "'";
+                map.put("orCheckResult", orCheckResult);
+
+                System.out.println("orCheckResult: " + orCheckResult);
+
+                cartMapper.getCartBookList(map);
+            }
+
+
+        }
+
 
         map.put("msg", "success");
+
+
 
         return map;
     }

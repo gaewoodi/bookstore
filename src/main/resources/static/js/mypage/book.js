@@ -1,6 +1,5 @@
 
 function checkboxArray() {
-    let checkArray = [];     // 배열 초기화
     let result = '';
 
     const query = 'input[name="check"]:checked';
@@ -13,29 +12,18 @@ function checkboxArray() {
 
     console.log("result: " + result);
 
-    $("input[name='check']:checked").each(function(i) {
-        // 체크된 것만 값을 뽑아서 배열에 push
-        checkArray.push($(this).val());     
-    });
-
-
-    checkArray.forEach(element => {
-        console.log("element값 : " + element);
-    });
-
 
     $.ajax({
         url: "/cart", 
         type: "post", 
         dataType: "json", 
         data: {
-            checkboxArray: checkArray,
-            checkboxResult: result
+            checkboxResult: result,
         },
         success: function(res) {
             if(res.msg == "success") {
                 if(confirm("장바구니로 이동하시겠습니까?")) {
-                    location.href = `/cart`;
+                    location.href = `/cart`;    
                 }
             }
 

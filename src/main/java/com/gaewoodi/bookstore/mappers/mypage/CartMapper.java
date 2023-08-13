@@ -14,9 +14,9 @@ public interface CartMapper {
 //    void getCart(CartDto cartDto);
 
     @Select("SELECT * FROM book_mst WHERE book_id = #{bookId}")
-    BookDto getBook(int bookId);
+    BookDto getBook();
 
-    @Select("SELECT * FROM book_mst WHERE ${checkResult} ")
+    @Select("SELECT * FROM book_mst WHERE book_id = ${checkResult} ${orCheckResult}")
     List<BookDto> getCartBookList(Map<String, Object> map);
 //
 //     @Select("SELECT * FROM book_mst WHERE ${checkResult}")
