@@ -36,23 +36,79 @@
                 <div class="main-order">
                     <h2 style="margin-bottom: 6px;">주문관리</h2>
                     <div class="order-top">
-                        <ul>
-                            <li><a href="#">신규주문</a></li>
-                            <li><a href="#">입금대기</a></li>
-                            <li><a href="#">결제완료</a></li>
-                            <li><a href="#">배송준비중</a></li>
-                            <li><a href="#">배송중</a></li>
-                            <li><a href="#">배송완료</a></li>
-                        </ul>
+                        <div>
+                            <a th:href="@{/admin/order}">전체목록</a>
+                        </div>
+                        <span>
+                            <span>전체 주문내역</span>
+                            <span>311건</span>
+                        </span>
+                        <form name="frmoderlist" class="order_sch01">
+                            <input type="hidden" name="id" value>
+                            <input type="hidden" name="sort1" value="od_id">
+                            <input type="hidden" name="sort2" value="desc">
+                            <input type="hidden" name="page" value="1">
+                            <input type="hidden" name="save_sch" value>
+                            <label for="sel_field" class="sound_only">검색대상</label>
+                            <select name="sel_field" id="sel_field">
+                                <option value="od_id" selected="selected">주문번호</option>
+                                <option value="mb_id">회원 ID</option>
+                                <option value="od_name">주문자</option>
+                                <option value="od_tel">주문자전화</option>
+                                <option value="od_deposit_name">입금자</option>
+                                <option value="od_invoice">운송장번호</option>
+                            </select>
+                            <label for="search" class="sound_only"></label>
+                            <input type="text" name="search" value id="search" required autocomplete="off">
+                            <input type="submit" value="검색" class="btn_submit">
+                        </form>
+                        <form class="order_sch02">
+                            <div>
+                                <strong>주문상태</strong>
+                                <input type="radio" name="od_status" value id="od_status_all" checked="checked">
+                                <label for="od_status_all">전체</label>
+
+                                <input type="radio" name="od_status" value="주문" id="od_status_odr">
+                                <label for="od_status_odr">주문</label>
+
+                                <input type="radio" name="od_status" value="입금" id="od_status_income">
+                                <label for="od_status_income">입금</label>
+
+                                <input type="radio" name="od_status" value="준비" id="od_status_rdy">
+                                <label for="od_status_rdy">준비</label>
+
+                                <input type="radio" name="od_status" value="배송" id="od_status_dvr">
+                                <label for="od_status_dvr">배송</label>
+
+                                <input type="radio" name="od_status" value="완료" id="od_status_done">
+                                <label for="od_status_done">완료</label>
+
+                                <input type="radio" name="od_status" value="주문취소" id="od_status_cancel">
+                                <label for="od_status_cancel">주문취소</label>
+                            </div>
+                            <div>
+                                <strong>결제수단</strong>
+                                <input type="radio" name="od_settle_case" value id="od_settle_case01" checked="checked">
+                                <label for="od_settle_case01">전체</label>
+
+                                <input type="radio" name="od_settle_case" value="무통장" id="od_settle_case02">
+                                <label for="od_settle_case02">무통장</label>
+
+                                <input type="radio" name="od_settle_case" value="무통장" id="od_settle_case03">
+                                <label for="od_settle_case03">KAKAOPAY</label>
+                            </div>
+                        </form>
+
+
                     </div>
 
                     <div>
                         <div class="order-mid">
                             <ul class="mid-left">
-                                <li><button type="button">입금확인 처리</button></li>
-                                <li><button type="button">배송준비 처리</button></li>
-                                <li><button type="button">발송 처리</button></li>
-                                <li><select>기타 주문처리</select></li>
+                                <li><button type="button">입금확인</button></li>
+                                <li><button type="button">배송준비</button></li>
+                                <li><button type="button">배송중</button></li>
+                                <li><button type="button">완료</button></li>
                             </ul>
                             <ul class="mid-right">
                                 <li><button>판매취소</button></li>
@@ -64,13 +120,33 @@
                     <table id="order">
                         <thead>
                           <tr class="bot-body">
-                            <th><input type="checkbox">주문코드</th>
-                            <th>고객명</th>
-                            <th>주문 물품</th>
-                            <th>주문일자</th>
-                            <th>주문상태</th>
-                            <th>작업</th>
+                            <th><label for="chkall" class="sound_only">체크박스</label>
+                                <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all">
+                            </th>
+                            <th>주문자</th>
+                            <th>주문자전화</th>
+                            <th>받는분</th>
+                            <th>"주문합계"<br/>
+                                "선불배송비포함"
+                            </th>
+                            <th>입금합계</th>
+                              <th>주문취소</th>
+                              <th>미수금</th>
+                              <th>보기</th>
                           </tr>
+                        <tr>
+                            <th>회원ID</th>
+                            <th>주문상품수</th>
+                            <th>누적주문수</th>
+                        </tr>
+                        <tr>
+                            <th>주문상태</th>
+                            <th>결제수단</th>
+                            <th>운송장번호</th>
+                            <th>배송회사</th>
+                            <th>배송일시</th>
+                        </tr>
+
                         </thead>
                         <tbody>
                           
