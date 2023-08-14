@@ -13,6 +13,7 @@ import java.sql.SQLOutput;
 
 @Controller
 public class MainController {
+
     @Autowired
     private MainMapper mainmapper;
 

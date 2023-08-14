@@ -363,6 +363,16 @@ body {
 
 }
 
+.recommand-gawoodi .recommand-subject > a {
+    display: flex;
+}
+
+.recommand-gawoodi .recommand-subject > a > span {
+    margin-top : 5px;
+    margin-left: 10px;
+    font-size: 8px;
+}
+
 .recommand-subject h4{ 
     font-family: 'Nanum Gothic', sans-serif;
     color: #000;
@@ -446,9 +456,22 @@ body {
     border-radius : 20px;
 }
 
-.trend .recommand-subject h4 {
-    text-align: center;
+.trend-a {
+    margin-left: 100px;
 }
+
+
+.trend .recommand-subject > a {
+    display: flex;
+}
+
+.trend .recommand-subject span {
+    margin-top : 5px;
+    margin-left: 10px;
+    font-size: 8px;
+}
+
+
 .trend .recommand-subject img {
     width: 210px;
     margin-left: 53px;
@@ -473,6 +496,9 @@ body {
     letter-spacing: -2px;
 }
 
+.trend .recommand-text > a > h4 {
+    margin-left: 18px;
+}
 
 
 
@@ -529,6 +555,18 @@ body {
 .choice {
     width:32%;
 }
+
+.choice-wrap > a, .media-wrap > a, .thisbook-wrap > a{
+    font-style: 5px;
+    display: flex;
+}
+
+.choice-wrap > a > span, .media-wrap > a > span, .thisbook-wrap > a > span {
+    margin-left: 220px;
+    margin-top: 13px;
+    font-size: 8px;
+}
+
 
 
 
@@ -683,6 +721,9 @@ ul li.active {
 
 
 
+.main6-list-subject a {
+    position : relative;
+}
 
 .main6-list-subject img {
     width: 150px;
@@ -695,6 +736,14 @@ ul li.active {
 .main6-list-subject img:hover {
     transform: scale(1.03);
     transition: 0.1s;
+}
+
+.main6-list-subject a i {
+    position : absolute;
+    top : -208px;
+    right : -15px;
+    font-size: 25px;
+    color: rgb(239, 84, 77);
 }
 
 .main6-list-text h6 {
