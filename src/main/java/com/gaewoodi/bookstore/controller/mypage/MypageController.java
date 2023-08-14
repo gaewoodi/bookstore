@@ -33,6 +33,7 @@ public class MypageController {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         System.out.println(userImageDto);
 
+
         if(userImageDto.getOriginName() == null) {
             mypageMapper.getUserIamge(userImageDto);
         }
@@ -66,18 +67,12 @@ public class MypageController {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
+            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
             String orginName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
 
-            //폴더 이름은 2023-06-27 => new SimpleDateFormat() 사용
-            String folderName = new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis());
-            File file = new File(FILE_PATH +"\\"+ folderName);
 
             if(uploadFile != null) {
-                file.mkdir();
-                System.out.println("폴더가 생성 되었습니다.");
-
                 UserImageDto userImageDto = new UserImageDto();
 
                 System.out.println("orginName: " + orginName);
@@ -94,8 +89,6 @@ public class MypageController {
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
-                Path path = Paths.get(file.toString(), changeName);
-                Files.write(path, uploadFile.getBytes());
 
                 map.put("msg", "success");
             }
