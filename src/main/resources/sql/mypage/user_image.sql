@@ -9,11 +9,14 @@ create table user_image (
     primary key(user_image_id)
 );
 
+drop table user_image;
+select * from user_image;
+
 ---------------------
 --** MypageMapper => mypage.html에 이미지랑 유저 정보 들고오는 join 쿼리
-SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.user_image_id WHERE r.reg_id = 3
+SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = 3
 
-SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.user_image_id AND ui.user_image_id = #{regId} WHERE r.reg_id = #{regId}
+SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}
 
 ui = user_image
 r = register r
@@ -29,7 +32,7 @@ FROM
 LEFT OUTER JOIN
     user_image ui
 ON
-    r.reg_id = ui.user_image_id AND ui.user_image_id = #{regId}
+    r.reg_id = ui.reg_id
 WHERE
     r.reg_id = #{regId}
 -------------------------------------------------------------

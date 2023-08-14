@@ -1,5 +1,7 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.BookDto;
+import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +18,19 @@ public class CartController {
     private CartMapper cartMapper;
 
 
+//    @GetMapping("/cart")
+//    public String getCart(Model model) {
+//        model.addAttribute("book", cartMapper.getCartBookList());
+////        model.addAttribute("cart", selectServices.getCartBookList())
+//
+//        //cart 테이블에 저장된 자료를 select로 읽어 와서 cart.html에 표시하기
+//
+//        return "mypage/cart";
+//    }
+
     @GetMapping("/cart")
-    public String getCart(Model model) {
-        model.addAttribute("book", cartMapper.getBook());
+    @ResponseBody
+    public String getCart() {
 
         return "mypage/cart";
     }
@@ -26,37 +38,21 @@ public class CartController {
 
     @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result) {
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result, CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("result 값: " + result);
+        String[] splitResult = result.split(" ");
 
-        String checkResult = "";
-        String orCheckResult = "";
-
-        String[] splitResult = result.toString().split(" ");
-
-        for(int i = 0; i < splitResult.length -2; i++) {
-
-//            checkResult = "OR bookId = " + "'" + splitResult[i] + "'";
-            checkResult = "'" + splitResult[i] + "'";
-
-            map.put("checkResult", checkResult);
-
-            System.out.println("checkResult: " + checkResult);
-
-            for(int j = 1; j < splitResult.length; j++) {
-                orCheckResult = "OR book_id = " + "'" + splitResult[j] + "'";
-                map.put("orCheckResult", orCheckResult);
-
-                System.out.println("orCheckResult: " + orCheckResult);
-
-                cartMapper.getCartBookList(map);
-            }
-
-
+        for(int i = 0; i < splitResult.length; i++) {
+            //System.out.println(splitResult[i]);
+            System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+            map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
 
+        System.out.println(map);
+
+        //cart 테이블 생성 후 테이블에 저장
+        cartMapper.saveCart(cartDto);
 
         map.put("msg", "success");
 

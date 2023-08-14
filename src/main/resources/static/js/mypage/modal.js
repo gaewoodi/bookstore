@@ -8,7 +8,7 @@ function modal(regId) {
 
         $.ajax({
             type: "post",
-            url: "/update/upload",
+            url: "/mypage/update/upload",
             encType: "multipart/form-data",
             data: formData,
             processData: false,
@@ -16,7 +16,8 @@ function modal(regId) {
             cache: false,
             success: function(res) {
                 if(res.msg == "success") {
-                    location.reload();
+                    alert("이미지가 수정 되었습니다.");
+                    location.href = `/mypage/update?&regId=${regId}`
                 }
             },
             errer: function(err) {

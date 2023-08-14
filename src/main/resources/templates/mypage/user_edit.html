@@ -134,43 +134,41 @@
         <div id="modal">
             <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
             <div class="modal-box">
+                <img th:src="@{../../upload/} + ${user.originName}" alt="user 사진">
                 <form class="file-container">
-                    <input type="file" name="uploadFile" class="uploadFile" onclick="fileUpload()">
+                    <input type="file" name="uploadFile" class="uploadFile">
                     <div class="file-button">
                         <button type="button" id="upload">저장하기</button>
                     </div>
                 </form>
             </div>
+            <!-- <div class="modal-box" th:if="${user.originName != ''}">
+                <img th:src="@{/images/upload/} + ${user.originName}" alt="user 사진">
+                <form class="file-container">
+                    <input type="file" name="uploadFile" class="uploadFile">
+                    <div class="file-button">
+                        <button type="button" id="upload">저장하기</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-box" th:unless="${user.originName != ''}">
+                <img th:src="@{/images/user.png}" alt="No Image">
+                <form class="file-container">
+                    <input type="file" name="uploadFile" class="uploadFile">
+                    <div class="file-button">
+                        <button type="button" id="upload">저장하기</button>
+                    </div>
+                </form>
+            </div> -->
+           
         </div>
     
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script>
-        function fileUpload() {
-            let frmData = new FormData($("#modal")[0]);
-
-            $.ajax({
-                type: "post",
-                url: "/update/upload",
-                encType: "multipart/form-data",
-                data: frmData,
-                processData: false,
-                contentType: false,
-                cache: false,
-                success: function(response) {
-                    if(response.msg == "success") {
-                        // alert(response.originName + " 파일이 업로드 되었습니다.");
-                        alert(`${response.originName} (${response.size}KB) 파일이 업로드 되었습니다.`);
-                    }
-                }
-            });
-        }
-    </script>
-    <script th:src="@{/js/fragment/header.js}"></script>
-    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
+    <script th:src="@{/js/fragment/side_menu.js}"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script th:src="@{/js/account/postcode.v2.js}"></script>
     <script th:src="@{/js/mypage/user_edit.js}"></script>
-    <!-- <script th:src="@{/js/mypage/modal.js}"></script> -->
+    <script th:src="@{/js/mypage/modal.js}"></script>
 </body>
 </html>

@@ -8,15 +8,17 @@ import java.util.Date;
 @Data
 public class CartDto {
     private int cartId;
+    private int regId;
+    private int bookId;
     private String bookCode;
     private String bookName;
-    private int bookCount;
+    private int bookStock;
     private String author;
     private String publisher;
     private Year publicationDate;
     private String category;
     private String price;
-    private Date cartCookieLimit; // 쿠키제한시간(삭제용)
-    private String cartCokkieId; // 쿠키 value 값
+    private int visit;
+    private int quantity;
 }
 

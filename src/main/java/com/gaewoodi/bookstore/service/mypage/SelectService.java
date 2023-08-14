@@ -34,7 +34,7 @@
 //                orCheckResult = "OR bookId = " + "'" + splitResult[j] + "'";
 //                map.put("orCheckResult", orCheckResult);
 //
-//                System.out.println("orCheckResult: " + orCheckResult);
+//                System.out.println("Service에서 orCheckResult: " + orCheckResult);
 //
 //
 //            }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,13 +23,19 @@ import java.util.UUID;
 @RequestMapping("/mypage")
 public class MypageController {
 
+    private String UPLOAD_LOCATION = "D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
+
     @Autowired
     private MypageMapper mypageMapper;
 
     @GetMapping("")
-    public String getMypage(Model model, int regId) {
+    public String getMypage(Model model, int regId, @ModelAttribute UserImageDto userImageDto) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
+        System.out.println(userImageDto);
 
+        if(userImageDto.getOriginName() == null) {
+            mypageMapper.getUserIamge(userImageDto);
+        }
 
         return "mypage/mypage";
     }
@@ -58,10 +65,8 @@ public class MypageController {
     public Map<String, Object> fileUpload(MultipartFile uploadFile, int regId) {
         Map<String, Object> map = new HashMap<>();
 
-
-
         try {
-            String FILE_PATH = "D:\\bookstore\\upload";
+            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
             String orginName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
 
@@ -75,19 +80,22 @@ public class MypageController {
 
                 UserImageDto userImageDto = new UserImageDto();
 
+                System.out.println("orginName: " + orginName);
+                System.out.println("fileSize: " + fileSize);
+                System.out.println("regId: " + regId);
+
                 userImageDto.setOriginName(orginName);
                 userImageDto.setImageSize(fileSize);
                 userImageDto.setRegId(regId);
 
-//                mypageMapper.getUserIamge(userImageDto);
-                mypageMapper.fileUpload(userImageDto);
-
                 String partially = orginName.substring(orginName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
+                System.out.println("changeName: " + changeName);
+                userImageDto.setSaveName(changeName);
+                mypageMapper.fileUpload(userImageDto);
 
                 Path path = Paths.get(file.toString(), changeName);
                 Files.write(path, uploadFile.getBytes());
-
 
                 map.put("msg", "success");
             }

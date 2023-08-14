@@ -25,4 +25,13 @@ public class RegisterDto {
     private LocalDateTime created;
     private LocalDateTime modified;
 
+    // image id
+    private int userImageId;
+    // 저장할이름
+    private String saveName;
+    // 원본이름
+    private String originName;
+    // 이미지용량
+    private Long imageSize;
+
 }
