@@ -16,13 +16,23 @@
     <link rel="stylesheet" href="/css/admin/body.css">
     <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
     <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
-    <link rel="stylesheet" href="/css/admin/inventory.css">
     <link rel="stylesheet" href="/css/admin/media.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <style>
+        .tb1_frm01 th {
+            border-top : 1px solid #e6e6e6;
+            border-bottom : 1px solid #e6e6e6;
+            background : #f6f6f6;
+            padding : 10px;
+            text-align:left;
+        }
+
+        table{
+            width:100%;
+        }
     </style>
 </head>
 
@@ -36,35 +46,146 @@
                 <div class="main-inven">
                     <h2>::상품추가 페이지</h2>
                     <div class="inven-top">
-                        <h3>상품 입력</h3>
-                        <div class="container_wr">
-                            <form>
-                                <select id="book_cate">
-                                    <h2>상품 분류</h2>
 
-                                    <div>
+                        <div class="container_wr">
+                            <form name="addBookFotm">
+
+                                <section id="book_cate">
+                                    <h3 class="h2_cate">상품 분류</h3>
+                                    <div class="tb1_frm01">
                                         <table>
-                                            <caption>책 분류 입력</caption>
-                                            <colgroup>
-                                                <col>
-                                                <col>
-                                            </colgroup>
-                                            <table>
+                                            <caption>책 카테고리 입력</caption>
+                                            <tbody>
                                                 <tr>
                                                     <th>
-                                                        <label>기본 분류</label>
+                                                        <label>1차 분류</label>
                                                     </th>
                                                     <td>
-                                                        <select name="ca_id" onchange="category">
+                                                        <select name="ca_id1">
                                                             <option value>선택하세요</option>
-                                                            <option value="책 카테고리 필요"></option>
+                                                            <option value="1차 분류 카테고리">카테고리1차</option>
                                                         </select>
                                                     </td>
                                                 </tr>
-                                            </table>
+                                                <tr>
+                                                    <th>
+                                                        <label >2차 분류</label>
+                                                    </th>
+                                                    <td>
+                                                        <select name="ca_id2">
+                                                            <option value>선택하세요</option>
+                                                            <option value="2차 분류 카테고리">카테고리2차</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label >3차 분류</label>
+                                                    </th>
+                                                    <td>
+                                                        <select name="ca_id3">
+                                                            <option value>선택하세요</option>
+                                                            <option value="3차 분류 카테고리">카테고리3차</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
-                                </select>
+                                </section>
+
+                                <section id="book_grid">
+                                    <h3 class="h2_">상품 정보</h3>
+                                    <div class="tb1_frm01">
+                                        <table>
+                                            <caption>책 정보 입력</caption>
+                                            <tbody>
+                                            <tr>
+                                                <th>
+                                                    <label>책 코드</label>
+                                                </th>
+                                                <td>
+                                                    <span>책의 코드를 입력해 주세요</span>
+                                                    <input type="text" name="book_id" id="book_id" required size="20" maxlength="20">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label >책 이름</label>
+                                                </th>
+                                                <td>
+                                                    <span>책의 이름을 입력해 주세요</span>
+                                                    <input type="text" name="book_name" id="book_name" >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>작가</label>
+                                                </th>
+                                                <td>
+                                                    <span>책의 작가를 입력해 주세요</span>
+                                                    <input type="text" name="book_author" id="book_author">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>출판사</label>
+                                                </th>
+                                                <td>
+                                                    <span>출판사를 입력해주세요.</span>
+                                                    <input type="text" name="book_publisher" id="book_publisher">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>출판년도</label>
+                                                </th>
+                                                <td>
+                                                    <input type="text" name="book_publication_date" id="book_publication_date">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>판매 가격</label>
+                                                </th>
+                                                <td>
+                                                    <span>책의 가격을 입력</span>
+                                                    <input type="text" name="book_price" id="book_price">"원"
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>수량</label>
+                                                </th>
+                                                <td>
+                                                    <span>책의 수량을 입력</span>
+                                                    <input type="text" name="book_stock" id="book_stock">"개"
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label>상품 설명</label>
+                                                </th>
+                                                <td>
+                                                    <span>책 설명을 입력해 주세요</span>
+                                                    <textarea name="book_explan" id="book_explan"></textarea>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>
+                                                    <label>이미지 업로드</label>
+                                                </th>
+                                                <td>
+                                                    <span>책 이미지를 선택해주세요</span>
+                                                    <input type="file" id="book_image"></input>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
                             </form>
                         </div>
                     </div>
@@ -75,11 +196,11 @@
     </div>
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
-    <div th:unless="${session.adminChk != null}">
-        <script>
-      location.href = "/login";
-    </script>
-    </div>
+<!--    <div th:unless="${session.adminChk != null}">-->
+<!--        <script>-->
+<!--            location.href = "/login";-->
+<!--        </script>-->
+<!--    </div>-->
 </body>
 
 </html>

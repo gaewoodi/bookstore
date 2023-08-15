@@ -20,9 +20,9 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <style>
-    #Account-view{
-    width: 100%;
-    height: 100%;
+    #Account-view {
+      width: 100%;
+      height: 100%;
     }
 
     table tr {
@@ -37,20 +37,20 @@
       border-top: 1px solid #ccc;
     }
 
-    .btn-wrap{
+    .btn-wrap {
 
       text-align: right;
       margin-top: 10px;
     }
 
-    .btn-wrap a{
-      margin : 3px;
+    .btn-wrap a {
+      margin: 3px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container" >
+  <div class="container">
     <header th:insert="~{fragment/admin/header::headers}"></header>
     <sidebar th:insert="~{fragment/admin/sidebar::sidebars}"></sidebar>
 
@@ -68,7 +68,7 @@
                     <button>이미지삭제</button>
                     <p>dd</p>
                   </td> <!-- 프로필 사진 -->
-                </tr><br/>
+                </tr><br />
                 <tr>
                   <td class="tit w-15">번호 : [[${acct.regId}]] <!-- 계정 넘버 -->
                     <p>구분 : [[${acct.levelName}]]<!-- 관리자, 회원 구분 --></p>
@@ -122,11 +122,11 @@
 
   <script th:src="@{/js/admin/sidebar.js}"></script>
   <!--  로그인 체크 -->
-  <div th:unless="${session.adminChk != null}">
-    <script>
-      location.href = "/login";
-    </script>
-  </div>
+<!--  <div th:unless="${session.adminChk != null}">-->
+<!--    <script>-->
+<!--      location.href = "/login";-->
+<!--    </script>-->
+<!--  </div>-->
 </body>
 
 </html>
