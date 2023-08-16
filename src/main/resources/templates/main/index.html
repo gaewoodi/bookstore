@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>지금핫한 : 신작추천!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../../static/css/reset.css">
-    <link rel="stylesheet" href="../../static/css/fragment/header.css">
+    <!-- <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/fragment/header.css"> -->
     <link rel="stylesheet" th:href="@{/css/reset.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/main/style.css}">
@@ -22,11 +22,79 @@
     <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/main/js.js"></script>
     <script src="/js/main/owl.carousel.js"></script> -->
+    <script th:src="@{/js/main/owl.carousel.js}"></script>
 
 </head>
 <body>
     <div class="wrap">
-        <header id="header" th:insert="~{fragment/header::headers}"></header>
+        <header id="header" >
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-wrap">
+                        <a href="/main"><img src="/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
+                    </div>
+                </div>
+                <div class="search-wrap">
+                    <form action="">
+                        <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
+                    </form>
+                    <div class="search-btnwrap">
+                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                </div>
+                <div class="mypage">
+                    <div class="mypage-wrap">
+                        <ul>
+                            <li class="login-a" th:if="${session.id != null}">
+                                <a href="/logout" class="login" >
+                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Logout
+                                </a>
+                            </li>
+                            <li class="login-a" th:unless="${session.id != null}">    
+                                <a href="/login" class="login">
+                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
+                                </a>
+                            </li>        
+                            <li>
+                                <a href="/mypage">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="menu-menu">
+                                    <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
+                                </a>
+                                <div class="submenu">
+                                    <div class="submenu-wrap">
+                                        <div class="submenu1">
+                                            <ul>
+                                                <h1>전체카테고리</h1>
+                                                <a href="#"><li>소설/시/희곡</li></a>
+                                                <a href="#"><li>에세이</li></a>
+                                                <a href="#"><li>인문/사회</li></a>
+                                                <a href="#"><li>정치/경제</li></a>
+                                                <a href="#"><li>자기계발</li></a>
+                                                <a href="#"><li>역사/문화</li></a>
+                                                <a href="#"><li>IT/과학</li></a>
+                                                <a href="#"><li>가정/생활</li></a>
+                                                <a href="#"><li>진로/교육</li></a>
+                                                <a href="#"><li>유아/어린이</li></a>
+                                                <a href="#"><li>기타</li></a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
         <section id ="category">
             <div class="container">
                 <div class="menu">
@@ -66,56 +134,20 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <a th:href="@{/view?(bookId = ${main.bookId})}"><img src="/images/main/book/스콘.jpg"></a>
-                        <h1><a th:href="@{/view?(bookId = ${main.bookId})}"><strong>≪ [[${main.bookName}]] ≫</strong></a></h1>
+                        <img src="/images/main/book/스콘.jpg">
+                        <h1><a th:href="@{/view?(bookCode = ${main.bookCode})}"><strong>≪ [[${main.bookName}]] ≫</strong></a></h1>
                     </div>
                 </div> 
                 <div class="main2">
                     <div class="main2-wrap">
-                        <div class="owl-carousel owl-theme">
-                            <div class="main2-img item" >
+                        <div class="owl-carousel owl-theme" >
+                            <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a href="#">
-                                    <img src="/images/main/book-main/슈퍼해빗.jpg" alt="슈퍼해빗">
+                                    <img src="/images/main/book-main/[[${slide.bookName}]].jpg" alt="[[${slide.bookName}]]">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>슈퍼 해빗</h1></a>
-                                    <a href="#"><p>완전한 변화로 이끄는 7가지 체인지 부스터</p></a>
-                                </div>
-                            </div>
-                            <div class="main2-img item">
-                                <a href="#">
-                                    <img src="/images/main/book-main/지금 이대로 좋다.jpg" alt="지금이대로 좋다.">
-                                </a>
-                                <div class="main2-text">
-                                    <a href="#"><h1>지금 이대로 좋다</h1></a>
-                                    <a href="#"><p>법륜스님이 당신에게 : 자유롭고 행복하고싶나?</p></a>
-                                </div>
-                            </div>
-                            <div class="main2-img item">
-                                <a href="#">
-                                    <img src="/images/main/book-main/리더의 말그릇.jpeg" alt="리더의 말그릇">
-                                </a>
-                                <div class="main2-text">
-                                    <a href="#"><h1>리더의말그릇</h1></a>
-                                    <a href="#"><p>리더의 영향력은 말그릇에서 나온다.</p></a>
-                                </div>
-                            </div>
-                            <div class="main2-img item">
-                                <a href="#">
-                                    <img src="/images/main/book-main/센강의 일므모를 여인.jpg" alt="센강의 이름모를 여인">
-                                </a>
-                                <div class="main2-text">
-                                    <a href="#"><h1>센강의 이름모를 여인</h1></a>
-                                    <a href="#"><p>기욤뮈소신작 : 항공기사고의 그녀, 강에서 발견?</p></a>
-                                </div>
-                            </div>
-                            <div class="main2-img item">
-                                <a href="#">
-                                    <img src="/images/main/book-main/늙는다는 착각.jpg" alt="늙는다는 착각">
-                                </a>
-                                <div class="main2-text">
-                                    <a href="#"><h1>늙는다는 착각</h1></a>
-                                    <a href="#"><p>내 나이를 되돌리는 마법의 심리학</p></a>
+                                    <a href="#"><h1>[[${slide.bookName}]]</h1></a>
+                                    <a href="#"><p>[[${slide.bookSubname}]]</p></a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +162,7 @@
                             <div class="recommand-gawoodi">
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>| GAWOOD <strong>Choice</strong>!</h4><span> >>더보기</span></a>
+                                        <h4>| GAWOOD <strong>Choice</strong>!</h4>
                                         <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi1.jpg"></a>
                                     </div>
                                     <div class="recommand-book">
@@ -147,14 +179,14 @@
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>| MZ <strong>Choice</strong>!</h4><span> >>더보기</span></a>
+                                        <a href="#"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
                                         <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi2.jpg"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
                                 <div class="recommand-subject">
-                                    <a href="#" class="trend-a"><h4>| Trend<strong> Issue</strong>? |</h4><span> >>더보기</span></a>
+                                    <h4>| Trend<strong> Issue</strong>? |</h4>
                                     <a href="#"><img src="/images/main/main-recommand/Trend.jpg"></a>
                                     <br/>
                                     <div class="recommand-text">
@@ -168,7 +200,7 @@
                         <div class="recommand2">
                             <div class="choice">
                                 <div class="choice-wrap">
-                                    <a href="#"><h1>출판사 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
+                                    <h1>출판사 <strong>추천!</strong></h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/choice.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -181,7 +213,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-wrap">
-                                    <a href="#"><h1>미디어 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
+                                    <h1>미디어 <strong>추천!</strong></h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/media.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -195,7 +227,7 @@
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <a href="#"><h1><strong>이 책</strong> 어때?</h1><span> >>더보기 </span></a>
+                                    <h1><strong>이 책</strong> 어때?</h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -263,48 +295,42 @@
                                 <div id="tab-1" class="tab-content active">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>백의 그림자</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>천개의파랑</h6></a>
                                                 <a href="#"><p>12420원 + 1240P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>훌훌</h6></a>
                                                 <a href="#"><p>14850원 + 1480P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
                                                 <a href="#"><p>26820원 + 1480P</p></a>
                                             </div>            
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>센강의 이름 모를 여인</h6></a>
                                                 <a href="#"><p>14800원 + 1480P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
                                                 <a href="#"><p>9900원 + 990P</p></a>
@@ -317,48 +343,42 @@
                                 <div id="tab-2" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
                                             <a href="#"><p>10800 + 1080P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>구미호식당</h6></a>
                                                 <a href="#"><p>11250원 + 1200P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>설민석의 한국사 대모험</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>흔한남매</h6></a>
                                                 <a href="#"><p>12600원 + 1260P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>에그박사</h6></a>
                                                 <a href="#"><p>13050원 + 1300P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i> </a>
+                                            <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
                                                 <a href="#"><p>10800원 + 1080P</p></a>
@@ -371,48 +391,42 @@
                                 <div id="tab-3" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/1.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/1.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>근육에 힘좀 빼고 삽시다</h6></a>
                                             <a href="#"><p>11700원 + 1170P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/2.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/2.jpg" alt=""></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>당뇨병을 이긴  <br />사람들의 비밀</h6></a>
                                                 <a href="#"><p>13500원 + 1350P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/3.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/3.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>무기력이 무기력해지도록</h6></a>
                                                 <a href="#"><p>16020원 + 1600P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/4.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/4.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>식사가 잘못 됐습니다.</h6></a>
                                                 <a href="#"><p>13050원 + 1300P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/5.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/5.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>암은 병이 아니다</h6></a>
                                                 <a href="#"><p>16200원 + 1620P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/6.jpg" alt="">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a href="#"><img src="/images/main/bestceller/건강/6.jpg" alt=""></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>통증 때려잡는 스트레칭</h6></a>
                                                 <a href="#"><p>17010원 + 1700P</p></a>
@@ -662,7 +676,7 @@
         </footer>
     </div>
     <script th:src="@{/js/main/js.js}"></script>
-    <script th:src="@{/js/main/owl.carousel.js}"></script>
+    
     <script>
 
       
