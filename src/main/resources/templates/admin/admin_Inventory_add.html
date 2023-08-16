@@ -22,6 +22,10 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <style>
+        .mainH2{
+            margin-bottom : 10px;
+        }
+
         .tb1_frm01 th {
             border-top : 1px solid #e6e6e6;
             border-bottom : 1px solid #e6e6e6;
@@ -30,8 +34,16 @@
             text-align:left;
         }
 
+        .tb1_frm01 input {
+            background : #e6e6e6;
+        }
+
         table{
             width:100%;
+        }
+
+        .midH2{
+            margin-top : 10px;
         }
     </style>
 </head>
@@ -44,17 +56,17 @@
         <main>
             <div class="main-right">
                 <div class="main-inven">
-                    <h2>::상품추가 페이지</h2>
+                    <h2 class="mainH2">::상품추가 페이지</h2>
                     <div class="inven-top">
 
                         <div class="container_wr">
                             <form name="addBookFotm">
 
                                 <section id="book_cate">
-                                    <h3 class="h2_cate">상품 분류</h3>
+                                    <h3 class="h2_cate">상품 분류</h3><br/>
                                     <div class="tb1_frm01">
                                         <table>
-                                            <caption>책 카테고리 입력</caption>
+                                            <caption hidden="hidden">책 카테고리 입력</caption>
                                             <tbody>
                                                 <tr>
                                                     <th>
@@ -95,17 +107,17 @@
                                 </section>
 
                                 <section id="book_grid">
-                                    <h3 class="h2_">상품 정보</h3>
+                                    <h3 class="midH2">상품 정보</h3><br/>
                                     <div class="tb1_frm01">
                                         <table>
-                                            <caption>책 정보 입력</caption>
+                                            <caption hidden="hidden">책 정보 입력</caption>
                                             <tbody>
                                             <tr>
                                                 <th>
                                                     <label>책 코드</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 코드를 입력해 주세요</span>
+                                                    <span>책의 코드를 입력해 주세요</span><br/>
                                                     <input type="text" name="book_id" id="book_id" required size="20" maxlength="20">
                                                 </td>
                                             </tr>
@@ -114,7 +126,7 @@
                                                     <label >책 이름</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 이름을 입력해 주세요</span>
+                                                    <span>책의 이름을 입력해 주세요</span><br/>
                                                     <input type="text" name="book_name" id="book_name" >
                                                 </td>
                                             </tr>
@@ -123,7 +135,7 @@
                                                     <label>작가</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 작가를 입력해 주세요</span>
+                                                    <span>책의 작가를 입력해 주세요</span><br/>
                                                     <input type="text" name="book_author" id="book_author">
                                                 </td>
                                             </tr>
@@ -132,7 +144,7 @@
                                                     <label>출판사</label>
                                                 </th>
                                                 <td>
-                                                    <span>출판사를 입력해주세요.</span>
+                                                    <span>출판사를 입력해주세요.</span><br/>
                                                     <input type="text" name="book_publisher" id="book_publisher">
                                                 </td>
                                             </tr>
@@ -149,7 +161,7 @@
                                                     <label>판매 가격</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 가격을 입력</span>
+                                                    <span>책의 가격을 입력</span><br/>
                                                     <input type="text" name="book_price" id="book_price">"원"
                                                 </td>
                                             </tr>
@@ -158,7 +170,7 @@
                                                     <label>수량</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 수량을 입력</span>
+                                                    <span>책의 수량을 입력</span><br/>
                                                     <input type="text" name="book_stock" id="book_stock">"개"
                                                 </td>
                                             </tr>
@@ -167,7 +179,7 @@
                                                     <label>상품 설명</label>
                                                 </th>
                                                 <td>
-                                                    <span>책 설명을 입력해 주세요</span>
+                                                    <span>책 설명을 입력해 주세요</span><br/>
                                                     <textarea name="book_explan" id="book_explan"></textarea>
                                                 </td>
                                             </tr>
@@ -177,8 +189,8 @@
                                                     <label>이미지 업로드</label>
                                                 </th>
                                                 <td>
-                                                    <span>책 이미지를 선택해주세요</span>
-                                                    <input type="file" id="book_image"></input>
+                                                    <span>책 이미지를 선택해주세요</span><br/>
+                                                    <input type="file" id="book_image">
                                                 </td>
                                             </tr>
 
@@ -196,11 +208,11 @@
     </div>
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
-<!--    <div th:unless="${session.adminChk != null}">-->
-<!--        <script>-->
-<!--            location.href = "/login";-->
-<!--        </script>-->
-<!--    </div>-->
+    <div th:unless="${session.adminChk != null}">
+        <script>
+            location.href = "/login";
+        </script>
+    </div>
 </body>
 
 </html>
