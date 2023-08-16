@@ -31,7 +31,6 @@ public class MypageController {
     @GetMapping("")
     public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
         UserImageDto imageCheck = mypageMapper.getRegIdCheck(userImageDto);
-        System.out.println(userImageDto.getOriginName());
 
         model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
 
@@ -39,7 +38,6 @@ public class MypageController {
             mypageMapper.getUserImage(userImageDto);
         }
 
-//        userImageDto.getSaveName() == null && userImageDto.getOriginName() != "user.png"f
         return "mypage/mypage";
     }
 
@@ -77,17 +75,12 @@ public class MypageController {
             if(uploadFile != null) {
                 UserImageDto userImageDto = new UserImageDto();
 
-                System.out.println("orginName: " + orginName);
-                System.out.println("fileSize: " + fileSize);
-                System.out.println("regId: " + regId);
-
                 userImageDto.setOriginName(orginName);
                 userImageDto.setImageSize(fileSize);
                 userImageDto.setRegId(regId);
 
                 String partially = orginName.substring(orginName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
-                System.out.println("changeName: " + changeName);
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
