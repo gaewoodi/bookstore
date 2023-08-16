@@ -7,13 +7,11 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import java.util.List;
-
 @Mapper
 public interface MypageMapper {
 
     @Insert("INSERT INTO user_image VALUES(NULL, #{regId}, #{saveName}, #{originName}, #{imageSize})")
-    void getUserIamge(UserImageDto userImageDto);
+    void getUserImage(UserImageDto userImageDto);
 
     // mypage 정보불러오기
     @Select("SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}")
@@ -25,5 +23,9 @@ public interface MypageMapper {
 
     @Update("UPDATE user_image SET save_name = #{saveName}, origin_name = #{originName}, image_size = #{imageSize} WHERE reg_id = #{regId}")
     void fileUpload(UserImageDto userImageDto);
+
+    @Select("SELECT * FROM user_image WHERE reg_id = #{regId}")
+    UserImageDto getRegIdCheck(UserImageDto userImageDto);
+
 }
 

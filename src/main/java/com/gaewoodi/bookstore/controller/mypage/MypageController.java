@@ -29,15 +29,17 @@ public class MypageController {
     private MypageMapper mypageMapper;
 
     @GetMapping("")
-    public String getMypage(Model model, int regId, @ModelAttribute UserImageDto userImageDto) {
-        model.addAttribute("user", mypageMapper.getMypageId(regId));
-        System.out.println(userImageDto);
+    public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
+        UserImageDto imageCheck = mypageMapper.getRegIdCheck(userImageDto);
+        System.out.println(userImageDto.getOriginName());
 
+        model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
 
-        if(userImageDto.getOriginName() == null) {
-            mypageMapper.getUserIamge(userImageDto);
+        if(imageCheck == null && userImageDto.getRegId() > 1) {
+            mypageMapper.getUserImage(userImageDto);
         }
 
+//        userImageDto.getSaveName() == null && userImageDto.getOriginName() != "user.png"f
         return "mypage/mypage";
     }
 
@@ -89,6 +91,8 @@ public class MypageController {
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
+                Path path = Paths.get(FILE_PATH, orginName);
+                Files.write(path, uploadFile.getBytes());
 
                 map.put("msg", "success");
             }
@@ -100,42 +104,5 @@ public class MypageController {
         return map;
     }
 
-    @GetMapping("/test")
-    public String getTest() {
 
-        return "mypage/test";
-    }
-
-    @PostMapping("/test")
-    @ResponseBody
-//    첨부파일을 받을 땐, MultipartFile로 받아야함.
-    public String fileUpload(MultipartFile uploadFile) {
-
-        try {
-            // 상수 표기 법은 대문자이기 때문에 대문자로 표기
-            String UPLOAD_DIR = "C:\\Temp";
-
-            //파일 이름 암호화 하는 방법
-            String uuid = UUID.randomUUID().toString();
-//            1000분의 1초
-            long sysdate = System.currentTimeMillis();
-
-            String originName = uploadFile.getOriginalFilename();
-            String fileExt = uploadFile.getOriginalFilename()
-                    .substring(originName.lastIndexOf(".") + 1, originName.length());
-
-            String transFileName = uuid + "_" + sysdate + "." + fileExt;
-
-//            Path path = Paths.get(폴더, 파일이름);
-            Path path = Paths.get(UPLOAD_DIR, transFileName);
-            Files.write(path, uploadFile.getBytes());
-
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        return "";
-    }
 }
