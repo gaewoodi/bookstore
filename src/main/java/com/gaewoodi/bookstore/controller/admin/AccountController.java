@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.admin;
 
+import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.admin.PagingDto;
 import com.gaewoodi.bookstore.mappers.admin.AccountMapper;
 import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
@@ -10,6 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AccountController {
@@ -38,7 +44,13 @@ public class AccountController {
         return "admin/admin_Account";
     }
 
+    @GetMapping("/admin/employees/delete")
+    @ResponseBody
+    public Map<String, Object> deleteEmp(@RequestParam int korEmpId) {
+        Map<String, Object> map = new HashMap<>();
 
+        return map;
+    }
 
 
 

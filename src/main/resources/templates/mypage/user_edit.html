@@ -51,8 +51,6 @@
                             <!-- <button th:onclick="modal([[${emp.korEmpId}]])">IMAGE UPLOAD</button> -->
                             <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
                         </div>
-
-                       
                         <!-- serve-container 2 -->
                         <div class="register-group">
                             <div class="input-group-one">
@@ -135,8 +133,9 @@
                 </div>
             </main>
         </div>
-         <!-- IMAGE UPLOAD(MODAL) -->
-         <div id="modal">
+
+        <!-- IMAGE UPLOAD(MODAL) -->
+        <div id="modal">
             <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
             <div class="modal-box">
                 <form>

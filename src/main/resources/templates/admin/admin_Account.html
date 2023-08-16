@@ -50,13 +50,15 @@
                         <tbody th:each="Acct : ${acct}">
                             <tr>
                                 <td>[[${Acct.regId}]]</td>
-                                <td><img th:src="@{/images/user.png}" alt="profile" style="height: 60px; width: 60px; border-radius: 50%;"></td>
+                                <td><img th:src="@{/images/user.png}" alt="profile"
+                                        style="height: 60px; width: 60px; border-radius: 50%;"></td>
                                 <td>[[${Acct.levelName}]]</td>
                                 <td>[[${Acct.id}]]</td>
                                 <td>[[${Acct.grade}]]</td>
                                 <td>[[${#temporals.format(Acct.created, 'yyyy. MM. dd')}]]</td>
                                 <td>
-                                    <a th:href="@{/admin/AccountView?(regId=${Acct.regId})}"><button class="btn-clr1">상세보기</button></a>
+                                    <a th:href="@{/admin/AccountView?(regId=${Acct.regId})}"><button
+                                            class="btn-clr1">상세보기</button></a>
                                     <a href="#"><button class="btn-clr2">주문내역</button></a>
                                 </td>
                             </tr>
@@ -80,16 +82,14 @@
 
 
                         <a th:href="@{/admin/account?(page=${i})}"
-                           th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
+                            th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
                             <button>[[${i}]]</button>
                         </a>
-                        <a
-                                th:href="@{/admin/account?(page=${pagination.page + 1})}"
-                                th:if="${pagination.page < pagination.totalPage}">
+                        <a th:href="@{/admin/account?(page=${pagination.page + 1})}"
+                            th:if="${pagination.page < pagination.totalPage}">
                             <button>이후</button>
                         </a>
-                        <a
-                                th:unless="${pagination.page < pagination.totalPage}">
+                        <a th:unless="${pagination.page < pagination.totalPage}">
                             <button>이후</button>
                         </a>
                     </div>
@@ -98,10 +98,13 @@
         </main>
     </div>
     <script th:src="@{/js/admin/sidebar.js}"></script>
+    <!--  로그인 체크 -->
+    <div th:unless="${session.adminChk != null}">
+        <script>
+            location.href = "/login";
+        </script>
+    </div>
 
-
-
-</div>
 </body>
 
 </html>
