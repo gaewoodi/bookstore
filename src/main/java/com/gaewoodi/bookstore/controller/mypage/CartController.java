@@ -49,11 +49,10 @@ public class CartController {
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
 
-        System.out.println("map: " + map);
-        System.out.println("cartDto: " + cartDto);
+        System.out.println(map);
 
         //cart 테이블 생성 후 테이블에 저장
-//        cartMapper.saveCart(cartDto);
+        cartMapper.saveCart(cartDto);
 
         map.put("msg", "success");
 
