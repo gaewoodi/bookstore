@@ -7,19 +7,34 @@
 </head>
 <body>
     <div class="container">
-        <div class="login-container" th:if="${session.id != null}">
-            <p>아이디 : [[${session.id}]]</p>
-            <p>이름 : [[${session.passwd}]]</p>
-        </div>
-        <div class="login-container" th:unless="${session.id != null}">
-            <script>
-                alert("로그인이 필요합니다.");
-                location.href = "/login";
-            </script>
-        </div>
-
-        <a href="/book">전체도서</a>
-        <a href="/main">메인</a>
+        <form id="upload-form">
+            <label>이미지 업로드</label>
+            <input type="file" name="uploadFile" required><br>
+            <button onclick="frmUpload()">업로드</button>
+        </form>
     </div>
+
+    <script>
+        function frmUpload() {
+            let frmData = new FormData($("#upload-form")[0]);
+
+            $.ajax({
+                type: "post",
+                url: "/mypage   /test",
+                encType: "multipart/form-data",
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: frmData,
+                success: function() {
+                    
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+        }
+    </script>
 </body>
 </html>

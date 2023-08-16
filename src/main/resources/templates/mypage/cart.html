@@ -23,11 +23,6 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/cart.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
-    <!-- <link rel="stylesheet" href="/static/css/reset.css">
-    <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
-    <link rel="stylesheet" href="/static/css/mypage/cart.css"> -->
 </head>
 
 <body>
@@ -55,6 +50,7 @@
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
+                                <input type="hidden" th:value="${book.bookId}">
                                 <input type="text" name="checkValue">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">

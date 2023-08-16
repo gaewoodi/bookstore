@@ -18,6 +18,7 @@
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/user_edit.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/modal.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
 </head>
 <body>
@@ -41,10 +42,15 @@
                     </div>
                     <div class="serve-container">
                         <!-- serve-container 1 -->
-                        <div class="image-container">
+                        <div class="image-container" th:if="${user.originName != '' && user.originName != null}">
+                            <img th:src="@{/images/mypage/user_image/} + ${user.originName}" alt="profile">
+                            <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
+                        </div>
+                        <div class="image-container" th:unless="${user.originName != '' && user.originName != null}">
                             <img th:src="@{/images/user.png}" alt="profile">
                             <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
                         </div>
+                     
                         <!-- serve-container 2 -->
                         <div class="register-group">
                             <div class="input-group-one">
@@ -141,11 +147,12 @@
                     </div>
                 </form>
             </div>
+           
         </div>
     
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script th:src="@{/js/account/postcode.v2.js}"></script>
     <script th:src="@{/js/mypage/user_edit.js}"></script>

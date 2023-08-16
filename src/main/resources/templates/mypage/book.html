@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +44,7 @@
                         </h1>
                         <div class="button-container">
                             <a>
-                                <button class="cart-button">장바구니</button>
+                                <button class="cart-button" onclick="checkboxArray()">장바구니</button>
                             </a>
                         </div>
                     </div>
@@ -54,7 +53,7 @@
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
                             <input type="hidden" class="book-id" th:value="${book.bookId}">
-                            <input type="checkbox" name="bookId" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
                             </div>
@@ -140,7 +139,7 @@
 
 <script th:src="@{/js/fragment/header.js}"></script>
 <script th:src="@{/js/fragment/side_menu.js}"></script>
-<!-- <script th:src="@{/js/mypage/checkBox.js}"></script> -->
+<script th:src="@{/js/mypage/checkBox.js}"></script>
 <script th:src="@{/js/mypage/book.js}"></script>
 <!-- <script src="/js/mypage/test.js"></script> -->
 
