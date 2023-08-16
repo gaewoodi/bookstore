@@ -2,7 +2,8 @@ use bookstore;
 
 CREATE table order_mst (
     order_id int not null auto_increment, -- 주문번호
-    id varchar(20) not null, -- 유저아이디
+    book_id int,
+    reg_id int, -- register id
     order_date datetime not null, -- 주문일자
     price int not null, -- 주문금액
     quantity int not null, -- 주문수량

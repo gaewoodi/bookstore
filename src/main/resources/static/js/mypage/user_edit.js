@@ -1,4 +1,3 @@
-
 function formCheck() {
     let id = document.querySelector(".id");
     let passwd = document.querySelector(".passwd");
@@ -75,5 +74,3 @@ function formCheck() {
 }
 
 document.querySelector(".edit-button").addEventListener('click', formCheck);
-
-

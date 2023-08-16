@@ -1,15 +1,14 @@
 function modal(regId) {
     document.querySelector("#modal").style.display = "block";
     // regId에 해당되는 첨부파일 들고오기
-    document.querySelector("#button").addEventListener("click",  function () {
+    document.querySelector("#upload").addEventListener("click",  function () {
         let formData = new FormData();
-        // append("uploadFile", ..)여기 이름이 백엔드 MultipartFile 변수 명으로 가야함
         formData.append("uploadFile", $(".uploadFile")[0].files[0]);
         formData.append("regId", regId)
 
         $.ajax({
             type: "post",
-            url: "/update/upload",
+            url: "/mypage/update/upload",
             encType: "multipart/form-data",
             data: formData,
             processData: false,
@@ -17,7 +16,8 @@ function modal(regId) {
             cache: false,
             success: function(res) {
                 if(res.msg == "success") {
-                    location.reload();
+                    alert("이미지가 수정 되었습니다.");
+                    location.href = `/mypage/update?&regId=${regId}`
                 }
             },
             errer: function(err) {
@@ -26,6 +26,7 @@ function modal(regId) {
 
         });
     });
+
 
 }
 

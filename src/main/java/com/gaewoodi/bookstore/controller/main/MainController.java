@@ -18,14 +18,7 @@ public class MainController {
 
     @GetMapping("/main")
     public String getMain(Model model, BookDto bookDto) {
-        model.addAttribute("book", mainmapper.getBookList());
         model.addAttribute("main", mainmapper.getMainDto(bookDto));
         return "main/index";
-    }
-
-    @GetMapping("/bookinfo")
-    public String getBook(Model model, BookDto bookDto) {
-        model.addAttribute("main", mainmapper.getMainDto(bookDto));
-        return "main/bookinfo";
     }
 }

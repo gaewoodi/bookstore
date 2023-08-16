@@ -2,22 +2,40 @@ use bookstore;
 
 create table user_image (
     user_image_id int not null auto_increment,
-    reg_id int,
+    reg_id int UNIQUE,
     save_name varchar(255), -- 변형해서 저장시킨 이름
     origin_name varchar(255), -- 원본이름
     image_size bigint,
     primary key(user_image_id)
 );
 
+drop table user_image;
+select * from user_image;
+
+---------------------
+--** MypageMapper => mypage.html에 이미지랑 유저 정보 들고오는 join 쿼리
+SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = 3
+
+SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}
+
+ui = user_image
+r = register r
+
 SELECT
-    ui.*,
-    r.reg_id
+    ui.user_image_id,
+    ui.save_name,
+    ui.origin_name,
+    image_size,
+    r.*
 FROM
-    user_image ui
-LEFT OUTER JOIN
     register r
+LEFT OUTER JOIN
+    user_image ui
 ON
-    ui.user_image_id = r.reg_id
+    r.reg_id = ui.reg_id
+WHERE
+    r.reg_id = #{regId}
 -------------------------------------------------------------
 
-SELECT ui.*, r.reg_id FROM user_image ui LEFT OUTER JOIN register r ON ui.user_image_id = r.reg_id WHERE r.reg_id = 1
+--** MypageMapper => user_edit에 이미지랑 유저 정보 들고오는 join 쿼리
+
