@@ -30,13 +30,7 @@ public class MypageController {
 
     @GetMapping("")
     public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
-        UserImageDto imageCheck = mypageMapper.getRegIdCheck(userImageDto);
-
         model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
-
-        if(imageCheck == null && userImageDto.getRegId() > 1) {
-            mypageMapper.getUserImage(userImageDto);
-        }
 
         return "mypage/mypage";
     }
