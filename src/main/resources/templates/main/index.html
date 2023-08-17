@@ -55,8 +55,13 @@
                                     <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
                                 </a>
                             </li>        
-                            <li>
-                                <a href="/mypage">
+                            <li th:if="${session.id != null}">
+                                <a th:href="@{/mypage?(regId=${session.regId})}">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            </li>
+                            <li th:unless="${session.id != null}">
+                                <a th:href="@{/login}">
                                     <i class="fa-solid fa-user"></i>
                                 </a>
                             </li>
@@ -143,7 +148,7 @@
                         <div class="owl-carousel owl-theme" >
                             <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a href="#">
-                                    <img src="/images/main/book-main/[[${slide.bookName}]]" alt="[[${slide.bookName}]]">
+                                    <img th:src="@{/images/main/[[${slide.bookId}]].jpg}" th:alt="@{[[${slide.bookName}]]}">
                                 </a>
                                 <div class="main2-text">
                                     <a href="#"><h1>[[${slide.bookName}]]</h1></a>
@@ -227,7 +232,7 @@
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <h1><strong>이 책</strong> 어때?</h1>
+                                    <h1><strong>이 책</strong>어때?</h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
                                         <div class="r2-text">
