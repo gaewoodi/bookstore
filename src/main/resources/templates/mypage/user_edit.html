@@ -42,11 +42,11 @@
                     </div>
                     <div class="serve-container">
                         <!-- serve-container 1 -->
-                        <div class="image-container" th:if="${user.originName != '' && user.originName != null}">
-                            <img th:src="@{/images/mypage/user_image/} + ${user.originName}" alt="profile">
+                        <div class="image-container" th:if="${user.saveName != '' && user.saveName != null}">
+                            <img th:src="@{/images/mypage/user_image/} + ${user.saveName}" alt="profile">
                             <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
                         </div>
-                        <div class="image-container" th:unless="${user.originName != '' && user.originName != null}">
+                        <div class="image-container" th:unless="${user.saveName != '' && user.saveName != null}">
                             <img th:src="@{/images/user.png}" alt="profile">
                             <button class="profile-button" th:onclick="modal([[${user.regId}]])">이미지수정</button>
                         </div>
