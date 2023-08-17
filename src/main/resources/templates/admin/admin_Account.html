@@ -48,10 +48,16 @@
                             </tr>
                         </thead>
                         <tbody th:each="Acct : ${acct}">
-                            <tr>
+                            <tr >
                                 <td>[[${Acct.regId}]]</td>
-                                <td><img th:src="@{/images/user.png}" alt="profile"
-                                        style="height: 60px; width: 60px; border-radius: 50%;"></td>
+                                <td>
+                                    <div class="image-container" th:if="${Acct.originName != '' && Acct.originName != null}">
+                                        <img th:src="@{/images/mypage/user_image/} + ${Acct.originName}" alt="profile" style="height: 60px; width: 60px; border-radius: 50%;">
+                                    </div>
+                                    <div class="image-container" th:unless="${Acct.originName != '' && Acct.originName != null}">
+                                        <img th:src="@{/images/user.png}" alt="profile" style="height: 60px; width: 60px; border-radius: 50%;">
+                                    </div>
+                                </td>
                                 <td>[[${Acct.levelName}]]</td>
                                 <td>[[${Acct.id}]]</td>
                                 <td>[[${Acct.grade}]]</td>

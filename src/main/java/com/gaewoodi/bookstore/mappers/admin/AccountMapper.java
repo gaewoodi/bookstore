@@ -8,7 +8,10 @@ import java.util.List;
 @Mapper
 public interface AccountMapper {
 
-    @Select("select R.*,Acct.level_name FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level ORDER BY R.reg_id DESC")
+    @Select("select Acct.level_name,R.*,ui.origin_name FROM register R " +
+            "INNER JOIN Account_level Acct ON R.level = Acct.level " +
+            "INNER JOIN user_image ui ON R.reg_id = ui.reg_id " +
+            "ORDER BY R.reg_id DESC")
     List<RegisterDto> getMemberAll();
 
     @Delete("DELETE FROM register WHERE reg_id=#{regId}")
