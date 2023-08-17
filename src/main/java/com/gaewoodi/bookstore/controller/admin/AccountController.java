@@ -2,6 +2,7 @@ package com.gaewoodi.bookstore.controller.admin;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.admin.PagingDto;
+import com.gaewoodi.bookstore.dto.mypage.UserImageDto;
 import com.gaewoodi.bookstore.mappers.admin.AccountMapper;
 import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,9 +22,6 @@ import java.util.Map;
 
 @Controller
 public class AccountController {
-
-    @Value("${spring.servlet.multipart.location")
-    private String UPLOAD_FOLDER =" D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
 
     @Autowired
     private AccountPagingSrv pagingSrv;
@@ -60,11 +59,12 @@ public class AccountController {
 
 
     @GetMapping("/admin/AccountView")
-    public String getAccountView(@RequestParam int regId, Model model){
+    public String getAccountView(@RequestParam int regId, Model model, @ModelAttribute UserImageDto userImageDto){
+
         if (regId > 0) {
             model.addAttribute("acct", accountMapper.getMemberOne(regId));
             model.addAttribute("level", levelMapper.getLevel());
-//            model.addAttribute("user", mypageMapper.getMypageId(regId));
+            model.addAttribute("user", mypageMapper.getRegIdCheck(userImageDto));
             System.out.println(regId);
         }
         return "admin/AccountView";

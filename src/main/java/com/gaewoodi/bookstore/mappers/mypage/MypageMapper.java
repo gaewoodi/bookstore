@@ -14,6 +14,7 @@ public interface MypageMapper {
     void getUserImage(UserImageDto userImageDto);
 
     // mypage 정보불러오기
+
     @Select("SELECT ui.*, r.id, r.passwd, r.name, r.birth, r.gender, r.email, r.postcode, r.address, r.address1, r.tel, r.level, r.grade FROM user_image ui LEFT OUTER JOIN register r ON(ui.reg_id = r.reg_id) WHERE ui.reg_id = #{regId}")
     RegisterDto getMypageId(int regId);
 

@@ -55,8 +55,13 @@
                                     <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
                                 </a>
                             </li>        
-                            <li>
-                                <a href="/mypage">
+                            <li th:if="${session.id != null}">
+                                <a th:href="@{/mypage?(regId=${session.regId})}">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                            </li>
+                            <li th:unless="${session.id != null}">
+                                <a th:href="@{/login}">
                                     <i class="fa-solid fa-user"></i>
                                 </a>
                             </li>
@@ -143,7 +148,7 @@
                         <div class="owl-carousel owl-theme" >
                             <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a href="#">
-                                    <img src="/images/main/book-main/[[${slide.bookName}]].jpg" alt="[[${slide.bookName}]]">
+                                    <img th:src="@{/images/main/[[${slide.bookId}]].jpg}" th:alt="@{[[${slide.bookName}]]}">
                                 </a>
                                 <div class="main2-text">
                                     <a href="#"><h1>[[${slide.bookName}]]</h1></a>
@@ -227,7 +232,7 @@
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <h1><strong>이 책</strong> 어때?</h1>
+                                    <h1><strong>이 책</strong>어때?</h1>
                                     <div class="border">
                                         <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
                                         <div class="r2-text">
@@ -295,42 +300,48 @@
                                 <div id="tab-1" class="tab-content active">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>백의 그림자</h6></a>
                                                 <a href="#"><p>11700원 + 1170P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>천개의파랑</h6></a>
                                                 <a href="#"><p>12420원 + 1240P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>훌훌</h6></a>
                                                 <a href="#"><p>14850원 + 1480P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
                                                 <a href="#"><p>26820원 + 1480P</p></a>
                                             </div>            
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>센강의 이름 모를 여인</h6></a>
                                                 <a href="#"><p>14800원 + 1480P</p></a>
                                             </div>
                                         </div>
                                         <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/></a>
+                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/>
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
                                                 <a href="#"><p>9900원 + 990P</p></a>
