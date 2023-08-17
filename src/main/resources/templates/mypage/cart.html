@@ -26,19 +26,19 @@
 </head>
 
 <body>
-    <!-- <th:block th:if="${session.id == null}">
+    <th:block th:if="${session.id == null}">
         <script>
             alert("로그인 하신 후, 사용할 수 있습니다.");
             location.href = "/login";
         </script>
-    </th:block> -->
+    </th:block>
     <div id="container">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
 
         <main class="main-container">
             <div class="serve-container">
                 <!--main-container basis 1 -->
-                <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
+                <div th:insert="~{mypage/fragment/mypage_menu::mypageMenu}" class="menu-container"></div>
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
@@ -104,7 +104,7 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
-    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/checkBox.js}"></script>
 </body>
 </html>

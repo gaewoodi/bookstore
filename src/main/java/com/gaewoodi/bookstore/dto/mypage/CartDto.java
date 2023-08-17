@@ -21,4 +21,3 @@ public class CartDto {
     private int visit;
     private int quantity;
 }
-

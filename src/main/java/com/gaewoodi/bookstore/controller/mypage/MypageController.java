@@ -79,11 +79,16 @@ public class MypageController {
                 userImageDto.setImageSize(fileSize);
                 userImageDto.setRegId(regId);
 
+                System.out.println("orginName: " + orginName);
+                System.out.println("fileSize: " + fileSize);
+                System.out.println("regId: " + regId);
+
                 String partially = orginName.substring(orginName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
+                System.out.println("changeName: " + changeName);
                 Path path = Paths.get(FILE_PATH, orginName);
                 Files.write(path, uploadFile.getBytes());
 

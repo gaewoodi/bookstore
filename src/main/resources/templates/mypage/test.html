@@ -7,34 +7,53 @@
 </head>
 <body>
     <div class="container">
-        <form id="upload-form">
-            <label>이미지 업로드</label>
-            <input type="file" name="uploadFile" required><br>
-            <button onclick="frmUpload()">업로드</button>
-        </form>
+        <form action="test" th:action th:object="${item}" method="post">
+
+            <div>
+                <label for="itemName">상품명</label>
+                <input type="text" th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
+            </div>
+    
+            <div>
+                <label for="price">가격</label>
+                <input type="text" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+            </div>
+    
+            <div>
+                <label for="quantity">수량</label>
+                <input type="text" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
+            </div>
+    
+            <div>판매 여부</div>
+            <div>
+                <div class="form-check">
+                    <input type="checkbox" id="open" th:field="*{open}" class="form-check-input">
+                    <label for="open" class="form-check-label">판매 오픈</label>
+                </div>
+            </div>
+    
+        <!--------------------- 주목!!! ------------------------------->
+        <div>
+            <div>등록 지역</div>
+            <div th:each="region : ${regions}" class="form-check form-check-inline">
+                <input type="checkbox" th:field="*{regions}" th:value="${region.key}" class="form-check-input">
+                <label th:for="${#ids.prev('regions')}"
+                th:text="${region.value}" class="form-check-label">서울</label>
+            </div>
+        </div>
+        <!------------------------------------------------------------->
+    
+        <button type="submit">상품 등록</button>
+    
+    </form>
+    
+    </body>
+    </html>
     </div>
 
+
     <script>
-        function frmUpload() {
-            let frmData = new FormData($("#upload-form")[0]);
-
-            $.ajax({
-                type: "post",
-                url: "/mypage   /test",
-                encType: "multipart/form-data",
-                processData: false,
-                contentType: false,
-                cache: false,
-                data: frmData,
-                success: function() {
-                    
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-
-        }
+      
     </script>
 </body>
 </html>
