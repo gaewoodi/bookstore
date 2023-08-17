@@ -16,9 +16,6 @@ level int default 1, -- 1 : 회원, 2 : 사원, 9 : 관리자
 grade varchar(50),
 created datetime,
 modified datetime,
-image_name varchar(255),
-image_size bigint,
-trans_name varchar(255),
 primary key(reg_id)
 );
 
