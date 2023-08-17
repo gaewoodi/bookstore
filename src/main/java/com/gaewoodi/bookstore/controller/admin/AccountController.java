@@ -7,6 +7,7 @@ import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.service.admin.AccountPagingSrv;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,9 @@ import java.util.Map;
 
 @Controller
 public class AccountController {
+
+    @Value("${spring.servlet.multipart.location")
+    private String UPLOAD_FOLDER =" D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
 
     @Autowired
     private AccountPagingSrv pagingSrv;
@@ -46,9 +50,9 @@ public class AccountController {
 
     @GetMapping("/admin/employees/delete")
     @ResponseBody
-    public Map<String, Object> deleteEmp(@RequestParam int korEmpId) {
+    public Map<String, Object> deleteEmp(@RequestParam int regId) {
         Map<String, Object> map = new HashMap<>();
-
+        if(regId > 0){}
         return map;
     }
 
@@ -60,7 +64,7 @@ public class AccountController {
         if (regId > 0) {
             model.addAttribute("acct", accountMapper.getMemberOne(regId));
             model.addAttribute("level", levelMapper.getLevel());
-            model.addAttribute("user", mypageMapper.getMypageId(regId));
+//            model.addAttribute("user", mypageMapper.getMypageId(regId));
             System.out.println(regId);
         }
         return "admin/AccountView";
