@@ -19,28 +19,31 @@ SELECT * FROM user_image;
 INSERT INTO user_image VALUES (NULL, '1', NULL, NULL, NULL);
 
 --** MypageMapper => mypage.html에 이미지랑 유저 정보 들고오는 join 쿼리
-SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = 3
+SELECT ui.*, r.id, r.passwd, r.name, r.birth, r.gender, r.email, r.postcode, r.address, r.address1, r.tel, r.level, r.grade FROM user_image ui LEFT OUTER JOIN register r ON(ui.reg_id = r.reg_id) WHERE ui.reg_id = '3';
 
-SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}
+SELECT ui.*, r.id, r.passwd, r.name, r.birth, r.gender, r.email, r.postcode, r.address, r.address1, r.tel, r.level, r.grade FROM user_image ui LEFT OUTER JOIN register r ON(ui.reg_id = r.reg_id) WHERE ui.reg_id = #{regId}
 
-ui = user_image
-r = register r
 
 SELECT
-    ui.user_image_id,
-    ui.save_name,
-    ui.origin_name,
-    image_size,
-    r.*
+    ui.*,
+    r.id,
+    r.passwd,
+    r.name,
+    r.birth,
+    r.gender,
+    r.email,
+    r.postcode,
+    r.address,
+    r.address1,
+    r.tel,
+    r.level,
+    r.grade
 FROM
-    register r
-LEFT OUTER JOIN
     user_image ui
-ON
-    r.reg_id = ui.reg_id
+    LEFT OUTER JOIN register r ON(r.reg_id = ui.reg_id)
 WHERE
-    r.reg_id = #{regId}
--------------------------------------------------------------
+    ui.reg_id = #{regId}
 
---** MypageMapper => user_edit에 이미지랑 유저 정보 들고오는 join 쿼리
+
+-------------------------------------------------------------
 

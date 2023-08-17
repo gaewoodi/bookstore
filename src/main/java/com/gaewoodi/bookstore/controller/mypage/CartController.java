@@ -46,47 +46,48 @@ public class CartController {
     }
 
 
-//    @PostMapping("/cart")
-//    @ResponseBody
-//    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result, CartDto cartDto) {
-//        Map<String, Object> map = new HashMap<>();
+    @PostMapping("/cart")
+    @ResponseBody
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result, CartDto cartDto) {
+        Map<String, Object> map = new HashMap<>();
+        System.out.println(cartDto.getRegId());
+
+        String checkResult = "";
+        String orCheckResult = "";
+
+        String[] splitResult = result.toString().split(" ");
+
+        for (int i = 0; i < splitResult.length - 2; i++) {
+
+            checkResult = "'" + splitResult[i] + "'";
+
+            map.put("checkResult", checkResult);
+
+            System.out.println("checkResult: " + checkResult);
+
+            for (int j = 1; j < splitResult.length; j++) {
+                orCheckResult = "OR book_id = " + "'" + splitResult[j] + "'";
+                map.put("orCheckResult", orCheckResult);
+
+                System.out.println("orCheckResult: " + orCheckResult);
+
+                cartMapper.saveCart(map);
+            }
+
+
+
+        }
+        map.put("msg", "success");
+
+
+        return map;
+    }
+//    @GetMapping("/test")
+//    public String getTest(Model model) {
 //
-//        String checkResult = "";
-//        String orCheckResult = "";
-//
-//        String[] splitResult = result.toString().split(" ");
-//
-//        for (int i = 0; i < splitResult.length - 2; i++) {
-//
-//            checkResult = "'" + splitResult[i] + "'";
-//
-//            map.put("checkResult", checkResult);
-//
-//            System.out.println("checkResult: " + checkResult);
-//
-//            for (int j = 1; j < splitResult.length; j++) {
-//                orCheckResult = "OR book_id = " + "'" + splitResult[j] + "'";
-//                map.put("orCheckResult", orCheckResult);
-//
-//                System.out.println("orCheckResult: " + orCheckResult);
-//
-//                cartMapper.saveCart(map);
-//            }
-//
-//
-//
-//        }
-//        map.put("msg", "success");
-//
-//
-//        return map;
+//        return "mypage/test";
 //    }
-////    @GetMapping("/test")
-////    public String getTest(Model model) {
-////
-////        return "mypage/test";
-////    }
-//
+
 
 
 
