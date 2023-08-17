@@ -62,11 +62,15 @@
             <table id="Account-view">
               <tbody>
                 <tr>
-                  <td class="tit w-img">
-                    <img th:src="@{/images/user.png}" alt="profile" style="height: 260px; width: 260px;">
-                    <button>이미지업로드</button>
+                  <td class="tit w-img" >
+                      <div class="image-container" th:if="${user.saveName != '' && user.saveName != null}">
+                          <img th:src="@{/images/mypage/user_image/} + ${user.saveName}" alt="profile" style="height: 260px; width: 260px;">
+                      </div>
+                      <div class="image-container" th:unless="${user.saveName != '' && user.saveName != null}">
+                          <img th:src="@{/images/user.png}" alt="profile" style="height: 260px; width: 260px;">
+                      </div>
+<!--                    <img th:src="@{/images/user.png}">-->
                     <button>이미지삭제</button>
-                    <p>dd</p>
                   </td> <!-- 프로필 사진 -->
                 </tr><br />
                 <tr>
