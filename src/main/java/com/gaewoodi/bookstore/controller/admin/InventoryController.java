@@ -10,4 +10,9 @@ public class InventoryController {
     public String urlInventory(){
         return "admin/admin_Inventory";
     }
+
+    @GetMapping("/admin/inventoryForm")
+    public String urlInventoryAdd(){
+        return "admin/admin_Inventory_add";
+    }
 }

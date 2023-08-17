@@ -9,25 +9,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/mypage")
 public class MypageController {
 
+    private String UPLOAD_LOCATION = "D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
+
     @Autowired
     private MypageMapper mypageMapper;
 
-    private String UPLOAD_LOCATION = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
-
     @GetMapping("")
-    public String getMypage(Model model, int regId) {
-        model.addAttribute("user", mypageMapper.getMypageId(regId));
+    public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
+        UserImageDto imageCheck = mypageMapper.getRegIdCheck(userImageDto);
 
+        model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
+
+        if(imageCheck == null && userImageDto.getRegId() > 1) {
+            mypageMapper.getUserImage(userImageDto);
+        }
 
         return "mypage/mypage";
     }
@@ -58,17 +67,30 @@ public class MypageController {
         Map<String, Object> map = new HashMap<>();
 
         try {
+            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
+            String orginName = uploadFile.getOriginalFilename();
+            Long fileSize = uploadFile.getSize();
+
+
             if(uploadFile != null) {
                 UserImageDto userImageDto = new UserImageDto();
-                userImageDto.setOriginName(uploadFile.getOriginalFilename());
-                userImageDto.setImageSize(uploadFile.getSize());
+
+                userImageDto.setOriginName(orginName);
+                userImageDto.setImageSize(fileSize);
                 userImageDto.setRegId(regId);
 
+                System.out.println("orginName: " + orginName);
+                System.out.println("fileSize: " + fileSize);
+                System.out.println("regId: " + regId);
+
+                String partially = orginName.substring(orginName.lastIndexOf("."));
+                String changeName = System.currentTimeMillis() + partially;
+                userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
-                Path path = Paths.get(UPLOAD_LOCATION, uploadFile.getOriginalFilename());
+                System.out.println("changeName: " + changeName);
+                Path path = Paths.get(FILE_PATH, orginName);
                 Files.write(path, uploadFile.getBytes());
-
 
                 map.put("msg", "success");
             }
@@ -79,4 +101,6 @@ public class MypageController {
 
         return map;
     }
+
+
 }

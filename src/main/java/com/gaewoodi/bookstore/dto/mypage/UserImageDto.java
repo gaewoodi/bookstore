@@ -2,6 +2,8 @@ package com.gaewoodi.bookstore.dto.mypage;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class UserImageDto {
     // image id
@@ -14,4 +16,5 @@ public class UserImageDto {
     private String originName;
     // 이미지용량
     private Long imageSize;
+
 }
