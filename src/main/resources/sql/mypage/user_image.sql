@@ -9,10 +9,15 @@ create table user_image (
     primary key(user_image_id)
 );
 
-drop table user_image;
-select * from user_image;
+
+DROP TABLE user_image;
+
+SELECT * FROM user_image;
 
 ---------------------
+-- 관리자 insert
+INSERT INTO user_image VALUES (NULL, '1', NULL, NULL, NULL);
+
 --** MypageMapper => mypage.html에 이미지랑 유저 정보 들고오는 join 쿼리
 SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = 3
 
