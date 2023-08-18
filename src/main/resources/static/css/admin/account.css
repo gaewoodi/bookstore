@@ -32,12 +32,15 @@
     padding : 10px 0;
 }
 
-.btn-clr1 .btn-clr2{
+.btn-clr1, .btn-clr2{
     color: #393732;
     border: 0;
     outline: 0;
     cursor: pointer;
     padding: 12px 8px;
 }
+
+
+
 
 

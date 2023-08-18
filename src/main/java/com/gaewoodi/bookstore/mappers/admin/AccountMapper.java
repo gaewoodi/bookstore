@@ -14,14 +14,19 @@ public interface AccountMapper {
             "ORDER BY R.reg_id DESC")
     List<RegisterDto> getMemberAll();
 
-    @Delete("DELETE FROM register WHERE reg_id=#{regId}")
-    void deleteAccount(int regId);
+
+    @Select("SELECT save_name, origin_name FROM user_image WHERE reg_id = #{regId}")
+    RegisterDto getImageName(int regId);
+
 
     @Select("SELECT * FROM register R INNER JOIN Account_level Acct ON R.level = Acct.level WHERE R.reg_id = #{regId}")
     RegisterDto getMemberOne(int regId);
 
     @Select("SELECT COUNT(*) FROM register")
     int getTotalCount();
+
+    @Delete("DELETE register, user_image FROM register INNER JOIN user_image ON register.reg_id = user_image.reg_id WHERE register.reg_id=#{regId}")
+    void deleteAccount(int regId);
 
     @Update("UPDATE register SET id = {id}, " +
             "passwd={passwd}, " +

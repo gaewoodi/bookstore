@@ -23,6 +23,9 @@ import java.util.Map;
 @Controller
 public class AccountController {
 
+    @Value("${spring.servlet.multipart.location}")
+    private String user_image = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
+
     @Autowired
     private AccountPagingSrv pagingSrv;
 
@@ -47,15 +50,6 @@ public class AccountController {
         return "admin/admin_Account";
     }
 
-    @GetMapping("/admin/employees/delete")
-    @ResponseBody
-    public Map<String, Object> deleteEmp(@RequestParam int regId) {
-        Map<String, Object> map = new HashMap<>();
-        if(regId > 0){}
-        return map;
-    }
-
-
 
 
     @GetMapping("/admin/AccountView")
@@ -69,6 +63,40 @@ public class AccountController {
         }
         return "admin/AccountView";
     }
+    @GetMapping("/admin/AccountView/deleteImg")
+    @ResponseBody
+    public Map<String, Object> deleteAccountImg(@RequestParam int regId) {
+        Map<String, Object> map = new HashMap<>();
+
+        if(regId > 0){
+            RegisterDto rdto = accountMapper.getImageName(regId);
+
+            System.out.println(rdto.getSaveName());
+
+            File file = new File(user_image+ "\\" + rdto.getSaveName());
+            boolean b = file.delete();
+            if(b){
+                System.out.println("회원 이미지를 삭제에 성공했습니다.");
+            }
+            map.put("msg", "success");
+        }else{
+            System.out.println("회원 이미지가 없습니다.");
+        }
+
+        return map;
+    }
+
+    @GetMapping("/admin/AccountView/delete")
+    @ResponseBody
+    public Map<String, Object> deleteAccount(@RequestParam int regId){
+        Map<String, Object> map = new HashMap<>();
+        if(regId>0){
+            accountMapper.deleteAccount(regId);
+            map.put("msg", "success");
+        }
+        return map;
+    }
+
 
 
 }
