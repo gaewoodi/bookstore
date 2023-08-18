@@ -27,79 +27,7 @@
 </head>
 <body>
     <div class="wrap">
-        <header id="header" >
-            <div class="container">
-                <div class="logo">
-                    <div class="logo-wrap">
-                        <a href="/main"><img src="/images/logo.png" alt="개우디서점에 오신것을 환영합니다."></a>
-                    </div>
-                </div>
-                <div class="search-wrap">
-                    <form action="">
-                        <input type="text" placeholder = "범인이 추리를 한다! 히가시노게이고 '조인계획'" class="search">
-                    </form>
-                    <div class="search-btnwrap">
-                        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </div>
-                </div>
-                <div class="mypage">
-                    <div class="mypage-wrap">
-                        <ul>
-                            <li class="login-a" th:if="${session.id != null}">
-                                <a href="/logout" class="login" >
-                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Logout
-                                </a>
-                            </li>
-                            <li class="login-a" th:unless="${session.id != null}">    
-                                <a href="/login" class="login">
-                                    <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Login
-                                </a>
-                            </li>        
-                            <li th:if="${session.id != null}">
-                                <a th:href="@{/mypage?(regId=${session.regId})}">
-                                    <i class="fa-solid fa-user"></i>
-                                </a>
-                            </li>
-                            <li th:unless="${session.id != null}">
-                                <a th:href="@{/login}">
-                                    <i class="fa-solid fa-user"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cart">
-                                    <i class="fa-solid fa-cart-shopping"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="menu-menu">
-                                    <i class="fa-sharp fa-solid fa-bars" onclick="openmenu()"></i>
-                                </a>
-                                <div class="submenu">
-                                    <div class="submenu-wrap">
-                                        <div class="submenu1">
-                                            <ul>
-                                                <h1>전체카테고리</h1>
-                                                <a href="#"><li>소설/시/희곡</li></a>
-                                                <a href="#"><li>에세이</li></a>
-                                                <a href="#"><li>인문/사회</li></a>
-                                                <a href="#"><li>정치/경제</li></a>
-                                                <a href="#"><li>자기계발</li></a>
-                                                <a href="#"><li>역사/문화</li></a>
-                                                <a href="#"><li>IT/과학</li></a>
-                                                <a href="#"><li>가정/생활</li></a>
-                                                <a href="#"><li>진로/교육</li></a>
-                                                <a href="#"><li>유아/어린이</li></a>
-                                                <a href="#"><li>기타</li></a>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
         <section id ="category">
             <div class="container">
                 <div class="menu">
@@ -287,13 +215,13 @@
                     <div class="main6-secondwrap"> 
                         <div class="main6-menu"><!-- main6-menu -->
                             <ul class="tabs"> <!-- h3 -->
-                                <li class="active" data-tab="tab-1">문학/소설</li> <!-- a -->
-                                <li data-tab="tab-2">유아/청소년</li>
-                                <li data-tab="tab-3">건강</li>
-                                <li data-tab="tab-4">경제</li>
+                                <li class="active" data-tab="tab-1">청소년/문학</li> <!-- a -->
+                                <li data-tab="tab-2">유아/어린이</li>
+                                <li data-tab="tab-3">생활/육아</li>
+                                <li data-tab="tab-4">정치/경제</li>
                                 <li data-tab="tab-5">인문/사회</li>
                                 <li data-tab="tab-6">과학</li>
-                                <li data-tab="tab-7">육아</li>
+                                <li data-tab="tab-7">자기계발</li>
                             </ul>
                             <div class="main6-list">
                                 <!-- 문학/소설 -->
