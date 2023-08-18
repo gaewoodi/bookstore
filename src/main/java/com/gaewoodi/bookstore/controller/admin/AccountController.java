@@ -75,6 +75,7 @@ public class AccountController {
 
             File file = new File(user_image+ "\\" + rdto.getSaveName());
             boolean b = file.delete();
+
             if(b){
                 System.out.println("회원 이미지를 삭제에 성공했습니다.");
             }
