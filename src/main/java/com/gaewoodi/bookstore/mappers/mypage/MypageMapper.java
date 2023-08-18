@@ -15,9 +15,8 @@ public interface MypageMapper {
 
     // mypage 정보불러오기
 
-    @Select("SELECT ui.*, r.id, r.passwd, r.name, r.birth, r.gender, r.email, r.postcode, r.address, r.address1, r.tel, r.level, r.grade FROM user_image ui LEFT OUTER JOIN register r ON(ui.reg_id = r.reg_id) WHERE ui.reg_id = #{regId}")
+    @Select("SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, ui.image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}")
     RegisterDto getMypageId(int regId);
-
 
     @Update("UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now()")
     void setRegister(RegisterDto registerDto);

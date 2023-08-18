@@ -1,0 +1,1 @@
+insert into register values('12', 'winter', '1212', '김겨울', '1998-11-13', 'M', 'winter@gmail.com', '12426', '경기 가평군 가평읍 불기산길 2', '123', '010-1111-1111', '1', 'Nomal', now(), now());
