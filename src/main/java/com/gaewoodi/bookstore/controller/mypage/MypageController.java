@@ -45,8 +45,6 @@ public class MypageController {
     @GetMapping("/update")
     public String getserEdit(Model model, @RequestParam int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
-
-
         return "mypage/user_edit";
     }
 
