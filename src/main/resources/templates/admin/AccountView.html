@@ -16,36 +16,12 @@
   <link rel="stylesheet" href="/css/admin/body.css">
   <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
   <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
+  <link rel="stylesheet" href="/css/admin/account_view.css">
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <style>
-    #Account-view {
-      width: 100%;
-      height: 100%;
-    }
 
-    table tr {
-      border-bottom: 1px solid #888;
-    }
-
-    table tr:nth-child(1) {
-      border-top: 1px solid #ccc;
-    }
-
-    .w-15 p {
-      border-top: 1px solid #ccc;
-    }
-
-    .btn-wrap {
-
-      text-align: right;
-      margin-top: 10px;
-    }
-
-    .btn-wrap a {
-      margin: 3px;
-    }
   </style>
 </head>
 
@@ -70,7 +46,9 @@
                           <img th:src="@{/images/user.png}" alt="profile" style="height: 260px; width: 260px;">
                       </div>
 <!--                    <img th:src="@{/images/user.png}">-->
-                    <button>이미지삭제</button>
+                    <a th:onclick="deleteAccountImg([[${acct.regId}]])">
+                      <button class="img_del">이미지삭제</button>
+                    </a>
                   </td> <!-- 프로필 사진 -->
                 </tr><br />
                 <tr>
@@ -109,13 +87,13 @@
             </table>
             <div class="btn-wrap">
               <a th:href="@{/admin/account}">
-                <button>계정목록</button>
+                <button class="btn01">계정목록</button>
               </a>
               <a href="">
-                <button>계정수정</button>
+                <button class="btn02">계정수정</button>
               </a>
-              <a href="">
-                <button>계정삭제</button>
+              <a th:onclick="deleteAccount([[${acct.regId}]])">
+                <button class="btn03" th:disablied="${acct.level eq 9}">계정삭제</button>
               </a>
             </div>
           </div>
@@ -123,6 +101,50 @@
       </div>
     </main>
   </div>
+  <script>
+    function deleteAccount(regId){
+      if(confirm("회원정보를 삭제 하시겠습니까? \n삭제 된 정보는 복원할 수 없습니다.")){
+        $.ajax({
+          type : "get",
+          url  : " /admin/AccountView/delete",
+          dataType : "json",
+          data: {regId},
+          success: function(res){
+            if(res.msg == "success"){
+              alert("회원 정보가 삭제 되었습니다.")
+              location.href = "/admin/account";
+            }
+          },
+          error:function(err){
+            console.log(err)
+          }
+        });
+      }
+    }
+
+    function deleteAccountImg(regId){
+      if(confirm("회원 이미지를 삭제 하시겠습니까? \n삭제 된 이미지는 복원할 수 없습니다.")){
+        $.ajax({
+          type : "get",
+          url  : "/admin/AccountView/deleteImg",
+          dataType : "json",
+          data: {regId},
+          success: function(res){
+            if(res.msg == "success"){
+              alert("회원 이미지가 삭제 되었습니다.")
+              location.reload();
+            }
+          },
+          error:function(err){
+            alert("저장된 이미지가 없습니다.")
+            location.reload();
+            console.log(err)
+          }
+        });
+      }
+    }
+
+  </script>
 
   <script th:src="@{/js/admin/sidebar.js}"></script>
   <!--  로그인 체크 -->
