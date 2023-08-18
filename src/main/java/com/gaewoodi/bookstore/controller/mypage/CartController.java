@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -47,23 +48,43 @@ public class CartController {
         return "mypage/cart";
     }
 
-    @PostMapping("/cart/save")
+    @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@ModelAttribute CartDto cartDto,
-                                         @RequestParam(value = "checkboxResult") String result) {
-
+    public Map<String, Object> setMypage(@RequestParam(value="checkboxArray[]") List<String> checkArray,
+                                         @RequestParam(value = "checkboxResult") String result,
+                                         @RequestParam(value = "element") int element,
+                                         @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
+        System.out.println("checkArray 값: " + checkArray);
+        System.out.println("result 값: " + result);
+        System.out.println("element: " + element);
+
         String[] splitResult = result.split(" ");
+        int firstResult = 0;
+        int secondResult = 0;
+        int thirdResult = 0;
 
         for(int i = 0; i < splitResult.length; i++) {
             System.out.println("splitResult: " + splitResult[i]);
             System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+            cartDto.setBookId(Integer.parseInt(splitResult[0]));
+            cartDto.setBookId(Integer.parseInt(splitResult[1]));
+            cartDto.setBookId(Integer.parseInt(splitResult[2]));
+
+            firstResult = Integer.parseInt(splitResult[0]);
+            secondResult = Integer.parseInt(splitResult[1]);
+            thirdResult = Integer.parseInt(splitResult[2]);
+
+
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
 
-
         System.out.println(map);
+
+        System.out.println("firstResult" + firstResult);
+        System.out.println("secondResult" + secondResult);
+        System.out.println("thirdResult" + thirdResult);
 
         cartMapper.saveCart(cartDto);
 

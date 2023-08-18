@@ -52,7 +52,6 @@
 
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
-                            <input type="hidden" name="bookId" class="book-id" th:value="${book.bookId}">
                             <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
