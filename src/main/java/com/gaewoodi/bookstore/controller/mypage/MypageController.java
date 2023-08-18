@@ -49,7 +49,7 @@ public class MypageController {
     public Map<String, Object> setUpdate(@ModelAttribute RegisterDto registerDto) {
         Map<String, Object> map = new HashMap<>();
 
-        mypageMapper.setRegister(registerDto);
+        mypageMapper.updateRegister(registerDto);
 
         map.put("msg", "success");
         return map;
@@ -78,7 +78,6 @@ public class MypageController {
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
-                System.out.println("changeName: " + changeName);
                 Path path = Paths.get(FILE_PATH, changeName);
                 Files.write(path, uploadFile.getBytes());
 

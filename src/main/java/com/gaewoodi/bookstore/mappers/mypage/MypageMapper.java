@@ -18,8 +18,8 @@ public interface MypageMapper {
     @Select("SELECT r.*, ui.user_image_id, ui.save_name, ui.origin_name, ui.image_size FROM register r LEFT OUTER JOIN user_image ui ON r.reg_id = ui.reg_id WHERE r.reg_id = #{regId}")
     RegisterDto getMypageId(int regId);
 
-    @Update("UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now()")
-    void setRegister(RegisterDto registerDto);
+    @Update("UPDATE register SET id = #{id}, passwd = #{passwd}, name = #{name}, birth = #{birth}, gender = #{gender}, email = #{email}, postcode = #{postcode}, address = #{address}, address1 = #{address1}, tel = #{tel}, level = #{level}, grade = #{grade}, modified = now() WHERE reg_id = #{regId}")
+    void updateRegister(RegisterDto registerDto);
 
     @Update("UPDATE user_image SET save_name = #{saveName}, origin_name = #{originName}, image_size = #{imageSize} WHERE reg_id = #{regId}")
     void fileUpload(UserImageDto userImageDto);
