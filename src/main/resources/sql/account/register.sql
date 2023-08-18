@@ -19,5 +19,5 @@ modified datetime,
 primary key(reg_id)
 );
 
-INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-08-03', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now(), '', 0, '');
+INSERT INTO register VALUES(NULL, 'admin', '0824', '관리자', '2023-08-03', 'M', 'admin@mail.com', '47296', '부산 부산진구 중앙대로 668', '(부전동) 4층', '010-1234-4567', '9', null, now(), now());
 

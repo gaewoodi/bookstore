@@ -51,7 +51,6 @@ public class BookController {
             bookMapper.updateVisit(bookId);
             model.addAttribute("book", bookMapper.viewBook(bookId));
 
-
         }
 
         return "mypage/view";
@@ -59,7 +58,6 @@ public class BookController {
 
     @PostMapping("/like")
     public Map<String, Object> getLike(@ModelAttribute LikeDto likeDto) {
-
         likeMapper.addLike(likeDto);
         Map<String, Object> map = new HashMap<>();
 

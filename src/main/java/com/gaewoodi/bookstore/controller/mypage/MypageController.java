@@ -30,13 +30,7 @@ public class MypageController {
 
     @GetMapping("")
     public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
-        UserImageDto imageCheck = mypageMapper.getRegIdCheck(userImageDto);
-
         model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
-
-        if(imageCheck == null && userImageDto.getRegId() > 1) {
-            mypageMapper.getUserImage(userImageDto);
-        }
 
         return "mypage/mypage";
     }
@@ -84,7 +78,8 @@ public class MypageController {
                 userImageDto.setSaveName(changeName);
                 mypageMapper.fileUpload(userImageDto);
 
-                Path path = Paths.get(FILE_PATH, orginName);
+                System.out.println("changeName: " + changeName);
+                Path path = Paths.get(FILE_PATH, changeName);
                 Files.write(path, uploadFile.getBytes());
 
                 map.put("msg", "success");
