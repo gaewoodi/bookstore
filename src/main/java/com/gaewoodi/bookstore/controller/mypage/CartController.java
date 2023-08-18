@@ -47,7 +47,7 @@ public class CartController {
         return "mypage/cart";
     }
 
-    @PostMapping("/cart")
+    @PostMapping("/cart/save")
     @ResponseBody
     public Map<String, Object> setMypage(@ModelAttribute CartDto cartDto,
                                          @RequestParam(value = "checkboxResult") String result) {
