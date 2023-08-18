@@ -25,3 +25,21 @@ SET
     modified = now()
 WHERE
     reg_id = #{regId}
+
+SELECT book_id, book_name, visit FROM book_mst where category ='에세이' AND category = '소설/시/희곡' order by visit desc limit 6;
+
+SELECT
+    book_id,
+    book_name,
+    category,
+    visit
+FROM
+    book_mst
+WHERE
+category ='에세이' OR category = '소설/시/희곡'
+ORDER BY
+    visit desc limit 6;
+
+------------------------------------------------
+
+SELECT book_id, book_name, category, visit FROM book_mst WHERE category ='에세이' OR category = '소설/시/희곡' ORDER BY visit desc limit 6;

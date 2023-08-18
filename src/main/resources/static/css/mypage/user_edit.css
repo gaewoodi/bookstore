@@ -172,10 +172,6 @@ body{
     padding: 0 18px;
 }
 
-.email-container {
-    margin-left: 3px;
-}
-
 .email-container .email p{
     display: block; 
     margin-bottom: 5px;
@@ -190,12 +186,13 @@ body{
     border-radius: 3px;
 }
 
-.address-container {
-    margin-top : 5px;
-}
 
 .email {
     width: 200px;
+}
+
+.address-container {
+    margin-top : 5px;
 }
 
 
@@ -237,6 +234,10 @@ body{
 .telephone-container span {
     font-size: 13px;
     font-style: italic;
+}
+
+.level-container {
+    display: none;
 }
 
 .input-group-two .btn {

@@ -1,10 +1,9 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.dto.BookDto;
+
 import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +17,9 @@ public class CartController {
 
     @Autowired
     private CartMapper cartMapper;
+
+    @Autowired
+    private MypageMapper mypageMapper;
 
 
 //    @GetMapping("/cart")
@@ -38,50 +40,84 @@ public class CartController {
 //    }
 
     @GetMapping("/cart")
-    public String getCart(Model model, @ModelAttribute CartDto cartDto) {
-        model.addAttribute("book", cartMapper.getCartBookList(cartDto.getRegId()));
-
+    public String getCart(Model model, @RequestParam int bookId, @RequestParam int regId) {
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
+        model.addAttribute("book", cartMapper.getCartBookList(bookId));
 
         return "mypage/cart";
     }
 
-
     @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result, CartDto cartDto) {
+    public Map<String, Object> setMypage(@ModelAttribute CartDto cartDto,
+                                         @RequestParam(value = "checkboxResult") String result) {
+
         Map<String, Object> map = new HashMap<>();
-        System.out.println(cartDto.getRegId());
 
-        String checkResult = "";
-        String orCheckResult = "";
+        String[] splitResult = result.split(" ");
 
-        String[] splitResult = result.toString().split(" ");
-
-        for (int i = 0; i < splitResult.length - 2; i++) {
-
-            checkResult = "'" + splitResult[i] + "'";
-
-            map.put("checkResult", checkResult);
-
-            System.out.println("checkResult: " + checkResult);
-
-            for (int j = 1; j < splitResult.length; j++) {
-                orCheckResult = "OR book_id = " + "'" + splitResult[j] + "'";
-                map.put("orCheckResult", orCheckResult);
-
-                System.out.println("orCheckResult: " + orCheckResult);
-
-                cartMapper.saveCart(map);
-            }
-
-
-
+        for(int i = 0; i < splitResult.length; i++) {
+            System.out.println("splitResult: " + splitResult[i]);
+            System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+            map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
-        map.put("msg", "success");
 
+
+        System.out.println(map);
+
+        cartMapper.saveCart(cartDto);
+
+        map.put("msg", "success");
 
         return map;
     }
+
+
+//    @PostMapping("/cart")
+//    @ResponseBody
+//    public String setMypage(@RequestParam(value = "checkboxResult") String result) {
+//
+//        System.out.println("result 값: " + result);
+//        String searchQuery = "";
+//
+//        String checkResult = "";
+//        String orCheckResult = "";
+//
+//        String[] splitResult = result.toString().split(" ");
+//
+//        for(int i = 0; i < splitResult.length -2; i++) {
+//
+////            checkResult = "OR bookId = " + "'" + splitResult[i] + "'";
+//            checkResult = "'" + splitResult[i] + "'";
+//
+//
+////            System.out.println("checkResult: " + checkResult);
+//
+//            for(int j = 1; j < splitResult.length; j++) {
+//                orCheckResult = " OR book_id = " + "'" + splitResult[j] + "'";
+////                map.put("orCheckResult", orCheckResult);
+//
+////                System.out.println("orCheckResult: " + orCheckResult);
+//
+//                    searchQuery = checkResult + orCheckResult;
+//                    System.out.println("checkResult: " + checkResult);
+//                    System.out.println("orCheckResult: " + orCheckResult);
+//                    System.out.println("------------------------");
+//                    System.out.println(searchQuery);
+//
+////                    map.put("searchQuery", searchQuery);
+//
+//                    cartMapper.getCartBookList(checkResult);
+//
+//            }
+//
+//        }
+//
+//
+//
+//
+//        return "mypage/cart";
+//    }
 //    @GetMapping("/test")
 //    public String getTest(Model model) {
 //

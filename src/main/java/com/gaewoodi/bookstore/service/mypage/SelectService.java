@@ -17,32 +17,29 @@
 //    public List<BookDto> getCartBookList(String result) {
 //        Map<String, Object> map = new HashMap<>();
 //
-//
 //        String checkResult = "";
 //        String orCheckResult = "";
 //
 //        String[] splitResult = result.toString().split(" ");
 //
 //        for(int i = 0; i < splitResult.length -2; i++) {
-//            checkResult = "'" + splitResult[i] + "'";
 //
-//            map.put("checkResult", checkResult);
+//            checkResult = "'" + splitResult[i] + "'";
 //
 //            System.out.println("checkResult: " + checkResult);
 //
-//            for(int j = 1; j < splitResult.length; j++) {
-//                orCheckResult = "OR bookId = " + "'" + splitResult[j] + "'";
+//            map.put("checkResult", checkResult);
+//
+//            for (int j = 1; j < splitResult.length; j++) {
+//                orCheckResult = " OR book_id = " + "'" + splitResult[j] + "'";
+//
+//                System.out.println("checkResult: " + checkResult);
+//                System.out.println("orCheckResult: " + orCheckResult);
+//
 //                map.put("orCheckResult", orCheckResult);
 //
-//                System.out.println("Service에서 orCheckResult: " + orCheckResult);
-//
-//
 //            }
-//
-//
 //        }
-//
-//
 //
 //        return cartMapper.getCartBookList(map);
 //    }
