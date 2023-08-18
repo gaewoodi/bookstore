@@ -13,7 +13,7 @@ function checkboxArray() {
 
 
     $.ajax({
-        url: "/cart", 
+        url: "/cart/save", 
         type: "post", 
         dataType: "json", 
         data: {
