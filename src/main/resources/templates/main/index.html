@@ -76,7 +76,8 @@
                         <div class="owl-carousel owl-theme" >
                             <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a href="#">
-                                    <img th:src="@{/images/main/[[${slide.bookId}]].jpg}" th:alt="@{[[${slide.bookName}]]}">
+                                    <img th:src="@{/images/main/slide} + ${}" th:alt="@{[[${slide.bookName}]]}">
+                                    <img th:src="@{/images/mypage/user_image/} + ${user.saveName}" alt="profile">
                                 </a>
                                 <div class="main2-text">
                                     <a href="#"><h1>[[${slide.bookName}]]</h1></a>

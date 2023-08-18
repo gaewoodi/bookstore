@@ -91,4 +91,5 @@ FROM
     LEFT OUTER JOIN cart_mst cm ON(bm.book_id = cm.book_id)
 WHERE
     bm.book_id = cm.book_id
+---------------------------------
 
