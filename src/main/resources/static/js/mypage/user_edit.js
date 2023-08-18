@@ -44,16 +44,19 @@ function formCheck() {
     let email = $(".email1").val() + $(".email2").val()
 
     let obj = {
+        regId : $(".regId").val(),
         id : $(".id").val(),
         passwd : $(".passwd").val(),
         name : $(".name").val(),
         birth : $(".birth").val(),
-        userGender : $("input[type='radio']:checked").val(),
+        gender : $("input[type='radio']:checked").val(),
         email : email,
         postcode : $(".postcode").val(),
         address : $(".address").val(),
         address1 : $(".address1").val(),
         tel : $(".telephone").val(),
+        level : $(".level").val(),
+        grade : $(".grade").val()
     };
 
     console.log(obj);

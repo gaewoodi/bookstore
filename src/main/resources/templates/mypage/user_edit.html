@@ -87,16 +87,16 @@
                                 <div class="gender-container">
                                     <label>성별</label>
                                     <div class="radio-container">
-                                        <input type="radio" name="gender" class="userGender" value="M" th:value="${user.gender}"> 남자
-                                        <input type="radio" name="gender" class="userGender" value="W" th:value="${user.gender}"> 여자
+                                        <input type="radio" name="gender" class="userGender" value="M" th:checked="${user.gender eq 'M'}"> 남자
+                                        <input type="radio" name="gender" class="userGender" value="W" th:checked="${user.gender eq 'W'}"> 여자
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group-two">
                                 <div class="email-container">
                                     <p>이메일 주소</p>
-                                    <input type="email" name="email" class="email" th:value="${user.email}">
-                                    <select class="select-email">
+                                    <input type="email" name="email" class="email email1" th:value="${user.email}">
+                                    <select class="select-email email2" >
                                         <option value="1">직접 입력</option>
                                         <option value="@naver.com">@naver.com</option>
                                         <option value="@gmail.com">@gmail.com</option>
@@ -119,9 +119,21 @@
                                 <div class="telephone-container">
                                     <p>휴대전화<span style="color: #787878; font-size: 12px; padding: 0 0 0 14px; text-transform: uppercase">주문배송문자, 본인확인용으로 사용</span></p>
                                     <div>
-                                        <input type="tel" name="tel" class="telephone" placeholder="전화번호 입력" th:value="${user.tel}">
-
+                                        <input type="text" name="tel" class="telephone" placeholder="전화번호 입력" th:value="${user.tel}">
                                     </div>
+                                </div>
+                                <div class="membership-container">
+                                    <p>등급</p>
+                                    <div>
+                                        <input type="text" name="grade" class="grade" th:value="${user.grade}" readonly>
+                                    </div>
+                                    <div class="level-container">
+                                        <p>레벨</p>
+                                        <div>
+                                            <input type="text" name="level" class="level" th:value="${user.level}" readonly>
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                                 <div class="button-container">
                                     <button class="edit-button">수정하기</button>
@@ -141,6 +153,12 @@
             <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
             <div class="modal-box">
                 <form class="file-container">
+                    <div class="view-image-container" th:if="${user.saveName != '' && user.saveName != null}">
+                        <img th:src="@{/images/mypage/user_image/} + ${user.saveName}" alt="profile">
+                    </div>
+                    <div class="view-image-container" th:unless="${user.saveName != '' && user.saveName != null}">
+                        <img th:src="@{/images/user.png}" alt="기본이미지">
+                    </div>
                     <input type="file" name="uploadFile" class="uploadFile">
                     <div class="file-button">
                         <button type="button" id="upload">저장하기</button>

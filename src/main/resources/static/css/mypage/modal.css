@@ -43,13 +43,16 @@
     width: 100%;
 }
 
+.view-image-container img {
+    width: 400px;
+    height: 400px;
+}
+
 .file-button {
     display: flex;
     justify-content: end;
     align-items: end;
 }
-
-
 
 #modal button {
     margin-top: 10px;

@@ -47,6 +47,7 @@ public class MypageController {
     @PostMapping("/update")
     @ResponseBody
     public Map<String, Object> setUpdate(@ModelAttribute RegisterDto registerDto) {
+        System.out.println(registerDto);
         Map<String, Object> map = new HashMap<>();
 
         mypageMapper.updateRegister(registerDto);

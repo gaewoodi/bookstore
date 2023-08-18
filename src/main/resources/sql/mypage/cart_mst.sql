@@ -73,7 +73,7 @@ FROM
     LEFT OUTER JOIN register r ON(cm.reg_id = r.reg_id)
     LEFT OUTER JOIN book_mst bm ON(cm.book_id = bm.book_id)
 WHERE
-    cm.reg_id = '1';
+    cm.reg_id = #{regId};
 
 SELECT cm.cart_id as cartId, cm.reg_id as cmRegId, cm.book_id as bookId, cm.book_code as bookCode, cm.book_name as bookName, cm.book_stock as bookStock, cm.author as author, cm.publisher as publisher, cm.publication_date as publicationDate, cm.category as category, cm.price as price, cm.visit as visit, cm.quantity as quantity, r.reg_id as rRegId, bm.book_id as bookId FROM cart_mst cm LEFT OUTER JOIN register r ON(cm.reg_id = r.reg_id) LEFT OUTER JOIN book_mst bm ON(cm.book_id = bm.book_id) WHERE cm.reg_id = '1';
 
