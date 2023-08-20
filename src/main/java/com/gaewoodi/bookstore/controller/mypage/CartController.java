@@ -43,55 +43,50 @@ public class CartController {
     @GetMapping("/cart")
     public String getCart(Model model, @RequestParam int bookId, @RequestParam int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
-        model.addAttribute("book", cartMapper.getCartBookList(bookId));
+        model.addAttribute("book", cartMapper.getCartBookList(regId));
 
         return "mypage/cart";
     }
 
     @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@RequestParam(value="checkboxArray[]") List<String> checkArray,
-                                         @RequestParam(value = "checkboxResult") String result,
-                                         @RequestParam(value = "element") int element,
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result,
+                                         @RequestParam(value = "regIdValue") int regId,
                                          @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("checkArray 값: " + checkArray);
         System.out.println("result 값: " + result);
-        System.out.println("element: " + element);
+        System.out.println("regId 값: " + regId);
 
-        String[] splitResult = result.split(" ");
-        int firstResult = 0;
-        int secondResult = 0;
-        int thirdResult = 0;
+        cartDto.setRegId(regId);
+
+        String[] splitResult = result.toString().split(" ");
 
         for(int i = 0; i < splitResult.length; i++) {
             System.out.println("splitResult: " + splitResult[i]);
-            System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
-            cartDto.setBookId(Integer.parseInt(splitResult[0]));
-            cartDto.setBookId(Integer.parseInt(splitResult[1]));
-            cartDto.setBookId(Integer.parseInt(splitResult[2]));
-
-            firstResult = Integer.parseInt(splitResult[0]);
-            secondResult = Integer.parseInt(splitResult[1]);
-            thirdResult = Integer.parseInt(splitResult[2]);
-
+            if(i == 0) {
+                cartDto.setBookId(Integer.parseInt(splitResult[0]));
+                System.out.println("0실행됨");
+            } else if(i == 1) {
+                cartDto.setBookId(Integer.parseInt(splitResult[1]));
+                System.out.println("1실행됨");
+            } else if(i == 2) {
+                cartDto.setBookId(Integer.parseInt(splitResult[2]));
+                System.out.println("2실행됨");
+            }
+            cartMapper.saveCart(cartDto);
 
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+
+
+
         }
-
-        System.out.println(map);
-
-        System.out.println("firstResult" + firstResult);
-        System.out.println("secondResult" + secondResult);
-        System.out.println("thirdResult" + thirdResult);
-
-        cartMapper.saveCart(cartDto);
-
+        System.out.println("저장된 bookId: " + cartDto.getBookId());
         map.put("msg", "success");
 
         return map;
     }
+
 
 
 //    @PostMapping("/cart")

@@ -82,14 +82,18 @@ SELECT cm.cart_id as cartId, cm.reg_id as cmRegId, cm.book_id as bookId, cm.book
 
 
 ---------------------------------
+SELECT cm.book_id AS cmBookId, cm.reg_id AS cmRegId, bm.* FROM book_mst bm LEFT OUTER JOIN cart_mst cm ON(bm.book_id = cm.book_id) WHERE bm.book_id = cm.book_id ORDER BY cm.book_Id;
+SELECT cm.book_id AS cmBookId, cm.reg_id AS cmRegId, bm.* FROM book_mst bm LEFT OUTER JOIN cart_mst cm ON(bm.book_id = cm.book_id) WHERE bm.book_id = cm.book_id ORDER BY cm.book_Id
 
 SELECT
-    bm.*,
-    cm.book_id
+    cm.book_id AS cmBookId,
+    cm.reg_id AS cmRegId,
+    bm.*
 FROM
     book_mst bm
     LEFT OUTER JOIN cart_mst cm ON(bm.book_id = cm.book_id)
 WHERE
     bm.book_id = cm.book_id
+ORDER BY cm.book_Id;
 ---------------------------------
 

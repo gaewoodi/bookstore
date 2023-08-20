@@ -40,6 +40,7 @@
                 <div class="book-list">
                     <div class="title-container">
                         <h1>
+                            <input type="hidden" class="reg-id" th:value="${session.regId}">
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
                         <div class="button-container">

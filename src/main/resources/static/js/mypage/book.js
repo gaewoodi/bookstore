@@ -17,22 +17,15 @@ function checkboxArray() {
         checkArray.push($(this).val());     
     });
 
-    let elementValue = "";
-
-    checkArray.forEach(element => {
-        elementValue += element;
-        console.log("element값 : " + element);
-    });
-
+    let regIdValue = document.querySelector(".reg-id").value;
 
     $.ajax({
         url: "/cart", 
         type: "post", 
         dataType: "json", 
         data: {
-            checkboxArray: checkArray,
             checkboxResult: result,
-            element: elementValue
+            regIdValue: regIdValue
         },
         success: function(res) {
             if(res.msg == "success") {
