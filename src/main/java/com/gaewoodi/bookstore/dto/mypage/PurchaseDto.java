@@ -2,18 +2,18 @@ package com.gaewoodi.bookstore.dto.mypage;
 
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Year;
 
 @Data
-public class OrderDto {
+public class PurchaseDto {
     //주문번호
-    private int orderId;
+    private int purchaseId;
+    //책 id
+    private int bookId;
     //주문아이디
-    private int userId;
+    private int regId;
     // 주문일자
-    private LocalDateTime orderDate;
+    private LocalDateTime purchaseDate;
     // 주문금액
     private int price;
     // 주문수량
@@ -21,9 +21,7 @@ public class OrderDto {
     //총 주문금액
     private int totalPrice;
     // 주문 상태 : 구매/주문취소
-    private String orderStatus;
-    // 결제금액
-    private int paymentPrice;
+    private String purchaseStatus;
     // 결제 완료일
     private LocalDateTime paymentEndDate;
 

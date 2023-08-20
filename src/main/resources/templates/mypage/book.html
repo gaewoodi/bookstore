@@ -104,9 +104,7 @@
                             </div>
 
                             <div class="button-container">
-                                <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                    <button class="purchase-button">결제하기</button>
-                                </a>
+                                <button class="purchase-button" onclick="checkboxPurchase()">결제하기</button>
                             </div>
                         </div>
                     </div>
@@ -140,7 +138,8 @@
 <script th:src="@{/js/fragment/header.js}"></script>
 <script th:src="@{/js/fragment/side_menu.js}"></script>
 <script th:src="@{/js/mypage/checkBox.js}"></script>
-<script th:src="@{/js/mypage/book.js}"></script>
+<script th:src="@{/js/mypage/cart.js}"></script>
+<script th:src="@{/js/mypage/purchase.js}"></script>
 <!-- <script src="/js/mypage/test.js"></script> -->
 
 

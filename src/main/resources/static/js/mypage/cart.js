@@ -32,7 +32,7 @@ function checkboxArray() {
                 if(confirm("장바구니로 이동하시겠습니까?")) {
                     location.href = `/cart?regId=` + regIdValue;
                 }
-            }
+            } 
 
         },
         error: function(err) {
