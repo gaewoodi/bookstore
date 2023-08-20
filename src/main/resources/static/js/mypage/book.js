@@ -30,7 +30,7 @@ function checkboxArray() {
         success: function(res) {
             if(res.msg == "success") {
                 if(confirm("장바구니로 이동하시겠습니까?")) {
-                    location.href = `/cart`;
+                    location.href = `/cart?regId=` + regIdValue;
                 }
             }
 

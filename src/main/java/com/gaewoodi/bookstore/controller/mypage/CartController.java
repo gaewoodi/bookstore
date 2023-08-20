@@ -41,7 +41,7 @@ public class CartController {
 //    }
 
     @GetMapping("/cart")
-    public String getCart(Model model, @RequestParam int bookId, @RequestParam int regId) {
+    public String getCart(Model model, @RequestParam int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", cartMapper.getCartBookList(regId));
 
@@ -55,33 +55,23 @@ public class CartController {
                                          @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("result 값: " + result);
-        System.out.println("regId 값: " + regId);
-
         cartDto.setRegId(regId);
 
         String[] splitResult = result.toString().split(" ");
 
         for(int i = 0; i < splitResult.length; i++) {
-            System.out.println("splitResult: " + splitResult[i]);
             if(i == 0) {
                 cartDto.setBookId(Integer.parseInt(splitResult[0]));
-                System.out.println("0실행됨");
             } else if(i == 1) {
                 cartDto.setBookId(Integer.parseInt(splitResult[1]));
-                System.out.println("1실행됨");
             } else if(i == 2) {
                 cartDto.setBookId(Integer.parseInt(splitResult[2]));
-                System.out.println("2실행됨");
             }
             cartMapper.saveCart(cartDto);
 
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
-
-
-
         }
-        System.out.println("저장된 bookId: " + cartDto.getBookId());
+
         map.put("msg", "success");
 
         return map;
