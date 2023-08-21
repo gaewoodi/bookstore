@@ -59,15 +59,22 @@
                     <h2 class="mainH2">::책 정보 수정</h2>
                     <div class="inven-top">
 
-                        <div class="container_wr">
-                            <form name="addBookFotm">
-
+                        <div class="container_wr" th:each="bookInfo : ${bookInfo}">
+                            <form name="updatebook">
                                 <section id="book_cate">
                                     <h3 class="h2_cate">상품 분류</h3><br/>
                                     <div class="tb1_frm01">
                                         <table>
                                             <caption hidden="hidden">책 카테고리 입력</caption>
                                             <tbody>
+                                                <tr>
+                                                    <div class="image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                        <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg" style="height: 260px; width: 260px;">
+                                                    </div>
+                                                    <div class="image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                        <img th:src="@{/images/no_image_pink.png}" alt="bookImg" style="height: 260px; width: 260px;">
+                                                    </div>
+                                                </tr>
                                                 <tr>
                                                     <th>
                                                         <label>1차 분류</label>
@@ -117,8 +124,7 @@
                                                     <label>책 코드</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 코드를 입력해 주세요</span><br/>
-                                                    <input type="text" name="book_id" id="book_id" required size="20" maxlength="20">
+                                                    <span>[[${bookInfo.bookCode}]]</span><br/>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -126,7 +132,7 @@
                                                     <label >책 이름</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 이름을 입력해 주세요</span><br/>
+                                                    <span>[[${bookInfo.bookName}]]</span><br/>
                                                     <input type="text" name="book_name" id="book_name" >
                                                 </td>
                                             </tr>
@@ -135,7 +141,7 @@
                                                     <label>작가</label>
                                                 </th>
                                                 <td>
-                                                    <span>책의 작가를 입력해 주세요</span><br/>
+                                                    <span>[[${bookInfo.author}]]</span><br/>
                                                     <input type="text" name="book_author" id="book_author">
                                                 </td>
                                             </tr>
@@ -144,16 +150,8 @@
                                                     <label>출판사</label>
                                                 </th>
                                                 <td>
-                                                    <span>출판사를 입력해주세요.</span><br/>
+                                                    <span>[[${bookInfo.publisher}]]</span><br/>
                                                     <input type="text" name="book_publisher" id="book_publisher">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>출판년도</label>
-                                                </th>
-                                                <td>
-                                                    <input type="text" name="book_publication_date" id="book_publication_date">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -190,10 +188,9 @@
                                                 </th>
                                                 <td>
                                                     <span>책 이미지를 선택해주세요</span><br/>
-                                                    <input type="file" id="book_image">
+                                                    <button class="book-button" th:onclick="modal([[${bookInfo.bookId}]])">이미지수정</button>
                                                 </td>
                                             </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -206,6 +203,54 @@
             </div>
         </main>
     </div>
+
+    <!-- IMAGE UPLOAD(MODAL) -->
+    <div id="modal">
+        <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
+        <div class="modal-box">
+            <form class="file-container">
+                <div class="view-image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                    <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
+                </div>
+                <div class="view-image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                    <img th:src="@{/images/no_image_pink.png}" alt="bookImg">
+                </div>
+                <input type="file" name="uploadFile" class="uploadFile">
+                <div class="file-button">
+                    <button type="button" id="upload">저장하기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+
+    function modal(bookId){
+    document.querySelector("#upload").addEventListener("click",  function () {
+        let formData = new FormData();
+        formData.append("uploadFile", $(".uploadFile")[0].files[0]);
+        formData.append("bookId", bookId)
+        $.ajax({
+          type : "post",
+          url  : "/admin/inventoryUpdate/Img",
+          encType: "multipart/form-data",
+          data: formData,
+          processData: false,
+          contentType: false,
+          cache: false,
+          success: function(res){
+            if(res.msg == "success"){
+              alert("이미지가 수정 되었습니다.")
+              location.reload();
+            }
+          },
+          error:function(err){
+            location.reload();
+            console.log(err)
+          }
+        });
+    }
+
+</script>
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
     <div th:unless="${session.adminChk != null}">

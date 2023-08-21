@@ -1,15 +1,27 @@
 package com.gaewoodi.bookstore.controller.admin;
 
+import com.gaewoodi.bookstore.dto.admin.AdminBookDto;
 import com.gaewoodi.bookstore.mappers.admin.InventoryMapper;
 import com.gaewoodi.bookstore.service.admin.BookPagingSrv;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class InventoryController {
+
+    @Value("${spring.servlet.multipart.location}")
+    private String book_image = "D:\\bookstore\\src\\main\\resources\\static\\images\\temp";
 
     @Autowired
     private BookPagingSrv pagingSrv;
@@ -28,13 +40,48 @@ public class InventoryController {
         return "admin/admin_Inventory";
     }
 
-
     @GetMapping("/admin/inventoryUpdate")
-    public String urlInventoryAdd(Model model){
+    public String getBookUpdate(@RequestParam int bookId, Model model, @ModelAttribute AdminBookDto adminBookDto){
 
-
-
+        if (bookId > 0) {
+            model.addAttribute("bookInfo", inventoryMapper.getBookOne(bookId));
+            System.out.println(adminBookDto.getBookId());
+        }
 
         return "admin/Admin_InventoryUpdate";
+    }
+
+    @PostMapping("/admin/inventoryUpdate/Img")
+    @ResponseBody
+    public Map<String, Object> urlInventoryUpdate(MultipartFile uploadFile,@RequestParam int bookId){
+        Map<String, Object> map = new HashMap<>();
+
+        try {
+            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\temp";
+            String orginName = uploadFile.getOriginalFilename();
+            Long fileSize = uploadFile.getSize();
+
+
+            if(uploadFile != null) {
+                AdminBookDto adminBookDto = new AdminBookDto();
+
+                adminBookDto.setOriginName(orginName);
+                adminBookDto.setSize(fileSize);
+                adminBookDto.setBookId(bookId);
+
+                String partially = orginName.substring(orginName.lastIndexOf("."));
+                String changeName = System.currentTimeMillis() + partially;
+                adminBookDto.setSaveName(changeName);
+                inventoryMapper.updateBookImage(bookId);
+
+                Path path = Paths.get(FILE_PATH, changeName);
+                Files.write(path, uploadFile.getBytes());
+
+                map.put("msg", "success");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 }
