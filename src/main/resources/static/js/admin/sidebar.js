@@ -2,11 +2,13 @@ window.onload = () => {
     ComponentEvent.getInstance().addClickEventSidebarButton();
   }
   //대쉬보드 메뉴 열기
-  const dashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard');
 
-  dashboard.addEventListener('click', function () {
-    this.classList.toggle('opened');
-  });
+dashboard.classList.add('opened');
+
+dashboard.addEventListener('click', function () {
+  this.classList.toggle('opened');
+});
 
 
   //사이드바 열기
