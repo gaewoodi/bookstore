@@ -38,9 +38,7 @@
                             <i class="fa-solid fa-user-pen"></i>
                         </div>
                         <strong>
-                            <a th:href="@{/mypage?(regId=${user.regId})}">
-                                내정보
-                            </a>
+                            <a th:href="@{/mypage?(regId=${user.regId})}">내정보</a>
                         </strong>
                     </a>
                 </li>
@@ -81,7 +79,7 @@
                             <i class="fa-solid fa-cart-arrow-down"></i>
                         </div>
                         <strong>
-                            <a href="/cart">장바구니</a>
+                            <a th:href="@{/cart?(regId=${session.regId})}">장바구니</a>
                         </strong>
                     </a>
                 </li>
