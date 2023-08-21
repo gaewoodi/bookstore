@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
+import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,12 @@ public class PurchaseController {
     @Autowired
     private PagingService pagingService;
 
+    @Autowired
+    private MypageMapper mypageMapper;
+
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 
         return "mypage/purchase";
@@ -38,7 +43,7 @@ public class PurchaseController {
                                          @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println(regId);
+        System.out.println("regId: " + regId);
         purchaseDto.setRegId(regId);
 
         String[] splitResult = result.toString().split(" ");

@@ -18,6 +18,7 @@ function checkboxPurchase() {
     });
 
     let regIdValue = document.querySelector(".reg-id").value;
+    console.log("regIdValue: " + regIdValue);
 
     $.ajax({
         url: "/purchase", 
