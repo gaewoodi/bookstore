@@ -22,28 +22,28 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <style>
-        .mainH2{
-            margin-bottom : 10px;
+        .mainH2 {
+            margin-bottom: 10px;
         }
 
         .tb1_frm01 th {
-            border-top : 1px solid #e6e6e6;
-            border-bottom : 1px solid #e6e6e6;
-            background : #f6f6f6;
-            padding : 10px;
-            text-align:left;
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+            background: #f6f6f6;
+            padding: 10px;
+            text-align: left;
         }
 
         .tb1_frm01 input {
-            background : #e6e6e6;
+            background: #e6e6e6;
         }
 
-        table{
-            width:100%;
+        table {
+            width: 100%;
         }
 
-        .midH2{
-            margin-top : 10px;
+        .midH2 {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -61,18 +61,23 @@
 
                         <div class="container_wr" th:each="bookInfo : ${bookInfo}">
                             <form name="updatebook">
+                                <input type="hidden" class="bookId" th:value="${bookInfo.bookId}">
                                 <section id="book_cate">
-                                    <h3 class="h2_cate">상품 분류</h3><br/>
+                                    <h3 class="h2_cate">상품 분류</h3><br />
                                     <div class="tb1_frm01">
                                         <table>
                                             <caption hidden="hidden">책 카테고리 입력</caption>
                                             <tbody>
                                                 <tr>
-                                                    <div class="image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                                        <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg" style="height: 260px; width: 260px;">
+                                                    <div class="image-container"
+                                                        th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                        <img th:src="@{/images/temp/} + ${bookInfo.saveName}"
+                                                            alt="bookImg" style="height: 260px; width: 260px;">
                                                     </div>
-                                                    <div class="image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                                        <img th:src="@{/images/no_image_pink.png}" alt="bookImg" style="height: 260px; width: 260px;">
+                                                    <div class="image-container"
+                                                        th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                        <img th:src="@{/images/no_image_pink.png}" alt="bookImg"
+                                                            style="height: 260px; width: 260px;">
                                                     </div>
                                                 </tr>
                                                 <tr>
@@ -88,7 +93,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>
-                                                        <label >2차 분류</label>
+                                                        <label>2차 분류</label>
                                                     </th>
                                                     <td>
                                                         <select name="ca_id2">
@@ -99,7 +104,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>
-                                                        <label >3차 분류</label>
+                                                        <label>3차 분류</label>
                                                     </th>
                                                     <td>
                                                         <select name="ca_id3">
@@ -114,83 +119,84 @@
                                 </section>
 
                                 <section id="book_grid">
-                                    <h3 class="midH2">상품 정보</h3><br/>
+                                    <h3 class="midH2">상품 정보</h3><br />
                                     <div class="tb1_frm01">
                                         <table>
                                             <caption hidden="hidden">책 정보 입력</caption>
                                             <tbody>
-                                            <tr>
-                                                <th>
-                                                    <label>책 코드</label>
-                                                </th>
-                                                <td>
-                                                    <span>[[${bookInfo.bookCode}]]</span><br/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label >책 이름</label>
-                                                </th>
-                                                <td>
-                                                    <span>[[${bookInfo.bookName}]]</span><br/>
-                                                    <input type="text" name="book_name" id="book_name" >
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>작가</label>
-                                                </th>
-                                                <td>
-                                                    <span>[[${bookInfo.author}]]</span><br/>
-                                                    <input type="text" name="book_author" id="book_author">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>출판사</label>
-                                                </th>
-                                                <td>
-                                                    <span>[[${bookInfo.publisher}]]</span><br/>
-                                                    <input type="text" name="book_publisher" id="book_publisher">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>판매 가격</label>
-                                                </th>
-                                                <td>
-                                                    <span>책의 가격을 입력</span><br/>
-                                                    <input type="text" name="book_price" id="book_price">"원"
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>수량</label>
-                                                </th>
-                                                <td>
-                                                    <span>책의 수량을 입력</span><br/>
-                                                    <input type="text" name="book_stock" id="book_stock">"개"
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label>상품 설명</label>
-                                                </th>
-                                                <td>
-                                                    <span>책 설명을 입력해 주세요</span><br/>
-                                                    <textarea name="book_explan" id="book_explan"></textarea>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>책 코드</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>[[${bookInfo.bookCode}]]</span><br />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>책 이름</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>[[${bookInfo.bookName}]]</span><br />
+                                                        <input type="text" name="book_name" id="book_name">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>작가</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>[[${bookInfo.author}]]</span><br />
+                                                        <input type="text" name="book_author" id="book_author">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>출판사</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>[[${bookInfo.publisher}]]</span><br />
+                                                        <input type="text" name="book_publisher" id="book_publisher">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>판매 가격</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>책의 가격을 입력</span><br />
+                                                        <input type="text" name="book_price" id="book_price">"원"
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>수량</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>책의 수량을 입력</span><br />
+                                                        <input type="text" name="book_stock" id="book_stock">"개"
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>상품 설명</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>책 설명을 입력해 주세요</span><br />
+                                                        <textarea name="book_explan" id="book_explan"></textarea>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <th>
-                                                    <label>이미지 업로드</label>
-                                                </th>
-                                                <td>
-                                                    <span>책 이미지를 선택해주세요</span><br/>
-                                                    <button class="book-button" th:onclick="modal([[${bookInfo.bookId}]])">이미지수정</button>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <th>
+                                                        <label>이미지 업로드</label>
+                                                    </th>
+                                                    <td>
+                                                        <span>책 이미지를 선택해주세요</span><br />
+                                                        <button class="book-button"
+                                                            th:onclick="modal([[${bookInfo.bookId}]])">이미지수정</button>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -222,35 +228,39 @@
             </form>
         </div>
     </div>
-<script>
+    <script>
 
-    function modal(bookId){
-    document.querySelector("#upload").addEventListener("click",  function () {
-        let formData = new FormData();
-        formData.append("uploadFile", $(".uploadFile")[0].files[0]);
-        formData.append("bookId", bookId)
-        $.ajax({
-          type : "post",
-          url  : "/admin/inventoryUpdate/Img",
-          encType: "multipart/form-data",
-          data: formData,
-          processData: false,
-          contentType: false,
-          cache: false,
-          success: function(res){
-            if(res.msg == "success"){
-              alert("이미지가 수정 되었습니다.")
-              location.reload();
-            }
-          },
-          error:function(err){
-            location.reload();
-            console.log(err)
-          }
-        });
-    }
+        function modal(bookId) {
+            document.querySelector("#upload").addEventListener("click", function () {
+            alert("dtd");
+                let bookId = document.querySelector(".bookId").value;
+                console.log(bookId);
+                let formData = new FormData();
+                formData.append("uploadFile", $(".uploadFile")[0].files[0]);
+                formData.append("bookId", bookId)
+                $.ajax({
+                    type: "post",
+                    url: "/admin/inventoryUpdate/Img",
+                    encType: "multipart/form-data",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success: function (res) {
+                        if (res.msg == "success") {
+                            alert("이미지가 수정 되었습니다.")
+                            location.reload();
+                        }
+                    },
+                    error: function (err) {
+                        location.reload();
+                        console.log(err)
+                    }
+                });
+            });
+        }
 
-</script>
+    </script>
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
     <div th:unless="${session.adminChk != null}">
