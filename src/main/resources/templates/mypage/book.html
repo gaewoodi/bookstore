@@ -34,13 +34,13 @@
         <div class="serve-container">
             <!--main-container basis 1 -->
             <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
-
+            <p class="cart-total-count">[[${count}]]</p>
             <div class="third-container">
                 <!--main-container basis 2 -->
                 <div class="book-list">
                     <div class="title-container">
                         <h1>
-                            <input type="hidden" class="reg-id" th:value="${session.regId}">
+                            <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
                         <div class="button-container">

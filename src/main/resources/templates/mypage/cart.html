@@ -50,8 +50,8 @@
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
-                                <input type="hidden" th:value="${book.bookId}">
-                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
+                                <input type="hidden" class="bookId" th:value="${book.bookId}">
+                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${user.regId}">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.jpg}">
                                 </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="button-container">
                                     <button>주문하기</button>
-                                    <button class="cart-delete">삭제하기</button>
+                                    <button onclick="cartDelete()">삭제하기</button>
                                 </div>
                                 <input type="hidden" name="bookId" th:value="${book.bookId}">
 
@@ -105,5 +105,6 @@
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/checkBox.js}"></script>
+    <script src="/js/mypage/cart/cart_delete.js"></script>
 </body>
 </html>
