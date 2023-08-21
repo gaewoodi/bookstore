@@ -76,7 +76,7 @@ body{
     margin-bottom: 5px;
 }
 
-.id-input-group input, .passwd, .passwd2, .name, .birth, .input-group-one select {
+.id-input-group input, .passwd, .passwd2, .name, .birth, .email, .input-group-one select {
     margin-bottom: 5px;
     padding: 3px 10px;
     width: 100%;
@@ -141,22 +141,14 @@ body{
     margin: 0 5px 0 20px;
 }
 
+
 /* input-group-two */
 .input-group-two {
     width: 400px;
     padding: 0 18px;
 }
 
-.email-container {
-    margin-left: 3px;
-}
-
-.email-container .email p{
-    display: block; 
-    margin-bottom: 5px;
-}
-
-.input-group-two input,.input-group-two select {
+.postcode, .address, .address1, .telephone, .input-group-two select {
     margin-bottom: 10px;
     padding: 3px 10px;
     height: 40px;
@@ -204,6 +196,42 @@ body{
 .telephone-container span {
     font-size: 13px;
     font-style: italic;
+}
+
+.membership-container {
+    display: flex;
+    align-items: center;
+}
+
+.grade {
+    margin-left: 10px;
+    padding: 3px 10px;
+    width: 80px;
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.level-container {
+    display: none;
+    align-items: center;
+}
+
+.level {
+    margin-left: 10px;
+    padding: 3px 10px;
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    text-align: center;
+}
+
+.level-container p {
+    margin-left: 10px;
 }
 
 .input-group-two .btn {

@@ -85,27 +85,39 @@
                                         <input type="radio" name="gender" class="userGender" value="W" onclick="return(false);"> 여자
                                     </div>                  
                                 </div>
-                            </div>
-                            <div class="input-group-two">
                                 <div class="email-container">
-                                    <p>이메일 주소</p>
+                                    <p>이메일</p>
                                     <input type="email" name="email" class="email" th:value="${user.email}" readonly>
                                 </div>
+                            </div>
+                            <div class="input-group-two">
                                 <div class="address-container">
-                                    <p>
-                                        <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" th:value="${user.postcode}" readonly>
-                                        <p></p>
-                                        <input type="text" name="address" id="address" class="address" placeholder="도로명주소" th:value="${user.address}" readonly>
-                                        <p></p>
-                                        <input type="text" name="address1" id="address1" class="address1" placeholder="상세주소" th:value="${user.address1}" readonly>
-                                        <p></p>
-                                    </p>
+                                    <p>주소</p>
+                                    <input type="text" name="postcode" id="postcode" class="postcode" placeholder="우편번호" th:value="${user.postcode}" readonly>
+                                    <p></p>
+                                    <input type="text" name="address" id="address" class="address" placeholder="도로명주소" th:value="${user.address}" readonly>
+                                    <p></p>
+                                    <input type="text" name="address1" id="address1" class="address1" placeholder="상세주소" th:value="${user.address1}" readonly>
+                                    <p></p>
                                 </div>
                                 <div class="telephone-container">
                                     <p>휴대전화</p>
                                     <div>
                                         <input type="tel" name="tel" class="telephone" th:value="${user.tel}" placeholder="전화번호 입력" readonly>
                                     </div>
+                                </div>
+                                <div class="membership-container">
+                                    <p>등급</p>
+                                    <div>
+                                        <input type="text" name="grade" class="grade" th:value="${user.grade}" readonly>
+                                    </div>
+                                    <div class="level-container">
+                                        <p>레벨</p>
+                                        <div>
+                                            <input type="text" name="level" class="level" th:value="${user.level}" readonly>
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                                 <div >
                                     <a th:href="@{/mypage/update?(regId=${user.regId})}" class="button-container">
