@@ -32,9 +32,6 @@ public class BookController {
     @Autowired
     private LikeMapper likeMapper;
 
-    @Autowired
-    private MypageMapper mypageMapper;
-
     //도서전체
     @GetMapping("")
     public String getBookList(Model model, @RequestParam(defaultValue = "1", value="page") int page) {

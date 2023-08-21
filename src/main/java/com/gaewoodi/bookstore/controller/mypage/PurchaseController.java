@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
@@ -28,8 +29,12 @@ public class PurchaseController {
     @Autowired
     private MypageMapper mypageMapper;
 
+    @Autowired
+    private CartMapper cartMapper;
+
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
+        model.addAttribute("count", cartMapper.getCartCount(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 

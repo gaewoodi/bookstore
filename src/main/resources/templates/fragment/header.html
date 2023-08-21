@@ -41,6 +41,12 @@
                         </li>
                         <li th:if="${session.id != null}">
                             <a th:href="@{/cart?(regId=${session.regId})}">
+                                <p class="cart-total-count">[[${count}]]</p>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </li>
+                        <li th:unless="${session.id != null}">
+                            <a th:href="@{/cart?(regId=${session.regId})}">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>

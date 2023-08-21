@@ -24,6 +24,7 @@ public class CartController {
 
     @GetMapping("")
     public String getCart(Model model, @RequestParam int regId) {
+        model.addAttribute("count", cartMapper.getCartCount(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", cartMapper.getCartBookList(regId));
 
@@ -61,10 +62,17 @@ public class CartController {
     }
 
     @DeleteMapping("/delete")
-    public String cartDelete(@ModelAttribute CartDto cartDto) {
-        cartMapper.deleteCart(cartDto.getRegId());
+    @ResponseBody
+    public Map<String, Object> cartDelete(@ModelAttribute CartDto cartDto,
+                                          @RequestParam(value = "checkboxResult") String result,
+                                          @RequestParam(value = "bookIdValue") String bookId) {
+        Map<String, Object> map = new HashMap<>();
 
-        return "redirect:/cart?regId=" + cartDto.getRegId();
+        cartMapper.deleteCart(Integer.parseInt(result));
+
+        map.put("msg", "success");
+
+        return map;
     }
 
 }

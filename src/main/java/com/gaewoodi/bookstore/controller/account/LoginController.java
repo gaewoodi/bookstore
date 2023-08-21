@@ -50,6 +50,9 @@ public class LoginController {
             }else if (r.getLevel() == 1 && r != null) {
 
                 hs.setAttribute("adminChk", r);
+                hs.setAttribute("regId", r.getRegId());
+                hs.setAttribute("id", r.getId());
+                hs.setAttribute("passwd", r.getPasswd());
                 hs.setMaxInactiveInterval(60 * 30);
 
                 map.put("msg", "normal");

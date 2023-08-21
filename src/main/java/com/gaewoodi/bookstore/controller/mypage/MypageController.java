@@ -2,6 +2,7 @@ package com.gaewoodi.bookstore.controller.mypage;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.UserImageDto;
+import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,8 +29,12 @@ public class MypageController {
     @Autowired
     private MypageMapper mypageMapper;
 
+    @Autowired
+    private CartMapper cartMapper;
+
     @GetMapping("")
     public String getMypage(Model model, @ModelAttribute UserImageDto userImageDto) {
+        model.addAttribute("count", cartMapper.getCartCount(userImageDto.getRegId()));
         model.addAttribute("user", mypageMapper.getMypageId(userImageDto.getRegId()));
 
         return "mypage/mypage";
@@ -38,6 +43,7 @@ public class MypageController {
 
     @GetMapping("/update")
     public String getserEdit(Model model, @RequestParam int regId) {
+        model.addAttribute("count", cartMapper.getCartCount(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         return "mypage/user_edit";
     }
