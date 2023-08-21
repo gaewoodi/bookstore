@@ -6,7 +6,7 @@ CREATE table purchase_mst (
     reg_id int, -- register id
     purchase_date datetime, -- 주문일자
     price int, -- 주문금액
-    quantity int, -- 주문수량
+    quantity int default 0, -- 주문수량
     total_price int default 0, -- 주문 총 금액
     purchase_status varchar(45), -- 주문상태 : 구매/주문취소
     payment_end_date datetime,

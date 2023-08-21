@@ -10,15 +10,17 @@ function checkboxPurchase() {
         result += el.value + ' ';
     });
 
-    console.log("result: " + result);
-
     $("input[name='check']:checked").each(function(i) {
         // 체크된 것만 값을 뽑아서 배열에 push
         checkArray.push($(this).val());     
     });
 
     let regIdValue = document.querySelector(".reg-id").value;
-    console.log("regIdValue: " + regIdValue);
+    let bookName = document.querySelector(".bookName").innerText;
+    let price = document.querySelector(".price").innerText;
+
+    console.log("bookName: "+ bookName);
+    console.log("price: "+ price);
 
     $.ajax({
         url: "/purchase", 
@@ -26,7 +28,9 @@ function checkboxPurchase() {
         dataType: "json", 
         data: {
             checkboxResult: result,
-            regIdValue: regIdValue
+            regIdValue: regIdValue,
+            bookName: bookName,
+            price: price
         },
         success: function(res) {
             if(res.msg == "success") {
