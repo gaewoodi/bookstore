@@ -15,7 +15,7 @@ public interface AccountMapper {
     List<RegisterDto> getMemberAll();
 
 
-    @Select("UPDATE user_image FROM save_name, origin_name, image_size WHERE reg_id = #{regId}")
+    @Select("UPDATE user_image SET save_name = NULL, origin_name = NULL, image_size= NULL WHERE reg_id = #{regId}")
     RegisterDto getImageName(int regId);
 
 
