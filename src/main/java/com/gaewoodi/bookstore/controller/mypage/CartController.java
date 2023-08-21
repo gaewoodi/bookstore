@@ -1,7 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 
-import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -14,6 +13,7 @@ import java.util.*;
 
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
@@ -22,25 +22,7 @@ public class CartController {
     @Autowired
     private MypageMapper mypageMapper;
 
-
-//    @GetMapping("/cart")
-//    public String getCart(Model model) {
-//        model.addAttribute("book", cartMapper.getCartBookList());
-////        model.addAttribute("cart", selectServices.getCartBookList())
-//
-//        //cart 테이블에 저장된 자료를 select로 읽어 와서 cart.html에 표시하기
-//
-//        return "mypage/cart";
-//    }
-
-//    @GetMapping("/cart")
-//    @ResponseBody
-//    public String getCart() {
-//
-//        return "mypage/cart";
-//    }
-
-    @GetMapping("/cart")
+    @GetMapping("")
     public String getCart(Model model, @RequestParam int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", cartMapper.getCartBookList(regId));
@@ -48,7 +30,7 @@ public class CartController {
         return "mypage/cart";
     }
 
-    @PostMapping("/cart")
+    @PostMapping("")
     @ResponseBody
     public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result,
                                          @RequestParam(value = "regIdValue") int regId,
@@ -58,6 +40,7 @@ public class CartController {
         cartDto.setRegId(regId);
 
         String[] splitResult = result.toString().split(" ");
+        System.out.println(splitResult.length);
 
         for(int i = 0; i < splitResult.length; i++) {
             if(i == 0) {
@@ -77,60 +60,11 @@ public class CartController {
         return map;
     }
 
+    @DeleteMapping("/delete")
+    public String cartDelete(@ModelAttribute CartDto cartDto) {
+        cartMapper.deleteCart(cartDto.getRegId());
 
-
-//    @PostMapping("/cart")
-//    @ResponseBody
-//    public String setMypage(@RequestParam(value = "checkboxResult") String result) {
-//
-//        System.out.println("result 값: " + result);
-//        String searchQuery = "";
-//
-//        String checkResult = "";
-//        String orCheckResult = "";
-//
-//        String[] splitResult = result.toString().split(" ");
-//
-//        for(int i = 0; i < splitResult.length -2; i++) {
-//
-////            checkResult = "OR bookId = " + "'" + splitResult[i] + "'";
-//            checkResult = "'" + splitResult[i] + "'";
-//
-//
-////            System.out.println("checkResult: " + checkResult);
-//
-//            for(int j = 1; j < splitResult.length; j++) {
-//                orCheckResult = " OR book_id = " + "'" + splitResult[j] + "'";
-////                map.put("orCheckResult", orCheckResult);
-//
-////                System.out.println("orCheckResult: " + orCheckResult);
-//
-//                    searchQuery = checkResult + orCheckResult;
-//                    System.out.println("checkResult: " + checkResult);
-//                    System.out.println("orCheckResult: " + orCheckResult);
-//                    System.out.println("------------------------");
-//                    System.out.println(searchQuery);
-//
-////                    map.put("searchQuery", searchQuery);
-//
-//                    cartMapper.getCartBookList(checkResult);
-//
-//            }
-//
-//        }
-//
-//
-//
-//
-//        return "mypage/cart";
-//    }
-//    @GetMapping("/test")
-//    public String getTest(Model model) {
-//
-//        return "mypage/test";
-//    }
-
-
-
+        return "redirect:/cart?regId=" + cartDto.getRegId();
+    }
 
 }

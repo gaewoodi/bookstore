@@ -1,8 +1,6 @@
 function checkboxPurchase() {
     let checkArray = [];     // 배열 초기화
     let result = '';
-    let nameResult = '';
-    let priceResult = '';
 
     const query = 'input[name="check"]:checked';
     const selectedElements = document.querySelectorAll(query);
@@ -12,7 +10,6 @@ function checkboxPurchase() {
         result += el.value + ' ';
     });
 
-   
     $("input[name='check']:checked").each(function(i) {
         // 체크된 것만 값을 뽑아서 배열에 push
         checkArray.push($(this).val());     
@@ -21,7 +18,7 @@ function checkboxPurchase() {
     let regIdValue = document.querySelector(".reg-id").value;
 
     $.ajax({
-        url: "/purchase", 
+        url: "/purchase/save", 
         type: "post", 
         dataType: "json", 
         data: {

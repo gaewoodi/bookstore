@@ -39,6 +39,22 @@ public class PurchaseController {
     @PostMapping("")
     @ResponseBody
     public Map<String, Object> setPurchase(@RequestParam(value = "checkboxResult") String result,
+                              @RequestParam(value = "regIdValue") String regId,
+                              @RequestParam(value = "checkArray") String checkArray) {
+        Map<String, Object> map = new HashMap<>();
+
+        System.out.println("result: "+ result);
+        System.out.println("regId: "+ regId);
+        System.out.println("checkArray: "+ checkArray);
+
+        map.put("msg", "success");
+
+        return map;
+    }
+
+    @PostMapping("/save")
+    @ResponseBody
+    public Map<String, Object> savePurchase(@RequestParam(value = "checkboxResult") String result,
                                          @RequestParam(value = "regIdValue") int regId,
                                          @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();
@@ -48,6 +64,7 @@ public class PurchaseController {
         purchaseDto.setRegId(regId);
 
         String[] splitResult = result.toString().split(" ");
+
 
         for(int i = 0; i < splitResult.length; i++) {
             if(i == 0) {
@@ -59,13 +76,18 @@ public class PurchaseController {
             }
             purchaseMapper.savePurchase(purchaseDto);
 
+
             map.put("data" + i, purchaseMapper.getPurchaseBook(Integer.parseInt(splitResult[i])));
         }
+
+//        purchaseMapper.updatePurchase(purchaseDto);
 
         map.put("msg", "success");
 
         return map;
     }
+
+
 
     @PostMapping("/kakaopay")
     @ResponseBody

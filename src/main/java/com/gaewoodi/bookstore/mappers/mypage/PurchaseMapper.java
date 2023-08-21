@@ -5,6 +5,7 @@ import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -18,4 +19,7 @@ public interface PurchaseMapper {
 
     @Select("SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = #{regId}")
     List<BookDto> getPurchaseBook(int regId);
+
+    @Update("UPDATE purchase_mst SET price = #{price}")
+    void updatePurchase(PurchaseDto purchaseDto);
 }
