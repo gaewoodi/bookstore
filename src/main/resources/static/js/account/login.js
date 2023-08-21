@@ -31,7 +31,7 @@
 
                         }else if(res.msg == "normal") {
                             alert("일반회원 로그인 되었습니다.");
-                            location.href = "/main";
+                            location.href = "/book";
                         }else {
                             alert("아이디 또는 비밀번호를 잘못 입력했습니다.\n 입력하신 내용을 다시 확인해주세요.");
                             location.href = "/login";
