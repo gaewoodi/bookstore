@@ -40,7 +40,7 @@ public class PurchaseController {
     @ResponseBody
     public Map<String, Object> setPurchase(@RequestParam(value = "checkboxResult") String result,
                                          @RequestParam(value = "regIdValue") int regId,
-                                         @RequestParam(value = "bookName") int bookName,
+                                         @RequestParam(value = "bookName") String bookName,
                                          @RequestParam(value = "price") int price,
                                          @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();

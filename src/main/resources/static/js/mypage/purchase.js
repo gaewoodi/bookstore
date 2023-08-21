@@ -1,13 +1,27 @@
 function checkboxPurchase() {
     let checkArray = [];     // 배열 초기화
     let result = '';
+    let nameResult = '';
+    let priceResult = '';
 
     const query = 'input[name="check"]:checked';
+    const nameQuery = 'input[name="book-name"]:checked';
+    const priceQuery = 'input[name="book-price"]:checked';
     const selectedElements = document.querySelectorAll(query);
+    const nameQueryAll = document.querySelectorAll(nameQuery);
+    const priceQueryAll = document.querySelectorAll(priceQuery);
 
 
     selectedElements.forEach((el) => {
         result += el.value + ' ';
+    });
+
+    nameQueryAll.forEach((el) => {
+        nameResult += el.value + ' ';
+    });
+
+    priceQueryAll.forEach((el) => {
+        priceResult += el.value + ' ';
     });
 
     $("input[name='check']:checked").each(function(i) {
@@ -16,11 +30,9 @@ function checkboxPurchase() {
     });
 
     let regIdValue = document.querySelector(".reg-id").value;
-    let bookName = document.querySelector(".bookName").innerText;
-    let price = document.querySelector(".price").innerText;
 
-    console.log("bookName: "+ bookName);
-    console.log("price: "+ price);
+    console.log("nameResult: "+ nameResult);
+    console.log("priceResult: "+ priceResult);
 
     $.ajax({
         url: "/purchase", 
@@ -29,8 +41,8 @@ function checkboxPurchase() {
         data: {
             checkboxResult: result,
             regIdValue: regIdValue,
-            bookName: bookName,
-            price: price
+            bookName: nameResult,
+            price: priceResult
         },
         success: function(res) {
             if(res.msg == "success") {

@@ -22,7 +22,7 @@ INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), '35000', '1', '35000', 'ê
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = '1';
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = #{bookId}
 
-SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = '4';
+SEL7ECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = '4';
 SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = #{regId}
 
 SELECT
