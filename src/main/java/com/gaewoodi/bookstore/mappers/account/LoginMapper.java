@@ -15,4 +15,7 @@ public interface LoginMapper {
 
     @Select("SELECT * FROM register WHERE id = #{id}")
     RegisterDto getPwChk(RegisterDto registerDto);
+
+    @Select("SELECT * FROM register WHERE id = #{id} AND passwd = #{passwd}")
+    RegisterDto loginChk(RegisterDto registerDto);
 }

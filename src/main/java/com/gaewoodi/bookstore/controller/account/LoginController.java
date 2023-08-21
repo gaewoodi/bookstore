@@ -33,25 +33,36 @@ public class LoginController {
         System.out.println(loginMapper.getBookInfo(registerDto));
         RegisterDto r = loginMapper.getBookInfo(registerDto);
 
+
         HttpSession hs = req.getSession();
 
-        if(r.getLevel() > 1 && r != null) {
+        if (loginMapper.loginChk(registerDto) != null) {
+//            map.put("loginCheck", "log");
+            System.out.println(r.getLevel());
 
-            hs.setAttribute("adminChk", r);
-            hs.setMaxInactiveInterval(60 * 30);
+            if (r.getLevel() > 1 && r != null) {
 
-            map.put("msg", "confirm");
+                hs.setAttribute("adminChk", r);
+                hs.setMaxInactiveInterval(60 * 30);
 
-        }else{
-            hs.setAttribute("regId", r.getRegId());
-            hs.setAttribute("id", r.getId());
-            hs.setAttribute("passwd", r.getPasswd());
+                map.put("msg", "admin");
 
-            map.put("msg", "consumer login");
+            }else if (r.getLevel() == 1 && r != null) {
+
+                hs.setAttribute("adminChk", r);
+                hs.setMaxInactiveInterval(60 * 30);
+
+                map.put("msg", "normal");
+
+            } else {
+                hs.setAttribute("regId", r.getRegId());
+                hs.setAttribute("id", r.getId());
+                hs.setAttribute("passwd", r.getPasswd());
+
+                map.put("msg", "guest");
+            }
         }
-
         return map;
-
     }
 
     @GetMapping("/logout")
@@ -60,3 +71,4 @@ public class LoginController {
         return "redirect:/main";
     }
 }
+
