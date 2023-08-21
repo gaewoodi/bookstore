@@ -67,8 +67,8 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
-                            <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+                        <img src="/images/main/book/스콘.jpg">
+                        <h1><a th:href="@{/view?(bookCode = ${main.bookCode})}"><strong>≪ [[${main.bookName}]] ≫</strong></a></h1>
                     </div>
                 </div> 
                 <div class="main2">
@@ -76,7 +76,8 @@
                         <div class="owl-carousel owl-theme" >
                             <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a href="#">
-                                    <img th:src="@{/images/main/slide/} + ${slide.bookImg}" th:alt="@{slide.bookName}">
+                                    <img th:src="@{/images/main/slide} + ${}" th:alt="@{[[${slide.bookName}]]}">
+                                    <img th:src="@{/images/mypage/user_image/} + ${user.saveName}" alt="profile">
                                 </a>
                                 <div class="main2-text">
                                     <a href="#"><h1>[[${slide.bookName}]]</h1></a>
@@ -96,35 +97,35 @@
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
                                         <h4>| GAWOOD <strong>Choice</strong>!</h4>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+                                        <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi1.jpg"></a>
                                     </div>
                                     <div class="recommand-book">
                                         <div class="recommand-book1">
-                                            <a href="#"><h2>[[${mz.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${mz.bookSubname}]]</p></a>
+                                            <a href="#"><h2>밀레니얼 세대가 <br/>돈 버는법!</h2><br/></a>
+                                            <a href="#"><p>프리랜서 5년 차가 알려주는  <br/>‘내 일 찾기’ 프로젝트</p></a>
                                         </div>
                                         
                                         <div class="recommand-book2">
-                                            <a href="#"><h2>[[${gawoody.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${gawoody.bookSubname}]]</p></a>
+                                            <a href="#"><h2>요즘 부부를 위한 <br/>신디의 관계수업</h2><br/></a>
+                                            <a href="#"><p>서로 다른 너와 나를 위한 <br/>9가지 결혼 심리학</p></a>
                                         </div>
                                     </div>
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
                                         <a href="#"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+                                        <a href="#"><img src="/images/main/main-recommand/recommand-gawoodi2.jpg"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
                                 <div class="recommand-subject">
                                     <h4>| Trend<strong> Issue</strong>? |</h4>
-                                    <a href="#"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+                                    <a href="#"><img src="/images/main/main-recommand/Trend.jpg"></a>
                                     <br/>
                                     <div class="recommand-text">
-                                        <a href="#"><p> [[${trend.bookSubname}]] </p></a></a>
-                                        <a href="#"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
+                                        <a href="#"><p>지금 플랫폼기업에 올라탈때! </p></a></a>
+                                        <a href="#"><h4>≪ 카카오 네이버, 지금 사도 될까요? ≫</h4></a>
                                     </div>
                                 </div>
                             </div>
@@ -135,10 +136,10 @@
                                 <div class="choice-wrap">
                                     <h1>출판사 <strong>추천!</strong></h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
+                                        <a href="#"><img src="/images/main/main-recommand/choice.jpg" alt=""></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${publisher.bookName}]]</h4></a>
-                                            <a href="#"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
+                                            <a href="#"><h4>나에게 고맙다</h4></a>
+                                            <a href="#"><p class="p"><strong>전승환의 인생내공</strong></p></a>
                                             <a href="#"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
                                         </div>
                                     </div>
@@ -148,22 +149,26 @@
                                 <div class="media-wrap">
                                     <h1>미디어 <strong>추천!</strong></h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
+                                        <a href="#"><img src="/images/main/main-recommand/media.jpg" alt=""></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${media.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${media.bookSubname}]]</p></a>
+                                            <a href="#"><h4>대통령의 <br/>염장이</h4></a>
+                                            <a href="#"><p class="p"><strong>노무현·김영삼·이건희
+                                                장례지도사가 들려주는 죽음과 삶의 이야기</strong></p></a>
+                                            <a href=""><p>장례명장이 어루만진 삶의 끝과 시작</p></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <h1><strong>이 책&nbsp</strong>어때?</h1>
+                                    <h1><strong>이 책</strong>어때?</h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
+                                        <a href="#"><img src="/images/main/main-recommand/thisbook.jpg" alt=""></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${thisbook.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${thisbook.bookSubname}]]</p></a>
+                                            <a href="#"><h4>꽃잎 한 장처럼</h4></a>
+                                            <a href="#"><p class="p"><strong>오늘을 살아가는 <br/>당신을 위한 이해인 수녀의 시 편지</strong></p></a>
+                                            <a href="#"><p>살아갈수록 나에겐 <br/>사람들이
+                                                어여쁘게 <br/>사랑으로 걸어오네</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -465,7 +470,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
 
                                 <!-- 과학 -->
                                 <div id="tab-6" class="tab-content">
