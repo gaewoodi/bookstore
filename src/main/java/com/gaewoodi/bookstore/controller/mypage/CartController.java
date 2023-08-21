@@ -1,6 +1,7 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
 
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -40,37 +41,42 @@ public class CartController {
 //    }
 
     @GetMapping("/cart")
-    public String getCart(Model model, @RequestParam int bookId, @RequestParam int regId) {
+    public String getCart(Model model, @RequestParam int regId) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
-        model.addAttribute("book", cartMapper.getCartBookList(bookId));
+        model.addAttribute("book", cartMapper.getCartBookList(regId));
 
         return "mypage/cart";
     }
 
-    @PostMapping("/cart/save")
+    @PostMapping("/cart")
     @ResponseBody
-    public Map<String, Object> setMypage(@ModelAttribute CartDto cartDto,
-                                         @RequestParam(value = "checkboxResult") String result) {
-
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result,
+                                         @RequestParam(value = "regIdValue") int regId,
+                                         @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        String[] splitResult = result.split(" ");
+        cartDto.setRegId(regId);
+
+        String[] splitResult = result.toString().split(" ");
 
         for(int i = 0; i < splitResult.length; i++) {
-            System.out.println("splitResult: " + splitResult[i]);
-            System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+            if(i == 0) {
+                cartDto.setBookId(Integer.parseInt(splitResult[0]));
+            } else if(i == 1) {
+                cartDto.setBookId(Integer.parseInt(splitResult[1]));
+            } else if(i == 2) {
+                cartDto.setBookId(Integer.parseInt(splitResult[2]));
+            }
+            cartMapper.saveCart(cartDto);
+
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
-
-
-        System.out.println(map);
-
-        cartMapper.saveCart(cartDto);
 
         map.put("msg", "success");
 
         return map;
     }
+
 
 
 //    @PostMapping("/cart")

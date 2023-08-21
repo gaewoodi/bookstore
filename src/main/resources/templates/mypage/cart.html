@@ -23,6 +23,10 @@
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/cart.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/fragment/header.css">
+    <link rel="stylesheet" href="/static/css/fragment/footer.css">
+    <link rel="stylesheet" href="/static/css/mypage/cart.css"> -->
 </head>
 
 <body>
@@ -33,7 +37,7 @@
         <main class="main-container">
             <div class="serve-container">
                 <!--main-container basis 1 -->
-                <!-- <div th:insert="~{mypage/fragment/mypage_menu::mypageMenu}" class="menu-container"></div> -->
+                <div th:insert="~{mypage/fragment/mypage_menu::mypageMenu}" class="menu-container"></div>
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
@@ -42,11 +46,11 @@
                     </h1>
                     <hr>
 
+
                     <div class="third-container">
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
                                 <input type="hidden" th:value="${book.bookId}">
-                                <input type="text" name="checkValue">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.jpg}">
@@ -99,7 +103,7 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
-    <!-- <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script> -->
+    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/checkBox.js}"></script>
 </body>
 </html>
