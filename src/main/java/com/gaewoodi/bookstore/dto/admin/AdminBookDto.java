@@ -10,8 +10,10 @@ public class AdminBookDto {
     private int bookId;
     private String bookCode;
     private String bookName;
+
     // 재고수
     private String bookStock;
+
     private String author;
     private String publisher;
     private Year publicationDate;
