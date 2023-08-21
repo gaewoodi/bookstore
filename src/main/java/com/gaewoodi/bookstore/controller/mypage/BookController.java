@@ -60,11 +60,8 @@ public class BookController {
     public Map<String, Object> getLike(@ModelAttribute LikeDto likeDto) {
         likeMapper.addLike(likeDto);
         Map<String, Object> map = new HashMap<>();
-
         map.put("msg", "success");
-
         return map;
-
     }
 
 

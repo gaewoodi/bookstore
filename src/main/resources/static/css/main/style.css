@@ -267,7 +267,7 @@ body {
     padding-left:50px;
 }
 
-.main1-wrap img {
+.main1-wrap a img {
     width: 30px;
     height: 36px;
     margin-right : 10px;
@@ -282,11 +282,11 @@ body {
 
 }
 
-.main1-wrap h1 a {
+.main1-wrap a {
     color: #fff;
 }
 
-.main1-wrap h1 a:hover {
+.main1-wrap a:hover {
     color : rgb(238, 238, 238);
 }
 
@@ -333,6 +333,16 @@ body {
 .main2-text a p {
     margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+
 .main3 {
     height: 10%;
 
@@ -412,15 +422,12 @@ body {
 
 
 .recommand-book1 h2 {
+    width: 190px;
     line-height: 30px;
     text-align: left;
     color:#1640A2
 }
 
-
-.recommand-book1 p {
-    text-align: left;
-}
 
 
 
@@ -435,14 +442,17 @@ body {
     padding: 10px;
 }
 
+
 .recommand-book2 h2 {
     line-height: 30px;
-    text-align: right;
     color: rgb(239, 84, 77);
+    text-align: right;
 }
 
 .recommand-book2 p {
+    width: 150px;
     text-align: right;
+    margin-left: 78px;
 }
 
 
@@ -463,6 +473,11 @@ body {
 
 .trend .recommand-subject > a {
     display: flex;
+}
+
+
+.recommand-subject h4 {
+    text-align: center;
 }
 
 .trend .recommand-subject span {
@@ -530,10 +545,11 @@ body {
 
 
 .border .r2-text {
-    margin-top: 70px;
+    margin-top: 60px;
     margin-left: 30px;
 }
 .border .r2-text h4{
+    width:170px;
     font-size: 25px;
     margin-bottom: 15px;
     letter-spacing: -1px;
@@ -546,10 +562,6 @@ body {
 .border .r2-text a .p {
     margin: 30px 0;
 }
-
-
-
-
 
 
 .choice {
@@ -578,10 +590,12 @@ body {
 }
 
 .media-wrap .r2-text {
-    margin-top: 8px;
+    margin-top: 60px;
+    margin-left: 30px;
 }
 
-.media-wrap .r2-text a p {
+.media-wrap .r2-text a .p {
+    margin: 30px 0;
     font-size: 15px;
 }
 
@@ -593,9 +607,14 @@ body {
 }
 
 .thisbook-wrap .r2-text  {
-    margin-top: 10px;
+    margin-top: 60px;
+    margin-left: 30px;
 }
 
+.thisbook-wrap .r2-text a .p {
+    margin: 30px 0;
+    font-size: 15px;
+}
 
 
 
