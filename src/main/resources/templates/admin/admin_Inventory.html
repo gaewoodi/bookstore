@@ -51,14 +51,14 @@
                         <button>판매순위</button>
                     </div>
                     <table id="inventory">
-                         <thead>
+                        <thead>
                             <tr>
                                 <th>도서코드</th>
                                 <th>도서명</th>
-                                <th>창고재고</th>  <!--책 수량-->
+                                <th>창고재고</th> <!--책 수량-->
                                 <th>주문대기</th> <!-- 주문대기 -->
                                 <th>가 재고량</th> <!--창고재고 - 결제-->
-                                <th>재고수정</th> 
+                                <th>재고수정</th>
                                 <th>통보수량</th> <!--상품 페이지에 나오는 남은 재고-->
                                 <th>판매상황</th> <!--판매,품절,재입고-->
                                 <th>관리</th>
@@ -66,19 +66,19 @@
                         </thead>
                         <tbody th:each="info : ${bookInfo}">
                             <tr>
-                               <td>[[${info.bookCode}]]</td>
-                               <td>[[${info.bookName}]]</td>
-                               <td>[[${info.bookStock}]]</td>
-                               <td>[[${info.bookStock}]]</td>
-                               <td>[[${info.bookStock}]]</td>
-                               <td><input type="number" class="amount"></td>
-                               <td><input type="number" class="amount"></td>
-                               <td><select>판매중</select></td>
-                               <td>
-                                   <a th:href="@{/admin/inventoryUpdate?(bookId=${info.bookId})}">
-                                       <button class="btnIv">상품수정</button>
-                                   </a>
-                               </td>
+                                <td>[[${info.bookCode}]]</td>
+                                <td>[[${info.bookName}]]</td>
+                                <td>[[${info.bookStock}]]</td>
+                                <td>[[${info.bookStock}]]</td>
+                                <td>[[${info.bookStock}]]</td>
+                                <td><input type="number" class="amount"></td>
+                                <td><input type="number" class="amount"></td>
+                                <td><select>판매중</select></td>
+                                <td>
+                                    <a th:href="@{/admin/inventoryUpdate?(bookId=${info.bookId})}">
+                                        <button class="btnIv">상품수정</button>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -93,11 +93,11 @@
 
 
                         <a th:href="@{/admin/inventory?(page=${i})}"
-                           th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
+                            th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
                             <button>[[${i}]]</button>
                         </a>
                         <a th:href="@{/admin/inventory?(page=${pagination.page + 1})}"
-                           th:if="${pagination.page < pagination.totalPage}">
+                            th:if="${pagination.page < pagination.totalPage}">
                             <button>이후</button>
                         </a>
                         <a th:unless="${pagination.page < pagination.totalPage}">
@@ -113,8 +113,8 @@
     <!--  로그인 체크 -->
     <div th:unless="${session.adminChk != null}">
         <script>
-      location.href = "/login";
-    </script>
+            location.href = "/login";
+        </script>
     </div>
 </body>
 

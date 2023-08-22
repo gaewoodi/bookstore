@@ -5,10 +5,6 @@
   height: 100%;
 }
 
-.img_del {
-  cursor: pointer;
-}
-
 table tr {
   border-bottom: 1px solid #888;
 }
@@ -22,15 +18,11 @@ table tr:nth-child(1) {
 }
 
 .btn-wrap {
-  margin: 3px;
+
   text-align: right;
   margin-top: 10px;
-
 }
 
-.btn01,
-.btn02,
-.btn03 {
+.btn-wrap a {
   margin: 3px;
-  cursor: pointer;
 }

@@ -21,6 +21,7 @@ public class AccountPagingSrv {
         PagingDto pDto = new PagingDto();
 
         int totalPage = (int) Math.ceil(((double) totalCount / pDto.getPageCount()));
+
         int startPage = (((int) Math.ceil((double) page / pDto.getBlockCount())) - 1)  * pDto.getBlockCount() + 1;
 
         int endPage = startPage + pDto.getBlockCount() - 1;
