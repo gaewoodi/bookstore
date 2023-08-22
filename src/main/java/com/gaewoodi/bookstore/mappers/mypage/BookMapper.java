@@ -43,4 +43,8 @@ public interface BookMapper {
     @Select("SELECT * FROM book_mst WHERE category = #{category}")
     List<BookDto> getCategory(String category);
 
+    //재고수
+    @Select("SELECT book_stock FROM book_mst WHERE book_id = #{bookId}")
+    int getBookStock(int bookId);
+
 }

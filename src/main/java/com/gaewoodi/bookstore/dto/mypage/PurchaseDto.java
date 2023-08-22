@@ -24,5 +24,13 @@ public class PurchaseDto {
     private String purchaseStatus;
     // 결제 완료일
     private LocalDateTime paymentEndDate;
+    //book_mst 재고수
+    private String bookStock;
+    // -주문수량
+    private int minusQuantity;
+    // +주문수량
+    private int plusQuantity;
+
+
 
 }

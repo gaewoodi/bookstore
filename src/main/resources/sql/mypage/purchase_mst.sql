@@ -6,7 +6,7 @@ CREATE table purchase_mst (
     reg_id int, -- register id
     purchase_date datetime, -- 주문일자
     price int, -- 주문금액
-    quantity int default 0, -- 주문수량
+    quantity int default 1, -- 주문수량
     total_price int default 0, -- 주문 총 금액
     purchase_status varchar(45), -- 주문상태 : 구매/주문취소
     payment_end_date datetime,
@@ -22,7 +22,7 @@ INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), '35000', '1', '35000', '�
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = '1';
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = #{bookId}
 
-SEL7ECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = '4';
+SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = '4';
 SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = #{regId}
 
 SELECT
@@ -34,6 +34,21 @@ FROM
     LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id)
 WHERE
     bm.book_id = pm.book_id AND pm.reg_id = #{regId}
+
+----------------------------------------
+select book_stock from book_mst WHERE book_id = '29';
+
+SELECT
+    bm.book_name AS bmBookName,
+    pm.*
+FROM
+    book_mst bm
+    LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id)
+WHERE
+    pm.reg_id = #{regId}
+
+SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = '1';
+
 
 
 
