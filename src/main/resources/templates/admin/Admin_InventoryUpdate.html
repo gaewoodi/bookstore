@@ -206,6 +206,24 @@
                                     </div>
                                 </section>
                             </form>
+                            <!-- IMAGE UPLOAD(MODAL) -->
+                            <div id="modal">
+                                <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
+                                <div class="modal-box">
+                                    <form class="file-container">
+                                        <div class="view-image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                            <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
+                                        </div>
+                                        <div class="view-image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                            <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg">
+                                        </div>
+                                        <input type="file" name="uploadFile" class="uploadFile">
+                                        <div class="file-button">
+                                            <button type="button" id="upload">저장하기</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,29 +232,14 @@
         </main>
     </div>
 
-    <!-- IMAGE UPLOAD(MODAL) -->
-    <div id="modal">
-        <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
-        <div class="modal-box">
-            <form class="file-container">
-                <div class="view-image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                    <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
-                </div>
-                <div class="view-image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                    <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg">
-                </div>
-                <input type="file" name="uploadFile" class="uploadFile">
-                <div class="file-button">
-                    <button type="button" id="upload">저장하기</button>
-                </div>
-            </form>
-        </div>
-    </div>
+
     <script>
         function modal(bookId) {
+            let bookId = document.querySelector(".bookId").value;
+            document.querySelector("#modal").style.display = "block";
             document.querySelector("#upload").addEventListener("click", function () {
                 alert("dtd");
-                let bookId = document.querySelector(".bookId").value;
+
                 console.log(bookId);
                 let formData = new FormData();
                 formData.append("uploadFile", $(".uploadFile")[0].files[0]);
