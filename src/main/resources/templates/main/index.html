@@ -36,7 +36,7 @@
                             <li><a href="#">추천</a></li>
                             <li><a href="#">웹툰</a></li>
                             <li><a href="#">웹소설</a></li>
-                            <li><a href="#">책</a></li>
+                            <li><a href="/book">책</a></li>
                             <li><a href="/best">바로가기</a></li>
                         </ul>
                     </div>
@@ -67,20 +67,20 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
-                            <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+                        <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
+                            <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
                     </div>
                 </div> 
                 <div class="main2">
                     <div class="main2-wrap">
                         <div class="owl-carousel owl-theme" >
                             <div class="main2-img item" th:each ="slide : ${slide}">
-                                <a href="#">
+                                <a th:href="@{/book/view?(bookId = ${slide.bookId})}">
                                     <img th:src="@{/images/main/slide/} + ${slide.bookImg}" th:alt="@{slide.bookName}">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>[[${slide.bookName}]]</h1></a>
-                                    <a href="#"><p>[[${slide.bookSubname}]]</p></a>
+                                    <a th:href="@{/book/view?(bookId = ${slide.bookId})}"><h1>[[${slide.bookName}]]</h1></a>
+                                    <a th:href="@{/book/view?(bookId = ${slide.bookId})}"><p>[[${slide.bookSubname}]]</p></a>
                                 </div>
                             </div>
                         </div>
@@ -96,35 +96,35 @@
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
                                         <h4>| GAWOOD <strong>Choice</strong>!</h4>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
                                     </div>
                                     <div class="recommand-book">
                                         <div class="recommand-book1">
-                                            <a href="#"><h2>[[${mz.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${mz.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><h2>[[${mz.bookName}]]</h2><br/></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><p>[[${mz.bookSubname}]]</p></a>
                                         </div>
                                         
                                         <div class="recommand-book2">
-                                            <a href="#"><h2>[[${gawoody.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${gawoody.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><h2>[[${gawoody.bookName}]]</h2><br/></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><p>[[${gawoody.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${mz.bookId})}"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
+                                        <a th:href="@{/book/view?(bookId = ${mz.bookId})}"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
                                 <div class="recommand-subject">
                                     <h4>| Trend<strong> Issue</strong>? |</h4>
-                                    <a href="#"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+                                    <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
                                     <br/>
                                     <div class="recommand-text">
-                                        <a href="#"><p> [[${trend.bookSubname}]] </p></a></a>
-                                        <a href="#"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
+                                        <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><p> [[${trend.bookSubname}]] </p></a></a>
+                                        <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
                                     </div>
                                 </div>
                             </div>
@@ -135,11 +135,11 @@
                                 <div class="choice-wrap">
                                     <h1>출판사 <strong>추천!</strong></h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${publisher.bookName}]]</h4></a>
-                                            <a href="#"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
-                                            <a href="#"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><h4>[[${publisher.bookName}]]</h4></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -148,10 +148,10 @@
                                 <div class="media-wrap">
                                     <h1>미디어 <strong>추천!</strong></h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${media.bookId})}"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${media.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${media.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${media.bookId})}"><h4>[[${media.bookName}]]</a>
+                                                <a th:href="@{/book/view?(bookId = ${media.bookId})}"><p class="p">[[${media.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,10 +160,10 @@
                                 <div class="thisbook-wrap">
                                     <h1><strong>이 책&nbsp</strong>어때?</h1>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${thisbook.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${thisbook.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><h4>[[${thisbook.bookName}]]</a>
+                                                <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><p class="p">[[${thisbook.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -220,199 +220,57 @@
                                 <li data-tab="tab-7">자기계발</li>
                             </ul>
                             <div class="main6-list">
-                                <!-- 문학/소설 -->
+                                <!-- 청소년/문학 -->
                                 <div id="tab-1" class="tab-content active">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/2.jpg" alt=""/>
+                                        <div class="main6-list-subject" th:each ="literature : ${literature}">
+                                            <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
-                                                <a href="#"><h6>백의 그림자</h6></a>
-                                                <a href="#"><p>11700원 + 1170P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/5.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>천개의파랑</h6></a>
-                                                <a href="#"><p>12420원 + 1240P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/6.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>훌훌</h6></a>
-                                                <a href="#"><p>14850원 + 1480P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/1.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>너와 막걸리를 마신다면</h6></a>
-                                                <a href="#"><p>26820원 + 1480P</p></a>
-                                            </div>            
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/3.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>센강의 이름 모를 여인</h6></a>
-                                                <a href="#"><p>14800원 + 1480P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/소설/4.jpg" alt=""/>
-                                                <i class="fa-regular fa-heart"></i></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>우리가 빛의 속도로 <br />갈 수 없다면</h6></a>
-                                                <a href="#"><p>9900원 + 990P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><h6>[[${literature.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><p>[[${#numbers.formatInteger(literature.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(literature.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 유아/청소년 -->
+                                <!-- 유아/어린이 -->
                                 <div id="tab-2" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/2.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="child : ${child}">
+                                            <a th:href="@{/book/view?(bookId = ${child.bookId})}"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
-                                                <a href="#"><h6>까칠한 재석이가 소리쳤다.</h6></a>
-                                            <a href="#"><p>10800 + 1080P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/1.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>구미호식당</h6></a>
-                                                <a href="#"><p>11250원 + 1200P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>설민석의 한국사 대모험</h6></a>
-                                                <a href="#"><p>11700원 + 1170P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="images/main/bestceller/유아청소년/6.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>흔한남매</h6></a>
-                                                <a href="#"><p>12600원 + 1260P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>에그박사</h6></a>
-                                                <a href="#"><p>13050원 + 1300P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/유아청소년/5.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>찰랑찰랑 비밀하나</h6></a>
-                                                <a href="#"><p>10800원 + 1080P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${child.bookId})}"><h6>[[${child.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${child.bookId})}"><p>[[${#numbers.formatInteger(child.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(child.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 건강 -->
+                                <!-- 생활/건강 -->
                                 <div id="tab-3" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/1.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="living : ${living}">
+                                            <a th:href="@{/book/view?(bookId = ${living.bookId})}"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
-                                                <a href="#"><h6>근육에 힘좀 빼고 삽시다</h6></a>
-                                            <a href="#"><p>11700원 + 1170P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/2.jpg" alt=""></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>당뇨병을 이긴  <br />사람들의 비밀</h6></a>
-                                                <a href="#"><p>13500원 + 1350P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>무기력이 무기력해지도록</h6></a>
-                                                <a href="#"><p>16020원 + 1600P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>식사가 잘못 됐습니다.</h6></a>
-                                                <a href="#"><p>13050원 + 1300P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/5.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>암은 병이 아니다</h6></a>
-                                                <a href="#"><p>16200원 + 1620P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/건강/6.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>통증 때려잡는 스트레칭</h6></a>
-                                                <a href="#"><p>17010원 + 1700P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${living.bookId})}"><h6>[[${living.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${living.bookId})}"><p>[[${#numbers.formatInteger(living.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(living.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 경제 -->
+                                <!-- 정치/경제 -->
                                 <div id="tab-4" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/1.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="politic : ${politic}">
+                                            <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
-                                                <a href="#"><h6>나는 월급쟁이에서  <br />이렇게 독립했다.</h6></a>
-                                            <a href="#"><p>14400원 + 1440P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/2.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>밀레니얼 세대가 돈 버는 법</h6></a>
-                                                <a href="#"><p>13500원 + 1350P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>수소경제</h6></a>
-                                                <a href="#"><p>18000원 + 1800P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>우리아이 주식부자 만들기</h6></a>
-                                                <a href="#"><p>15300원 + 1530P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/5.jpg" alt=""></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>카카오 네이버,  <br />지금사도 될까요?</h6></a>
-                                                <a href="#"><p>16200원 + 1620P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/경제/6.jpg" alt=""></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>해외 구매대행으로  <br />평생 돈벌기</h6></a>
-                                                <a href="#"><p>17550원 + 1750P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><h6>[[${politic.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><p>[[${#numbers.formatInteger(politic.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(politic.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -421,143 +279,40 @@
                                 <!-- 인문/사회 -->
                                 <div id="tab-5" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/1.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="humanity : ${humanity}">
+                                            <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
-                                                <a href="#"><h6>기묘한 미술관</h6></a>
-                                            <a href="#"><p>14800원 + 1480P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/2.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>나를 살리는 철학</h6></a>
-                                                <a href="#"><p>16020원 + 1600P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>도시는 왜 사라졌는가</h6></a>
-                                                <a href="#"><p>14400원 + 1440P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>세계사를 뒤바꾼 가짜뉴스</h6></a>
-                                                <a href="#"><p>14400원 + 1440P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/5.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>음식에 대한 거의 모든 생각</h6></a>
-                                                <a href="#"><p>16200원 + 1620P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/인문사회/6.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>코로나 이후의 세상</h6></a>
-                                                <a href="#"><p>13320원 + 1330P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><h6>[[${humanity.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><p>[[${#numbers.formatInteger(humanity.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(humanity.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
 
                                 <!-- 과학 -->
                                 <div id="tab-6" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/1.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="it : ${it}">
+                                            <a th:href="@{/book/view?(bookId = ${it.bookId})}"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
-                                                <a href="#"><h6>감사의 재발견</h6></a>
-                                            <a href="#"><p>13950원 + 1390P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/2.jpg" alt=""></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>나를 알고 싶을 때  <br />뇌 과학을 공부합니다.</h6></a>
-                                                <a href="#"><p>17820원 + 1780P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>사이언스 픽션</h6></a>
-                                                <a href="#"><p>20000원 + 2000P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>인공지능 마음을 묻다</h6></a>
-                                                <a href="#"><p>11200원 + 1120P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/5.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>인지심리학</h6></a>
-                                                <a href="#"><p>29700원 + 2970P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/과학/6.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>중독에 빠진 뇌과학자</h6></a>
-                                                <a href="#"><p>17100원 + 17100P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${it.bookId})}"><h6>[[${it.bookName}]]</h6>  </a>
+                                                <a th:href="@{/book/view?(bookId = ${it.bookId})}"><p>[[${#numbers.formatInteger(it.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(it.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- 육아 -->
+                                <!-- 자기계발 -->
                                 <div id="tab-7" class="tab-content">
                                     <div class="main6-list-wrap">
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/1.jpg" alt=""></a>
+                                        <div class="main6-list-subject" th:each ="self : ${self}">
+                                            <a th:href="@{/book/view?(bookId = ${self.bookId})}"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
-                                                <a href="#"><h6>4~7세보다  <br />중요한 시기는 없습니다.</h6></a>
-                                            <a href="#"><p>14800원 + 1480P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/2.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>생일을 모르는 아이</h6></a>
-                                                <a href="#"><p>9900원 + 990P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/3.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>오은영의 화해</h6></a>
-                                                <a href="#"><p>11700원 + 1170P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/4.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>세상쉬운 우리 아이 성교육</h6></a>
-                                                <a href="#"><p>12420원 + 1240P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/5.jpg" alt=""></a>
-                                            <div class="main6-list-text one">
-                                                <a href="#"><h6>인성이 내 아이의  <br />인생을 바꾼다.</h6></a>
-                                                <a href="#"><p>14850원 + 1480P</p></a>
-                                            </div>
-                                        </div>
-                                        <div class="main6-list-subject">
-                                            <a href="#"><img src="/images/main/bestceller/육아/6.jpg" alt=""></a>
-                                            <div class="main6-list-text">
-                                                <a href="#"><h6>취향육아</h6></a>
-                                                <a href="#"><p>26820원 + 1480P</p></a>
+                                                <a th:href="@{/book/view?(bookId = ${self.bookId})}"><h6>[[${self.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${self.bookId})}"><p>[[${#numbers.formatInteger(self.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(self.price * 0.1, 3, 'COMMA')}]]P</p></a>
                                             </div>
                                         </div>
                                     </div>

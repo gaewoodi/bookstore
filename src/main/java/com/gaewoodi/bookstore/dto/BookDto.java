@@ -17,4 +17,8 @@ public class BookDto {
     private String price;
     private int visit;
     private int likeCount;
+    private String saveName;
+    private String originName;
+    private Long size;
+    private int bookLike;
 }
