@@ -35,7 +35,6 @@ public class PurchaseController {
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
         model.addAttribute("count", cartMapper.getCartCount(regId));
-        model.addAttribute("order", purchaseMapper.getPurcahse(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 

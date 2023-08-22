@@ -47,7 +47,8 @@ FROM
 WHERE
     pm.reg_id = #{regId}
 
-SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = '1';
+SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm INNER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = '1';
+SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm INNER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = #{regId}
 
 
 
