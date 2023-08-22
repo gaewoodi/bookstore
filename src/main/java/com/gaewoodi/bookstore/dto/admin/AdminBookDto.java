@@ -22,7 +22,7 @@ public class AdminBookDto {
     private int visit;
     private int likeCount;
 
-    private int imageId;
+
     private String saveName;
     private String originName;
     private Long size;

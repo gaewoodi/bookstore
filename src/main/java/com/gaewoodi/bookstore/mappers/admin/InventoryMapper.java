@@ -21,5 +21,5 @@ public interface InventoryMapper {
     AdminBookDto getBookOne(int bookId);
 
     @Update("UPDATE book_mst SET save_name=#{saveName}, origin_name=#{originName}, size=#{size} WHERE book_id=#{bookId}")
-    AdminBookDto updateBookImage(int bookId);
+    void updateBookImage(AdminBookDto adminBookDto);
 }

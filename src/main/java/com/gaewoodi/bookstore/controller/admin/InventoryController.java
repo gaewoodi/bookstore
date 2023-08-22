@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.admin;
 
+import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.admin.AdminBookDto;
 import com.gaewoodi.bookstore.mappers.admin.InventoryMapper;
 import com.gaewoodi.bookstore.service.admin.BookPagingSrv;
@@ -10,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,26 +53,26 @@ public class InventoryController {
 
     @PostMapping("/admin/inventoryUpdate/Img")
     @ResponseBody
-    public Map<String, Object> urlInventoryUpdate(MultipartFile uploadFile,@RequestParam int bookId){
+    public Map<String, Object> inventoryImgUpload(MultipartFile uploadFile,@RequestParam int bookId){
         Map<String, Object> map = new HashMap<>();
 
         try {
             String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\temp";
-            String orginName = uploadFile.getOriginalFilename();
+            String originName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
 
 
             if(uploadFile != null) {
                 AdminBookDto adminBookDto = new AdminBookDto();
 
-                adminBookDto.setOriginName(orginName);
+                adminBookDto.setOriginName(originName);
                 adminBookDto.setSize(fileSize);
                 adminBookDto.setBookId(bookId);
 
-                String partially = orginName.substring(orginName.lastIndexOf("."));
+                String partially = originName.substring(originName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
                 adminBookDto.setSaveName(changeName);
-                inventoryMapper.updateBookImage(bookId);
+                inventoryMapper.updateBookImage(adminBookDto);
 
                 Path path = Paths.get(FILE_PATH, changeName);
                 Files.write(path, uploadFile.getBytes());
