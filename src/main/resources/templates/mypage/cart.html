@@ -51,7 +51,8 @@
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
                                 <input type="hidden" class="bookId" th:value="${book.bookId}">
-                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${user.regId}">
+                                <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
+                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.jpg}">
                                 </div>
@@ -91,7 +92,6 @@
                                     <button>주문하기</button>
                                     <button onclick="cartDelete()">삭제하기</button>
                                 </div>
-                                <input type="hidden" name="bookId" th:value="${book.bookId}">
 
                             </div>
                         </div> 

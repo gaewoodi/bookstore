@@ -41,7 +41,6 @@ public class CartController {
         cartDto.setRegId(regId);
 
         String[] splitResult = result.toString().split(" ");
-        System.out.println(splitResult.length);
 
         for(int i = 0; i < splitResult.length; i++) {
             if(i == 0) {
@@ -61,14 +60,16 @@ public class CartController {
         return map;
     }
 
-    @DeleteMapping("/delete")
+    @GetMapping("/delete")
     @ResponseBody
     public Map<String, Object> cartDelete(@ModelAttribute CartDto cartDto,
-                                          @RequestParam(value = "checkboxResult") String result,
-                                          @RequestParam(value = "bookIdValue") String bookId) {
+                                          @RequestParam(value = "checkboxResult") int result,
+                                          @RequestParam(value = "regIdValue") int regId) {
         Map<String, Object> map = new HashMap<>();
 
-        cartMapper.deleteCart(Integer.parseInt(result));
+        System.out.println("result: " + result);
+        System.out.println("regId: " + regId);
+        cartMapper.deleteCart(regId, result);
 
         map.put("msg", "success");
 

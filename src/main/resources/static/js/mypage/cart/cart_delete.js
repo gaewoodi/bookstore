@@ -12,20 +12,16 @@ function cartDelete() {
 
     console.log("result: " + result);
 
-    $("input[name='check']:checked").each(function(i) {
-        // 체크된 것만 값을 뽑아서 배열에 push
-        checkArray.push($(this).val());     
-    });
-
+    let regIdValue = document.querySelector(".reg-id").value;
     let bookIdValue = document.querySelector(".bookId").value;
 
     $.ajax({
         url: "/cart/delete", 
-        type: "delete", 
+        type: "get", 
         dataType: "json", 
         data: {
             checkboxResult: result,
-            bookIdValue: bookIdValue
+            regIdValue: regIdValue
         },
         success: function(res) {
             if(res.msg == "success") {

@@ -185,7 +185,7 @@ body{
     font-weight: bold;
 }
 
-.book-price, .total-count, .total-price {
+.book-price, .total-count span, .total-price {
     display: flex;
     justify-content: space-between;
 }
