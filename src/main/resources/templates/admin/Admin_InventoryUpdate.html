@@ -61,7 +61,7 @@
                     <div class="inven-top">
 
                         <div class="container_wr" th:each="bookInfo : ${bookInfo}">
-                            <form name="updatebook">
+
                                 <input type="hidden" class="bookId" th:value="${bookInfo.bookId}">
                                 <section id="book_cate">
                                     <h3 class="h2_cate">상품 분류</h3><br />
@@ -205,74 +205,37 @@
                                         </table>
                                     </div>
                                 </section>
-                            </form>
-                            <!-- IMAGE UPLOAD(MODAL) -->
-                            <div id="modal">
-                                <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
-                                <div class="modal-box">
-                                    <form class="file-container">
-                                        <div class="view-image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                            <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
-                                        </div>
-                                        <div class="view-image-container" th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                            <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg">
-                                        </div>
-                                        <input type="file" name="uploadFile" class="uploadFile">
-                                        <div class="file-button">
-                                            <button type="button" id="upload">저장하기</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
                 <div class="apply"><button class="btn">설정 적용</button></div>
             </div>
         </main>
+        <!-- IMAGE UPLOAD(MODAL) -->
+        <div id="modal">
+            <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
+            <div class="modal-box">
+                <form class="file-container">
+                    <div class="view-image-container"
+                         th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                        <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
+                    </div>
+                    <div class="view-image-container"
+                         th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                        <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg">
+                    </div>
+                    <input type="file" name="uploadFile" class="uploadFile">
+                    <div class="file-button">
+                        <button type="button" id="upload">저장하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-
-    <script>
-        function modal(bookId) {
-            let bookId = document.querySelector(".bookId").value;
-            document.querySelector("#modal").style.display = "block";
-            document.querySelector("#upload").addEventListener("click", function () {
-                alert("dtd");
-
-                console.log(bookId);
-                let formData = new FormData();
-                formData.append("uploadFile", $(".uploadFile")[0].files[0]);
-                formData.append("bookId", bookId)
-                $.ajax({
-                    type: "post",
-                    url: "/admin/inventoryUpdate/Img",
-                    encType: "multipart/form-data",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success: function (res) {
-                        if (res.msg == "success") {
-                            alert("이미지가 수정 되었습니다.")
-                            location.reload();
-                        }
-                    },
-                    error: function (err) {
-                        location.reload();
-                        console.log(err)
-                    }
-                });
-            });
-        }
-
-
-        function closeModal() {
-            document.querySelector("#modal").style.display = "none";
-        }
-
-
-    </script>
+    <script th:src="@{/js/admin/bookImgModal.js}"></script>
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
     <div th:unless="${session.adminChk != null}">
