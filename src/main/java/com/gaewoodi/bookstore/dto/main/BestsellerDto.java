@@ -13,4 +13,5 @@ public class BestsellerDto {
     private int bookMedia;
     private String bookImg;
     private int price;
+
 }
