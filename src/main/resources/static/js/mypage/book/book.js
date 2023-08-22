@@ -18,7 +18,7 @@ function checkboxPurchase() {
     let regIdValue = document.querySelector(".reg-id").value;
 
     $.ajax({
-        url: "/purchase/save", 
+        url: "/purchase", 
         type: "post", 
         dataType: "json", 
         data: {
