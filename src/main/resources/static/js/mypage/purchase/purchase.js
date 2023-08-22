@@ -57,6 +57,10 @@ function checkboxClick() {
     console.log("result: " + result);
     console.log("checkArray: " + checkArray);
 
+    $('input[name="check"]').isChecked(function(){
+        $('.book-name').append('완벽한 사과는 없다 : 김혜진 장편소설');
+    });
+
     // $.ajax({
     //     url: "/purchase", 
     //     type: "post", 
