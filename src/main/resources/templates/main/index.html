@@ -67,13 +67,18 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
+<<<<<<< HEAD
                         <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
                             <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+=======
+                        <a th:href="@{/view?(bookId = ${main.bookId})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
+                        <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+>>>>>>> mypage
                     </div>
                 </div> 
                 <div class="main2">
                     <div class="main2-wrap">
-                        <div class="owl-carousel owl-theme" >
+                        <div class="owl-carousel owl-theme">
                             <div class="main2-img item" th:each ="slide : ${slide}">
                                 <a th:href="@{/book/view?(bookId = ${slide.bookId})}">
                                     <img th:src="@{/images/main/slide/} + ${slide.bookImg}" th:alt="@{slide.bookName}">
@@ -95,8 +100,13 @@
                             <div class="recommand-gawoodi">
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
+<<<<<<< HEAD
                                         <h4>| GAWOOD <strong>Choice</strong>!</h4>
                                         <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+=======
+                                        <a href="#"><h4>| GAWOOD <strong>Choice</strong>!</h4><span> >>더보기</span></a>
+                                        <a href="#"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+>>>>>>> mypage
                                     </div>
                                     <div class="recommand-book">
                                         <div class="recommand-book1">
@@ -112,15 +122,25 @@
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
+<<<<<<< HEAD
                                         <a th:href="@{/book/view?(bookId = ${mz.bookId})}"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
                                         <a th:href="@{/book/view?(bookId = ${mz.bookId})}"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+=======
+                                        <a href="#"><h4>| MZ <strong>Choice</strong>!</h4><span> >>더보기</span></a>
+                                        <a href="#"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+>>>>>>> mypage
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
                                 <div class="recommand-subject">
+<<<<<<< HEAD
                                     <h4>| Trend<strong> Issue</strong>? |</h4>
                                     <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+=======
+                                    <a href="#" class="trend-a"><h4>| Trend<strong> Issue</strong>? |</h4><span> >>더보기</span></a>
+                                    <a href="#"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+>>>>>>> mypage
                                     <br/>
                                     <div class="recommand-text">
                                         <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><p> [[${trend.bookSubname}]] </p></a></a>
@@ -133,7 +153,7 @@
                         <div class="recommand2">
                             <div class="choice">
                                 <div class="choice-wrap">
-                                    <h1>출판사 <strong>추천!</strong></h1>
+                                    <a href="#"><h1>출판사 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
                                     <div class="border">
                                         <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
                                         <div class="r2-text">
@@ -146,7 +166,7 @@
                             </div>
                             <div class="media">
                                 <div class="media-wrap">
-                                    <h1>미디어 <strong>추천!</strong></h1>
+                                    <a href="#"><h1>미디어 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
                                     <div class="border">
                                         <a th:href="@{/book/view?(bookId = ${media.bookId})}"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
                                         <div class="r2-text">
@@ -158,7 +178,7 @@
                             </div>
                             <div class="thisbook">
                                 <div class="thisbook-wrap">
-                                    <h1><strong>이 책&nbsp</strong>어때?</h1>
+                                    <a href="#"><h1><strong>이 책&nbsp;</strong> 어때?</h1><span> >>더보기 </span></a>
                                     <div class="border">
                                         <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
                                         <div class="r2-text">

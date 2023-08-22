@@ -22,4 +22,7 @@ public interface PurchaseMapper {
 
     @Update("UPDATE purchase_mst SET price = #{price}")
     void updatePurchase(PurchaseDto purchaseDto);
+
+    @Select("SELECT bm.book_name AS bmBookName, pm.* FROM purchase_mst pm LEFT OUTER JOIN book_mst bm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = #{regId}")
+    List<PurchaseDto> getPurchase();
 }

@@ -50,7 +50,17 @@ WHERE
 SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm INNER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = '1';
 SELECT bm.book_name AS bmBookName, pm.* FROM book_mst bm INNER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = #{regId}
 
+SELECT
+    bm.book_name AS bmBookName,
+    pm.*
+FROM
+    purchase_mst pm
+    LEFT OUTER JOIN book_mst bm ON(bm.book_id = pm.book_id)
+WHERE
+    pm.reg_id = #{regId}
 
+SELECT bm.book_name AS bmBookName, pm.* FROM purchase_mst pm LEFT OUTER JOIN book_mst bm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = '1';
+SELECT bm.book_name AS bmBookName, pm.* FROM purchase_mst pm LEFT OUTER JOIN book_mst bm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = #{regId}
 
 
 

@@ -31,6 +31,8 @@ public class PurchaseDto {
     // +주문수량
     private int plusQuantity;
 
+    private String bookName;
+
 
 
 }

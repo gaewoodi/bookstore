@@ -22,8 +22,8 @@ public interface CartMapper {
     @Select("SELECT cm.book_id, cm.reg_id, cm.create_date, bm.* FROM book_mst bm LEFT OUTER JOIN cart_mst cm ON(bm.book_id = cm.book_id) WHERE bm.book_id = cm.book_id AND cm.reg_id = #{regId} ORDER BY cm.book_Id")
     List<BookDto> getCartBookList(int regId);
 
-    @Delete("DELETE FROM cart_mst WHERE reg_id = #{regId} AND bookId = #{bookId}")
-    void deleteCart(int regId);
+    @Delete("DELETE FROM cart_mst WHERE reg_id = #{regId} AND book_id = #{bookId}")
+    void deleteCart(int regId, int bookId);
 
     @Select("SELECT COUNT(book_id) as myCartTotal FROM cart_mst WHERE reg_id = #{regId}")
     int getCartCount(int regId);

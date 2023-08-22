@@ -14,8 +14,8 @@ SELECT * FROM cart_mst;
 
 drop table cart_mst;
 
-DELETE FROM cart_mst WHERE reg_id = #{regId} AND bookId = #{bookId}
-DELETE FROM cart_mst WHERE reg_id = '3' AND bookId = '1';
+DELETE FROM cart_mst WHERE reg_id = #{regId} AND book_id = #{bookId}
+DELETE FROM cart_mst WHERE reg_id = '3' AND book_id = '2';
 
 SELECT COUNT(book_id) as cartTotal FROM cart_mst WHERE reg_id = '2';
 SELECT COUNT(book_id) as cartTotal FROM cart_mst WHERE reg_id = #{regId};
