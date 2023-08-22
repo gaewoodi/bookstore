@@ -11,22 +11,7 @@ import java.util.Map;
 @Mapper
 public interface BookMapper {
 
-    @Select("SELECT " +
-            "bm.book_id as bookId, " +
-            "bm.book_code as bookCode, " +
-            "bm.book_name as bookName, " +
-            "bm.book_stock as bookStock, " +
-            "bm.author, bm.publisher, " +
-            "bm.publication_date as publicationDate, " +
-            "bm.category, " +
-            "bm.price, " +
-            "bm.visit, " +
-            "bl.like_id as likeId, " +
-            "lc.like_count as like_count\n" +
-            "FROM book_mst bm " +
-            "LEFT OUTER JOIN book_like bl ON bl.book_id = bm.book_id AND bl.user_id = #{userId} " +
-            "LEFT OUTER JOIN (SELECT book_id, count(book_id) as like_count FROM book_like GROUP BY book_id) lc ON(lc.book_id = bm.book_id)\n" +
-            "WHERE 1 = 1 LIMIT #{start}, #{limit}")
+    @Select("SELECT * FROM book_mst LIMIT #{start}, #{limit}")
     List<BookDto> getBook(Map<String, Object> map);
 
     @Select("SELECT count(*) FROM book_mst")

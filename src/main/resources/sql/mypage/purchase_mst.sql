@@ -19,6 +19,38 @@ SELECT * FROM purchase_mst;
 
 INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), '35000', '1', '35000', '구매', now());
 ----------------------------------------
+select
+    pm.*,
+    bm.book_id,
+    bm.book_code,
+    bm.book_name,
+    bm.book_stock,
+    bm.author,
+    bm.publisher,
+    bm.publication_date,
+    bm.category,
+    bm.price,
+    bm.visit,
+    bm.book_like
+from
+    purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id)
+WHERE
+    pm.book_id = '2';
+--    pm.book_id = #{bookId}
+
+select
+    B.book_id,
+    M.book_code,
+    B.book_name,
+    B.book_subname,
+    B.book_img,
+    B.book_media,
+    M.visit,
+    B.price
+from book_bestseller B inner join book_mst M on B.book_id = M.book_id
+where category = '가정/생활' order by book_media desc limit 6
+
+----------------------------------------
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = '1';
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = #{bookId}
 

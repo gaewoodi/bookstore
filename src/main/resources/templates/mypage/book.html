@@ -93,8 +93,8 @@
                                                     <i class="fa-solid fa-eye view"></i>
                                                     <span>[[${book.visit}]]</span>
                                                     <button class="like-button">
-                                                        <i class="fa-solid fa-heart book-like"></i>
-                                                        <span class="like-count">[[${book.likeCount}]]</span>
+                                                        <i class="fa-solid fa-heart book-like" onclick='count("plus")'></i>
+                                                        <span id="like" class="like-count">[[${book.bookLike}]]</span>
                                                     </button>
                                                 </span>
                                             </td>
@@ -140,6 +140,7 @@
 <script th:src="@{/js/mypage/checkBox.js}"></script>
 <script th:src="@{/js/mypage/cart/cart.js}"></script>
 <script th:src="@{/js/mypage/book/book.js}"></script>
+<script th:src="@{/js/mypage/book/like.js}"></script>
 <!-- <script src="/js/mypage/test.js"></script> -->
 
 
