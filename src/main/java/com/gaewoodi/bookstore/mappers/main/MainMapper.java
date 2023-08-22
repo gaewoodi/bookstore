@@ -87,8 +87,8 @@ public interface MainMapper {
     @Select("select B.book_id, M.book_code, B.book_name, B.book_subname, B.book_img, B.book_media, M.visit, B.price from book_bestseller B inner join book_mst M on B.book_id = M.book_id where category = '자기계발' order by book_media desc limit 6")
     List<BestsellerDto> getSelf();
 
-    @Update("update book_heart set book_heart = book_heart + 1 where board_id = #{boardId}")
-    void getHeart(int bookId);
+//    @Update("update book_heart set book_heart = book_heart + 1 where board_id = #{boardId}")
+//    void getHeart(int bookId);
 
 }
 

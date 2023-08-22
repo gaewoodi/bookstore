@@ -21,7 +21,7 @@ public class MainController {
 
     @GetMapping("/main")
 
-    public String getMain(Model model, BookDto bookDto, int bookId) {
+    public String getMain(Model model, BookDto bookDto) {
 
 //        스콘
         model.addAttribute("mst", mainmapper.getMst());
@@ -44,7 +44,7 @@ public class MainController {
         model.addAttribute("it", mainmapper.getIt());
         model.addAttribute("self", mainmapper.getSelf());
 
-        mainmapper.getHeart(bookId);
+//        mainmapper.getHeart(bookId);
         return "main/index";
     }
 }
