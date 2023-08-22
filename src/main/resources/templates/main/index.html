@@ -36,7 +36,7 @@
                             <li><a href="#">추천</a></li>
                             <li><a href="#">웹툰</a></li>
                             <li><a href="#">웹소설</a></li>
-                            <li><a href="#">책</a></li>
+                            <li><a href="/book">책</a></li>
                             <li><a href="/best">바로가기</a></li>
                         </ul>
                     </div>
@@ -67,20 +67,21 @@
             <div class="container">
                 <div class="main1">
                     <div class="main1-wrap">
-                        <a th:href="@{/view?(bookId = ${main.bookId})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
-                        <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+
+                        <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
+                        <a th:href="@{/book/view?(bookId = ${mst.bookId})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
                     </div>
                 </div> 
                 <div class="main2">
                     <div class="main2-wrap">
                         <div class="owl-carousel owl-theme">
                             <div class="main2-img item" th:each ="slide : ${slide}">
-                                <a href="#">
+                                <a th:href="@{/book/view?(bookId = ${slide.bookId})}">
                                     <img th:src="@{/images/main/slide/} + ${slide.bookImg}" th:alt="@{slide.bookName}">
                                 </a>
                                 <div class="main2-text">
-                                    <a href="#"><h1>[[${slide.bookName}]]</h1></a>
-                                    <a href="#"><p>[[${slide.bookSubname}]]</p></a>
+                                    <a th:href="@{/book/view?(bookId = ${slide.bookId})}"><h1>[[${slide.bookName}]]</h1></a>
+                                    <a th:href="@{/book/view?(bookId = ${slide.bookId})}"><p>[[${slide.bookSubname}]]</p></a>
                                 </div>
                             </div>
                         </div>
@@ -95,36 +96,38 @@
                             <div class="recommand-gawoodi">
                                 <div class="recommand-gawoodi1">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>| GAWOOD <strong>Choice</strong>!</h4><span> >>더보기</span></a>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+                                        <h4>| GAWOOD <strong>Choice</strong>!</h4>
+                                        <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
                                     </div>
                                     <div class="recommand-book">
                                         <div class="recommand-book1">
-                                            <a href="#"><h2>[[${mz.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${mz.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><h2>[[${mz.bookName}]]</h2><br/></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><p>[[${mz.bookSubname}]]</p></a>
                                         </div>
                                         
                                         <div class="recommand-book2">
-                                            <a href="#"><h2>[[${gawoody.bookName}]]</h2><br/></a>
-                                            <a href="#"><p>[[${gawoody.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><h2>[[${gawoody.bookName}]]</h2><br/></a>
+                                            <a th:href="@{/book/view?(bookId = ${gawoody.bookId})}"><p>[[${gawoody.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>    
                                 <div class="recommand-gawoodi2">
                                     <div class="recommand-subject">
-                                        <a href="#"><h4>| MZ <strong>Choice</strong>!</h4><span> >>더보기</span></a>
-                                        <a href="#"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+
+                                        <a th:href="@{/book/view?(bookId = ${mz.bookId})}"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
+                                        <a th:href="@{/book/view?(bookId = ${mz.bookId})}"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="trend">
                                 <div class="recommand-subject">
-                                    <a href="#" class="trend-a"><h4>| Trend<strong> Issue</strong>? |</h4><span> >>더보기</span></a>
-                                    <a href="#"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+
+                                    <h4>| Trend<strong> Issue</strong>? |</h4>
+                                    <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
                                     <br/>
                                     <div class="recommand-text">
-                                        <a href="#"><p> [[${trend.bookSubname}]] </p></a></a>
-                                        <a href="#"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
+                                        <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><p> [[${trend.bookSubname}]] </p></a></a>
+                                        <a th:href="@{/book/view?(bookId = ${trend.bookId})}"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
                                     </div>
                                 </div>
                             </div>
@@ -135,11 +138,11 @@
                                 <div class="choice-wrap">
                                     <a href="#"><h1>출판사 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${publisher.bookName}]]</h4></a>
-                                            <a href="#"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
-                                            <a href="#"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><h4>[[${publisher.bookName}]]</h4></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
+                                            <a th:href="@{/book/view?(bookId = ${publisher.bookId})}"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -148,10 +151,10 @@
                                 <div class="media-wrap">
                                     <a href="#"><h1>미디어 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${media.bookId})}"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${media.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${media.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${media.bookId})}"><h4>[[${media.bookName}]]</a>
+                                                <a th:href="@{/book/view?(bookId = ${media.bookId})}"><p class="p">[[${media.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,10 +163,10 @@
                                 <div class="thisbook-wrap">
                                     <a href="#"><h1><strong>이 책&nbsp;</strong> 어때?</h1><span> >>더보기 </span></a>
                                     <div class="border">
-                                        <a href="#"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
+                                        <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
                                         <div class="r2-text">
-                                            <a href="#"><h4>[[${thisbook.bookName}]]</a>
-                                            <a href="#"><p class="p">[[${thisbook.bookSubname}]]</p></a>
+                                            <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><h4>[[${thisbook.bookName}]]</a>
+                                                <a th:href="@{/book/view?(bookId = ${thisbook.bookId})}"><p class="p">[[${thisbook.bookSubname}]]</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -224,11 +227,19 @@
                                 <div id="tab-1" class="tab-content active">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="literature : ${literature}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>[[${literature.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${literature.price}]]원 + ([[${literature.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><h6>[[${literature.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><p>[[${#numbers.formatInteger(literature.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(literature.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -238,11 +249,19 @@
                                 <div id="tab-2" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="child : ${child}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>[[${child.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${child.price}]]원 + ([[${child.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${child.bookId})}"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a th:href="@{/book/view?(bookId = ${child.bookId})}"><h6>[[${child.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${child.bookId})}"><p>[[${#numbers.formatInteger(child.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(child.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -252,11 +271,19 @@
                                 <div id="tab-3" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="living : ${living}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>[[${living.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${living.price}]]원 + ([[${living.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${living.bookId})}"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a th:href="@{/book/view?(bookId = ${living.bookId})}"><h6>[[${living.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${living.bookId})}"><p>[[${#numbers.formatInteger(living.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(living.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -266,11 +293,19 @@
                                 <div id="tab-4" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="politic : ${politic}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>[[${politic.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${politic.price}]]원 + ([[${politic.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text one">
+                                                <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><h6>[[${politic.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><p>[[${#numbers.formatInteger(politic.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(politic.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -280,11 +315,19 @@
                                 <div id="tab-5" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="humanity : ${humanity}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>[[${humanity.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${humanity.price}]]원 + ([[${humanity.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><h6>[[${humanity.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><p>[[${#numbers.formatInteger(humanity.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(humanity.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -294,11 +337,19 @@
                                 <div id="tab-6" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="it : ${it}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text">
                                                 <a href="#"><h6>[[${it.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${it.price}]]원 + ([[${it.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${it.bookId})}"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a th:href="@{/book/view?(bookId = ${it.bookId})}"><h6>[[${it.bookName}]]</h6>  </a>
+                                                <a th:href="@{/book/view?(bookId = ${it.bookId})}"><p>[[${#numbers.formatInteger(it.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(it.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>
@@ -308,11 +359,19 @@
                                 <div id="tab-7" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="self : ${self}">
+<<<<<<< HEAD
                                             <a href="#"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}">
                                                 <i class="fa-regular fa-heart"></i></a>
                                             <div class="main6-list-text one">
                                                 <a href="#"><h6>[[${self.bookName}]]</h6></a>
                                                 <a href="#"><p>[[${self.price}]]원 + ([[${self.price}]])*0.1</p></a>
+=======
+                                            <a th:href="@{/book/view?(bookId = ${self.bookId})}"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}">
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text one">
+                                                <a th:href="@{/book/view?(bookId = ${self.bookId})}"><h6>[[${self.bookName}]]</h6></a>
+                                                <a th:href="@{/book/view?(bookId = ${self.bookId})}"><p>[[${#numbers.formatInteger(self.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(self.price * 0.1, 3, 'COMMA')}]]P</p></a>
+>>>>>>> main
                                             </div>
                                         </div>
                                     </div>

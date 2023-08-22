@@ -660,8 +660,13 @@ body {
 
 
 
+
+
+
+
 /* main css */
 .main6 {
+    height: 530px;
     font-family: 'Nanum Gothic', sans-serif;
     margin-top: 10px;
     position: relative;

@@ -17,7 +17,9 @@ public interface MainMapper {
 //    @Select("select * from book_bestseller B inner join book_mst M on B.book_id = M.book_id where book_id = #{bookId}")
 //    BookDto getAll(int bookId);
 
+
 //    스콘
+
     @Select("select * from book_mst where book_id = '463'")
     BookDto getMst();
 
@@ -25,6 +27,7 @@ public interface MainMapper {
     BestsellerDto getMainDto();
 
 //    슬라이드
+
     @Select("select B.book_id, M.book_code, B.book_name, B.book_subname, B.book_img, M.visit\n" +
             "from book_bestseller B\n" +
             "inner join book_mst M\n" +
@@ -32,27 +35,27 @@ public interface MainMapper {
             "where M.publication_date >= '2022' order by visit desc limit 6;")
     List<BestsellerDto> getImage();
 
-//    개우디추천
+    //    개우디추천
     @Select("select B.book_id, M.book_code, B.book_name, B.book_subname, B.book_img, M.visit from book_bestseller B inner join book_mst M on B.book_id = M.book_id order by visit desc limit 1;")
     BestsellerDto getGawoody();
 
-//    mz추천
+    //    mz추천
     @Select("select * from book_bestseller order by book_mz desc limit 1")
     BestsellerDto getMz();
 
-//    trend 추천
+    //    trend 추천
     @Select("select * from book_bestseller order by book_trend desc limit 1;")
     BestsellerDto getTrend();
 
-//    출판사추천
+    //    출판사추천
     @Select("select B.book_id, B.book_name, B.book_subname, B.book_img from book_mst M inner join book_bestseller B on M.book_id = B.book_id order by book_stock desc limit 1")
     BestsellerDto getPublisher();
 
-//    미디어 추천
+    //    미디어 추천
     @Select("select B.book_id, M.book_code, B.book_name, B.book_subname, B.book_img, B.book_media, M.visit from book_bestseller B inner join book_mst M on B.book_id = M.book_id order by book_media desc limit 1")
     BestsellerDto getMedia();
 
-//    이책어때
+    //    이책어때
     @Select("select B.book_id, B.book_name, B.book_subname, B.book_img from book_mst M inner join book_bestseller B on M.book_id = B.book_id where category = '에세이' order by visit desc limit 1")
     BestsellerDto getThisBook();
 
@@ -84,8 +87,8 @@ public interface MainMapper {
     @Select("select B.book_id, M.book_code, B.book_name, B.book_subname, B.book_img, B.book_media, M.visit, B.price from book_bestseller B inner join book_mst M on B.book_id = M.book_id where category = '자기계발' order by book_media desc limit 6")
     List<BestsellerDto> getSelf();
 
-    @Update("update book_ set board_visit = board_visit + 1 where board_id = #{boardId}")
-    void getVisit(int bookId);
+    @Update("update book_heart set book_heart = book_heart + 1 where board_id = #{boardId}")
+    void getHeart(int bookId);
 
 }
 

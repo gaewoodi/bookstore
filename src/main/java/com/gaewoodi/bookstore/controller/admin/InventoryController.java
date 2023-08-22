@@ -51,6 +51,8 @@ public class InventoryController {
         return "admin/Admin_InventoryUpdate";
     }
 
+
+
     @PostMapping("/admin/inventoryUpdate/Img")
     @ResponseBody
     public Map<String, Object> inventoryImgUpload(MultipartFile uploadFile,@RequestParam int bookId){
@@ -60,7 +62,6 @@ public class InventoryController {
             String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\temp";
             String originName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
-
 
             if(uploadFile != null) {
                 AdminBookDto adminBookDto = new AdminBookDto();

@@ -11,8 +11,13 @@ CREATE table book_mst (
        category varchar(45) not null,
        price int not null,
        visit int default 0,
+       save_name varchar(255),
+       origin_name varchar(255),
+       size bigint,
+       book_like int default 0,
        primary key(book_id)
 );
+
 
 ---------------------------------------------------------
 -- ** book 정보 불러오기 book_mst, book_like join + paging처리

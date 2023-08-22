@@ -101,31 +101,31 @@
 
                             
                             <div class="purchase-box-container" id="purchaseBox">
-                                <div class="right-box">
-                                    <div class="book-title">
+                                <div class="right-box" th:each="order: ${order}">
+                                    <!-- <div class="book-title">
                                         <label>도서명</label>
-                                        <p>Lorem ipsum dolor sit amet.</p>
+                                        <p>[[${order.bookName}]]</p>
                                     </div>
                                     <div class="total-count">
                                         <label>수량</label>
                                         <span>
                                             <button><i class="fa-solid fa-minus minus"></i></button>
-                                            <input type="text" defalut="1">
+                                            <input type="number" id="result" th:value="${order.quantity}">
                                             <button><i class="fa-solid fa-plus plus"></i></button>
                                         </span>
                                     </div>
                                     <div class="book-price">
                                         <label>금액</label>
-                                        <span>1,000원</span>
+                                        <span>[[${order.price}]]</span>
                                     </div>
-                                    <!-- <hr class="split-line"> -->
+                                    <hr class="split-line">
                                   
                                     <hr>
                                     <div class="total-price">
                                         <p>총 결제 금액</p>
-                                        <p>1,000원</p>
+                                        <p>[[${order.totalPrice}]]</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div> 
 
