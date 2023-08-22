@@ -1,6 +1,8 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
+import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/purchase")
@@ -22,12 +26,73 @@ public class PurchaseController {
     @Autowired
     private PagingService pagingService;
 
+    @Autowired
+    private MypageMapper mypageMapper;
+
+    @Autowired
+    private CartMapper cartMapper;
+
     @GetMapping("")
-    public String getPurchase(@RequestParam int bookId, Model model) {
-        model.addAttribute("book", purchaseMapper.getPurchaseBook(bookId));
+    public String getPurchase(@RequestParam int regId, Model model) {
+        model.addAttribute("count", cartMapper.getCartCount(regId));
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
+        model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 
         return "mypage/purchase";
     }
+
+    @PostMapping("")
+    @ResponseBody
+    public Map<String, Object> setPurchase(@RequestParam(value = "checkboxResult") String result,
+                              @RequestParam(value = "regIdValue") String regId,
+                              @RequestParam(value = "checkArray") String checkArray) {
+        Map<String, Object> map = new HashMap<>();
+
+        System.out.println("result: "+ result);
+        System.out.println("regId: "+ regId);
+        System.out.println("checkArray: "+ checkArray);
+
+        map.put("msg", "success");
+
+        return map;
+    }
+
+    @PostMapping("/save")
+    @ResponseBody
+    public Map<String, Object> savePurchase(@RequestParam(value = "checkboxResult") String result,
+                                         @RequestParam(value = "regIdValue") int regId,
+                                         @ModelAttribute PurchaseDto purchaseDto) {
+        Map<String, Object> map = new HashMap<>();
+
+        System.out.println("regId: " + regId);
+
+        purchaseDto.setRegId(regId);
+
+        String[] splitResult = result.toString().split(" ");
+
+
+        for(int i = 0; i < splitResult.length; i++) {
+            if(i == 0) {
+                purchaseDto.setBookId(Integer.parseInt(splitResult[0]));
+            } else if(i == 1) {
+                purchaseDto.setBookId(Integer.parseInt(splitResult[1]));
+            } else if(i == 2) {
+                purchaseDto.setBookId(Integer.parseInt(splitResult[2]));
+            }
+            purchaseMapper.savePurchase(purchaseDto);
+
+
+            map.put("data" + i, purchaseMapper.getPurchaseBook(Integer.parseInt(splitResult[i])));
+        }
+
+//        purchaseMapper.updatePurchase(purchaseDto);
+
+        map.put("msg", "success");
+
+        return map;
+    }
+
+
 
     @PostMapping("/kakaopay")
     @ResponseBody

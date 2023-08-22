@@ -13,6 +13,7 @@ import java.util.*;
 
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 
     @Autowired
@@ -21,110 +22,57 @@ public class CartController {
     @Autowired
     private MypageMapper mypageMapper;
 
-
-//    @GetMapping("/cart")
-//    public String getCart(Model model) {
-//        model.addAttribute("book", cartMapper.getCartBookList());
-////        model.addAttribute("cart", selectServices.getCartBookList())
-//
-//        //cart 테이블에 저장된 자료를 select로 읽어 와서 cart.html에 표시하기
-//
-//        return "mypage/cart";
-//    }
-
-//    @GetMapping("/cart")
-//    @ResponseBody
-//    public String getCart() {
-//
-//        return "mypage/cart";
-//    }
-
-    @GetMapping("/cart")
-    public String getCart(Model model, @RequestParam int bookId, @RequestParam int regId) {
+    @GetMapping("")
+    public String getCart(Model model, @RequestParam int regId) {
+        model.addAttribute("count", cartMapper.getCartCount(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
-        model.addAttribute("book", cartMapper.getCartBookList(bookId));
+        model.addAttribute("book", cartMapper.getCartBookList(regId));
 
         return "mypage/cart";
     }
 
-    @PostMapping("/cart/save")
+    @PostMapping("")
     @ResponseBody
-    public Map<String, Object> setMypage(@ModelAttribute CartDto cartDto,
-                                         @RequestParam(value = "checkboxResult") String result) {
-
+    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result,
+                                         @RequestParam(value = "regIdValue") int regId,
+                                         @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        String[] splitResult = result.split(" ");
+        cartDto.setRegId(regId);
+
+        String[] splitResult = result.toString().split(" ");
+        System.out.println(splitResult.length);
 
         for(int i = 0; i < splitResult.length; i++) {
-            System.out.println("splitResult: " + splitResult[i]);
-            System.out.println(cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
+            if(i == 0) {
+                cartDto.setBookId(Integer.parseInt(splitResult[0]));
+            } else if(i == 1) {
+                cartDto.setBookId(Integer.parseInt(splitResult[1]));
+            } else if(i == 2) {
+                cartDto.setBookId(Integer.parseInt(splitResult[2]));
+            }
+            cartMapper.saveCart(cartDto);
+
             map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
         }
-
-
-        System.out.println(map);
-
-        cartMapper.saveCart(cartDto);
 
         map.put("msg", "success");
 
         return map;
     }
 
+    @DeleteMapping("/delete")
+    @ResponseBody
+    public Map<String, Object> cartDelete(@ModelAttribute CartDto cartDto,
+                                          @RequestParam(value = "checkboxResult") String result,
+                                          @RequestParam(value = "bookIdValue") String bookId) {
+        Map<String, Object> map = new HashMap<>();
 
-//    @PostMapping("/cart")
-//    @ResponseBody
-//    public String setMypage(@RequestParam(value = "checkboxResult") String result) {
-//
-//        System.out.println("result 값: " + result);
-//        String searchQuery = "";
-//
-//        String checkResult = "";
-//        String orCheckResult = "";
-//
-//        String[] splitResult = result.toString().split(" ");
-//
-//        for(int i = 0; i < splitResult.length -2; i++) {
-//
-////            checkResult = "OR bookId = " + "'" + splitResult[i] + "'";
-//            checkResult = "'" + splitResult[i] + "'";
-//
-//
-////            System.out.println("checkResult: " + checkResult);
-//
-//            for(int j = 1; j < splitResult.length; j++) {
-//                orCheckResult = " OR book_id = " + "'" + splitResult[j] + "'";
-////                map.put("orCheckResult", orCheckResult);
-//
-////                System.out.println("orCheckResult: " + orCheckResult);
-//
-//                    searchQuery = checkResult + orCheckResult;
-//                    System.out.println("checkResult: " + checkResult);
-//                    System.out.println("orCheckResult: " + orCheckResult);
-//                    System.out.println("------------------------");
-//                    System.out.println(searchQuery);
-//
-////                    map.put("searchQuery", searchQuery);
-//
-//                    cartMapper.getCartBookList(checkResult);
-//
-//            }
-//
-//        }
-//
-//
-//
-//
-//        return "mypage/cart";
-//    }
-//    @GetMapping("/test")
-//    public String getTest(Model model) {
-//
-//        return "mypage/test";
-//    }
+        cartMapper.deleteCart(Integer.parseInt(result));
 
+        map.put("msg", "success");
 
-
+        return map;
+    }
 
 }

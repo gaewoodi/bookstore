@@ -31,13 +31,8 @@
 </head>
 
 <body>
-    <th:block th:if="${session.id == null}">
-        <script>
-            alert("로그인 하신 후, 사용할 수 있습니다.");
-            location.href = "/login";
-        </script>
-    </th:block>
-    <div id="container">
+    <div id="container" th:each="user: ${user}">
+        <input type="hidden" class="regId" th:value="${user.regId}">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
 
         <main class="main-container">
@@ -49,6 +44,7 @@
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <h1>
+                        <input type="hidden" class="reg-id" th:value="${session.regId}">
                         <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 결제
                     </h1>
                     <hr>
@@ -59,7 +55,7 @@
                             <div class="book-cointainer" th:each="book: ${book}">
                                 <div class="book-main-container">
                                     <div class="image-input-container">
-                                        <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
+                                        <input type="checkbox" name="check" class="check" onclick="checkboxPurchase()" th:value="${book.bookName}">
                                         <div class="image-container">
                                             <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
                                         </div>
@@ -141,11 +137,12 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
-    <script th:src="@{/js/fragment/side_menu.js}"></script>
+    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/checkBox.js}"></script>
-    <script src="/js/mypage/kakaoPay.js"></script>
-    <script src="/js/mypage/portone.js"></script>
-    <script src="/js/mypage/right_box_scroll.js"></script>
+    <script th:src="@{/js/mypage/purchase.js}"></script>
+    <script th:src="@{/js/mypage/purchase/kakaoPay.js}"></script>
+    <script th:src="@{/js/mypage/purchase/portone.js}"></script>
+    <script th:src="@{/js/mypage/purchase/right_box_scroll.js}"></script>
 </body>
 
 </html>

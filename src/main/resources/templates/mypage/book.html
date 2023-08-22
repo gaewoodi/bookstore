@@ -34,12 +34,13 @@
         <div class="serve-container">
             <!--main-container basis 1 -->
             <div th:insert="~{fragment/side_menu::sideMenu}" class="menu-container"></div>
-
+            <p class="cart-total-count">[[${count}]]</p>
             <div class="third-container">
                 <!--main-container basis 2 -->
                 <div class="book-list">
                     <div class="title-container">
                         <h1>
+                            <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
                             <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
                         </h1>
                         <div class="button-container">
@@ -52,7 +53,6 @@
 
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
-                            <input type="hidden" name="bookId" class="book-id" th:value="${book.bookId}">
                             <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
@@ -87,8 +87,8 @@
                                         </tr>
                                         <tr>
                                             <td>가격</td>
-                                            <td class="price">
-                                                [[${book.price}]]
+                                            <td>
+                                                <strong class="price">[[${book.price}]]</strong>
                                                 <span class="user-container">
                                                     <i class="fa-solid fa-eye view"></i>
                                                     <span>[[${book.visit}]]</span>
@@ -104,9 +104,7 @@
                             </div>
 
                             <div class="button-container">
-                                <a th:href="@{/purchase?(bookId=${book.bookId})}">
-                                    <button class="purchase-button">결제하기</button>
-                                </a>
+                                <button class="purchase-button" onclick="checkboxPurchase()">결제하기</button>
                             </div>
                         </div>
                     </div>
@@ -140,7 +138,8 @@
 <script th:src="@{/js/fragment/header.js}"></script>
 <script th:src="@{/js/fragment/side_menu.js}"></script>
 <script th:src="@{/js/mypage/checkBox.js}"></script>
-<script th:src="@{/js/mypage/book.js}"></script>
+<script th:src="@{/js/mypage/cart/cart.js}"></script>
+<script th:src="@{/js/mypage/book/book.js}"></script>
 <!-- <script src="/js/mypage/test.js"></script> -->
 
 
