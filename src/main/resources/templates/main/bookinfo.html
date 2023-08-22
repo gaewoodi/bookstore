@@ -1,34 +1,377 @@
 <!DOCTYPE html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>지금핫한 : 신작추천!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/fragment/header.css"> -->
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
+    <link rel="stylesheet" th:href="@{/css/main/style.css}">
+    <link rel="stylesheet" th:href="@{/css/main/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/main/owl.theme.default.css}">
+    <!-- <link rel="stylesheet" href="/main/resources/static/css/main/style.css">
+    <link rel="stylesheet" href="/main/resources/static/css/main/owl.carousel.css">
+    <link rel="stylesheet" href="/main/resources/static/css/main/owl.theme.default.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <script th:src="@{https://code.jquery.com/jquery-latest.min.js}"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/js/main/js.js"></script>
+    <script src="/js/main/owl.carousel.js"></script> -->
+    <script th:src="@{/js/main/owl.carousel.js}"></script>
+
 </head>
 <body>
-    <tr>
-        <td>id</td>
-        <td>코드</td>
-        <td>이름</td>
-        <td>갯수</td>
-        <td>작가</td>
-        <td>출판사</td>
-        <td>출판일</td>
-        <td>카테고리</td>
-        <td>가격</td>
-    </tr>
-    <br/>
-    <tr th:each="m: ${main}">
-        <td>[[${m.bookId}]]</td>
-        <td>[[${m.bookCode}]]</td>
-        <td>[[${m.bookName}]]</td>
-        <td>[[${m.bookCount}]]</td>
-        <td>[[${m.author}]]</td>
-        <td>[[${m.publisher}]]</td>
-        <td>[[${m.publicationDate}]]</td>
-        <td>[[${m.category}]]</td>
-        <td>[[${m.price}]]</td>
-    </tr>
+    <div class="wrap">
+        <header id="header" th:insert="~{fragment/header::headers}"></header>
+        <section id ="category">
+            <div class="container">
+                <div class="menu">
+                    <div class="menu-wrap">
+                        <ul>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">웹툰</a></li>
+                            <li><a href="#">웹소설</a></li>
+                            <li><a href="#">책</a></li>
+                            <li><a href="/best">바로가기</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button">
+                    <div class="button-wrap">
+                        <ul>
+                            <li class="first"><a href="#">지금핫한</a></li>
+                            <li><a href="#">남성인기</a></li>
+                            <li><a href="#">실시간랭킹</a></li>
+                            <li><a href="#">완결추천</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">오늘신작</a></li>
+                            <li><a href="#">완전판</a></li>
+                            <li><a href="#">여성인기</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <main id ="main">
+            <div class="container">
+                <div class="main1">
+                    <div class="main1-wrap">
+                        <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><img th:src="@{/images/main/} + ${main.bookImg}"></a>
+                            <a th:href="@{/view?(bookCode = ${mst.bookCode})}"><h1><strong>≪ [[${main.bookName}]]:[[${main.bookSubname}]]≫</strong></h1></a>
+                    </div>
+                </div> 
+                <div class="main2">
+                    <div class="main2-wrap">
+                        <div class="owl-carousel owl-theme" >
+                            <div class="main2-img item" th:each ="slide : ${slide}">
+                                <a href="#">
+                                    <img th:src="@{/images/main/slide/} + ${slide.bookImg}" th:alt="@{slide.bookName}">
+                                </a>
+                                <div class="main2-text">
+                                    <a href="#"><h1>[[${slide.bookName}]]</h1></a>
+                                    <a href="#"><p>[[${slide.bookSubname}]]</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- main3은 비디오자리임 -->
+                <div class="main3"></div>
+                </br>
+                <div class="main4">
+                    <div class="main4-wrap">
+                        <div class="recommand1">
+                            <div class="recommand-gawoodi">
+                                <div class="recommand-gawoodi1">
+                                    <div class="recommand-subject">
+                                        <h4>| GAWOOD <strong>Choice</strong>!</h4>
+                                        <a href="#"> <img th:src="@{/images/main/} + ${gawoody.bookImg}" th:alt="${gawoody.bookName}"></a>
+                                    </div>
+                                    <div class="recommand-book">
+                                        <div class="recommand-book1">
+                                            <a href="#"><h2>[[${mz.bookName}]]</h2><br/></a>
+                                            <a href="#"><p>[[${mz.bookSubname}]]</p></a>
+                                        </div>
+                                        
+                                        <div class="recommand-book2">
+                                            <a href="#"><h2>[[${gawoody.bookName}]]</h2><br/></a>
+                                            <a href="#"><p>[[${gawoody.bookSubname}]]</p></a>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="recommand-gawoodi2">
+                                    <div class="recommand-subject">
+                                        <a href="#"><h4>| MEDIA <strong>Choice</strong>!</h4></a>
+                                        <a href="#"> <img th:src="@{/images/main/} + ${mz.bookImg}" th:alt="${mz.bookName}"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trend">
+                                <div class="recommand-subject">
+                                    <a href="#" class="trend-a"><h4>| Trend<strong> Issue</strong>? |</h4><span> >>더보기</span></a>
+                                    <a href="#"><img th:src="@{/images/main/} + ${trend.bookImg}" th:alt="${trend.bookName}"></a>
+                                    <br/>
+                                    <div class="recommand-text">
+                                        <a href="#"><p> [[${trend.bookSubname}]] </p></a></a>
+                                        <a href="#"><h4>≪ [[${trend.bookName}]] ≫</h4></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="recommand2">
+                            <div class="choice">
+                                <div class="choice-wrap">
+                                    <h1>출판사 <strong>추천!</strong></h1></strong></h1><span> >>더보기 </span> </a>
+                                    <div class="border">
+                                        <a href="#"><img th:src="@{/images/main/} + ${publisher.bookImg}" th:alt="${publisher.bookName}"></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>[[${publisher.bookName}]]</h4></a>
+                                            <a href="#"><p class="p"><strong>[[${publisher.bookSubname}]]</strong></p></a>
+                                            <a href="#"><p>내 인생을 바꿔줄 <br/>단 한권의 책!</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-wrap">
+                                    <h1>미디어 <strong>추천!</strong></h1><span> >>더보기 </span> </a>
+                                    <div class="border">
+                                        <a href="#"><img th:src="@{/images/main/} + ${media.bookImg}" th:alt="${media.bookName}"></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>[[${media.bookName}]]</a>
+                                            <a href="#"><p class="p">[[${media.bookSubname}]]</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="thisbook">
+                                <div class="thisbook-wrap">
+                                    <h1><strong>이 책&nbsp</strong>어때?</h1><span> >>더보기 </span></a>
+                                    <div class="border">
+                                        <a href="#"><img th:src="@{/images/main/} + ${thisbook.bookImg}" th:alt="${thisbook.bookName}"></a>
+                                        <div class="r2-text">
+                                            <a href="#"><h4>[[${thisbook.bookName}]]</a>
+                                            <a href="#"><p class="p">[[${thisbook.bookSubname}]]</p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+
+
+
+        <br/>
+            <div class="ad">
+                <div class="ad-wrap">
+                    <div class="ad-text one">
+                        <a href="#">
+                            <p class="ad1"><i class="fa-solid fa-gift"></i>  매일매일 선착순 도서 상품권 받기 <strong>이달의 혜택모음</strong></p></a>
+                    </div>
+                    <div class="ad-text two">
+                        <a href="#"><p class="ad2">친구에게 상품권 선물 FLEX로 포인트 적립까지 <strong>상품권선물하기</strong></p></a>
+                    </div>
+                </div>
+            </div>
+        <br/>
+        
+
+
+
+
+
+
+
+
+
+        <div class="main">
+            <div class="container">
+                <div class="main6">
+                    <div class="main6-h1">
+                        <h1>BESTSELLER</h1>
+                    </div>
+                    <div class="main6-secondwrap"> 
+                        <div class="main6-menu"><!-- main6-menu -->
+                            <ul class="tabs"> <!-- h3 -->
+                                <li class="active" data-tab="tab-1">청소년/문학</li> <!-- a -->
+                                <li data-tab="tab-2">유아/어린이</li>
+                                <li data-tab="tab-3">생활/육아</li>
+                                <li data-tab="tab-4">정치/경제</li>
+                                <li data-tab="tab-5">인문/사회</li>
+                                <li data-tab="tab-6">IT/과학</li>
+                                <li data-tab="tab-7">자기계발</li>
+                            </ul>
+                            <div class="main6-list">
+                                <!-- 청소년문학 -->
+                                <div id="tab-1" class="tab-content active">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="literature : ${literature}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}"></a>
+                                                <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>[[${literature.bookName}]]</h6></a>
+                                                <a href="#"><p>[[${literature.price}]]</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 유아/어린이 -->
+                                <div id="tab-2" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="child : ${child}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>[[${child.bookName}]]</h6></a>
+                                            <a href="#"><p>10800 + 1080P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 생활/육아 -->
+                                <!-- <div id="tab-3" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="living : ${living}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>[[${living.bookName}]]</h6></a>
+                                                <a href="#"><p>11700원 + 1170P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <!-- 정치/경제 -->
+                                <!-- <div id="tab-4" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="politic : ${politic}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text one">
+                                                <a href="#"><h6>[[${politic.bookName}]]</h6></a>
+                                            <a href="#"><p>14400원 + 1440P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <!-- 인문/사회 -->
+                                <!-- <div id="tab-5" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="humanity : ${humanity}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>[[${humanity.bookName}]]</h6></a>
+                                            <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                
+
+                                <!-- IT/과학 -->
+                                <!-- <div id="tab-6" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="it : ${it}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text">
+                                                <a href="#"><h6>[[${it.bookName}]]</h6></a>
+                                            <a href="#"><p>13950원 + 1390P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <!-- 자기계발 -->
+                                <!-- <div id="tab-7" class="tab-content">
+                                    <div class="main6-list-wrap">
+                                        <div class="main6-list-subject" th:each ="self : ${self}">
+                                            <a href="#"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}"></a>
+                                            <i class="fa-regular fa-heart"></i></a>
+                                            <div class="main6-list-text one">
+                                                <a href="#"><h6>[[${self.bookName}]]</h6></a>
+                                            <a href="#"><p>14800원 + 1480P</p></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id ="footer">
+            <div class="container">
+                <div class="info1">
+                    <div class="info1-wrap">
+                        <ul>
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">청소년보호정책</a></li>
+                            <li><a href="#">공지사항</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div class="info2-wrap">
+                        <ul>
+                            <li>대표자 이진수, 김성수</li>
+                            <li>호스팅서비스사업자 (주)카카오엔터테인먼트</li>
+                            <li><a href="#">사업자정보확인</a></li>
+                        </ul>
+                        <ul>
+                            <li>사업자등록번호 220-88-02594</li>
+                            <li>통신판매업신고 2018-성남분당B-0004</li>
+                        </ul>
+                        <ul>
+                            <li>대표전화 051-222-0000</li>
+                            <li>이메일 koreait@koreait.co.kr</li>
+                            <li>부산광역시 부산진구 에이원프라자 1동 403호</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info3">
+                    <p>Korea it Academy &copy;</p>
+                </div>
+            </div>    
+        </footer>
+    </div>
+    <script th:src="@{/js/main/js.js}"></script>
     
-</body>
+    <script>
+
+      
+    </script>
+    </body>
 </html>

@@ -720,10 +720,6 @@ ul li.active {
 }
 
 
-.main6-list-wrap.last ul li a {
-    display: block;
-}
-
 .main6-list {
     width: 1200px;
     margin: 0 auto;
@@ -769,6 +765,7 @@ ul li.active {
     font-size: 14px;
     margin-top: 15px;
     text-align: center;
+    width: 150px;
 }
 
 .main6-list-text h6:hover {

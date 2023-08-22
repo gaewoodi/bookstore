@@ -20,16 +20,28 @@ public class MainController {
     private MainMapper mainmapper;
 
     @GetMapping("/main")
-    public String getMain(Model model) {
+    public String getMain(Model model, BookDto bookDto) {
+
+//        스콘
         model.addAttribute("mst", mainmapper.getMst());
         model.addAttribute("main", mainmapper.getMainDto());
+
+//        슬라이드
         model.addAttribute("slide", mainmapper.getImage());
+//        개우디
         model.addAttribute("gawoody", mainmapper.getGawoody());
         model.addAttribute("mz", mainmapper.getMz());
         model.addAttribute("trend", mainmapper.getTrend());
         model.addAttribute("publisher", mainmapper.getPublisher());
         model.addAttribute("media", mainmapper.getMedia());
         model.addAttribute("thisbook", mainmapper.getThisBook());
+        model.addAttribute("literature", mainmapper.getLiterature());
+        model.addAttribute("child", mainmapper.getChild());
+        model.addAttribute("living", mainmapper.getLiving());
+        model.addAttribute("politic", mainmapper.getPolitic());
+        model.addAttribute("humanity", mainmapper.getHumanity());
+        model.addAttribute("it", mainmapper.getIt());
+        model.addAttribute("self", mainmapper.getSelf());
         return "main/index";
     }
 }
