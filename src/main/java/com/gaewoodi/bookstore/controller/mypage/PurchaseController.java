@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -35,7 +36,7 @@ public class PurchaseController {
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
         model.addAttribute("count", cartMapper.getCartCount(regId));
-//        model.addAttribute("order", purchaseMapper.getPurchase());
+        model.addAttribute("order", purchaseMapper.getPurchase(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 
@@ -143,9 +144,23 @@ public class PurchaseController {
         return "mypage/purchase_list";
     }
 
+    //삭제 목록을 보여주는 페이지
     @GetMapping("/delete")
     public String getPurchaseDelete() {
         return "mypage/purchase_delete";
+    }
+
+    @PostMapping("/delete")
+    @ResponseBody
+    public Map<String, Object> getPurchaseDelete(@RequestParam(value = "checkboxResult") int result,
+                                                 @RequestParam(value = "regIdValue") int regId) {
+        Map<String, Object> map = new HashMap<>();
+
+        purchaseMapper.deletePurchase(regId, result);
+
+        map.put("msg", "success");
+
+        return map;
     }
 }
 
