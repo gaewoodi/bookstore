@@ -24,12 +24,4 @@ public interface BookMapper {
     @Update("UPDATE book_mst SET visit = visit + 1 WHERE book_id = #{bookId}")
     void updateVisit(int bookId);
 
-    // 카테고리
-    @Select("SELECT * FROM book_mst WHERE category = #{category}")
-    List<BookDto> getCategory(String category);
-
-    //재고수
-    @Select("SELECT book_stock FROM book_mst WHERE book_id = #{bookId}")
-    int getBookStock(int bookId);
-
 }
