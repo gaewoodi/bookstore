@@ -11,11 +11,14 @@ import java.util.List;
 @Mapper
 public interface InventoryMapper {
 
-    @Select("SELECT * FROM book_mst ORDER BY book_code DESC")
+    @Select("SELECT * FROM book_mst ORDER BY book_id DESC")
     List<AdminBookDto> getBookAll();
 
     @Select("SELECT COUNT(*) FROM book_mst")
     int getTotalCount();
+
+    @Select("SELECT COUNT(*) FROM book_mst WHERE book_stock = 0")
+    int getBookStockCount();
 
     @Select("SELECT * FROM book_mst WHERE book_id= #{bookId}")
     AdminBookDto getBookOne(int bookId);

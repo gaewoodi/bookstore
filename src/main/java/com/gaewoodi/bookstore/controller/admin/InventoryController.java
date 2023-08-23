@@ -32,6 +32,8 @@ public class InventoryController {
     @GetMapping("/admin/inventory")
     public String urlInventory(Model model,@RequestParam(defaultValue = "1", value = "page") int page){
         model.addAttribute("bookInfo", inventoryMapper.getBookAll());
+        model.addAttribute("cnt", inventoryMapper.getTotalCount());
+        model.addAttribute("zeroCnt", inventoryMapper.getBookStockCount());
 
         model.addAttribute("book", pagingSrv.getPagingBook(page));
 

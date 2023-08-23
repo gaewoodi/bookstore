@@ -36,19 +36,18 @@
                 <div class="main-inven">
                     <h2>::재고관리 페이지</h2>
                     <div class="inven-top">
-                        <ul>
-                            <li><a href="#">전체목록</a></li>
-                            <li><a href="#">부족한 상품8개</a></li>
-                        </ul>
+                        <a href="/admin/inventory">전체목록</a>
+                        <p>부족한 상품 [[${zeroCnt}]]개</p>
                     </div>
                     <div class="inven-mid">
-                        <select>전체분류</select>
-                        <select>상품명</select>
-                        <input type="search">
+                        <select>
+                            <option>카테고리</option>
+                            <option>상품명</option>
+                        </select>
+                        <input type="text">
                     </div>
                     <div class="inven-bot">
                         <a href="#"><button>상품추가</button></a>
-                        <button>판매순위</button>
                     </div>
                     <table id="inventory">
                         <thead>
