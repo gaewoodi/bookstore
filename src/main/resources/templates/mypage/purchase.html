@@ -104,7 +104,7 @@
                                 <div class="right-box">
                                     <div th:each="order: ${order}">
                                         <div class="book-title">
-                                            <input type="checkbox" name="rightbox" onclick="rightCheckbox()" th:value="${order.price}" checked>
+                                            <input type="checkbox" name="rightbox" th:value="${order.price}" checked>
                                             <label>도서명</label>
                                             <span class="book-name">[[${order.bookName}]]</span>
                                         </div>
