@@ -55,7 +55,7 @@
                             <div class="book-cointainer" th:each="book: ${book}">
                                 <div class="book-main-container">
                                     <div class="image-input-container">
-                                        <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                                        <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.price}">
                                         <div class="image-container">
                                             <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
                                         </div>
@@ -68,7 +68,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>도서제목</td>
-                                                    <td>[[${book.bookName}]]</td>
+                                                    <td class="bookName">[[${book.bookName}]]</td>
                                                 </tr>
                                                 <tr>
                                                     <td>작가</td>
@@ -86,7 +86,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>가격</td>
-                                                    <td>[[${book.price}]]</td>
+                                                    <td class="price">[[${book.price}]]</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -115,9 +115,8 @@
                                     </div>
                                     <div class="book-price">
                                         <label>금액</label>
-                                        <span>1,000원</span>
+                                        <span class="purchase-price"></span>
                                     </div>
-                                    <!-- <hr class="split-line"> -->
                                 
                                     <hr>
                                     <div class="total-price">

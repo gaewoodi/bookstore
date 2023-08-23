@@ -36,11 +36,51 @@ function checkboxClick() {
         checkArray.push($(this).val());     
     });
 
+    for (let i = 0; i < checkArray.length; i++) {
+      console.log("checkArray: " + checkArray[i]);
+    }
+
+    let minus = document.querySelector(".minus");
+    let plus = document.querySelector(".plus");
+    let resultElement = document.querySelector("#result");
+    let totalPrice = document.querySelector(".totalPrice");
+    let price = document.querySelector(".price").textContent;
+    console.log("price: " + price);
+    let purchasePrice = document.querySelector(".purchase-price");
+
+    purchasePrice.textContent = price + "원";
+    totalPrice.textContent = 0 + "원"
+
+    let i = 1;
+
+    minus.addEventListener("click", () => {
+        if(i > 0) {
+            i--
+            resultElement.textContent = i;
+
+            let totalPriceNumber = i * checkArray;
+            totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
+
+        }else {
+            totalPrice.textContent = 0 + "원"
+        }
+
+    });
+
+    plus.addEventListener("click", () => {
+        i++
+        resultElement.textContent = i;
+
+        let totalPriceNumber = i * checkArray;
+        totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
+
+    });
+
 
     // 출력
     // document.getElementById('result').innerText = result;
 
-    // console.log(result);
+    console.log("result: " + result);
 
     //체크박스 전체개수와 체크된 체크박스 전체개수가 같으면 전체 체크박스 체크
     if(allCount == selectedElementsCount){
@@ -55,9 +95,9 @@ function checkboxClick() {
     let regIdValue = document.querySelector(".reg-id").value;
     console.log("regIdValue: " + regIdValue);
     console.log("result: " + result);
-    console.log("checkArray: " + checkArray);
 
-    $('input[name="check"]').isChecked(function(){
+
+    $('.bookName').isChecked(function(){
         $('.book-name').append('완벽한 사과는 없다 : 김혜진 장편소설');
     });
 
