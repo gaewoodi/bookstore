@@ -1,10 +1,8 @@
 package com.gaewoodi.bookstore.mappers.mypage;
 
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.mypage.LikeDto;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface LikeMapper {
@@ -20,6 +18,10 @@ public interface LikeMapper {
 
     @Select("SELECT COUNT(*) FROM book_like WHERE book_id = #{bookId}")
     int getLikeCount(int bookId);
+
+    @Update("UPDATE book_mst SET book_like = #{bookLike} WHERE book_id = #{bookId}")
+    void setBookLikeCount(BookDto bookDto);
+
 
 
 }

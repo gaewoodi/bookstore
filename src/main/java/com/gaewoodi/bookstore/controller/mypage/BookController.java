@@ -1,5 +1,6 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.LikeDto;
 import com.gaewoodi.bookstore.mappers.mypage.BookMapper;
@@ -54,14 +55,15 @@ public class BookController {
     }
 
     @PostMapping("/like")
-    public Map<String, Object> getLike(@ModelAttribute LikeDto likeDto) {
-        likeMapper.addLike(likeDto);
-        Map<String, Object> map = new HashMap<>();
-        likeMapper.getLikeCount(likeDto.getBookId());
+    public String getLike(@RequestParam(value = "bookLike") int like) {
+        BookDto bookDto = new BookDto();
 
-        map.put("msg", "success");
+        bookDto.setBookLike(like);
+        System.out.println("like:" + like);
 
-        return map;
+        likeMapper.setBookLikeCount(bookDto);
+
+        return "redirect:/book";
 
     }
 

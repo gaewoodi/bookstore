@@ -1,13 +1,39 @@
+function likeCheckbox() {
+    const query = 'input[name="checkBookId"]';
+    const selectedElements = document.querySelectorAll(query);
+
+    let result = '';
+
+    selectedElements.forEach((el) => {
+        result += el.value + ' ';
+    });
+
+    console.log("result: " + result);
+
+}
 let likeButton = document.querySelector(".book-like");
 let like = document.querySelector("#like");
-let bookLike = document.querySelector(".bookLike").textContent;
+let bookLike = document.querySelector(".bookLike").innerHTML;
+console.log(bookLike);
 
-let i = 0;
 
 likeButton.addEventListener("click", () => {
-    i++
-    like.textContent = i;
+	
+    bookLike = parseInt(bookLike) + 1;
+	console.log("bookLike" + bookLike);
 
-    bookLike.textContent = like.toLocaleString();
-
+	$.ajax({
+		type: "post",
+		url: "/book/like",
+		dataType: "json",
+		data: {
+			bookLike: bookLike
+		},
+		success: function() {
+			location.reload();
+		},
+		error: function(err) {
+			console.log(err);
+		} 
+	});
 });
