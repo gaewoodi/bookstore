@@ -23,29 +23,7 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <style>
-        .mainH2 {
-            margin-bottom: 10px;
-        }
 
-        .tb1_frm01 th {
-            border-top: 1px solid #e6e6e6;
-            border-bottom: 1px solid #e6e6e6;
-            background: #f6f6f6;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .tb1_frm01 input {
-            background: #e6e6e6;
-        }
-
-        table {
-            width: 100%;
-        }
-
-        .midH2 {
-            margin-top: 10px;
-        }
     </style>
 </head>
 
@@ -57,12 +35,11 @@
         <main>
             <div class="main-right">
                 <div class="main-inven">
-                    <h2 class="mainH2">::책 정보 수정</h2>
+                    <h2 class="mainH2">::책 추가</h2>
                     <div class="inven-top">
 
-                        <div class="container_wr" th:each="bookInfo : ${bookInfo}">
+                        <div class="container_wr">
 
-                            <input type="hidden" class="bookId" th:value="${bookInfo.bookId}">
                             <section id="book_cate">
                                 <h3 class="h2_cate">상품 분류</h3><br />
                                 <div class="tb1_frm01">
@@ -130,7 +107,8 @@
                                                     <label>책 코드</label>
                                                 </th>
                                                 <td>
-                                                    <span>[[${bookInfo.bookCode}]]</span><br />
+                                                    <span>책 코드를 입력해 주세요</span><br />
+                                                    <input type="text" name="book_code" id="book_code">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -138,7 +116,7 @@
                                                     <label>책 이름</label>
                                                 </th>
                                                 <td>
-                                                    <span>[[${bookInfo.bookName}]]</span><br />
+                                                    <span>책 이름을 입력해 주세요</span><br />
                                                     <input type="text" name="book_name" id="book_name">
                                                 </td>
                                             </tr>
@@ -147,7 +125,7 @@
                                                     <label>작가</label>
                                                 </th>
                                                 <td>
-                                                    <span>[[${bookInfo.author}]]</span><br />
+                                                    <span>책 작가을 입력해 주세요</span><br />
                                                     <input type="text" name="book_author" id="book_author">
                                                 </td>
                                             </tr>
@@ -156,7 +134,7 @@
                                                     <label>출판사</label>
                                                 </th>
                                                 <td>
-                                                    <span>[[${bookInfo.publisher}]]</span><br />
+                                                    <span>책 출판사를 입력해 주세요</span><br />
                                                     <input type="text" name="book_publisher" id="book_publisher">
                                                 </td>
                                             </tr>
@@ -187,20 +165,6 @@
                                                     <textarea name="book_explan" id="book_explan"></textarea>
                                                 </td>
                                             </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <label>이미지 업로드</label>
-                                                </th>
-                                                <td>
-                                                    <span>책 이미지를 선택해주세요</span><br />
-                                                    <div>
-                                                        <button class="book-button"
-                                                            th:onclick="modal([[${bookInfo.bookId}]])">이미지수정
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -211,29 +175,7 @@
                 <div class="apply"><button class="btn">설정 적용</button></div>
             </div>
         </main>
-        <!-- IMAGE UPLOAD(MODAL) -->
-        <div id="modal">
-            <i class="fa-regular fa-circle-xmark close" th:onclick="closeModal()"></i>
-            <div class="modal-box">
-                <form class="file-container">
-                    <div class="view-image-container" th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                        <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg">
-                    </div>
-                    <div class="view-image-container"
-                        th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                        <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg">
-                    </div>
-                    <input type="file" name="uploadFile" class="uploadFile">
-                    <div class="file-button">
-                        <button type="button" id="upload">저장하기</button>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
-
-
-    <script th:src="@{/js/admin/bookImgModal.js}"></script>
 
     <script th:src="@{/js/admin/sidebar.js}"></script>
     <!--  로그인 체크 -->
