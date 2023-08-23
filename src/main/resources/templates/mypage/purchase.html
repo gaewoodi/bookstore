@@ -44,7 +44,6 @@
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <h1>
-                        <input type="hidden" class="reg-id" th:value="${session.regId}">
                         <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 결제
                     </h1>
                     <hr>
@@ -55,8 +54,8 @@
                             <div class="book-cointainer" th:each="book: ${book}">
                                 <div class="book-main-container">
                                     <div class="image-input-container">
-                                        <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
-                                        <div class="image-container">
+                                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                                            <div class="image-container">
                                             <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
                                         </div>
                                     </div>
@@ -102,30 +101,7 @@
 
                             <div class="purchase-box-container" id="purchaseBox">
                                 <div class="right-box">
-                                    <div th:each="order: ${order}">
-                                        <div class="book-title">
-                                            <input type="checkbox" name="rightbox" th:value="${order.price}" checked>
-                                            <label>도서명</label>
-                                            <span class="book-name">[[${order.bookName}]]</span>
-                                        </div>
-                                        <div class="total-count">
-                                            <label>수량</label>
-                                            <span>
-                                                <button><i class="fa-solid fa-minus minus"></i></button>
-                                                <div id='result'>1</div>
-                                                <button><i class="fa-solid fa-plus plus" ></i></button>
-                                            </span>
-                                        </div>
-                                        <div class="book-price">
-                                            <label>금액</label>
-                                            <span class="purchase-price" id="price"><p>[[${order.price}]]</p></span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="total-price">
-                                        <p>총 결제 금액</p>
-                                        <p class="totalPrice"></p>
-                                    </div>
+                                    <p>체크박스를 선택해주세요.</p>
                                 </div>
                             </div>
                         </div> 
@@ -141,7 +117,6 @@
     <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/purchase/purchase.js}"></script>
     <script th:src="@{/js/mypage/purchase/purchase_delete.js}"></script>
-    <script th:src="@{/js/mypage/purchase/right_box.js}"></script>
     <script th:src="@{/js/mypage/purchase/kakaoPay.js}"></script>
     <script th:src="@{/js/mypage/purchase/portone.js}"></script>
     <script th:src="@{/js/mypage/purchase/right_box_scroll.js}"></script>

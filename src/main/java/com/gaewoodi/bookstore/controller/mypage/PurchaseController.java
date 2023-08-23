@@ -36,7 +36,6 @@ public class PurchaseController {
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
         model.addAttribute("count", cartMapper.getCartCount(regId));
-        model.addAttribute("order", purchaseMapper.getPurchase(regId));
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 
@@ -50,9 +49,6 @@ public class PurchaseController {
                               @RequestParam(value = "checkArray") String checkArray) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("result: "+ result);
-        System.out.println("regId: "+ regId);
-        System.out.println("checkArray: "+ checkArray);
 
         map.put("msg", "success");
 

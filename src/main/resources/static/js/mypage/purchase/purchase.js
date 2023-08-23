@@ -31,9 +31,6 @@ function checkboxClick() {
     });
 
 
-    
-
-
     // 출력
     // document.getElementById('result').innerText = result;
 
@@ -49,8 +46,6 @@ function checkboxClick() {
         document.getElementById('selectAll').checked = false;
     }
 
-    
-    
 
 }
 

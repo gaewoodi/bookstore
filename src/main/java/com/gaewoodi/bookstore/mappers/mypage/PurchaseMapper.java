@@ -20,10 +20,6 @@ public interface PurchaseMapper {
     @Update("UPDATE purchase_mst SET price = #{price}")
     void updatePurchase(PurchaseDto purchaseDto);
 
-//    @Select("SELECT bm.book_name AS bmBookName, pm.* FROM purchase_mst pm LEFT OUTER JOIN book_mst bm ON(bm.book_id = pm.book_id) WHERE pm.reg_id = #{regId}")
-    @Select("SELECT bm.*, pm.book_id, pm.reg_id FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id) WHERE bm.book_id = pm.book_id AND pm.reg_id = #{regId}")
-    List<BookDto> getPurchase(int regId);
-
     @Delete("DELETE FROM purchase_mst WHERE reg_id = #{regId} AND book_id = #{bookId}")
     void deletePurchase(int regId, int bookId);
 }

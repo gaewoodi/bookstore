@@ -1,6 +1,6 @@
 $(function() {
 	$('#kakaobutton').click(function() {
-		let regIdValue = document.querySelector(".reg-id").value;
+		let regIdValue = document.querySelector(".regId").value;
 
 		$.ajax({
 			url: "/purchase/kakaopay",

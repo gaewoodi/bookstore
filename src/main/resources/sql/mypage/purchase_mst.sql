@@ -20,11 +20,24 @@ drop table purchase_mst;
 SELECT * FROM purchase_mst;
 
 ----------------------------------------
-select pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = '2';
-select pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = #{bookId}
+
+SELECT
+    bm.*,
+    pm.book_id,
+    pm.reg_id
+FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id)
+WHERE
+    bm.book_id = pm.book_id AND pm.reg_id = #{regId}
 
 
-select
+
+
+----------------------------------------
+SELECT pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = '2';
+SELECT pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = #{bookId}
+
+
+SELECT
     pm.*,
     bm.book_id,
     bm.book_code,
@@ -37,7 +50,7 @@ select
     bm.price,
     bm.visit,
     bm.book_like
-from
+FROM
     purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id)
 WHERE
     pm.book_id = '2';
