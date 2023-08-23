@@ -57,6 +57,7 @@ public class BookController {
     public Map<String, Object> getLike(@ModelAttribute LikeDto likeDto) {
         likeMapper.addLike(likeDto);
         Map<String, Object> map = new HashMap<>();
+        likeMapper.getLikeCount(likeDto.getBookId());
 
         map.put("msg", "success");
 

@@ -1,13 +1,13 @@
-function count(type)  {
-	const likeElement = document.getElementById('like');
+let likeButton = document.querySelector(".book-like");
+let like = document.querySelector("#like");
+let bookLike = document.querySelector(".bookLike").textContent;
 
-	const bookLike = document.querySelector(".like-count").textContent;
+let i = 0;
 
-    console.log(bookLike);
+likeButton.addEventListener("click", () => {
+    i++
+    like.textContent = i;
 
-	if(type === 'plus') {
-		bookLike = parseInt(bookLike) + 1;
-	}
+    bookLike.textContent = like.toLocaleString();
 
-	likeElement.innerText = bookLike;
-}
+});

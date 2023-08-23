@@ -19,7 +19,7 @@ public interface LikeMapper {
     int getLikeStatus(LikeDto likeDto);
 
     @Select("SELECT COUNT(*) FROM book_like WHERE book_id = #{bookId}")
-    int getLikeCount(LikeDto likeDto);
+    int getLikeCount(int bookId);
 
 
 }

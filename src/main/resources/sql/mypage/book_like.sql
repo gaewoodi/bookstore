@@ -6,3 +6,11 @@ CREATE TABLE book_like (
     user_id varchar(45) NOT NULL,
     PRIMARY KEY (like_id)
 );
+
+-------------------------
+SELECT
+    count(*)
+FROM
+    book_like
+WHERE
+    book_id = #{bookId}
