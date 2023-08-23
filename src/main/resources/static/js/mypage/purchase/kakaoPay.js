@@ -1,9 +1,14 @@
 $(function() {
 	$('#kakaobutton').click(function() {
+		let regIdValue = document.querySelector(".reg-id").value;
+
 		$.ajax({
 			url: "/purchase/kakaopay",
 			type: "post",
 			dataType: "json",
+			data: {
+				"regIdValue": regIdValue
+			},
 			success: function(data) {
 				var box = data.next_redirect_pc_url;
 				window.open(box);
