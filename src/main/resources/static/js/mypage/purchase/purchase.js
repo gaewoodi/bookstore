@@ -22,7 +22,6 @@ function checkboxClick() {
     const selectedElements = document.querySelectorAll(query);
     const selectedElementsCount = selectedElements.length;
 
-    let checkArray = [];     // 배열 초기화
     // 선택된 목록에서 value 찾기
     let result = '';
 
@@ -31,53 +30,8 @@ function checkboxClick() {
         result += el.value + ' ';
     });
 
-    $("input[name='check']:checked").each(function(i) {
-        // 체크된 것만 값을 뽑아서 배열에 push
-        checkArray.push($(this).val());     
-    });
 
-    for (let i = 0; i < checkArray.length; i++) {
-    //   console.log("checkArray: " + checkArray[i]);
-      checkArray[i];
-    }
-
-    console.log("checkArray: " + checkArray);    
-
-    let minus = document.querySelector(".minus");
-    let plus = document.querySelector(".plus");
-    let resultElement = document.querySelector("#result");
-    let totalPrice = document.querySelector(".totalPrice");
     
-    let price = document.querySelector(".purchase-price").textContent;
-    console.log("price: " + price);
-
-    price.textContent = price + "원";
-    totalPrice.textContent = 0 + "원"
-
-    // let i = 1;
-
-    // minus.addEventListener("click", () => {
-    //     if(i > 0) {
-    //         i--
-    //         resultElement.textContent = i;
-
-    //         let totalPriceNumber = i * checkArray;
-    //         totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
-
-    //     }else {
-    //         totalPrice.textContent = 0 + "원"
-    //     }
-
-    // });
-
-    // plus.addEventListener("click", () => {
-    //     i++
-    //     resultElement.textContent = i;
-
-    //     let totalPriceNumber = i * checkArray;
-    //     totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
-
-    // });
 
 
     // 출력

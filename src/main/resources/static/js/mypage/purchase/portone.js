@@ -77,8 +77,6 @@ function comma(x) {
 
 $(function () {
 	
-	console.log('개발환경 :: ',window.location.hostname)
-	
 	let p_mid;
 	// 개발 환경에 따라 t_mid(결제 키) 설정
 	if (window.location.hostname == 'localhost'){

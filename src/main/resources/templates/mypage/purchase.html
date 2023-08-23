@@ -104,6 +104,7 @@
                                 <div class="right-box">
                                     <div th:each="order: ${order}">
                                         <div class="book-title">
+                                            <input type="checkbox" name="rightbox" onclick="rightCheckbox()" th:value="${order.price}" checked>
                                             <label>도서명</label>
                                             <span class="book-name">[[${order.bookName}]]</span>
                                         </div>
@@ -117,7 +118,7 @@
                                         </div>
                                         <div class="book-price">
                                             <label>금액</label>
-                                            <span class="purchase-price">[[${order.price}]]</span>
+                                            <span class="purchase-price" id="price"><p>[[${order.price}]]</p></span>
                                         </div>
                                         <hr>
                                     </div>
@@ -140,6 +141,7 @@
     <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/purchase/purchase.js}"></script>
     <script th:src="@{/js/mypage/purchase/purchase_delete.js}"></script>
+    <script th:src="@{/js/mypage/purchase/right_box.js}"></script>
     <script th:src="@{/js/mypage/purchase/kakaoPay.js}"></script>
     <script th:src="@{/js/mypage/purchase/portone.js}"></script>
     <script th:src="@{/js/mypage/purchase/right_box_scroll.js}"></script>
