@@ -9,16 +9,30 @@ document.addEventListener('scroll', () => {
 	}
 });
 
-function count(type)  {
-	const resultElement = document.getElementById('result');
+let minus = document.querySelector(".minus");
+let plus = document.querySelector(".plus");
+let resultElement = document.querySelector("#result");
+let totalPrice = document.querySelector(".totalPrice");
 
-	let number = resultElement.innerText;
+let i = 1;
 
-	if(type === 'plus') {
-		number = parseInt(number) + 1;
-	}else if(type === 'minus')  {
-		number = parseInt(number) - 1;
+minus.addEventListener("click", () => {
+	if(i > 0) {
+		i--
+		resultElement.textContent = i;
+
+		let totalPriceNumber = i * 4500;
+		totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
+	}else {
+		totalPrice.textContent = 0 + "원"
 	}
 
-	resultElement.innerText = number;
-}
+});
+
+plus.addEventListener("click", () => {
+	i++
+	resultElement.textContent = i;
+
+	let totalPriceNumber = i * 4500;
+	totalPrice.textContent = totalPriceNumber.toLocaleString() + "원";
+});

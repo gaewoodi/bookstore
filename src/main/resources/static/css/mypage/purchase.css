@@ -173,6 +173,8 @@ body{
 
 .right-box {
     padding: 20px;
+    width: 230px;
+
     border: 1px solid #e7e7e7;
     border-radius: 3px;
 }
@@ -188,6 +190,10 @@ body{
 .book-price, .total-count span, .total-price {
     display: flex;
     justify-content: space-between;
+}
+
+.total-count span {
+    width: 70px;
 }
 
 .minus:hover {
