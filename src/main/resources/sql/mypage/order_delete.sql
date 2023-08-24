@@ -12,3 +12,17 @@ CREATE table order_delete (
 drop table order_delete;
 
 SELECT * FROM order_delete;
+
+-------------------------------------
+SELECT bm.*, od.book_id, od.reg_id FROM book_mst bm LEFT OUTER JOIN order_delete od ON(bm.book_id = od.book_id) WHERE bm.book_id = od.book_id AND od.reg_id = #{regId}
+
+
+SELECT
+    bm.*,
+    od.book_id,
+    od.reg_id
+FROM book_mst bm LEFT OUTER JOIN order_delete od ON(bm.book_id = od.book_id)
+WHERE
+    bm.book_id = od.book_id AND od.reg_id = #{regId}
+
+

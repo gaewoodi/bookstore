@@ -114,22 +114,31 @@ public class PurchaseController {
         return "{\"result\":\"NO\"}";
     }
 
-
-    @GetMapping("/list")
-    public String getPurchaseList(Model model) {
-
-        return "mypage/purchase_list";
-    }
-
     //삭제 목록을 보여주는 페이지
     @GetMapping("/order/delete")
-    public String getPurchaseDelete() {
+    public String getPurchaseOrderDeleteList(@RequestParam int regId, Model model) {
+        model.addAttribute("user", mypageMapper.getMypageId(regId));
+        model.addAttribute("book", purchaseMapper.getOrderDelete(regId));
+
         return "mypage/order_delete";
+    }
+
+    @PostMapping("/order/delete")
+    @ResponseBody
+    public Map<String, Object> getPurchaseOrderDelete(@RequestParam(value = "checkboxResult") int result,
+                                                 @RequestParam(value = "regIdValue") int regId) {
+        Map<String, Object> map = new HashMap<>();
+
+        purchaseMapper.deleteCart(regId, result);
+
+        map.put("msg", "success");
+
+        return map;
     }
 
     @PostMapping("/delete")
     @ResponseBody
-    public Map<String, Object> getPurchaseDelete(@RequestParam(value = "checkboxResult") String result,
+    public Map<String, Object> deletePurchaseListAndSaveOrderDelete(@RequestParam(value = "checkboxResult") String result,
                                                  @RequestParam(value = "regIdValue") int regId,
                                                  @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();

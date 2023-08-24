@@ -50,13 +50,10 @@ public class CartController {
 
     @GetMapping("/delete")
     @ResponseBody
-    public Map<String, Object> cartDelete(@ModelAttribute CartDto cartDto,
-                                          @RequestParam(value = "checkboxResult") int result,
+    public Map<String, Object> cartDelete(@RequestParam(value = "checkboxResult") int result,
                                           @RequestParam(value = "regIdValue") int regId) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("result: " + result);
-        System.out.println("regId: " + regId);
         cartMapper.deleteCart(regId, result);
 
         map.put("msg", "success");

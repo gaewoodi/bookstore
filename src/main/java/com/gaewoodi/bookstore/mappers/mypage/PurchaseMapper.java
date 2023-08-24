@@ -21,10 +21,14 @@ public interface PurchaseMapper {
     @Delete("DELETE FROM purchase_mst WHERE reg_id = #{regId} AND book_id = ${deleteQuery}")
     void deletePurchase(int regId, String deleteQuery);
 
-    // 주문 목록
-    @Insert("INSERT INTO purchase_list VALUES (NULL, #{bookId}, #{regId}, now(), now())")
-    void savePurchaseList(PurchaseDto purchaseDto);
-
+    //주문 취소 목록
     @Insert("INSERT INTO order_delete VALUES (NULL, #{bookId}, #{regId}, now(), now())")
     void saveOrderDelete(PurchaseDto purchaseDto);
+
+    @Select("SELECT bm.*, od.book_id, od.reg_id FROM book_mst bm LEFT OUTER JOIN order_delete od ON(bm.book_id = od.book_id) WHERE bm.book_id = od.book_id AND od.reg_id = #{regId}")
+    List<BookDto> getOrderDelete(int regId);
+
+    @Delete("DELETE FROM order_delete WHERE reg_id = #{regId} AND book_id = #{bookId}")
+    void deleteCart(int regId, int bookId);
+
 }
