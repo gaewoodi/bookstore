@@ -21,8 +21,8 @@ public class AdminBookDto {
     private String price;
     private int visit;
     private int likeCount;
-
-
+    
+    //이미지
     private String saveName;
     private String originName;
     private Long size;

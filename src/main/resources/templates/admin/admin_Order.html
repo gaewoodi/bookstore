@@ -39,10 +39,7 @@
                         <div>
                             <a th:href="@{/admin/order}">전체목록</a>
                         </div>
-                        <span>
-                            <span>전체 주문내역</span>
-                            <span>311건</span>
-                        </span>
+
                         <form name="frmoderlist" class="order_sch01">
                             <input type="hidden" name="id" value>
                             <input type="hidden" name="sort1" value="od_id">
@@ -130,19 +127,6 @@
                                 <th>보기</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="bot-body">
-                                <td><input type="checkbox"></td>
-                                <td>홍길동</td>
-                                <th>미움받을 용기</th>
-                                <td>2023-07-17</td>
-                                <td>배송중</td>
-                                <td>
-                                    <button onclick="openModal(1)">상세 보기</button>
-                                    <button onclick="cancelOrder(1)">주문 취소</button>
-                                </td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </div>

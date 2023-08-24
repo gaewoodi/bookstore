@@ -1,12 +1,9 @@
 package com.gaewoodi.bookstore.controller.admin;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
-import com.gaewoodi.bookstore.dto.admin.PagingDto;
 import com.gaewoodi.bookstore.dto.mypage.UserImageDto;
 import com.gaewoodi.bookstore.mappers.admin.AccountMapper;
-import com.gaewoodi.bookstore.mappers.admin.LevelMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
-import com.gaewoodi.bookstore.service.admin.AccountPagingSrv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -27,25 +24,15 @@ public class AccountController {
     private String user_image = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
 
     @Autowired
-    private AccountPagingSrv pagingSrv;
-
-    @Autowired
     private AccountMapper accountMapper;
-
-    @Autowired
-    private LevelMapper levelMapper;
 
     @Autowired
     private MypageMapper mypageMapper;
 
     @GetMapping("/admin/account")
-    public String urlAccount(Model model ,@RequestParam(defaultValue = "1", value = "page") int page){
+    public String urlAccount(Model model ){
         model.addAttribute("acct", accountMapper.getMemberAll());
-        model.addAttribute("level", levelMapper.getLevel());
-
-        model.addAttribute("emp", pagingSrv.getPagingEmp(page));
-
-        model.addAttribute("pagination", pagingSrv.pageCalc(page));
+        model.addAttribute("level", accountMapper.getLevel());
 
         return "admin/admin_Account";
     }
@@ -57,7 +44,7 @@ public class AccountController {
 
         if (regId > 0) {
             model.addAttribute("acct", accountMapper.getMemberOne(regId));
-            model.addAttribute("level", levelMapper.getLevel());
+            model.addAttribute("level", accountMapper.getLevel());
             model.addAttribute("user", mypageMapper.getRegIdCheck(userImageDto));
             System.out.println(regId);
         }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>재고관리 페이지</title>
+    <title>상품 상세 페이지</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -16,37 +16,14 @@
     <link rel="stylesheet" href="/css/admin/body.css">
     <link rel="stylesheet" href="/css/admin/fragmentCSS/header.css">
     <link rel="stylesheet" href="/css/admin/fragmentCSS/sidebar.css">
-    <link rel="stylesheet" th:href="@{/css/mypage/modal.css}">
+    <link rel="stylesheet" href="/css/admin/Admin_InventoryUpdate.css">
+    <link rel="stylesheet" th:href="@{/css/admin/modal.css}">
     <link rel="stylesheet" href="/css/admin/media.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-    <style>
-        .mainH2 {
-            margin-bottom: 10px;
-        }
 
-        .tb1_frm01 th {
-            border-top: 1px solid #e6e6e6;
-            border-bottom: 1px solid #e6e6e6;
-            background: #f6f6f6;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .tb1_frm01 input {
-            background: #e6e6e6;
-        }
-
-        table {
-            width: 100%;
-        }
-
-        .midH2 {
-            margin-top: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -69,18 +46,6 @@
                                     <table>
                                         <caption hidden="hidden">책 카테고리 입력</caption>
                                         <tbody>
-                                            <tr>
-                                                <div class="image-container"
-                                                    th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                                    <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg"
-                                                        style="height: 260px; width: 260px;">
-                                                </div>
-                                                <div class="image-container"
-                                                    th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
-                                                    <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg"
-                                                        style="height: 260px; width: 260px;">
-                                                </div>
-                                            </tr>
                                             <tr>
                                                 <th>
                                                     <label>1차 분류</label>
@@ -125,6 +90,18 @@
                                     <table>
                                         <caption hidden="hidden">책 정보 입력</caption>
                                         <tbody>
+                                            <tr>
+                                                <div class="image-container"
+                                                     th:if="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                    <img th:src="@{/images/temp/} + ${bookInfo.saveName}" alt="bookImg"
+                                                         style="height: 260px; width: 260px;">
+                                                </div>
+                                                <div class="image-container"
+                                                     th:unless="${bookInfo.saveName != '' && bookInfo.saveName != null}">
+                                                    <img th:src="@{/images/no_image_pink.jpg}" alt="bookImg"
+                                                         style="height: 260px; width: 260px;">
+                                                </div>
+                                            </tr>
                                             <tr>
                                                 <th>
                                                     <label>책 코드</label>
