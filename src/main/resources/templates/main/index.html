@@ -231,7 +231,6 @@
                                         
                                         <div class="main6-list-subject" th:each ="literature : ${literature}">
                                             <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}"></a>
-                                            
                                             <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${literature.bookId}"></i></a>
                                             <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${literature.bookId}"></i></a>
                                             <div class="main6-list-text">
