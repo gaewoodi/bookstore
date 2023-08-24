@@ -76,8 +76,8 @@
                                 <div class="gender-container">
                                     <label>성별</label>
                                     <div class="radio-container">
-                                        <input type="radio" name="gender" class="userGender" value="M" onclick="return(false);"> 남자
-                                        <input type="radio" name="gender" class="userGender" value="W" onclick="return(false);"> 여자
+                                        <input type="radio" name="gender" class="userGender" value="M" th:checked="${user.gender eq 'M'}" onclick="return(false);"> 남자
+                                        <input type="radio" name="gender" class="userGender" value="W" th:checked="${user.gender eq 'W'}" onclick="return(false);"> 여자
                                     </div>                  
                                 </div>
                                 <div class="email-container">
