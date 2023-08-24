@@ -68,7 +68,9 @@
                             <i class="fa-solid fa-receipt"></i>
                         </div>
                         <strong>
-                            <a href="/purchase/order/delete">구매취소목록</a>
+                            <a th:href="@{/purchase/order/delete?(regId=${user.regId})}">
+                                구매취소목록
+                            </a>
                         </strong>
                     </a>
                 </li>

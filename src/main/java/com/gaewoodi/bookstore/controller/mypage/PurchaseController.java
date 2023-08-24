@@ -54,7 +54,7 @@ public class PurchaseController {
         Map<String, Object> map = new HashMap<>();
 
 
-        map.put("msg", "success");
+        map.put("result_code", "200");
 
         return map;
     }
@@ -77,7 +77,7 @@ public class PurchaseController {
     @ResponseBody
     public String getKakaopay(@RequestParam(value = "regIdValue") int regId) {
         try {
-            URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
+                URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Authorization", "KakaoAK 5c1eee7537b299534e582bd21b1e2bb8");
