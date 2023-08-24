@@ -1,6 +1,5 @@
 package com.gaewoodi.bookstore.controller.mypage;
 
-import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.dto.mypage.PurchaseDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
@@ -130,11 +129,14 @@ public class PurchaseController {
 
     @PostMapping("/delete")
     @ResponseBody
-    public Map<String, Object> getPurchaseDelete(@RequestParam(value = "checkboxResult") int result,
-                                                 @RequestParam(value = "regIdValue") int regId) {
+    public Map<String, Object> getPurchaseDelete(@RequestParam(value = "checkboxResult") String result,
+                                                 @RequestParam(value = "regIdValue") int regId,
+                                                 @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();
 
-        purchaseMapper.deletePurchase(regId, result);
+        selectService.getPurchaseListCheckboxResult(result, regId, purchaseDto);
+        selectService.getPurchaseDeleteCheckboxResult(result, regId, purchaseDto);
+
 
         map.put("msg", "success");
 
