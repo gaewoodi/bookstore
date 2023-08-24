@@ -6,6 +6,7 @@ import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
+import com.gaewoodi.bookstore.service.mypage.SelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,10 @@ public class PurchaseController {
 
     @Autowired
     private CartMapper cartMapper;
+
+    @Autowired
+    private SelectService selectService;
+
 
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
@@ -61,32 +66,9 @@ public class PurchaseController {
                                          @RequestParam(value = "regIdValue") int regId,
                                          @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();
-
-        System.out.println("regId: " + regId);
-
-        purchaseDto.setRegId(regId);
-
-        String[] splitResult = result.toString().split(" ");
-
-
-        for(int i = 0; i < splitResult.length; i++) {
-            if(i == 0) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[0]));
-            } else if(i == 1) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[1]));
-            } else if(i == 2) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[2]));
-            }
-            purchaseMapper.savePurchase(purchaseDto);
-
-
-            map.put("data" + i, purchaseMapper.getPurchaseBook(Integer.parseInt(splitResult[i])));
-        }
-
-//        purchaseMapper.updatePurchase(purchaseDto);
+        selectService.getPurchaseCheckboxResult(result, regId, purchaseDto);
 
         map.put("msg", "success");
-
         return map;
     }
 
