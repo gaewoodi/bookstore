@@ -24,4 +24,7 @@ public interface PurchaseMapper {
     // 주문 목록
     @Insert("INSERT INTO purchase_list VALUES (NULL, #{bookId}, #{regId}, now(), now())")
     void savePurchaseList(PurchaseDto purchaseDto);
+
+    @Insert("INSERT INTO order_delete VALUES (NULL, #{bookId}, #{regId}, now(), now())")
+    void saveOrderDelete(PurchaseDto purchaseDto);
 }

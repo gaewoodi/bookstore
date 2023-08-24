@@ -81,7 +81,7 @@ public class SelectService {
             } else if(i == 2) {
                 purchaseDto.setBookId(Integer.parseInt(splitResult[2]));
             }
-            purchaseMapper.savePurchaseList(purchaseDto);
+            purchaseMapper.saveOrderDelete(purchaseDto);
 
         }
 
