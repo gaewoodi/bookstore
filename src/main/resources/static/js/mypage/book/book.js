@@ -1,19 +1,16 @@
-function checkboxPurchase() {
-    let checkArray = [];     // 배열 초기화
-    let result = '';
 
+
+function checkboxPurchase() {
     const query = 'input[name="check"]:checked';
     const selectedElements = document.querySelectorAll(query);
 
+    let result = '';
 
     selectedElements.forEach((el) => {
         result += el.value + ' ';
     });
 
-    $("input[name='check']:checked").each(function(i) {
-        // 체크된 것만 값을 뽑아서 배열에 push
-        checkArray.push($(this).val());     
-    });
+    console.log("result: " + result);
 
     let regIdValue = document.querySelector(".reg-id").value;
 
@@ -37,4 +34,6 @@ function checkboxPurchase() {
             console.log(err);
         }
     });
+
 }
+

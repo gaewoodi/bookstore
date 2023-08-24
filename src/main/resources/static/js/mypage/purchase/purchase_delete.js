@@ -1,4 +1,4 @@
-function cartDelete() {
+function purchaseDelete() {
     let result = '';
 
     const query = 'input[name="check"]:checked';
@@ -9,13 +9,16 @@ function cartDelete() {
         result += el.value + ' ';
     });
 
+    let regIdValue = document.querySelector(".regId").value;
+
+    console.log("-------------------");
+    console.log("regIdValue: " + regIdValue);
     console.log("result: " + result);
 
-    let regIdValue = document.querySelector(".reg-id").value;
 
     $.ajax({
-        url: "/cart/delete", 
-        type: "get", 
+        url: "/purchase/delete", 
+        type: "post", 
         dataType: "json", 
         data: {
             checkboxResult: result,
@@ -23,8 +26,8 @@ function cartDelete() {
         },
         success: function(res) {
             if(res.msg == "success") {
-                if(confirm("선택한 목록을 장바구니에서 삭제하시겠습니까?")) {
-                    location.href = `/cart?regId=` + regIdValue;
+                if(confirm("선택한 도서를 삭제하시겠습니까?")) {
+                    location.href = `/purchase?regId=` + regIdValue;
                 }
             } 
 
@@ -33,4 +36,5 @@ function cartDelete() {
             console.log(err);
         }
     });
+
 }

@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book-store < 주문취소</title>
+    <title>book-store < 장바구니</title>
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.png}">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <!-- 폰트, 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
@@ -18,82 +21,80 @@
     <link rel="stylesheet" th:href="@{/css/fragment/header.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/footer.css}">
     <link rel="stylesheet" th:href="@{/css/fragment/side_menu.css}">
-    <link rel="stylesheet" th:href="@{/css/mypage/purchase_delete.css}">
-    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" th:href="@{/css/mypage/cart.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/responsive.css}">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="stylesheet" href="/static/css/fragment/header.css">
-    <link rel="stylesheet" href="/static/css/fragment/side_menu.css">
     <link rel="stylesheet" href="/static/css/fragment/footer.css">
-    <link rel="stylesheet" href="/static/css/mypage/purchase_delete.css">
+    <link rel="stylesheet" href="/static/css/mypage/cart.css"> -->
 </head>
 
 <body>
-    <th:block th:if="${session.id == null}">
-        <script>
-            alert("로그인 하신 후, 사용할 수 있습니다.");
-            location.href = "/login";
-        </script>
-    </th:block>
-    <div id="container">
+    <div id="container" th:each="user: ${user}">
+        <input type="hidden" class="regId" th:value="${user.regId}">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
 
         <main class="main-container">
             <div class="serve-container">
                 <!--main-container basis 1 -->
-                <!-- mypage-menu -->
                 <div th:insert="~{mypage/fragment/mypage_menu::mypageMenu}" class="menu-container"></div>
                 
                 <!--main-container basis 2 -->
                 <div class="book-purchase-list">
                     <h1>
-                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 주문 목록(취소하기)
+                        <input type="checkbox" id="selectAll" onclick="selectAll()"> 구매 취소 목록
                     </h1>
                     <hr>
 
+
                     <div class="third-container">
                         <div class="purchase-container">
-                            <div class="book-cointainer">
-                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()">
+                            <div class="book-container" th:each="book: ${book}">
+                                <input type="hidden" class="bookId" th:value="${book.bookId}">
+                                <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
+                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                                 <div class="image-container">
-                                    <img src="/static/images/purchase/backgang.jpg" alt="도서이미지">
+                                    <img th:src="@{/images/no_image_pink.jpg}">
                                 </div>
                                 <div class="book-data">
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td>AL0000002747</td>
+                                                <td>[[${book.bookCode}]]</td>
                                             </tr>
                                             <tr>
                                                 <td>도서제목</td>
-                                                <td>백광</td>
+                                                <td>[[${book.bookName}]]</td>
                                             </tr>
                                             <tr>
                                                 <td>작가</td>
-                                                <td>렌조 미키히코 지음; 양윤옥 옮김</td>
+                                                <td>[[${book.author}]]</td>
                                             </tr>
                                             <tr>
                                                 <td>출판사</td>
-                                                <td>모모</td>
+                                                <td>[[${book.publisher}]]</td>
                                             </tr>
                                                 <td>출판연도</td>
-                                                <td>2022</td>
+                                                <td>[[${book.publicationDate}]]</td>
                                             <tr>
                                                 <td>분류</td>
-                                                <td>소설/시/희곡</td>
+                                                <td>[[${book.category}]]</td>
                                             </tr>
                                             <tr>
                                                 <td>가격</td>
-                                                <td>35,000원</td>
+                                                <td>[[${book.price}]]</td>
                                             </tr>
                                         </tbody>
                                         
                                     </table>
                                 </div>
                                 <div class="button-container">
-                                    <button>주문취소</button>
+                                    <button>주문하기</button>
+                                    <button onclick="cartDelete()">삭제하기</button>
                                 </div>
+
                             </div>
                         </div> 
-
 
                     </div>  
                 </div>
@@ -102,8 +103,8 @@
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
     <script th:src="@{/js/fragment/header.js}"></script>
-    <script th:src="@{/js/fragment/side_menu.js}"></script>
-
+    <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>
     <script th:src="@{/js/mypage/checkBox.js}"></script>
+    <script src="/js/mypage/cart/cart_delete.js"></script>
 </body>
 </html>

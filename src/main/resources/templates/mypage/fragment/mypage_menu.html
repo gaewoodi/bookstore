@@ -48,7 +48,7 @@
                             <i class="fa-solid fa-receipt"></i>
                         </div>
                         <strong>
-                            <a href="/purchase/list">구매내역</a>
+                            <a th:href="@{/purchase/list(regId=${user.regId})}">구매내역</a>
                         </strong>
                     </a>
                 </li>
@@ -68,11 +68,10 @@
                             <i class="fa-solid fa-receipt"></i>
                         </div>
                         <strong>
-                            <a href="/purchase/delete">구매취소</a>
+                            <a href="/purchase/order/delete">구매취소목록</a>
                         </strong>
                     </a>
                 </li>
-                <hr>
                 <li class="sub-menu">
                     <a href="">
                         <div class="icon-box">

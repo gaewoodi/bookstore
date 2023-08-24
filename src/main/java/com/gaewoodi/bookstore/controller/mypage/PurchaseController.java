@@ -5,6 +5,7 @@ import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
 import com.gaewoodi.bookstore.mappers.mypage.PurchaseMapper;
 import com.gaewoodi.bookstore.service.mypage.PagingService;
+import com.gaewoodi.bookstore.service.mypage.SelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,10 +33,13 @@ public class PurchaseController {
     @Autowired
     private CartMapper cartMapper;
 
+    @Autowired
+    private SelectService selectService;
+
+
     @GetMapping("")
     public String getPurchase(@RequestParam int regId, Model model) {
         model.addAttribute("count", cartMapper.getCartCount(regId));
-        model.addAttribute("order", purchaseMapper.getPurchase());
         model.addAttribute("user", mypageMapper.getMypageId(regId));
         model.addAttribute("book", purchaseMapper.getPurchaseBook(regId));
 
@@ -49,9 +53,6 @@ public class PurchaseController {
                               @RequestParam(value = "checkArray") String checkArray) {
         Map<String, Object> map = new HashMap<>();
 
-        System.out.println("result: "+ result);
-        System.out.println("regId: "+ regId);
-        System.out.println("checkArray: "+ checkArray);
 
         map.put("msg", "success");
 
@@ -64,32 +65,9 @@ public class PurchaseController {
                                          @RequestParam(value = "regIdValue") int regId,
                                          @ModelAttribute PurchaseDto purchaseDto) {
         Map<String, Object> map = new HashMap<>();
-
-        System.out.println("regId: " + regId);
-
-        purchaseDto.setRegId(regId);
-
-        String[] splitResult = result.toString().split(" ");
-
-
-        for(int i = 0; i < splitResult.length; i++) {
-            if(i == 0) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[0]));
-            } else if(i == 1) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[1]));
-            } else if(i == 2) {
-                purchaseDto.setBookId(Integer.parseInt(splitResult[2]));
-            }
-            purchaseMapper.savePurchase(purchaseDto);
-
-
-            map.put("data" + i, purchaseMapper.getPurchaseBook(Integer.parseInt(splitResult[i])));
-        }
-
-//        purchaseMapper.updatePurchase(purchaseDto);
+        selectService.getPurchaseCheckboxResult(result, regId, purchaseDto);
 
         map.put("msg", "success");
-
         return map;
     }
 
@@ -97,7 +75,7 @@ public class PurchaseController {
 
     @PostMapping("/kakaopay")
     @ResponseBody
-    public String getKakaopay() {
+    public String getKakaopay(@RequestParam(value = "regIdValue") int regId) {
         try {
             URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -107,7 +85,7 @@ public class PurchaseController {
             // 커넥션 input output 전해줄게 있는지 없는지
             connection.setDoOutput(true);
 
-            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/purchase&cancel_url=http://localhost:8888/purchase";
+            String payData = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8888/purchase/kakaopay&fail_url=http://localhost:8888/purchase&cancel_url=http://localhost:8888/purchase?regId="+regId;
             OutputStream outputStream = connection.getOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeBytes(payData);
@@ -143,9 +121,26 @@ public class PurchaseController {
         return "mypage/purchase_list";
     }
 
-    @GetMapping("/delete")
+    //삭제 목록을 보여주는 페이지
+    @GetMapping("/order/delete")
     public String getPurchaseDelete() {
-        return "mypage/purchase_delete";
+        return "mypage/order_delete";
+    }
+
+    @PostMapping("/delete")
+    @ResponseBody
+    public Map<String, Object> getPurchaseDelete(@RequestParam(value = "checkboxResult") String result,
+                                                 @RequestParam(value = "regIdValue") int regId,
+                                                 @ModelAttribute PurchaseDto purchaseDto) {
+        Map<String, Object> map = new HashMap<>();
+
+        selectService.getPurchaseListCheckboxResult(result, regId, purchaseDto);
+        selectService.getPurchaseDeleteCheckboxResult(result, regId, purchaseDto);
+
+
+        map.put("msg", "success");
+
+        return map;
     }
 }
 

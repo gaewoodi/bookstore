@@ -45,7 +45,7 @@
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>
-                        <li th:unless="${session.id != null}">
+                        <li th:unless="${session.id != null || session.id != ''}">
                             <a th:href="@{/cart?(regId=${session.regId})}">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>

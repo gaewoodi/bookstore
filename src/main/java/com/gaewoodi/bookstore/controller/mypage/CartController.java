@@ -4,6 +4,7 @@ package com.gaewoodi.bookstore.controller.mypage;
 import com.gaewoodi.bookstore.dto.mypage.CartDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
+import com.gaewoodi.bookstore.service.mypage.SelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,9 @@ public class CartController {
     @Autowired
     private MypageMapper mypageMapper;
 
+    @Autowired
+    private SelectService selectService;
+
     @GetMapping("")
     public String getCart(Model model, @RequestParam int regId) {
         model.addAttribute("count", cartMapper.getCartCount(regId));
@@ -33,28 +37,12 @@ public class CartController {
 
     @PostMapping("")
     @ResponseBody
-    public Map<String, Object> setMypage(@RequestParam(value = "checkboxResult") String result,
+    public Map<String, Object> setCart(@RequestParam(value = "checkboxResult") String result,
                                          @RequestParam(value = "regIdValue") int regId,
                                          @ModelAttribute CartDto cartDto) {
         Map<String, Object> map = new HashMap<>();
 
-        cartDto.setRegId(regId);
-
-        String[] splitResult = result.toString().split(" ");
-
-        for(int i = 0; i < splitResult.length; i++) {
-            if(i == 0) {
-                cartDto.setBookId(Integer.parseInt(splitResult[0]));
-            } else if(i == 1) {
-                cartDto.setBookId(Integer.parseInt(splitResult[1]));
-            } else if(i == 2) {
-                cartDto.setBookId(Integer.parseInt(splitResult[2]));
-            }
-            cartMapper.saveCart(cartDto);
-
-            map.put("data" + i, cartMapper.getCartBookList(Integer.parseInt(splitResult[i])));
-        }
-
+        selectService.getCartCheckboxResult(result, regId, cartDto);
         map.put("msg", "success");
 
         return map;

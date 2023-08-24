@@ -45,7 +45,12 @@
                         </h1>
                         <div class="button-container">
                             <a>
-                                <button class="cart-button" onclick="checkboxArray()">장바구니</button>
+                                <div th:if="${session.id != null}"> 
+                                    <button class="cart-button" onclick="checkboxArray()">장바구니</button>
+                                </div>
+                                <div th:unless="${session.id != null}"> 
+                                   
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -94,7 +99,7 @@
                                                     <span>[[${book.visit}]]</span>
                                                     <button class="like-button">
                                                         <i class="fa-solid fa-heart book-like"></i>
-                                                        <span class="like-count">[[${book.likeCount}]]</span>
+                                                        <span id="like" class="bookLike">[[${book.bookLike}]]</span>
                                                     </button>
                                                 </span>
                                             </td>
@@ -104,7 +109,11 @@
                             </div>
 
                             <div class="button-container">
-                                <button class="purchase-button" onclick="checkboxPurchase()">결제하기</button>
+                                <div th:if="${session.id != null}"> 
+                                    <button class="purchase-button" onclick="checkboxPurchase()">결제하기</button>
+                                </div>
+                                <div th:unless="${session.id != null}"> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,7 +149,7 @@
 <script th:src="@{/js/mypage/checkBox.js}"></script>
 <script th:src="@{/js/mypage/cart/cart.js}"></script>
 <script th:src="@{/js/mypage/book/book.js}"></script>
-<!-- <script src="/js/mypage/test.js"></script> -->
+<script th:src="@{/js/mypage/book/like.js}"></script>
 
 
 </body>

@@ -1,13 +1,19 @@
 const IMP = window.IMP;
 IMP.init('imp07834451'); // 예: imp37739582(차이 공식 데모 계정용 가맹점 식별코드)
 
+const bookName = document.querySelector(".bookName").textContent;
+const price = document.querySelector(".price").textContent;
+
+console.log("bookName" + bookName);
+console.log("price" + price);
+
 function requestPay() {
     IMP.request_pay({
         pg : 'kcp',
         pay_method : 'card',
         merchant_uid : 'merchant_' + new Date().getTime(),
-        name : '도서결제' , //결제창에서 보여질 이름(bookName)
-        amount : 100, //실제 결제되는 가격 (totalPrice)
+        name : bookName, //결제창에서 보여질 이름(bookName)
+        amount : price, //실제 결제되는 가격
         buyer_email : 'iamport@siot.do',
         buyer_name : '구매자이름',
         buyer_tel : '010-1234-5678',
@@ -76,8 +82,6 @@ function comma(x) {
 }
 
 $(function () {
-	
-	console.log('개발환경 :: ',window.location.hostname)
 	
 	let p_mid;
 	// 개발 환경에 따라 t_mid(결제 키) 설정

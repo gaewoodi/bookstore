@@ -49,7 +49,7 @@ body{
     margin-top: 10px;
 }
 
-.book-cointainer {
+.book-container {
     display: flex;
     align-items: center;
 
@@ -108,16 +108,18 @@ body{
 
 .book-data tbody tr:nth-child(7) {
     border-top: 1px solid #ccc;
-
     font-weight: bold;
 }
 
 .button-container {
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    justify-content: end;
 
+    width: 150px;
     height: 230px;
 }
+
 
 .button-container button {
     width: 100px;
@@ -138,8 +140,9 @@ body{
     background-color: #f9a4a4;
 }
 
-
-
+.button-container button:nth-child(1) {
+    margin-bottom: 20px;
+}
 
 
 

@@ -18,7 +18,11 @@ CREATE table book_mst (
        primary key(book_id)
 );
 
+SELECT * FROM book_mst;
 
+
+---------------------------------------------------------
+SELECT * FROM book_mst LIMIT #{start}, #{limit};
 ---------------------------------------------------------
 -- ** book 정보 불러오기 book_mst, book_like join + paging처리
 

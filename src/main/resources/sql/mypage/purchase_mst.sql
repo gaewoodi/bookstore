@@ -5,6 +5,23 @@ CREATE table purchase_mst (
     book_id int,
     reg_id int, -- register id
     purchase_date datetime, -- 주문일자
+    payment_end_date datetime,
+    primary key(purchase_id)
+);
+
+INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), now());
+
+drop table purchase_mst;
+
+SELECT * FROM purchase_mst;
+
+
+----------------------------------------
+CREATE table purchase_mst (
+    purchase_id int not null auto_increment, -- 주문번호
+    book_id int,
+    reg_id int, -- register id
+    purchase_date datetime, -- 주문일자
     price int, -- 주문금액
     quantity int default 1, -- 주문수량
     total_price int default 0, -- 주문 총 금액
@@ -13,11 +30,61 @@ CREATE table purchase_mst (
     primary key(purchase_id)
 );
 
+INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), '35000', '1', '35000', '구매', now());
+
 drop table purchase_mst;
 
 SELECT * FROM purchase_mst;
 
-INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), '35000', '1', '35000', '구매', now());
+----------------------------------------
+
+SELECT
+    bm.*,
+    pm.book_id,
+    pm.reg_id
+FROM book_mst bm LEFT OUTER JOIN purchase_mst pm ON(bm.book_id = pm.book_id)
+WHERE
+    bm.book_id = pm.book_id AND pm.reg_id = #{regId}
+
+
+
+
+----------------------------------------
+SELECT pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = '2';
+SELECT pm.*, bm.book_id, bm.book_code, bm.book_name, bm.book_stock, bm.author, bm.publisher, bm.publication_date, bm.category, bm.price, bm.visit, bm.book_like from purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id) WHERE pm.book_id = #{bookId}
+
+
+SELECT
+    pm.*,
+    bm.book_id,
+    bm.book_code,
+    bm.book_name,
+    bm.book_stock,
+    bm.author,
+    bm.publisher,
+    bm.publication_date,
+    bm.category,
+    bm.price,
+    bm.visit,
+    bm.book_like
+FROM
+    purchase_mst pm inner join book_mst bm ON(pm.book_id = bm.book_id)
+WHERE
+    pm.book_id = '2';
+--    pm.book_id = #{bookId}
+
+select
+    B.book_id,
+    M.book_code,
+    B.book_name,
+    B.book_subname,
+    B.book_img,
+    B.book_media,
+    M.visit,
+    B.price
+from book_bestseller B inner join book_mst M on B.book_id = M.book_id
+where category = '가정/생활' order by book_media desc limit 6
+
 ----------------------------------------
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = '1';
 SELECT * FROM book_mst bm LEFT OUTER JOIN purchase_mst ON(bm.book_id = pm.book_id) pm WHERE pm.book_id = #{bookId}
