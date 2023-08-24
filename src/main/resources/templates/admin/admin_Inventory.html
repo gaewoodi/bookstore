@@ -46,9 +46,7 @@
                         </select>
                         <input type="text">
                     </div>
-                    <div class="inven-bot">
-                        <a href="#"><button>상품추가</button></a>
-                    </div>
+
                     <table id="inventory">
                         <thead>
                             <tr>
@@ -68,11 +66,15 @@
                                 <td>[[${info.bookCode}]]</td>
                                 <td>[[${info.bookName}]]</td>
                                 <td>[[${info.bookStock}]]</td>
-                                <td>[[${info.bookStock}]]</td>
-                                <td>[[${info.bookStock}]]</td>
+                                <td>***</td>
+                                <td>***</td>
                                 <td><input type="number" class="amount"></td>
                                 <td><input type="number" class="amount"></td>
-                                <td><select>판매중</select></td>
+                                <td><select>
+                                    <option>판매중</option>
+                                    <option>품절</option>
+                                    <option>재입고</option>
+                                </select></td>
                                 <td>
                                     <a th:href="@{/admin/inventoryUpdate?(bookId=${info.bookId})}">
                                         <button class="btnIv">상품수정</button>
@@ -81,28 +83,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-
-                        <a th:if="${pagination.page > 1}" th:href="@{/admin/inventory?(page=${pagination.page - 1})}">
-                            <button>이전</button>
-                        </a>
-                        <a th:unless="${pagination.page > 1}">
-                            <button>이전</button>
-                        </a>
-
-
-                        <a th:href="@{/admin/inventory?(page=${i})}"
-                            th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
-                            <button>[[${i}]]</button>
-                        </a>
-                        <a th:href="@{/admin/inventory?(page=${pagination.page + 1})}"
-                            th:if="${pagination.page < pagination.totalPage}">
-                            <button>이후</button>
-                        </a>
-                        <a th:unless="${pagination.page < pagination.totalPage}">
-                            <button>이후</button>
-                        </a>
-                    </div>
                 </div>
                 <div class="apply"><button class="btn">설정 적용</button></div>
             </div>

@@ -1,12 +1,16 @@
 package com.gaewoodi.bookstore.mappers.admin;
 
 import com.gaewoodi.bookstore.dto.account.RegisterDto;
+import com.gaewoodi.bookstore.dto.admin.LevelDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
 public interface AccountMapper {
+
+    @Select("SELECT * FROM Account_level ORDER BY level_name ASC")
+    List<LevelDto> getLevel();
 
     @Select("select Acct.level_name,R.*,ui.* FROM register R " +
             "INNER JOIN Account_level Acct ON R.level = Acct.level " +

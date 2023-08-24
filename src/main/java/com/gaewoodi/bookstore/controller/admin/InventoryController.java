@@ -1,9 +1,7 @@
 package com.gaewoodi.bookstore.controller.admin;
 
-import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.admin.AdminBookDto;
 import com.gaewoodi.bookstore.mappers.admin.InventoryMapper;
-import com.gaewoodi.bookstore.service.admin.BookPagingSrv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -24,20 +22,13 @@ public class InventoryController {
     private String book_image = "D:\\bookstore\\src\\main\\resources\\static\\images\\temp";
 
     @Autowired
-    private BookPagingSrv pagingSrv;
-
-    @Autowired
     private InventoryMapper inventoryMapper;
 
     @GetMapping("/admin/inventory")
-    public String urlInventory(Model model,@RequestParam(defaultValue = "1", value = "page") int page){
+    public String urlInventory(Model model){
         model.addAttribute("bookInfo", inventoryMapper.getBookAll());
         model.addAttribute("cnt", inventoryMapper.getTotalCount());
         model.addAttribute("zeroCnt", inventoryMapper.getBookStockCount());
-
-        model.addAttribute("book", pagingSrv.getPagingBook(page));
-
-        model.addAttribute("pagination", pagingSrv.pageCalc(page));
 
         return "admin/admin_Inventory";
     }

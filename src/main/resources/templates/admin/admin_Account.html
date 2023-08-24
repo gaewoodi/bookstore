@@ -74,28 +74,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-
-                        <a th:if="${pagination.page > 1}" th:href="@{/admin/account?(page=${pagination.page - 1})}">
-                            <button>이전</button>
-                        </a>
-                        <a th:unless="${pagination.page > 1}">
-                            <button>이전</button>
-                        </a>
-
-
-                        <a th:href="@{/admin/account?(page=${i})}"
-                            th:each="i: ${ #numbers.sequence(pagination.startPage, pagination.endPage, 1)}">
-                            <button>[[${i}]]</button>
-                        </a>
-                        <a th:href="@{/admin/account?(page=${pagination.page + 1})}"
-                            th:if="${pagination.page < pagination.totalPage}">
-                            <button>이후</button>
-                        </a>
-                        <a th:unless="${pagination.page < pagination.totalPage}">
-                            <button>이후</button>
-                        </a>
-                    </div>
                 </div>
             </div>
         </main>
