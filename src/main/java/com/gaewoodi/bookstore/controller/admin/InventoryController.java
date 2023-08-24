@@ -1,6 +1,6 @@
 package com.gaewoodi.bookstore.controller.admin;
 
-import com.gaewoodi.bookstore.dto.admin.AdminBookDto;
+import com.gaewoodi.bookstore.dto.BookDto;
 import com.gaewoodi.bookstore.mappers.admin.InventoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,11 +34,11 @@ public class InventoryController {
     }
 
     @GetMapping("/admin/inventoryUpdate")
-    public String getBookUpdate(@RequestParam int bookId, Model model, @ModelAttribute AdminBookDto adminBookDto){
+    public String getBookUpdate(@RequestParam int bookId, Model model, @ModelAttribute BookDto bookDto){
 
         if (bookId > 0) {
             model.addAttribute("bookInfo", inventoryMapper.getBookOne(bookId));
-            System.out.println(adminBookDto.getBookId());
+            System.out.println(bookDto.getBookId());
         }
 
         return "admin/Admin_InventoryUpdate";
@@ -57,16 +57,16 @@ public class InventoryController {
             Long fileSize = uploadFile.getSize();
 
             if(uploadFile != null) {
-                AdminBookDto adminBookDto = new AdminBookDto();
+                BookDto bookDto = new BookDto();
 
-                adminBookDto.setOriginName(originName);
-                adminBookDto.setSize(fileSize);
-                adminBookDto.setBookId(bookId);
+                bookDto.setOriginName(originName);
+                bookDto.setSize(fileSize);
+                bookDto.setBookId(bookId);
 
                 String partially = originName.substring(originName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
-                adminBookDto.setSaveName(changeName);
-                inventoryMapper.updateBookImage(adminBookDto);
+                bookDto.setSaveName(changeName);
+                inventoryMapper.updateBookImage(bookDto);
 
                 Path path = Paths.get(FILE_PATH, changeName);
                 Files.write(path, uploadFile.getBytes());
