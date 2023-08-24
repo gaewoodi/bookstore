@@ -1,6 +1,5 @@
 function modal(regId) {
     document.querySelector("#modal").style.display = "block";
-    // regId에 해당되는 첨부파일 들고오기
     document.querySelector("#upload").addEventListener("click",  function () {
         let formData = new FormData();
         formData.append("uploadFile", $(".uploadFile")[0].files[0]);

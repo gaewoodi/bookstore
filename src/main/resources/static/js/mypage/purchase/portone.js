@@ -1,5 +1,5 @@
 const IMP = window.IMP;
-IMP.init('imp07834451'); // 예: imp37739582(차이 공식 데모 계정용 가맹점 식별코드)
+IMP.init('imp07834451');
 
 const bookName = document.querySelector(".bookName").textContent;
 const price = document.querySelector(".price").textContent;
@@ -12,8 +12,8 @@ function requestPay() {
         pg : 'kcp',
         pay_method : 'card',
         merchant_uid : 'merchant_' + new Date().getTime(),
-        name : bookName, //결제창에서 보여질 이름(bookName)
-        amount : price, //실제 결제되는 가격
+        name : bookName,
+        amount : price,
         buyer_email : 'iamport@siot.do',
         buyer_name : '구매자이름',
         buyer_tel : '010-1234-5678',
