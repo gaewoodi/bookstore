@@ -5,6 +5,23 @@ CREATE table purchase_mst (
     book_id int,
     reg_id int, -- register id
     purchase_date datetime, -- 주문일자
+    payment_end_date datetime,
+    primary key(purchase_id)
+);
+
+INSERT INTO purchase_mst VALUES(NULL, '1', '1', now(), now());
+
+drop table purchase_mst;
+
+SELECT * FROM purchase_mst;
+
+
+----------------------------------------
+CREATE table purchase_mst (
+    purchase_id int not null auto_increment, -- 주문번호
+    book_id int,
+    reg_id int, -- register id
+    purchase_date datetime, -- 주문일자
     price int, -- 주문금액
     quantity int default 1, -- 주문수량
     total_price int default 0, -- 주문 총 금액
