@@ -122,9 +122,9 @@ public class PurchaseController {
     }
 
     //삭제 목록을 보여주는 페이지
-    @GetMapping("/delete")
+    @GetMapping("/order/delete")
     public String getPurchaseDelete() {
-        return "mypage/purchase_delete";
+        return "mypage/order_delete";
     }
 
     @PostMapping("/delete")
