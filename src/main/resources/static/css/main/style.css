@@ -741,7 +741,7 @@ ul li.active {
 
 
 
-.main6-list-subject a {
+.main6-list-subject {
     position : relative;
 }
 
@@ -758,12 +758,13 @@ ul li.active {
     transition: 0.1s;
 }
 
-.main6-list-subject a i {
+.main6-list-subject .like {
     position : absolute;
-    top : -208px;
-    right : -15px;
-    font-size: 25px;
-    color: rgb(239, 84, 77);
+    top : -20px;
+    left : 135px;
+    color : rgb(239, 84, 77);
+    font-size : 30px;
+    cursor : pointer;
 }
 
 .main6-list-text h6 {

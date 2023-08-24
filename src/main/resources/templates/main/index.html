@@ -228,10 +228,11 @@
                                 <!-- 청소년/문학 -->
                                 <div id="tab-1" class="tab-content active">
                                     <div class="main6-list-wrap">
+                                        
                                         <div class="main6-list-subject" th:each ="literature : ${literature}">
-
-                                            <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><img th:src="@{/images/main/} + ${literature.bookImg}" th:alt="${literature.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${literature.bookId}"></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${literature.bookId}"></i></a>
                                             <div class="main6-list-text">
                                                 <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><h6>[[${literature.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${literature.bookId})}"><p>[[${#numbers.formatInteger(literature.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(literature.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -244,8 +245,9 @@
                                 <div id="tab-2" class="tab-content">
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="child : ${child}">
-                                            <a th:href="@{/book/view?(bookId = ${child.bookId})}"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${child.bookId})}"><img th:src="@{/images/main/} + ${child.bookImg}" th:alt="${child.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${child.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${child.bookId}"></i></a>
                                             <div class="main6-list-text">
                                                 <a th:href="@{/book/view?(bookId = ${child.bookId})}"><h6>[[${child.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${child.bookId})}"><p>[[${#numbers.formatInteger(child.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(child.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -260,8 +262,9 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="living : ${living}">
 
-                                            <a th:href="@{/book/view?(bookId = ${living.bookId})}"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${living.bookId})}"><img th:src="@{/images/main/} + ${living.bookImg}" th:alt="${living.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${living.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${living.bookId}"></i></a>
                                             <div class="main6-list-text">
                                                 <a th:href="@{/book/view?(bookId = ${living.bookId})}"><h6>[[${living.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${living.bookId})}"><p>[[${#numbers.formatInteger(living.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(living.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -276,8 +279,9 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="politic : ${politic}">
 
-                                            <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><img th:src="@{/images/main/} + ${politic.bookImg}" th:alt="${politic.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${politic.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${politic.bookId}"></i></a>
                                             <div class="main6-list-text one">
                                                 <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><h6>[[${politic.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${politic.bookId})}"><p>[[${#numbers.formatInteger(politic.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(politic.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -292,8 +296,9 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="humanity : ${humanity}">
 
-                                            <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><img th:src="@{/images/main/} + ${humanity.bookImg}" th:alt="${humanity.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${humanity.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${humanity.bookId}"></i></a>
                                             <div class="main6-list-text">
                                                 <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><h6>[[${humanity.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${humanity.bookId})}"><p>[[${#numbers.formatInteger(humanity.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(humanity.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -307,8 +312,9 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="it : ${it}">
 
-                                            <a th:href="@{/book/view?(bookId = ${it.bookId})}"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${it.bookId})}"><img th:src="@{/images/main/} + ${it.bookImg}" th:alt="${it.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${it.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${it.bookId}"></i></a>
                                             <div class="main6-list-text">
                                                 <a th:href="@{/book/view?(bookId = ${it.bookId})}"><h6>[[${it.bookName}]]</h6>  </a>
                                                 <a th:href="@{/book/view?(bookId = ${it.bookId})}"><p>[[${#numbers.formatInteger(it.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(it.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -323,8 +329,9 @@
                                     <div class="main6-list-wrap">
                                         <div class="main6-list-subject" th:each ="self : ${self}">
 
-                                            <a th:href="@{/book/view?(bookId = ${self.bookId})}"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}">
-                                                <i class="fa-regular fa-heart"></i></a>
+                                            <a th:href="@{/book/view?(bookId = ${self.bookId})}"><img th:src="@{/images/main/} + ${self.bookImg}" th:alt="${self.bookName}"></a>
+                                            <a class="like" th:unless="${session.id != null}" onclick="hate()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${self.bookId}"></i></i></a>
+                                            <a id="like" class="like" th:if="${session.id != null}" onclick="like()"><i class="fa-regular fa-heart"><input type="hidden" class="bookId" th:value="${self.bookId}"></i></a>
                                             <div class="main6-list-text one">
                                                 <a th:href="@{/book/view?(bookId = ${self.bookId})}"><h6>[[${self.bookName}]]</h6></a>
                                                 <a th:href="@{/book/view?(bookId = ${self.bookId})}"><p>[[${#numbers.formatInteger(self.price, 3, 'COMMA')}]]원 + [[${#numbers.formatInteger(self.price * 0.1, 3, 'COMMA')}]]P</p></a>
@@ -383,10 +390,63 @@
         </footer>
     </div>
     <script th:src="@{/js/main/js.js}"></script>
-    
+        
     <script>
 
-      
+        function hate() {
+            alert("로그인 해주세요");
+            location.href = "/main";
+        }
+
+
+        let bookId = $(".bookId").val()
+        console.log(bookId);
+        
+
+        function like() {
+            let obj = {
+                bookId : $(".bookId").val(),
+                bookLike : $(".bookLike").val()
+            };
+
+            console.log(obj);
+
+            // 에이젝스를 이용해 저장할게요
+            $.ajax ({
+            type : "post",
+            url : "/main",
+            dataType: "json",
+            data: obj,
+            success : function(res) {
+                if(res.msg == "success") {
+                    
+
+                    if (i.classList.contains("fa-regular")) {
+                        // 아이콘이 회색 (비활성)일 때 클릭하면 좋아요 추가
+                        i.classList.remove("fa-regular");
+                        i.classList.add("fa-solid");
+
+                        alert("좋아요를 눌렀습니다")
+                    } else {
+                        // 아이콘이 색상이 채워진 상태 (활성)일 때 클릭하면 좋아요 제거
+                        i.classList.remove("fa-solid");
+                        i.classList.add("fa-regular");
+                        likebtn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+                    }
+                }
+            },
+            error : function(err) {
+                console.log(err)
+            }
+            });
+
+            let likebtn = event.currentTarget;
+            let  i = likebtn.querySelector("i"); // <i> 아이콘 선택
+                
+        }
+
     </script>
     </body>
 </html>
+
+
