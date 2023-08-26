@@ -36,16 +36,19 @@
                     <div class="title-container">
                         <h1>
                             <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
-                            <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
+                            <div th:if="${session.id != null}"> 
+                                <input type="checkbox" id="selectAll" onclick="selectAll()"> 도서 목록
+                            </div>
+                            <div th:unless="${session.id != null}"> 
+                                <p>도서 목록</p> 
+                            </div>
                         </h1>
                         <div class="button-container">
                             <a>
                                 <div th:if="${session.id != null}"> 
                                     <button class="cart-button" onclick="checkboxArray()">장바구니</button>
                                 </div>
-                                <div th:unless="${session.id != null}"> 
-                                   
-                                </div>
+                                <div th:unless="${session.id != null}"></div>
                             </a>
                         </div>
                     </div>
@@ -53,7 +56,10 @@
 
                     <div class="fourth-container">
                         <div class="book-container" th:each="book: ${book}">
-                            <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                            <div th:if="${session.id != null}"> 
+                                <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
+                            </div>
+                            <div th:unless="${session.id != null}"></div>
                             <div class="image-container">
                                 <img th:src="@{/images/no_image_pink.jpg}" alt="도서이미지">
                             </div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +21,11 @@
 </head>
 <body>
     <div class="wrap">
-        <div th:if="${session.id == null}"> 
+        <th:block th:if="${session.id == null}"> 
             <script>
                 location.href = "/login";
             </script>
-        </div>
+        </th:block>
     
         <header id="header" th:insert="~{fragment/header::headers}"></header>
 
@@ -127,11 +126,11 @@
         </div>
         <footer id ="footer" th:insert="~{fragment/footer::footers}"></footer>
     </div>
-    <div th:unless="${session.id != null}">
+    <th:block th:unless="${session.id != null}">
         <script>
             location.href = "/login";
         </script>
-    </div>
+    </th:block>
     
     <script th:src="@{/js/fragment/header.js}"></script>
     <script th:src="@{/js/mypage/fragment/mypage_menu.js}"></script>

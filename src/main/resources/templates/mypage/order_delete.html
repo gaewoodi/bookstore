@@ -27,7 +27,7 @@
 
 <body>
     <div id="container" th:each="user: ${user}">
-        <input type="hidden" class="regId" th:value="${user.regId}">
+        <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
         <header id="header" th:insert="~{fragment/header::headers}"></header>
 
         <main class="main-container">
@@ -47,7 +47,6 @@
                         <div class="purchase-container">
                             <div class="book-container" th:each="book: ${book}">
                                 <input type="hidden" class="bookId" th:value="${book.bookId}">
-                                <input type="hidden" name="regId" class="reg-id" th:value="${session.regId}">
                                 <input type="checkbox" name="check" class="check" onclick="checkboxClick()" th:value="${book.bookId}">
                                 <div class="image-container">
                                     <img th:src="@{/images/no_image_pink.jpg}">

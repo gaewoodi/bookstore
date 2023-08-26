@@ -118,6 +118,7 @@ public class PurchaseController {
     @GetMapping("/order/delete")
     public String getPurchaseOrderDeleteList(@RequestParam int regId, Model model) {
         model.addAttribute("user", mypageMapper.getMypageId(regId));
+        model.addAttribute("count", cartMapper.getCartCount(regId));
         model.addAttribute("book", purchaseMapper.getOrderDelete(regId));
 
         return "mypage/order_delete";
