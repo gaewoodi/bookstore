@@ -71,7 +71,21 @@ public class PurchaseController {
         return map;
     }
 
+    @PostMapping("/delete")
+    @ResponseBody
+    public Map<String, Object> deletePurchaseListAndSaveOrderDelete(@RequestParam(value = "checkboxResult") String result,
+                                                                    @RequestParam(value = "regIdValue") int regId,
+                                                                    @ModelAttribute PurchaseDto purchaseDto) {
+        Map<String, Object> map = new HashMap<>();
 
+        selectService.getPurchaseListCheckboxResult(result, regId, purchaseDto);
+        selectService.getPurchaseDeleteCheckboxResult(result, regId, purchaseDto);
+
+
+        map.put("msg", "success");
+
+        return map;
+    }
 
     @PostMapping("/kakaopay")
     @ResponseBody
@@ -137,20 +151,6 @@ public class PurchaseController {
         return map;
     }
 
-    @PostMapping("/delete")
-    @ResponseBody
-    public Map<String, Object> deletePurchaseListAndSaveOrderDelete(@RequestParam(value = "checkboxResult") String result,
-                                                 @RequestParam(value = "regIdValue") int regId,
-                                                 @ModelAttribute PurchaseDto purchaseDto) {
-        Map<String, Object> map = new HashMap<>();
 
-        selectService.getPurchaseListCheckboxResult(result, regId, purchaseDto);
-        selectService.getPurchaseDeleteCheckboxResult(result, regId, purchaseDto);
-
-
-        map.put("msg", "success");
-
-        return map;
-    }
 }
 

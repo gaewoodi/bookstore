@@ -59,10 +59,9 @@
                                 <input type="hidden" class="grade" th:value="${user.grade}">
 
                                 <div class="id-container">
-                                    <p>아이디 <span style="color: #787878; font-size: 12px; padding: 0 0 0 14px;">(4자~12자리의 영문자, 숫자 / @,#$등 특수문자는 제외)</span></p>
+                                    <p>아이디</p>
                                     <div class="id-input-group">
-                                        <input type="text" name="id" class="id" th:value="${user.id}">
-                                        <input type="button" name="id1" class="id-check" value="아이디 중복확인">
+                                        <input type="text" name="id" class="id" th:value="${user.id}" readonly>
                                     </div>
                                 </div>
                                 <div class="password-container">
@@ -174,7 +173,6 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script th:src="@{/js/account/postcode.v2.js}"></script>
     <script th:src="@{/js/mypage/user_edit.js}"></script>
-    <script th:src="@{/js/mypage/id_check.js}"></script>
     <script th:src="@{/js/mypage/modal.js}"></script>
 </body>
 </html>

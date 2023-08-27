@@ -180,6 +180,11 @@ body{
     border-radius: 3px;
 }
 
+.right-box p {
+    line-height: 30px;
+    word-break: keep-all;
+}
+
 .book-title, .total-count, .book-price {
     padding-bottom: 5px;
 }
