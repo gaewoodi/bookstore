@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface BestMapper {
 
-@Select("select * from book_mst order by visit desc limit 30")
+@Select("select * from book_mst order by visit desc limit 15")
 List<BestDto> getBestDtoList();
 
 }

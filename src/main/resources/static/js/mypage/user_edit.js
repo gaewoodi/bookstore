@@ -18,18 +18,10 @@ function formCheck() {
         return false;
     }
 
-    if(!passwd2.value) {
-        alert("위에서 입력한 비밀번호를 한번 더 입력해주세요.");
-        passwd2.focus();
-
-        return false;
-    }
-
     if(passwd.value != passwd2.value) {
         alert("비밀번호가 일치하지 않습니다.\n 비밀번호를 다시 입력해주세요.");
-        passwd.value = "";
         passwd2.value = "";
-        passwd.focus();
+        passwd2.focus();
 
         return false;
     }

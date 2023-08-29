@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/book")
 public class BookController {
 
     @Autowired
@@ -19,7 +18,7 @@ public class BookController {
     private PagingService pagingService;
 
     //도서전체
-    @GetMapping("")
+    @GetMapping("/book")
     public String getBookList(Model model, @RequestParam(defaultValue = "1", value="page") int page) {
         model.addAttribute("book", pagingService.getBookPaging(page));
         model.addAttribute("pagination", pagingService.bookCalculator(page));
@@ -28,11 +27,12 @@ public class BookController {
     }
 
     //도서상세
-    @GetMapping("/view")
+    @GetMapping("/book/view")
     public String viewBook(@RequestParam int bookId, Model model) {
         if(bookId > 0) {
             bookMapper.updateVisit(bookId);
             model.addAttribute("book", bookMapper.viewBook(bookId));
+            model.addAttribute("user", bookMapper.getBookByBookId(bookId));
 
         }
 

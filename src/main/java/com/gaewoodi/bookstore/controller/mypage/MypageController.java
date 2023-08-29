@@ -4,6 +4,7 @@ import com.gaewoodi.bookstore.dto.account.RegisterDto;
 import com.gaewoodi.bookstore.dto.mypage.UserImageDto;
 import com.gaewoodi.bookstore.mappers.mypage.CartMapper;
 import com.gaewoodi.bookstore.mappers.mypage.MypageMapper;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,7 +26,6 @@ import java.util.UUID;
 @RequestMapping("/mypage")
 public class MypageController {
 
-    private String UPLOAD_LOCATION = "D:\\bookstore\\src\\main\\resources\\static\\images\\upload";
 
     @Autowired
     private MypageMapper mypageMapper;
@@ -66,7 +67,8 @@ public class MypageController {
         Map<String, Object> map = new HashMap<>();
 
         try {
-            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
+//            String FILE_PATH = "D:\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
+            String FILE_PATH = "C:\\Users\\dndpg\\OneDrive\\document\\bookstore\\src\\main\\resources\\static\\images\\mypage\\user_image";
             String orginName = uploadFile.getOriginalFilename();
             Long fileSize = uploadFile.getSize();
 
@@ -81,12 +83,15 @@ public class MypageController {
                 String partially = orginName.substring(orginName.lastIndexOf("."));
                 String changeName = System.currentTimeMillis() + partially;
                 userImageDto.setSaveName(changeName);
+                System.out.println("fileSize: " + fileSize);
+
                 mypageMapper.fileUpload(userImageDto);
 
                 Path path = Paths.get(FILE_PATH, changeName);
                 Files.write(path, uploadFile.getBytes());
 
                 map.put("msg", "success");
+
             }
 
         }catch (Exception e) {
